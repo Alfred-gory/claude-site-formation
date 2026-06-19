@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabinet Alfred Gory — Formation RH et Paie</title>
+  <meta name="description" content="Cabinet Alfred Gory : formations professionnelles en gestion de la paie, maîtrise de Silae, gestion d'entreprise et droit social. Formez-vous en ligne." />
+  <meta name="keywords" content="cabinet Alfred Gory, formation paie, formation Silae, formation RH, gestion entreprise, droit social, formation en ligne" />
+  <meta name="author" content="Cabinet Alfred Gory" />
+  <meta property="og:title" content="Cabinet Alfred Gory — Formation RH et Paie" />
+  <meta property="og:description" content="Formations professionnelles en gestion de la paie, Silae, RH et gestion d'entreprise." />
+  <meta property="og:type" content="website" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; color: #1a1a2e; background: #fff; }
+
+    /* NAVIGATION */
+    nav {
+      background: #1a1a2e;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo { color: #fff; font-size: 1.3rem; font-weight: 700; }
+    nav .logo span { color: #c9a84c; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+    nav ul a:hover { color: #c9a84c; }
+    .nav-btn {
+      background: #c9a84c;
+      color: #1a1a2e;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.2);
+      color: #c9a84c;
+      border: 1px solid #c9a84c;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
+    .hero h1 span { color: #c9a84c; }
+    .hero p { font-size: 1.15rem; color: #aaa; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: #c9a84c;
+      color: #1a1a2e;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* CHIFFRES */
+    .stats {
+      background: #f8f7f4;
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .stat-item h2 { font-size: 2.5rem; color: #c9a84c; font-weight: 700; }
+    .stat-item p { color: #666; font-size: 0.9rem; margin-top: 0.3rem; }
+
+    /* FORMATIONS */
+    .section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-size: 2rem; color: #1a1a2e; margin-bottom: 0.5rem; }
+    .section-title p { color: #666; font-size: 1rem; }
+    .section-title .line {
+      width: 50px; height: 3px;
+      background: #c9a84c;
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+
+    .formations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      border: 1px solid #e5e0d5;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+    .card-header {
+      background: #1a1a2e;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .card-icon {
+      width: 50px; height: 50px;
+      background: rgba(201,168,76,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .card-header h3 { color: #fff; font-size: 1.1rem; }
+    .card-header p { color: #aaa; font-size: 0.85rem; margin-top: 0.2rem; }
+    .card-body { padding: 1.5rem; }
+    .card-body ul { list-style: none; }
+    .card-body ul li {
+      padding: 0.4rem 0;
+      color: #444;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card-body ul li::before { content: "✓"; color: #c9a84c; font-weight: 700; }
+    .card-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid #f0ebe0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .duree { font-size: 0.85rem; color: #888; }
+    .card-btn {
+      background: #1a1a2e;
+      color: #c9a84c;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* POURQUOI NOUS */
+    .why { background: #f8f7f4; padding: 5rem 2rem; }
+    .why-inner { max-width: 1100px; margin: 0 auto; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .why-item { text-align: center; padding: 1.5rem; }
+    .why-icon {
+      width: 60px; height: 60px;
+      background: #1a1a2e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+    }
+    .why-item h3 { font-size: 1rem; color: #1a1a2e; margin-bottom: 0.5rem; }
+    .why-item p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+
+    /* CONTACT */
+    .contact { padding: 5rem 2rem; max-width: 700px; margin: 0 auto; text-align: center; }
+    .contact-form {
+      background: #f8f7f4;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.9rem; color: #444; margin-bottom: 0.4rem; font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: #fff;
+    }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .submit-btn {
+      width: 100%;
+      background: #c9a84c;
+      color: #1a1a2e;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+    footer span { color: #c9a84c; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Cabinet Alfred Gory <span>Formation</span></div>
+    <ul>
+      <li><a href="#formations">Formations</a></li>
+      <li><a href="#pourquoi">Pourquoi nous</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-btn">S'inscrire</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Cabinet RH &amp; Formation</div>
+    <h1>Montez en compétences<br>avec <span>Cabinet Alfred Gory</span></h1>
+    <p>Formations professionnelles en gestion de la paie, maîtrise des logiciels RH et gestion d'entreprise. Certifiées et adaptées à votre niveau.</p>
+    <div class="hero-btns">
+      <a href="#formations" class="btn-primary">Voir nos formations</a>
+      <a href="#contact" class="btn-secondary">Nous contacter</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-item"><h2>+200</h2><p>Apprenants formés</p></div>
+    <div class="stat-item"><h2>15+</h2><p>Années d'expérience</p></div>
+    <div class="stat-item"><h2>98%</h2><p>Taux de satisfaction</p></div>
+    <div class="stat-item"><h2>6</h2><p>Formations disponibles</p></div>
+  </div>
+
+  <!-- FORMATIONS -->
+  <section class="section" id="formations">
+    <div class="section-title">
+      <h2>Nos formations</h2>
+      <p>Des parcours complets pour maîtriser les outils de la paie et des RH</p>
+      <div class="line"></div>
+    </div>
+    <div class="formations-grid">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">📊</div>
+          <div>
+            <h3>Gestion de la paie</h3>
+            <p>Niveau débutant à avancé</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Bases du droit du travail</li>
+            <li>Calcul des cotisations sociales</li>
+            <li>Établissement du bulletin de paie</li>
+            <li>Déclarations sociales nominatives (DSN)</li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <span class="duree">⏱ 35 heures</span>
+          <a href="#contact" class="card-btn">S'inscrire</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">💻</div>
+          <div>
+            <h3>Maîtrise de Silae</h3>
+            <p>Logiciel de paie</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Prise en main du logiciel Silae</li>
+            <li>Paramétrage des dossiers</li>
+            <li>Saisie et édition des bulletins</li>
+            <li>Génération de la DSN</li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <span class="duree">⏱ 21 heures</span>
+          <a href="#contact" class="card-btn">S'inscrire</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏢</div>
+          <div>
+            <h3>Gestion d'entreprise</h3>
+            <p>Pour dirigeants et managers</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Lecture des bilans comptables</li>
+            <li>Gestion des ressources humaines</li>
+            <li>Obligations sociales de l'employeur</li>
+            <li>Pilotage et tableaux de bord</li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <span class="duree">⏱ 28 heures</span>
+          <a href="#contact" class="card-btn">S'inscrire</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">📋</div>
+          <div>
+            <h3>Recrutement &amp; RH</h3>
+            <p>Processus et outils RH</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Techniques de recrutement</li>
+            <li>Rédaction des contrats de travail</li>
+            <li>Gestion des congés et absences</li>
+            <li>Entretiens professionnels</li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <span class="duree">⏱ 14 heures</span>
+          <a href="#contact" class="card-btn">S'inscrire</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🔢</div>
+          <div>
+            <h3>Excel pour la paie</h3>
+            <p>Outils bureautiques RH</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Tableaux de suivi des salariés</li>
+            <li>Calculs automatisés de paie</li>
+            <li>Tableaux croisés dynamiques</li>
+            <li>Modèles prêts à l'emploi</li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <span class="duree">⏱ 14 heures</span>
+          <a href="#contact" class="card-btn">S'inscrire</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">⚖️</div>
+          <div>
+            <h3>Droit social pratique</h3>
+            <p>Conformité et obligations</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Code du travail appliqué</li>
+            <li>Gestion des litiges salariaux</li>
+            <li>Rupture du contrat de travail</li>
+            <li>Veille réglementaire RH</li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <span class="duree">⏱ 21 heures</span>
+          <a href="#contact" class="card-btn">S'inscrire</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- POURQUOI NOUS -->
+  <section class="why" id="pourquoi">
+    <div class="why-inner">
+      <div class="section-title">
+        <h2>Pourquoi choisir Alfred Gory Formation ?</h2>
+        <p>Une approche professionnelle, humaine et adaptée à votre réalité</p>
+        <div class="line"></div>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon">🎯</div>
+          <h3>Formations sur mesure</h3>
+          <p>Chaque parcours est adapté à votre niveau et à votre secteur d'activité.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">👩‍🏫</div>
+          <h3>Formateurs experts</h3>
+          <p>Des professionnels RH et paie avec plus de 15 ans d'expérience terrain.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">📱</div>
+          <h3>100% en ligne</h3>
+          <p>Suivez vos formations depuis chez vous, à votre rythme, sur tous les appareils.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🏅</div>
+          <h3>Certifiées Qualiopi</h3>
+          <p>Nos formations sont éligibles au financement CPF et OPCO.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-title">
+      <h2>Inscrivez-vous</h2>
+      <p>Remplissez le formulaire et nous vous recontactons sous 48h</p>
+      <div class="line"></div>
+    </div>
+    <div class="contact-form">
+      <div class="form-group">
+        <label>Prénom et Nom</label>
+        <input type="text" placeholder="Ex : Marie Dupont" />
+      </div>
+      <div class="form-group">
+        <label>Adresse email</label>
+        <input type="email" placeholder="votre@email.fr" />
+      </div>
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input type="tel" placeholder="06 00 00 00 00" />
+      </div>
+      <div class="form-group">
+        <label>Formation souhaitée</label>
+        <select>
+          <option value="">-- Choisissez une formation --</option>
+          <option>Gestion de la paie</option>
+          <option>Maîtrise de Silae</option>
+          <option>Gestion d'entreprise</option>
+          <option>Recrutement &amp; RH</option>
+          <option>Excel pour la paie</option>
+          <option>Droit social pratique</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (optionnel)</label>
+        <textarea placeholder="Dites-nous en plus sur votre besoin..."></textarea>
+      </div>
+      <button class="submit-btn">Envoyer ma demande</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 <span>Cabinet Alfred Gory</span> — Cabinet RH &amp; Formation. Tous droits réservés.</p>
+    <p style="margin-top:0.5rem; font-size:0.8rem;">formation@alfred-gory.fr</p>
+  </footer>
+
+</body>
+</html>
