@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos Formations — Cabinet Alfred Gory</title>
+  <meta name="description" content="Découvrez le détail de nos 6 formations professionnelles en paie, RH et gestion d'entreprise. Programmes complets, objectifs pédagogiques, modalités et financement." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --or: #c9a84c; --or-clair: #e8d08a;
+      --marine: #0d1117; --marine2: #161b22; --marine3: #1c2333;
+      --texte: #e6edf3; --texte-muted: #8b949e;
+      --border: rgba(201,168,76,0.15);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--marine); color: var(--texte); }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: var(--or); border-radius: 3px; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,17,23,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--texte); text-decoration: none; }
+    .logo span { color: var(--or); }
+    .nav-back { color: var(--or); text-decoration: none; font-size: 0.88rem; border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 4px; }
+
+    .hero-formations {
+      background: linear-gradient(135deg, var(--marine) 0%, var(--marine2) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+    .hero-formations .label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; }
+    .hero-formations h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+    .hero-formations p { color: var(--texte-muted); max-width: 600px; margin: 0 auto; line-height: 1.8; font-size: 0.95rem; }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
+
+    /* ONGLETS */
+    .tabs {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+    .tab {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--texte-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+    .tab:hover { border-color: var(--or); color: var(--or); }
+    .tab.actif { background: var(--or); color: var(--marine); border-color: var(--or); font-weight: 600; }
+
+    /* FICHE FORMATION */
+    .fiche { display: none; }
+    .fiche.active { display: block; }
+
+    .fiche-header {
+      display: flex; align-items: flex-start; gap: 2rem;
+      background: var(--marine2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .fiche-icon { font-size: 3rem; flex-shrink: 0; }
+    .fiche-meta { flex: 1; }
+    .fiche-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin-bottom: 0.5rem; }
+    .fiche-titre { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.8rem; }
+    .fiche-desc { color: var(--texte-muted); font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .fiche-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--or);
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* GRILLE INFOS */
+    .infos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .info-box {
+      background: var(--marine2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .info-box .val { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--or); font-weight: 700; }
+    .info-box .lbl { font-size: 0.75rem; color: var(--texte-muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* SECTIONS FICHE */
+    .fiche-section { margin-bottom: 2rem; }
+    .fiche-section-titre {
+      font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--or); margin-bottom: 1rem; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* OBJECTIFS */
+    .objectifs-list { list-style: none; }
+    .objectifs-list li {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9rem; color: var(--texte-muted);
+    }
+    .objectifs-list li::before { content: '✓'; color: var(--or); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* MODULES */
+    .module {
+      background: var(--marine2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .module-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .module-header:hover { background: var(--marine3); }
+    .module-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--or);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 600; flex-shrink: 0;
+    }
+    .module-titre { font-size: 0.92rem; font-weight: 500; flex: 1; }
+    .module-duree { font-size: 0.78rem; color: var(--texte-muted); }
+    .module-chevron { color: var(--or); font-size: 0.8rem; transition: transform 0.3s; }
+    .module.ouvert .module-chevron { transform: rotate(180deg); }
+    .module-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 1.5rem;
+    }
+    .module.ouvert .module-body { max-height: 500px; padding: 0 1.5rem 1.2rem; }
+    .module-body ul { list-style: none; }
+    .module-body ul li {
+      font-size: 0.85rem; color: var(--texte-muted);
+      padding: 0.3rem 0;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .module-body ul li::before { content: '→'; color: var(--or); font-size: 0.7rem; }
+
+    /* PUBLIC & PREREQUIS */
+    .deux-colonnes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .col-box {
+      background: var(--marine2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .col-box h4 { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--or); margin-bottom: 1rem; }
+    .col-box ul { list-style: none; }
+    .col-box ul li { font-size: 0.88rem; color: var(--texte-muted); padding: 0.3rem 0; display: flex; gap: 0.5rem; }
+    .col-box ul li::before { content: '◆'; color: var(--or); font-size: 0.5rem; margin-top: 5px; flex-shrink: 0; }
+
+    /* MÉTHODES PÉDAGOGIQUES */
+    .methodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+    .methode-item {
+      background: var(--marine2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .methode-item .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .methode-item p { font-size: 0.82rem; color: var(--texte-muted); }
+
+    /* FINANCEMENT */
+    .financement-box {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .financement-box h4 { color: var(--or); margin-bottom: 0.8rem; font-size: 0.88rem; }
+    .financement-box p { color: var(--texte-muted); font-size: 0.85rem; line-height: 1.7; }
+
+    /* BOUTON */
+    .cta-bottom {
+      text-align: center;
+      padding: 2rem;
+      background: var(--marine2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+    .cta-bottom p { color: var(--texte-muted); font-size: 0.9rem; margin-bottom: 1.2rem; }
+    .btn-or {
+      background: var(--or); color: var(--marine);
+      padding: 0.9rem 2.5rem;
+      border-radius: 4px; text-decoration: none;
+      font-weight: 600; font-size: 0.9rem;
+      letter-spacing: 0.5px; display: inline-block;
+    }
+
+    /* MENTION LÉGALE */
+    .mention-legale {
+      font-size: 0.75rem; color: var(--texte-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 4rem; padding-top: 2rem;
+      line-height: 1.8;
+    }
+
+    footer {
+      background: var(--marine2); border-top: 1px solid var(--border);
+      padding: 2rem; text-align: center;
+      font-size: 0.82rem; color: var(--texte-muted);
+    }
+    footer span { color: var(--or); }
+
+    @media (max-width: 600px) {
+      .fiche-header { flex-direction: column; gap: 1rem; }
+      .deux-colonnes { grid-template-columns: 1fr; }
+      .fiche-titre { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Cabinet <span>Alfred Gory</span></a>
+  <a href="index.html" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="hero-formations">
+  <div class="label">Programmes 2025–2026</div>
+  <h1>Nos formations professionnelles</h1>
+  <p>Des parcours complets, pédagogiquement structurés, conçus par des experts terrain et conformes aux exigences Qualiopi.</p>
+</div>
+
+<div class="container">
+
+  <!-- ONGLETS -->
+  <div class="tabs">
+    <button class="tab actif" onclick="afficherFiche(0, this)">📊 Gestion de la paie</button>
+    <button class="tab" onclick="afficherFiche(1, this)">💻 Silae</button>
+    <button class="tab" onclick="afficherFiche(2, this)">🏢 Gestion d'entreprise</button>
+    <button class="tab" onclick="afficherFiche(3, this)">📋 Recrutement & RH</button>
+    <button class="tab" onclick="afficherFiche(4, this)">🔢 Excel paie</button>
+    <button class="tab" onclick="afficherFiche(5, this)">⚖️ Droit social</button>
+  </div>
+
+  <!-- ===== FORMATION 1 : GESTION DE LA PAIE ===== -->
+  <div class="fiche active" id="fiche-0">
+    <div class="fiche-header">
+      <div class="fiche-icon">📊</div>
+      <div class="fiche-meta">
+        <div class="fiche-label">Formation professionnelle</div>
+        <h2 class="fiche-titre">Gestion de la paie</h2>
+        <p class="fiche-desc">Maîtrisez l'intégralité du processus de paie, du calcul des rémunérations brutes à la production des déclarations sociales. Une formation complète pour acquérir une autonomie totale dans la gestion des bulletins de salaire.</p>
+        <div class="fiche-badges">
+          <span class="badge">✦ Éligible CPF</span>
+          <span class="badge">✦ Finançable OPCO</span>
+          <span class="badge">✦ 100% en ligne</span>
+          <span class="badge">✦ Niveau débutant à avancé</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="infos-grid">
+      <div class="info-box"><div class="val">35h</div><div class="lbl">Durée totale</div></div>
+      <div class="info-box"><div class="val">8</div><div class="lbl">Modules</div></div>
+      <div class="info-box"><div class="val">100%</div><div class="lbl">En ligne</div></div>
+      <div class="info-box"><div class="val">CPF</div><div class="lbl">Finançable</div></div>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Objectifs pédagogiques</div>
+      <ul class="objectifs-list">
+        <li>Comprendre les fondamentaux du droit du travail applicables à la paie</li>
+        <li>Calculer les rémunérations brutes et identifier les éléments variables</li>
+        <li>Maîtriser le calcul et la vérification des cotisations sociales obligatoires</li>
+        <li>Produire un bulletin de paie conforme à la réglementation en vigueur</li>
+        <li>Établir et transmettre la Déclaration Sociale Nominative (DSN)</li>
+        <li>Gérer les situations particulières : arrêt maladie, congés, heures supplémentaires</li>
+        <li>Assurer une veille réglementaire sur les évolutions de la paie</li>
+      </ul>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Programme détaillé — 8 modules</div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">01</div>
+          <div class="module-titre">Fondamentaux du droit du travail</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body">
+          <ul>
+            <li>Le contrat de travail : types, clauses essentielles</li>
+            <li>La durée légale du travail et les heures supplémentaires</li>
+            <li>Les congés payés : calcul et gestion</li>
+            <li>La protection sociale : maladie, maternité, accident du travail</li>
+            <li>Le SMIC et les minima conventionnels</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">02</div>
+          <div class="module-titre">Structure du bulletin de paie</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body">
+          <ul>
+            <li>Les mentions obligatoires du bulletin de paie (loi El Khomri)</li>
+            <li>La rémunération brute : base, primes, avantages en nature</li>
+            <li>Les éléments variables de paie</li>
+            <li>Lecture et contrôle d'un bulletin de paie</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">03</div>
+          <div class="module-titre">Cotisations sociales patronales et salariales</div>
+          <div class="module-duree">5h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body">
+          <ul>
+            <li>Les cotisations de Sécurité sociale (maladie, retraite, famille)</li>
+            <li>La CSG et la CRDS</li>
+            <li>Les cotisations de retraite complémentaire (AGIRC-ARRCO)</li>
+            <li>L'assurance chômage et la prévoyance</li>
+            <li>Les plafonds de la Sécurité sociale</li>
+            <li>Les exonérations et réductions de charges (réduction Fillon)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">04</div>
+          <div class="module-titre">Calcul du net à payer</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body">
+          <ul>
+            <li>Du brut au net : méthode de calcul pas à pas</li>
+            <li>Le prélèvement à la source (PAS) : taux et application</li>
+            <li>Les acomptes et avances sur salaire</li>
+            <li>Les saisies sur salaire</li>
+            <li>Vérification du net à payer</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">05</div>
+          <div class="module-titre">Situations particulières de paie</div>
+          <div class="module-duree">5h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body">
+          <ul>
+            <li>Arrêt maladie : subrogation et indemnités journalières</li>
+            <li>Congé maternité / paternité</li>
+            <li>Heures supplémentaires et complémentaires</li>
+            <li>Absences non rémunérées : calcul de la retenue</li>
+            <li>Le solde de tout compte à la rupture du contrat</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">06</div>
+          <div class="module-titre">La Déclaration Sociale Nominative (DSN)</div>
+          <div class="module-duree">5h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body">
+          <ul>
+            <li>Présentation et rôle de la DSN</li>
+            <li>Les données déclarées : salariés, contrats, rémunérations</li>
+            <li>Les échéances de dépôt et les pénalités</li>
+            <li>Contrôle et correction de la DSN</li>
+            <li>Les signalements d'événements (arrêt, fin de contrat)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">07</div>
+          <div class="module-titre">Clôture mensuelle et annuelle de paie</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body">
+          <ul>
+            <li>Le planning de clôture mensuelle</li>
+            <li>La réconciliation des charges sociales</li>
+            <li>La taxe sur les salaires</li>
+            <li>Le bilan social annuel</li>
+            <li>Les attestations de salaire et documents de fin d'année</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">08</div>
+          <div class="module-titre">Mise en pratique et cas concrets</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body">
+          <ul>
+            <li>Exercices de calcul de bulletins complets</li>
+            <li>Étude de cas : PME de 10 salariés</li>
+            <li>Correction commentée des exercices</li>
+            <li>Évaluation finale des acquis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="deux-colonnes">
+      <div class="col-box">
+        <h4>Public visé</h4>
+        <ul>
+          <li>Assistants RH et comptables</li>
+          <li>Gestionnaires de paie débutants</li>
+          <li>Dirigeants de TPE/PME</li>
+          <li>Toute personne souhaitant se reconvertir en paie</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Prérequis</h4>
+        <ul>
+          <li>Niveau Bac minimum</li>
+          <li>Notions de base en comptabilité appréciées</li>
+          <li>Aucune expérience en paie requise</li>
+          <li>Maîtrise de base des outils informatiques</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Méthodes pédagogiques</div>
+      <div class="methodes-grid">
+        <div class="methode-item"><div class="icon">🎥</div><p>Vidéos de cours</p></div>
+        <div class="methode-item"><div class="icon">📝</div><p>Exercices pratiques</p></div>
+        <div class="methode-item"><div class="icon">📋</div><p>Études de cas réels</p></div>
+        <div class="methode-item"><div class="icon">👨‍🏫</div><p>Suivi formateur</p></div>
+        <div class="methode-item"><div class="icon">✅</div><p>Évaluation finale</p></div>
+      </div>
+    </div>
+
+    <div class="financement-box">
+      <h4>✦ Financement &amp; modalités</h4>
+      <p>Cette formation est éligible au <strong>CPF (Compte Personnel de Formation)</strong> et finançable par votre <strong>OPCO</strong>. Elle peut également être prise en charge dans le cadre du plan de développement des compétences de votre entreprise. Contactez-nous pour obtenir un devis personnalisé et un accompagnement dans vos démarches de financement.</p>
+    </div>
+
+    <div class="cta-bottom">
+      <p>Intéressé(e) par cette formation ? Contactez-nous pour obtenir plus d'informations ou vous inscrire.</p>
+      <a href="index.html#contact" class="btn-or">S'inscrire à cette formation</a>
+    </div>
+  </div>
+
+  <!-- ===== FORMATION 2 : SILAE ===== -->
+  <div class="fiche" id="fiche-1">
+    <div class="fiche-header">
+      <div class="fiche-icon">💻</div>
+      <div class="fiche-meta">
+        <div class="fiche-label">Formation logiciel</div>
+        <h2 class="fiche-titre">Maîtrise du logiciel Silae</h2>
+        <p class="fiche-desc">Devenez autonome sur Silae, le logiciel de paie n°1 en France utilisé par plus de 15 000 cabinets. De la création d'un dossier à la production de la DSN, maîtrisez toutes les fonctionnalités essentielles.</p>
+        <div class="fiche-badges">
+          <span class="badge">✦ Éligible CPF</span>
+          <span class="badge">✦ Finançable OPCO</span>
+          <span class="badge">✦ 100% en ligne</span>
+          <span class="badge">✦ Accès plateforme Silae inclus</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="infos-grid">
+      <div class="info-box"><div class="val">21h</div><div class="lbl">Durée totale</div></div>
+      <div class="info-box"><div class="val">6</div><div class="lbl">Modules</div></div>
+      <div class="info-box"><div class="val">100%</div><div class="lbl">En ligne</div></div>
+      <div class="info-box"><div class="val">CPF</div><div class="lbl">Finançable</div></div>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Objectifs pédagogiques</div>
+      <ul class="objectifs-list">
+        <li>Naviguer efficacement dans l'interface Silae</li>
+        <li>Créer et paramétrer un dossier entreprise complet</li>
+        <li>Créer et gérer les fiches salariés</li>
+        <li>Saisir les variables de paie et éditer les bulletins</li>
+        <li>Contrôler et valider les bulletins de salaire</li>
+        <li>Générer et transmettre la DSN mensuelle</li>
+        <li>Gérer les signalements d'événements (arrêt, fin de contrat)</li>
+      </ul>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Programme détaillé — 6 modules</div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">01</div>
+          <div class="module-titre">Prise en main de l'interface Silae</div>
+          <div class="module-duree">3h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body"><ul>
+          <li>Présentation de l'interface MySilae</li>
+          <li>Navigation dans les menus et fonctionnalités</li>
+          <li>Gestion des droits utilisateurs</li>
+          <li>Personnalisation de l'espace de travail</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">02</div>
+          <div class="module-titre">Création et paramétrage d'un dossier société</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body"><ul>
+          <li>Création d'un nouveau dossier</li>
+          <li>Paramétrage des informations société (SIRET, convention collective)</li>
+          <li>Configuration des organismes sociaux (URSSAF, retraite, prévoyance)</li>
+          <li>Paramétrage des rubriques de paie</li>
+          <li>Mise en place des profils de cotisations</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">03</div>
+          <div class="module-titre">Gestion des salariés</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body"><ul>
+          <li>Création d'une fiche salarié complète</li>
+          <li>Paramétrage du contrat de travail</li>
+          <li>Gestion des éléments fixes de rémunération</li>
+          <li>Gestion des entrées et sorties de salariés</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">04</div>
+          <div class="module-titre">Production des bulletins de paie</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body"><ul>
+          <li>Saisie des variables de paie mensuelles</li>
+          <li>Calcul et édition des bulletins</li>
+          <li>Contrôle des montants (brut, cotisations, net)</li>
+          <li>Gestion des retenues et des primes</li>
+          <li>Validation et clôture de la paie mensuelle</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">05</div>
+          <div class="module-titre">La DSN avec Silae</div>
+          <div class="module-duree">4h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body"><ul>
+          <li>Génération de la DSN mensuelle</li>
+          <li>Contrôle avant envoi : alertes et anomalies</li>
+          <li>Transmission et accusé de réception</li>
+          <li>Les signalements DSN : arrêt maladie, fin de contrat</li>
+          <li>Correction et envoi d'une DSN rectificative</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">06</div>
+          <div class="module-titre">Cas pratiques et travaux dirigés</div>
+          <div class="module-duree">2h</div>
+          <div class="module-chevron">▼</div>
+        </div>
+        <div class="module-body"><ul>
+          <li>Simulation complète d'un cycle de paie</li>
+          <li>Cas pratique : gestion d'un arrêt maladie sur Silae</li>
+          <li>Évaluation finale sur un cas réel</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="deux-colonnes">
+      <div class="col-box">
+        <h4>Public visé</h4>
+        <ul>
+          <li>Gestionnaires de paie qui découvrent Silae</li>
+          <li>Collaborateurs de cabinets comptables</li>
+          <li>RRH et DRH souhaitant maîtriser l'outil</li>
+          <li>Toute personne utilisant ou devant utiliser Silae</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Prérequis</h4>
+        <ul>
+          <li>Notions de base en gestion de paie recommandées</li>
+          <li>Maîtrise des outils informatiques</li>
+          <li>Aucune connaissance préalable de Silae requise</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Méthodes pédagogiques</div>
+      <div class="methodes-grid">
+        <div class="methode-item"><div class="icon">🖥️</div><p>Démonstrations en direct</p></div>
+        <div class="methode-item"><div class="icon">🔧</div><p>Exercices sur logiciel</p></div>
+        <div class="methode-item"><div class="icon">📋</div><p>Cas pratiques réels</p></div>
+        <div class="methode-item"><div class="icon">👨‍🏫</div><p>Suivi formateur</p></div>
+        <div class="methode-item"><div class="icon">✅</div><p>Évaluation finale</p></div>
+      </div>
+    </div>
+
+    <div class="financement-box">
+      <h4>✦ Financement &amp; modalités</h4>
+      <p>Éligible au <strong>CPF</strong> et finançable par votre <strong>OPCO</strong>. Contactez-nous pour un accompagnement personnalisé dans vos démarches de financement.</p>
+    </div>
+
+    <div class="cta-bottom">
+      <p>Prêt(e) à maîtriser Silae ? Inscrivez-vous dès maintenant.</p>
+      <a href="index.html#contact" class="btn-or">S'inscrire à cette formation</a>
+    </div>
+  </div>
+
+  <!-- ===== FORMATION 3 : GESTION D'ENTREPRISE ===== -->
+  <div class="fiche" id="fiche-2">
+    <div class="fiche-header">
+      <div class="fiche-icon">🏢</div>
+      <div class="fiche-meta">
+        <div class="fiche-label">Formation dirigeants &amp; managers</div>
+        <h2 class="fiche-titre">Gestion d'entreprise</h2>
+        <p class="fiche-desc">Acquérez les compétences clés pour piloter votre entreprise avec efficacité : lecture financière, gestion RH, obligations sociales et mise en place d'outils de pilotage opérationnels.</p>
+        <div class="fiche-badges">
+          <span class="badge">✦ Éligible CPF</span>
+          <span class="badge">✦ Finançable OPCO</span>
+          <span class="badge">✦ 100% en ligne</span>
+          <span class="badge">✦ Pour dirigeants &amp; managers</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="infos-grid">
+      <div class="info-box"><div class="val">28h</div><div class="lbl">Durée totale</div></div>
+      <div class="info-box"><div class="val">7</div><div class="lbl">Modules</div></div>
+      <div class="info-box"><div class="val">100%</div><div class="lbl">En ligne</div></div>
+      <div class="info-box"><div class="val">CPF</div><div class="lbl">Finançable</div></div>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Objectifs pédagogiques</div>
+      <ul class="objectifs-list">
+        <li>Lire et interpréter un bilan comptable et un compte de résultat</li>
+        <li>Maîtriser les obligations sociales de l'employeur</li>
+        <li>Mettre en place des outils de pilotage RH efficaces</li>
+        <li>Gérer la trésorerie et anticiper les besoins financiers</li>
+        <li>Construire un tableau de bord de gestion opérationnel</li>
+        <li>Comprendre les enjeux juridiques liés à la gestion d'entreprise</li>
+      </ul>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Programme détaillé — 7 modules</div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">01</div><div class="module-titre">Lecture des documents financiers</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Le bilan : actif et passif, interprétation</li>
+          <li>Le compte de résultat : produits, charges, résultat net</li>
+          <li>Les soldes intermédiaires de gestion (SIG)</li>
+          <li>Les ratios financiers clés pour un dirigeant</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">02</div><div class="module-titre">Obligations sociales de l'employeur</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Les formalités d'embauche (DPAE, registre du personnel)</li>
+          <li>Les affichages obligatoires en entreprise</li>
+          <li>La médecine du travail et les visites médicales</li>
+          <li>Le document unique d'évaluation des risques (DUER)</li>
+          <li>La formation professionnelle : obligations de l'employeur</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">03</div><div class="module-titre">Gestion des ressources humaines opérationnelle</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Gestion des absences et des congés</li>
+          <li>L'entretien annuel d'évaluation</li>
+          <li>La gestion prévisionnelle des emplois (GPEC)</li>
+          <li>La communication interne et management d'équipe</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">04</div><div class="module-titre">Gestion de la trésorerie</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Le plan de trésorerie mensuel</li>
+          <li>Gestion des encaissements et décaissements</li>
+          <li>Relation avec les banques et négociation</li>
+          <li>Anticiper les difficultés financières</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">05</div><div class="module-titre">Tableaux de bord et pilotage</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Définir ses indicateurs clés (KPI)</li>
+          <li>Construire un tableau de bord simple et efficace</li>
+          <li>Analyser les écarts et prendre des décisions</li>
+          <li>Mise en pratique sur Excel</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">06</div><div class="module-titre">Notions juridiques essentielles</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Les formes juridiques d'entreprise (SARL, SAS, EI...)</li>
+          <li>La responsabilité du dirigeant</li>
+          <li>Les contrats commerciaux essentiels</li>
+          <li>La protection de la propriété intellectuelle</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">07</div><div class="module-titre">Mise en situation et plan d'action</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Étude de cas : gestion d'une PME de 20 salariés</li>
+          <li>Construction de votre tableau de bord personnalisé</li>
+          <li>Évaluation finale et plan d'action individuel</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="deux-colonnes">
+      <div class="col-box">
+        <h4>Public visé</h4>
+        <ul>
+          <li>Dirigeants de TPE et PME</li>
+          <li>Managers et responsables d'équipe</li>
+          <li>Créateurs d'entreprise</li>
+          <li>Collaborateurs souhaitant évoluer vers des fonctions managériales</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Prérequis</h4>
+        <ul>
+          <li>Niveau Bac+2 ou expérience professionnelle équivalente</li>
+          <li>Être en poste ou en projet de création d'entreprise</li>
+          <li>Maîtrise de base d'Excel souhaitée</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="financement-box">
+      <h4>✦ Financement &amp; modalités</h4>
+      <p>Éligible au <strong>CPF</strong> et finançable par votre <strong>OPCO</strong>. Des dispositifs spécifiques existent pour les dirigeants (AGEFICE, FIFPL). Contactez-nous pour identifier le financement adapté à votre situation.</p>
+    </div>
+
+    <div class="cta-bottom">
+      <p>Vous êtes dirigeant ou manager ? Cette formation est faite pour vous.</p>
+      <a href="index.html#contact" class="btn-or">S'inscrire à cette formation</a>
+    </div>
+  </div>
+
+  <!-- ===== FORMATION 4 : RECRUTEMENT & RH ===== -->
+  <div class="fiche" id="fiche-3">
+    <div class="fiche-header">
+      <div class="fiche-icon">📋</div>
+      <div class="fiche-meta">
+        <div class="fiche-label">Formation RH</div>
+        <h2 class="fiche-titre">Recrutement &amp; Ressources Humaines</h2>
+        <p class="fiche-desc">Maîtrisez les processus RH essentiels : du recrutement à la gestion quotidienne des collaborateurs. Une formation pratique et opérationnelle pour les professionnels des ressources humaines.</p>
+        <div class="fiche-badges">
+          <span class="badge">✦ Éligible CPF</span>
+          <span class="badge">✦ Finançable OPCO</span>
+          <span class="badge">✦ 100% en ligne</span>
+          <span class="badge">✦ Niveau intermédiaire</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="infos-grid">
+      <div class="info-box"><div class="val">14h</div><div class="lbl">Durée totale</div></div>
+      <div class="info-box"><div class="val">4</div><div class="lbl">Modules</div></div>
+      <div class="info-box"><div class="val">100%</div><div class="lbl">En ligne</div></div>
+      <div class="info-box"><div class="val">CPF</div><div class="lbl">Finançable</div></div>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Objectifs pédagogiques</div>
+      <ul class="objectifs-list">
+        <li>Construire et piloter un processus de recrutement efficace</li>
+        <li>Rédiger des offres d'emploi attractives et conformes à la loi</li>
+        <li>Mener des entretiens de recrutement structurés et non discriminatoires</li>
+        <li>Rédiger et gérer les contrats de travail</li>
+        <li>Gérer les absences, congés et temps de travail</li>
+        <li>Conduire les entretiens professionnels obligatoires</li>
+      </ul>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Programme détaillé — 4 modules</div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">01</div><div class="module-titre">Le processus de recrutement</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Définir le besoin et rédiger la fiche de poste</li>
+          <li>Rédiger une offre d'emploi conforme (non-discrimination)</li>
+          <li>Les canaux de diffusion : jobboards, LinkedIn, cooptation</li>
+          <li>La sélection des CV et la présélection téléphonique</li>
+          <li>Mener un entretien de recrutement structuré</li>
+          <li>La prise de décision et l'intégration (onboarding)</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">02</div><div class="module-titre">Les contrats de travail</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>CDI, CDD, intérim : différences et règles</li>
+          <li>Les clauses obligatoires et les clauses spéciales</li>
+          <li>La période d'essai : durée, renouvellement, rupture</li>
+          <li>Les contrats aidés et d'alternance</li>
+          <li>La modification du contrat de travail</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">03</div><div class="module-titre">Gestion des absences et du temps de travail</div><div class="module-duree">3h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Congés payés : calcul, prise, indemnisation</li>
+          <li>RTT, récupérations et jours fériés</li>
+          <li>Gestion des absences injustifiées</li>
+          <li>L'arrêt maladie et les obligations de l'employeur</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">04</div><div class="module-titre">Les entretiens professionnels obligatoires</div><div class="module-duree">3h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>L'entretien professionnel tous les 2 ans : obligations légales</li>
+          <li>L'entretien de bilan tous les 6 ans</li>
+          <li>Préparer et conduire un entretien professionnel</li>
+          <li>Tracer et archiver les entretiens</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="deux-colonnes">
+      <div class="col-box">
+        <h4>Public visé</h4>
+        <ul>
+          <li>Assistants et responsables RH</li>
+          <li>Managers en charge du recrutement</li>
+          <li>Dirigeants assurant eux-mêmes les RH</li>
+          <li>Toute personne souhaitant évoluer vers les RH</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Prérequis</h4>
+        <ul>
+          <li>Niveau Bac minimum</li>
+          <li>Aucune expérience RH requise</li>
+          <li>Appétence pour les relations humaines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="financement-box">
+      <h4>✦ Financement &amp; modalités</h4>
+      <p>Éligible au <strong>CPF</strong> et finançable par votre <strong>OPCO</strong>. Contactez-nous pour un devis personnalisé.</p>
+    </div>
+
+    <div class="cta-bottom">
+      <p>Développez vos compétences RH avec nos experts.</p>
+      <a href="index.html#contact" class="btn-or">S'inscrire à cette formation</a>
+    </div>
+  </div>
+
+  <!-- ===== FORMATION 5 : EXCEL PAIE ===== -->
+  <div class="fiche" id="fiche-4">
+    <div class="fiche-header">
+      <div class="fiche-icon">🔢</div>
+      <div class="fiche-meta">
+        <div class="fiche-label">Formation bureautique RH</div>
+        <h2 class="fiche-titre">Excel pour la paie et les RH</h2>
+        <p class="fiche-desc">Optimisez votre gestion RH et paie grâce à Excel. Créez des tableaux de suivi automatisés, des calculs de paie fiables et des reportings professionnels pour gagner un temps précieux au quotidien.</p>
+        <div class="fiche-badges">
+          <span class="badge">✦ Éligible CPF</span>
+          <span class="badge">✦ Finançable OPCO</span>
+          <span class="badge">✦ 100% en ligne</span>
+          <span class="badge">✦ Fichiers Excel fournis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="infos-grid">
+      <div class="info-box"><div class="val">14h</div><div class="lbl">Durée totale</div></div>
+      <div class="info-box"><div class="val">4</div><div class="lbl">Modules</div></div>
+      <div class="info-box"><div class="val">100%</div><div class="lbl">En ligne</div></div>
+      <div class="info-box"><div class="val">CPF</div><div class="lbl">Finançable</div></div>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Objectifs pédagogiques</div>
+      <ul class="objectifs-list">
+        <li>Maîtriser les fonctions Excel essentielles pour la paie (SI, RECHERCHEV, SOMME.SI)</li>
+        <li>Créer un tableau de suivi des salariés automatisé</li>
+        <li>Construire un outil de calcul de paie simplifié sous Excel</li>
+        <li>Réaliser des tableaux croisés dynamiques pour le reporting RH</li>
+        <li>Créer des graphiques professionnels pour la direction</li>
+        <li>Automatiser les tâches répétitives avec des macros simples</li>
+      </ul>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Programme détaillé — 4 modules</div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">01</div><div class="module-titre">Fonctions Excel indispensables en RH</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Fonctions logiques : SI, SI.CONDITIONS, ET, OU</li>
+          <li>Fonctions de recherche : RECHERCHEV, INDEX/EQUIV</li>
+          <li>Fonctions de calcul : SOMME.SI, NB.SI, MOYENNE.SI</li>
+          <li>Fonctions date : DATEDIF, EOMONTH, calcul d'ancienneté</li>
+          <li>Mise en forme conditionnelle pour alertes visuelles</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">02</div><div class="module-titre">Tableaux de suivi RH automatisés</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Registre du personnel automatisé</li>
+          <li>Tableau de suivi des contrats et fins de contrat</li>
+          <li>Compteur de congés et absences</li>
+          <li>Tableau de suivi des entretiens professionnels</li>
+          <li>Alertes automatiques par couleur et formule</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">03</div><div class="module-titre">Tableaux croisés dynamiques et reporting</div><div class="module-duree">3h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Créer et paramétrer un tableau croisé dynamique</li>
+          <li>Filtres, segments et chronologies</li>
+          <li>Graphiques dynamiques pour la direction</li>
+          <li>Tableau de bord RH complet sur une seule feuille</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">04</div><div class="module-titre">Modèles prêts à l'emploi</div><div class="module-duree">3h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Simulateur de calcul de paie brut/net</li>
+          <li>Planning annuel des congés</li>
+          <li>Tableau de bord mensuel RH</li>
+          <li>Personnalisation des modèles fournis</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="deux-colonnes">
+      <div class="col-box">
+        <h4>Public visé</h4>
+        <ul>
+          <li>Gestionnaires de paie et assistants RH</li>
+          <li>Comptables et DAF</li>
+          <li>Dirigeants gérant eux-mêmes leur paie</li>
+          <li>Tout professionnel utilisant Excel en contexte RH</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Prérequis</h4>
+        <ul>
+          <li>Maîtrise de base d'Excel (saisie, formules simples)</li>
+          <li>Notions de paie ou RH souhaitées</li>
+          <li>Disposer d'Excel 2016 ou version ultérieure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="financement-box">
+      <h4>✦ Financement &amp; modalités</h4>
+      <p>Éligible au <strong>CPF</strong> et finançable par votre <strong>OPCO</strong>. Les fichiers Excel modèles sont fournis et conservés à l'issue de la formation.</p>
+    </div>
+
+    <div class="cta-bottom">
+      <p>Gagnez du temps grâce à Excel. Inscrivez-vous dès maintenant.</p>
+      <a href="index.html#contact" class="btn-or">S'inscrire à cette formation</a>
+    </div>
+  </div>
+
+  <!-- ===== FORMATION 6 : DROIT SOCIAL ===== -->
+  <div class="fiche" id="fiche-5">
+    <div class="fiche-header">
+      <div class="fiche-icon">⚖️</div>
+      <div class="fiche-meta">
+        <div class="fiche-label">Formation juridique</div>
+        <h2 class="fiche-titre">Droit social pratique</h2>
+        <p class="fiche-desc">Maîtrisez les règles du droit du travail applicables au quotidien dans votre entreprise. Une formation opérationnelle pour sécuriser vos pratiques RH et vous prémunir contre les risques juridiques.</p>
+        <div class="fiche-badges">
+          <span class="badge">✦ Éligible CPF</span>
+          <span class="badge">✦ Finançable OPCO</span>
+          <span class="badge">✦ 100% en ligne</span>
+          <span class="badge">✦ Veille juridique incluse</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="infos-grid">
+      <div class="info-box"><div class="val">21h</div><div class="lbl">Durée totale</div></div>
+      <div class="info-box"><div class="val">5</div><div class="lbl">Modules</div></div>
+      <div class="info-box"><div class="val">100%</div><div class="lbl">En ligne</div></div>
+      <div class="info-box"><div class="val">CPF</div><div class="lbl">Finançable</div></div>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Objectifs pédagogiques</div>
+      <ul class="objectifs-list">
+        <li>Appliquer le Code du travail dans les situations quotidiennes de l'entreprise</li>
+        <li>Sécuriser les relations individuelles de travail</li>
+        <li>Gérer les procédures disciplinaires dans le respect du droit</li>
+        <li>Maîtriser les différents modes de rupture du contrat de travail</li>
+        <li>Prévenir les risques de contentieux prud'homal</li>
+        <li>Assurer une veille réglementaire efficace</li>
+      </ul>
+    </div>
+
+    <div class="fiche-section">
+      <div class="fiche-section-titre">Programme détaillé — 5 modules</div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">01</div><div class="module-titre">Les relations individuelles de travail</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Formation et exécution du contrat de travail</li>
+          <li>Le pouvoir disciplinaire de l'employeur</li>
+          <li>Les sanctions disciplinaires : procédure et limites</li>
+          <li>La modification du contrat et du lieu de travail</li>
+          <li>Les droits et obligations du salarié</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">02</div><div class="module-titre">La rupture du contrat de travail</div><div class="module-duree">5h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>La démission : conditions et effets</li>
+          <li>Le licenciement pour motif personnel : procédure pas à pas</li>
+          <li>Le licenciement économique : conditions et obligations</li>
+          <li>La rupture conventionnelle homologuée</li>
+          <li>Le solde de tout compte et les documents de fin de contrat</li>
+          <li>Les indemnités de rupture : calcul et conditions</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">03</div><div class="module-titre">Gestion des litiges salariaux</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Prévenir les risques de contentieux</li>
+          <li>Le Conseil de Prud'hommes : fonctionnement et procédure</li>
+          <li>La médiation et les modes alternatifs de résolution</li>
+          <li>Les risques pour l'employeur : requalification, sanctions</li>
+          <li>Constitution d'un dossier défenseur</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">04</div><div class="module-titre">Les relations collectives de travail</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Les institutions représentatives du personnel (CSE)</li>
+          <li>Les élections professionnelles</li>
+          <li>La négociation collective et les accords d'entreprise</li>
+          <li>Le droit de grève et ses limites</li>
+        </ul></div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header"><div class="module-num">05</div><div class="module-titre">Veille réglementaire et actualité sociale</div><div class="module-duree">4h</div><div class="module-chevron">▼</div></div>
+        <div class="module-body"><ul>
+          <li>Les sources du droit du travail : loi, convention, accord</li>
+          <li>Comment organiser sa veille juridique au quotidien</li>
+          <li>Actualité sociale 2025–2026 : les réformes en cours</li>
+          <li>Les outils et ressources officielles (Legifrance, service-public.fr)</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="deux-colonnes">
+      <div class="col-box">
+        <h4>Public visé</h4>
+        <ul>
+          <li>RRH et DRH</li>
+          <li>Dirigeants et managers</li>
+          <li>Gestionnaires de paie souhaitant approfondir le droit</li>
+          <li>Toute personne exposée aux risques juridiques RH</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Prérequis</h4>
+        <ul>
+          <li>Niveau Bac+2 minimum ou expérience équivalente</li>
+          <li>Expérience en RH ou paie souhaitée</li>
+          <li>Aucune formation juridique préalable requise</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="financement-box">
+      <h4>✦ Financement &amp; modalités</h4>
+      <p>Éligible au <strong>CPF</strong> et finançable par votre <strong>OPCO</strong>. Cette formation ne constitue pas un conseil juridique individualisé. Pour toute situation particulière, nous recommandons de consulter un avocat spécialisé en droit social.</p>
+    </div>
+
+    <div class="cta-bottom">
+      <p>Sécurisez vos pratiques RH avec nos experts en droit social.</p>
+      <a href="index.html#contact" class="btn-or">S'inscrire à cette formation</a>
+    </div>
+  </div>
+
+  <!-- MENTIONS LÉGALES OBLIGATOIRES -->
+  <div class="mention-legale">
+    <strong style="color:var(--or);">Informations réglementaires</strong><br>
+    Cabinet Alfred Gory — Organisme de formation professionnelle continue.<br>
+    Les formations proposées sont réalisées dans le cadre de la formation professionnelle continue conformément aux articles L.6311-1 et suivants du Code du travail.<br>
+    L'éligibilité au CPF dépend de l'inscription de la formation au Répertoire Spécifique ou au RNCP. Contactez-nous pour vérifier l'éligibilité de chaque parcours à votre situation.<br>
+    La prise en charge OPCO est soumise à l'accord de votre organisme financeur. Les tarifs sont disponibles sur devis.<br>
+    <em>« Cet enregistrement ne vaut pas agrément de l'État. »</em>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 <span>Cabinet Alfred Gory</span> — Formation RH &amp; Paie | <a href="index.html" style="color:var(--or);text-decoration:none;">Retour au site</a></p>
+</footer>
+
+<script>
+  function afficherFiche(id, btn) {
+    document.querySelectorAll('.fiche').forEach(function(f) { f.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('actif'); });
+    document.getElementById('fiche-' + id).classList.add('active');
+    btn.classList.add('actif');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function toggleModule(el) {
+    el.classList.toggle('ouvert');
+  }
+</script>
+
+</body>
+</html>
