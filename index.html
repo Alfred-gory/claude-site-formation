@@ -566,14 +566,21 @@
       <div class="line"></div>
     </div>
     <div class="contact-form">
-      <form id="contactForm" onsubmit="envoyerEmail(event)">
+      <div data-fs-success class="merci" id="merci">
+        ✅ Merci pour votre demande !<br>
+        Nous vous recontactons sous <strong>48h</strong> à l'adresse indiquée.<br>
+        <span style="font-size:0.85rem; color:#555;">Cabinet Alfred Gory — formation@alfred-gory.fr</span>
+      </div>
+      <div data-fs-error style="color:red; margin-bottom:1rem; display:none;"></div>
+
+      <form id="contactForm">
         <div class="form-group">
           <label>Prénom et Nom</label>
-          <input type="text" name="nom" placeholder="Ex : Marie Dupont" required />
+          <input type="text" name="nom" placeholder="Ex : Marie Dupont" required data-fs-field />
         </div>
         <div class="form-group">
           <label>Adresse email</label>
-          <input type="email" name="email" placeholder="votre@email.fr" required />
+          <input type="email" name="email" placeholder="votre@email.fr" required data-fs-field />
         </div>
         <div class="form-group">
           <label>Téléphone</label>
@@ -595,13 +602,14 @@
           <label>Message (optionnel)</label>
           <textarea name="message" placeholder="Dites-nous en plus sur votre besoin..."></textarea>
         </div>
-        <button type="submit" class="submit-btn">Envoyer ma demande</button>
+        <button type="submit" class="submit-btn" data-fs-submit-btn>Envoyer ma demande</button>
       </form>
-      <div class="merci" id="merci">
-        ✅ Merci pour votre demande !<br>
-        Nous vous recontactons sous <strong>48h</strong> à l'adresse indiquée.<br>
-        <span style="font-size:0.85rem; color:#555;">Cabinet Alfred Gory — formation@alfred-gory.fr</span>
-      </div>
+
+      <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contactForm', formId: 'mbdenjvd' });
+      </script>
+      <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     </div>
   </section>
 
