@@ -273,9 +273,24 @@
       flex-shrink: 0;
     }
     #ag-send:hover { background: #e8d08a; }
-    @media(max-width:400px) {
-      #ag-box { width: calc(100vw - 2rem); right: 1rem; }
-      #ag-bubble { right: 1rem; }
+    @media(max-width:768px) {
+      #ag-bubble { right: 1rem; bottom: 1rem; }
+      #ag-box {
+        width: calc(100vw - 2rem);
+        max-height: 75vh;
+        border-radius: 14px;
+      }
+      #ag-avatar { width: 54px; height: 54px; font-size: 1.5rem; }
+      #ag-messages { padding: 0.8rem; }
+      .ag-msg { font-size: 0.82rem; padding: 0.6rem 0.85rem; max-width: 90%; }
+      #ag-suggestions { padding: 0.4rem 0.8rem; gap: 0.3rem; }
+      .ag-sugg { font-size: 0.72rem; padding: 0.25rem 0.6rem; }
+      #ag-input-zone { padding: 0.6rem 0.8rem; gap: 0.4rem; }
+      #ag-input { font-size: 0.82rem; padding: 0.55rem 0.75rem; }
+      #ag-send { width: 34px; height: 34px; font-size: 0.9rem; }
+      #ag-header { padding: 0.8rem 1rem; }
+      #ag-header-avatar { width: 32px; height: 32px; font-size: 1rem; }
+      #ag-header-info strong { font-size: 0.82rem; }
     }
   `;
 
