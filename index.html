@@ -1221,11 +1221,11 @@
       document.getElementById('carteDetail').classList.add('visible');
     }
 
-    // COMPTEUR VISITEURS (via API publique gratuite)
-    fetch('https://api.countapi.xyz/hit/alfred-gory-formation/visits')
+    // COMPTEUR VISITEURS
+    fetch('https://api.counterapi.dev/v1/alfred-gory-formation/visits/up')
       .then(function(r) { return r.json(); })
       .then(function(d) {
-        document.getElementById('visitorCount').textContent = d.value;
+        document.getElementById('visitorCount').textContent = d.count || d.value || '—';
       })
       .catch(function() {
         document.getElementById('visitorCount').textContent = '—';
