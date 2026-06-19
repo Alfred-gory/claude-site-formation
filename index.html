@@ -151,6 +151,106 @@
         linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
       background-size: 60px 60px;
     }
+    /* PARTICULES */
+    #particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+
+    /* CARTE INTERACTIVE FORMATIONS */
+    .carte-formations {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 4rem auto 0;
+      aspect-ratio: 4/3;
+    }
+    .carte-fond {
+      width: 100%; height: 100%;
+      background: var(--marine2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .carte-fond::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(201,168,76,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(201,168,76,0.03) 0%, transparent 50%);
+    }
+    .carte-lignes {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .carte-noeud {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .carte-noeud-cercle {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--marine);
+      border: 2px solid var(--or);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin: 0 auto 0.4rem;
+      transition: all 0.3s;
+      box-shadow: 0 0 0 0 rgba(201,168,76,0.3);
+    }
+    .carte-noeud:hover .carte-noeud-cercle,
+    .carte-noeud.actif .carte-noeud-cercle {
+      background: rgba(201,168,76,0.15);
+      box-shadow: 0 0 0 8px rgba(201,168,76,0.1);
+      transform: scale(1.15);
+    }
+    .carte-noeud-label {
+      font-size: 0.7rem;
+      color: var(--texte-muted);
+      white-space: nowrap;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+    .carte-noeud:hover .carte-noeud-label,
+    .carte-noeud.actif .carte-noeud-label { color: var(--or); }
+    .carte-connexion {
+      position: absolute;
+      background: rgba(201,168,76,0.15);
+      height: 1px;
+      transform-origin: left center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .carte-detail {
+      position: absolute;
+      bottom: 1rem; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(13,17,23,0.95);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      width: 90%;
+      text-align: left;
+      display: none;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+    .carte-detail.visible { display: block; }
+    .carte-detail h4 { color: var(--or); font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .carte-detail p { color: var(--texte-muted); font-size: 0.8rem; line-height: 1.5; }
+    .carte-detail .duree-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.1);
+      color: var(--or);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      margin-top: 0.4rem;
+    }
     .hero-content { position: relative; z-index: 2; max-width: 800px; }
     .hero-badge {
       display: inline-flex;
@@ -620,6 +720,7 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
+    <canvas id="particles"></canvas>
     <div class="hero-content">
       <div class="hero-badge">Cabinet RH &amp; Formation</div>
       <h1>
@@ -783,6 +884,60 @@
     </div>
   </section>
 
+  <!-- CARTE INTERACTIVE -->
+  <section style="padding: 5rem 2rem; background: var(--marine);">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:center;">
+        <div class="section-label">Explorez</div>
+        <h2 class="section-title">Carte de nos formations</h2>
+        <div class="divider" style="margin: 1.2rem auto;"></div>
+        <p class="section-sub" style="margin: 0 auto;">Cliquez sur une formation pour découvrir son contenu</p>
+      </div>
+      <div class="carte-formations fade-in">
+        <div class="carte-fond">
+          <div class="carte-lignes"></div>
+          <svg id="carteSvg" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;"></svg>
+
+          <div class="carte-noeud" style="left:50%;top:50%;" data-id="centre">
+            <div class="carte-noeud-cercle" style="width:70px;height:70px;border-color:var(--or);background:rgba(201,168,76,0.15);">🏛️</div>
+            <div class="carte-noeud-label" style="color:var(--or);font-weight:600;">Cabinet<br>Alfred Gory</div>
+          </div>
+
+          <div class="carte-noeud" style="left:18%;top:20%;" data-id="0" onclick="afficherDetail(0)">
+            <div class="carte-noeud-cercle">📊</div>
+            <div class="carte-noeud-label">Gestion<br>de la paie</div>
+          </div>
+          <div class="carte-noeud" style="left:82%;top:20%;" data-id="1" onclick="afficherDetail(1)">
+            <div class="carte-noeud-cercle">💻</div>
+            <div class="carte-noeud-label">Maîtrise<br>de Silae</div>
+          </div>
+          <div class="carte-noeud" style="left:10%;top:60%;" data-id="2" onclick="afficherDetail(2)">
+            <div class="carte-noeud-cercle">🏢</div>
+            <div class="carte-noeud-label">Gestion<br>d'entreprise</div>
+          </div>
+          <div class="carte-noeud" style="left:90%;top:60%;" data-id="3" onclick="afficherDetail(3)">
+            <div class="carte-noeud-cercle">📋</div>
+            <div class="carte-noeud-label">Recrutement<br>&amp; RH</div>
+          </div>
+          <div class="carte-noeud" style="left:30%;top:85%;" data-id="4" onclick="afficherDetail(4)">
+            <div class="carte-noeud-cercle">🔢</div>
+            <div class="carte-noeud-label">Excel<br>paie</div>
+          </div>
+          <div class="carte-noeud" style="left:70%;top:85%;" data-id="5" onclick="afficherDetail(5)">
+            <div class="carte-noeud-cercle">⚖️</div>
+            <div class="carte-noeud-label">Droit<br>social</div>
+          </div>
+
+          <div class="carte-detail" id="carteDetail">
+            <h4 id="carteDetailTitre"></h4>
+            <p id="carteDetailDesc"></p>
+            <span class="duree-badge" id="carteDetailDuree"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEMOIGNAGES -->
   <section id="temoignages">
     <div class="container">
@@ -934,6 +1089,13 @@
     </div>
   </section>
 
+  <!-- COMPTEUR VISITEURS -->
+  <div style="background:var(--marine2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 2rem;text-align:center;">
+    <span style="font-size:0.8rem;color:var(--texte-muted);letter-spacing:1px;text-transform:uppercase;">Visiteurs aujourd'hui</span>
+    <span id="visitorCount" style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--or);margin-left:1rem;font-weight:700;">—</span>
+    <span style="font-size:0.75rem;color:var(--texte-muted);margin-left:0.5rem;">personnes sur le site</span>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Cabinet <span>Alfred Gory</span></div>
@@ -946,6 +1108,86 @@
   <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <script>
+    // PARTICULES ANIMÉES
+    (function() {
+      var canvas = document.getElementById('particles');
+      var ctx = canvas.getContext('2d');
+      var pts = [];
+      function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+      resize();
+      window.addEventListener('resize', resize);
+      for (var i = 0; i < 60; i++) {
+        pts.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.5 + 0.3,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          a: Math.random()
+        });
+      }
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pts.forEach(function(p) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = canvas.width;
+          if (p.x > canvas.width) p.x = 0;
+          if (p.y < 0) p.y = canvas.height;
+          if (p.y > canvas.height) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(201,168,76,' + (p.a * 0.6) + ')';
+          ctx.fill();
+        });
+        pts.forEach(function(a, i) {
+          pts.forEach(function(b, j) {
+            if (j <= i) return;
+            var dx = a.x - b.x, dy = a.y - b.y;
+            var dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = 'rgba(201,168,76,' + (0.08 * (1 - dist/120)) + ')';
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          });
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // CARTE INTERACTIVE
+    var formations = [
+      { titre: "Gestion de la paie", desc: "Bases du droit du travail, cotisations sociales, bulletins de paie, DSN.", duree: "35 heures" },
+      { titre: "Maîtrise de Silae", desc: "Prise en main du logiciel, paramétrage, saisie des bulletins, génération DSN.", duree: "21 heures" },
+      { titre: "Gestion d'entreprise", desc: "Bilans comptables, RH, obligations sociales, tableaux de bord.", duree: "28 heures" },
+      { titre: "Recrutement & RH", desc: "Techniques de recrutement, contrats, congés, entretiens professionnels.", duree: "14 heures" },
+      { titre: "Excel pour la paie", desc: "Tableaux de suivi, calculs automatisés, tableaux croisés dynamiques.", duree: "14 heures" },
+      { titre: "Droit social pratique", desc: "Code du travail, litiges, rupture de contrat, veille réglementaire.", duree: "21 heures" }
+    ];
+    function afficherDetail(id) {
+      document.querySelectorAll('.carte-noeud').forEach(function(n) { n.classList.remove('actif'); });
+      document.querySelector('.carte-noeud[data-id="' + id + '"]').classList.add('actif');
+      var f = formations[id];
+      document.getElementById('carteDetailTitre').textContent = f.titre;
+      document.getElementById('carteDetailDesc').textContent = f.desc;
+      document.getElementById('carteDetailDuree').textContent = '⏱ ' + f.duree;
+      document.getElementById('carteDetail').classList.add('visible');
+    }
+
+    // COMPTEUR VISITEURS (via API publique gratuite)
+    fetch('https://api.countapi.xyz/hit/alfred-gory-formation/visits')
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        document.getElementById('visitorCount').textContent = d.value;
+      })
+      .catch(function() {
+        document.getElementById('visitorCount').textContent = '—';
+      });
+
     // Menu hamburger
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
