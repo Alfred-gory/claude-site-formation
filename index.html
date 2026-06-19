@@ -1027,52 +1027,39 @@
       <div class="section-header fade-in">
         <span class="section-tag">Actualités</span>
         <h2>Nos <span class="gold">Conseils & Ressources</span></h2>
-        <p>Articles pratiques sur la paie, le droit social et la gestion d'entreprise</p>
+        <p>Actualités juridiques et pratiques en paie, droit social et RH — mises à jour chaque matin</p>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:3rem;">
-
-        <article class="fade-in" style="background:#161b22; border:1px solid rgba(201,168,76,0.15); border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="background:linear-gradient(135deg,#1c2333,#0d1117); padding:2rem; text-align:center; font-size:3rem;">📋</div>
-          <div style="padding:1.5rem;">
-            <span style="background:rgba(201,168,76,0.15); color:#c9a84c; font-size:0.75rem; padding:0.3rem 0.8rem; border-radius:20px; font-weight:600;">Paie</span>
-            <h3 style="color:#e6edf3; font-family:'Playfair Display',serif; margin:0.8rem 0 0.6rem; font-size:1.1rem;">Comment lire un bulletin de paie ?</h3>
-            <p style="color:#8b949e; font-size:0.88rem; line-height:1.7;">Le bulletin de paie peut sembler complexe. Découvrez les lignes essentielles à comprendre : salaire brut, cotisations, net imposable et net à payer.</p>
-            <div style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid rgba(201,168,76,0.1); display:flex; align-items:center; justify-content:space-between;">
-              <span style="color:#8b949e; font-size:0.78rem;">📅 Juin 2025</span>
-              <span style="color:#c9a84c; font-size:0.82rem; font-weight:600;">5 min de lecture</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="fade-in" style="background:#161b22; border:1px solid rgba(201,168,76,0.15); border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="background:linear-gradient(135deg,#1c2333,#0d1117); padding:2rem; text-align:center; font-size:3rem;">⚖️</div>
-          <div style="padding:1.5rem;">
-            <span style="background:rgba(201,168,76,0.15); color:#c9a84c; font-size:0.75rem; padding:0.3rem 0.8rem; border-radius:20px; font-weight:600;">Droit social</span>
-            <h3 style="color:#e6edf3; font-family:'Playfair Display',serif; margin:0.8rem 0 0.6rem; font-size:1.1rem;">Rupture conventionnelle : ce qu'il faut savoir</h3>
-            <p style="color:#8b949e; font-size:0.88rem; line-height:1.7;">La rupture conventionnelle permet de mettre fin à un CDI d'un commun accord. Procédure, délais de rétractation, indemnités : le guide complet.</p>
-            <div style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid rgba(201,168,76,0.1); display:flex; align-items:center; justify-content:space-between;">
-              <span style="color:#8b949e; font-size:0.78rem;">📅 Mai 2025</span>
-              <span style="color:#c9a84c; font-size:0.82rem; font-weight:600;">7 min de lecture</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="fade-in" style="background:#161b22; border:1px solid rgba(201,168,76,0.15); border-radius:16px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="background:linear-gradient(135deg,#1c2333,#0d1117); padding:2rem; text-align:center; font-size:3rem;">💰</div>
-          <div style="padding:1.5rem;">
-            <span style="background:rgba(201,168,76,0.15); color:#c9a84c; font-size:0.75rem; padding:0.3rem 0.8rem; border-radius:20px; font-weight:600;">Financement</span>
-            <h3 style="color:#e6edf3; font-family:'Playfair Display',serif; margin:0.8rem 0 0.6rem; font-size:1.1rem;">CPF : comment utiliser son compte formation ?</h3>
-            <p style="color:#8b949e; font-size:0.88rem; line-height:1.7;">Chaque salarié dispose d'un Compte Personnel de Formation alimenté chaque année. Découvrez comment mobiliser vos droits pour financer une formation.</p>
-            <div style="margin-top:1.2rem; padding-top:1rem; border-top:1px solid rgba(201,168,76,0.1); display:flex; align-items:center; justify-content:space-between;">
-              <span style="color:#8b949e; font-size:0.78rem;">📅 Avril 2025</span>
-              <span style="color:#c9a84c; font-size:0.82rem; font-weight:600;">4 min de lecture</span>
-            </div>
-          </div>
-        </article>
-
+      <div id="blog-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:3rem;">
+        <div style="color:#8b949e; text-align:center; padding:3rem; grid-column:1/-1;">Chargement des actualités...</div>
       </div>
+      <p id="blog-maj" style="text-align:center; color:#8b949e; font-size:0.78rem; margin-top:1.5rem;"></p>
     </div>
   </section>
+
+  <script>
+    fetch('articles.json?v=' + Date.now())
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var grid = document.getElementById('blog-grid');
+        var maj = document.getElementById('blog-maj');
+        if(maj && data.mis_a_jour) maj.textContent = '🔄 Dernière mise à jour : ' + data.mis_a_jour;
+        if(!data.articles || !data.articles.length){ grid.innerHTML = '<p style="color:#8b949e;text-align:center;grid-column:1/-1">Aucun article disponible pour le moment.</p>'; return; }
+        grid.innerHTML = data.articles.map(function(a){
+          var lienAttr = a.lien && a.lien !== '#contact' ? 'href="'+a.lien+'" target="_blank" rel="noopener"' : 'href="#contact"';
+          return '<article style="background:#161b22;border:1px solid rgba(201,168,76,0.15);border-radius:16px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'0 20px 40px rgba(0,0,0,0.3)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">'
+            +'<div style="background:linear-gradient(135deg,#1c2333,#0d1117);padding:2rem;text-align:center;font-size:3rem;">'+a.icone+'</div>'
+            +'<div style="padding:1.5rem;">'
+            +'<span style="background:rgba(201,168,76,0.15);color:#c9a84c;font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;font-weight:600;">'+a.categorie+'</span>'
+            +'<h3 style="color:#e6edf3;font-family:\'Playfair Display\',serif;margin:0.8rem 0 0.6rem;font-size:1.05rem;line-height:1.4;">'+a.titre+'</h3>'
+            +'<p style="color:#8b949e;font-size:0.86rem;line-height:1.7;">'+a.resume+'</p>'
+            +'<div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.4rem;">'
+            +'<span style="color:#8b949e;font-size:0.76rem;">📅 '+a.date+' — '+a.source+'</span>'
+            +'<a '+lienAttr+' style="color:#c9a84c;font-size:0.8rem;font-weight:600;text-decoration:none;">'+a.lecture+' →</a>'
+            +'</div></div></article>';
+        }).join('');
+      })
+      .catch(function(){ document.getElementById('blog-grid').innerHTML = '<p style="color:#8b949e;text-align:center;grid-column:1/-1">Actualités temporairement indisponibles.</p>'; });
+  </script>
 
   <!-- CONTACT -->
   <section id="contact">

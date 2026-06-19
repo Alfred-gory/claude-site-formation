@@ -1,0 +1,35 @@
+{
+  "mis_a_jour": "19/06/2025 à 08h00",
+  "articles": [
+    {
+      "titre": "Comment lire un bulletin de paie ?",
+      "resume": "Le bulletin de paie peut sembler complexe. Découvrez les lignes essentielles : salaire brut, cotisations, net imposable et net à payer. Un guide pratique pour salariés et employeurs.",
+      "categorie": "Paie",
+      "icone": "📊",
+      "date": "Juin 2025",
+      "source": "Cabinet Alfred Gory",
+      "lien": "#contact",
+      "lecture": "5 min de lecture"
+    },
+    {
+      "titre": "Rupture conventionnelle : ce qu'il faut savoir",
+      "resume": "La rupture conventionnelle permet de mettre fin à un CDI d'un commun accord. Procédure, délais de rétractation, indemnités minimales : le guide complet pour sécuriser la démarche.",
+      "categorie": "Droit social",
+      "icone": "⚖️",
+      "date": "Mai 2025",
+      "source": "Cabinet Alfred Gory",
+      "lien": "#contact",
+      "lecture": "7 min de lecture"
+    },
+    {
+      "titre": "CPF : comment utiliser son compte formation ?",
+      "resume": "Chaque salarié dispose d'un Compte Personnel de Formation alimenté chaque année. Découvrez comment mobiliser vos droits pour financer une de nos formations en paie, RH ou droit social.",
+      "categorie": "Formation",
+      "icone": "🎓",
+      "date": "Avril 2025",
+      "source": "Cabinet Alfred Gory",
+      "lien": "#contact",
+      "lecture": "4 min de lecture"
+    }
+  ]
+}
