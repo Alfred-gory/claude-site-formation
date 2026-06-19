@@ -36,6 +36,14 @@
     ::-webkit-scrollbar-track { background: var(--marine); }
     ::-webkit-scrollbar-thumb { background: var(--or); border-radius: 3px; }
 
+    /* BARRE DE PROGRESSION DE LECTURE */
+    #read-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
+      background: linear-gradient(90deg, #c9a84c, #e8d08a, #c9a84c);
+      width: 0%; transition: width 0.1s linear;
+      box-shadow: 0 0 8px rgba(201,168,76,0.6);
+    }
+
     /* NAVIGATION */
     nav {
       position: fixed;
@@ -635,19 +643,40 @@
 
     /* FOOTER */
     footer {
-      background: var(--marine2);
+      background: #080c10;
       border-top: 1px solid var(--border);
-      padding: 3rem 2rem;
-      text-align: center;
+      padding: 0;
     }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding: 4rem 3rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media(max-width:900px){ .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; } }
+    @media(max-width:560px){ .footer-top { grid-template-columns: 1fr; } }
     .footer-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: var(--texte);
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
     .footer-logo span { color: var(--or); }
-    footer p { color: var(--texte-muted); font-size: 0.82rem; line-height: 1.8; }
+    .footer-desc { color: var(--texte-muted); font-size: 0.83rem; line-height: 1.8; margin-bottom: 1.2rem; }
+    .footer-contact-line { display: flex; align-items: center; gap: 0.5rem; color: var(--texte-muted); font-size: 0.82rem; margin-bottom: 0.4rem; }
+    .footer-contact-line span:first-child { color: var(--or); }
+    .footer-col h4 { color: var(--texte); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+    .footer-col a { display: block; color: var(--texte-muted); font-size: 0.82rem; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--or); }
+    .footer-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+    .footer-badge { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2); color: var(--or); font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; letter-spacing: 0.05em; }
+    .footer-bottom { border-top: 1px solid var(--border); padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1200px; margin: 0 auto; }
+    .footer-bottom p { color: #4a5568; font-size: 0.75rem; }
+    .footer-bottom a { color: #4a5568; text-decoration: none; font-size: 0.75rem; }
+    .footer-bottom a:hover { color: var(--or); }
+    .footer-legal { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 
     /* BOUTON RETOUR EN HAUT */
     .top-btn {
@@ -694,6 +723,9 @@
 <body>
 
   <!-- NAVIGATION -->
+  <!-- Barre de progression -->
+  <div id="read-progress"></div>
+
   <nav id="navbar">
     <div class="logo">Cabinet <span>Alfred Gory</span></div>
     <ul class="nav-links">
@@ -788,6 +820,36 @@
       }).catch(function(){});
   })();
   </script>
+
+  <!-- BANDE CERTIFICATIONS / PARTENAIRES -->
+  <div style="background:#080c10; border-bottom:1px solid rgba(201,168,76,0.12); padding:1.2rem 2rem; overflow:hidden;">
+    <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:2rem 3rem; max-width:1100px; margin:0 auto;">
+      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+        <span style="font-size:1.4rem;">🏅</span>
+        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Démarche</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">Qualiopi</div></div>
+      </div>
+      <div style="width:1px; height:2rem; background:rgba(201,168,76,0.15); flex-shrink:0;"></div>
+      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+        <span style="font-size:1.4rem;">💳</span>
+        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Éligible</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">Compte CPF</div></div>
+      </div>
+      <div style="width:1px; height:2rem; background:rgba(201,168,76,0.15); flex-shrink:0;"></div>
+      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+        <span style="font-size:1.4rem;">🤝</span>
+        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Finançable</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">OPCO & AGEFICE</div></div>
+      </div>
+      <div style="width:1px; height:2rem; background:rgba(201,168,76,0.15); flex-shrink:0;"></div>
+      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+        <span style="font-size:1.4rem;">🖥️</span>
+        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Format</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">100 % en ligne</div></div>
+      </div>
+      <div style="width:1px; height:2rem; background:rgba(201,168,76,0.15); flex-shrink:0;"></div>
+      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
+        <span style="font-size:1.4rem;">📋</span>
+        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Attestation</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">de fin de formation</div></div>
+      </div>
+    </div>
+  </div>
 
   <!-- STATS -->
   <div class="stats">
@@ -999,40 +1061,91 @@
         <div class="section-label">Ils nous font confiance</div>
         <h2 class="section-title">Avis de nos apprenants</h2>
         <div class="divider"></div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:0.4rem; margin-top:0.5rem;">
+          <span style="color:#c9a84c; font-size:1.1rem;">★★★★★</span>
+          <span style="color:#e6edf3; font-size:0.9rem; font-weight:600; margin-left:0.3rem;">4,9 / 5</span>
+          <span style="color:#8b949e; font-size:0.82rem;">— Note moyenne de satisfaction</span>
+        </div>
       </div>
       <div class="temo-grid">
-        <div class="temo-card fade-in">
+
+        <div class="temo-card fade-in" style="position:relative; overflow:hidden;">
+          <div style="position:absolute; top:1rem; right:1rem; font-size:2rem; opacity:0.06; font-family:Georgia,serif; line-height:1;">"</div>
           <div class="stars">★★★★★</div>
-          <p>"La formation Silae m'a permis de prendre en main le logiciel en quelques jours. Les exercices sont vraiment adaptés à la réalité du terrain."</p>
+          <p>"La formation Silae m'a permis de prendre en main le logiciel en quelques jours. Les exercices sont vraiment adaptés à la réalité du terrain. Je recommande vivement !"</p>
           <div class="temo-auteur">
-            <div class="avatar">SM</div>
+            <div class="avatar" style="background:linear-gradient(135deg,#1a6b4a,#2ecc71);">SM</div>
             <div>
               <strong>Sophie M.</strong>
               <span>Gestionnaire de paie — Paris</span>
+              <div style="margin-top:0.3rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
+                <span style="background:rgba(201,168,76,0.1); color:#c9a84c; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">Formation Silae</span>
+                <span style="background:rgba(46,204,113,0.1); color:#2ecc71; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">✓ Certifiée</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="temo-card fade-in">
+
+        <div class="temo-card fade-in" style="position:relative; overflow:hidden;">
+          <div style="position:absolute; top:1rem; right:1rem; font-size:2rem; opacity:0.06; font-family:Georgia,serif; line-height:1;">"</div>
           <div class="stars">★★★★★</div>
-          <p>"Excellent cabinet. La formation gestion d'entreprise m'a permis de mettre en place de nouveaux outils de pilotage dès la semaine suivante."</p>
+          <p>"Excellent cabinet. La formation gestion d'entreprise m'a permis de mettre en place de nouveaux outils de pilotage dès la semaine suivante. Le formateur était très disponible."</p>
           <div class="temo-auteur">
-            <div class="avatar">KD</div>
+            <div class="avatar" style="background:linear-gradient(135deg,#1a3a6b,#3a7bd5);">KD</div>
             <div>
               <strong>Karim D.</strong>
               <span>Dirigeant TPE — Lyon</span>
+              <div style="margin-top:0.3rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
+                <span style="background:rgba(201,168,76,0.1); color:#c9a84c; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">Gestion d'entreprise</span>
+                <span style="background:rgba(46,204,113,0.1); color:#2ecc71; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">✓ Financé OPCO</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="temo-card fade-in">
+
+        <div class="temo-card fade-in" style="position:relative; overflow:hidden;">
+          <div style="position:absolute; top:1rem; right:1rem; font-size:2rem; opacity:0.06; font-family:Georgia,serif; line-height:1;">"</div>
           <div class="stars">★★★★★</div>
-          <p>"Très pédagogique et professionnelle. La formation paie m'a donné toutes les bases pour gérer les bulletins de salaire en toute autonomie."</p>
+          <p>"Très pédagogique et professionnelle. La formation paie m'a donné toutes les bases pour gérer les bulletins de salaire en toute autonomie. Le contenu est à jour."</p>
           <div class="temo-auteur">
-            <div class="avatar">AL</div>
+            <div class="avatar" style="background:linear-gradient(135deg,#6b1a4a,#c0397a);">AL</div>
             <div>
               <strong>Amélie L.</strong>
               <span>Assistante RH — Bordeaux</span>
+              <div style="margin-top:0.3rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
+                <span style="background:rgba(201,168,76,0.1); color:#c9a84c; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">Gestion de la paie</span>
+                <span style="background:rgba(46,204,113,0.1); color:#2ecc71; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">✓ Financée CPF</span>
+              </div>
             </div>
           </div>
+        </div>
+
+      </div>
+
+      <!-- Bandeau garantie satisfaction -->
+      <div class="fade-in" style="margin-top:3rem; background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02)); border:1px solid rgba(201,168,76,0.2); border-radius:12px; padding:2rem; display:flex; align-items:center; justify-content:space-around; flex-wrap:wrap; gap:1.5rem;">
+        <div style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:0.4rem;">🛡️</div>
+          <div style="color:#e6edf3; font-weight:700; font-size:0.9rem;">Satisfaction garantie</div>
+          <div style="color:#8b949e; font-size:0.78rem; margin-top:0.2rem;">Remboursement si non satisfait</div>
+        </div>
+        <div style="width:1px; height:3rem; background:rgba(201,168,76,0.2);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:0.4rem;">📞</div>
+          <div style="color:#e6edf3; font-weight:700; font-size:0.9rem;">Accompagnement inclus</div>
+          <div style="color:#8b949e; font-size:0.78rem; margin-top:0.2rem;">Formateur joignable tout au long</div>
+        </div>
+        <div style="width:1px; height:3rem; background:rgba(201,168,76,0.2);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:0.4rem;">📄</div>
+          <div style="color:#e6edf3; font-weight:700; font-size:0.9rem;">Attestation officielle</div>
+          <div style="color:#8b949e; font-size:0.78rem; margin-top:0.2rem;">Délivrée à l'issue de chaque formation</div>
+        </div>
+        <div style="width:1px; height:3rem; background:rgba(201,168,76,0.2);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:0.4rem;">♻️</div>
+          <div style="color:#e6edf3; font-weight:700; font-size:0.9rem;">Accès à vie</div>
+          <div style="color:#8b949e; font-size:0.78rem; margin-top:0.2rem;">Supports de cours conservés</div>
         </div>
       </div>
     </div>
@@ -1238,12 +1351,80 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">Cabinet <span>Alfred Gory</span></div>
-    <p>Formation RH &amp; Paie — Certifié Qualiopi</p>
-    <p style="margin-top:0.5rem;">📍 10-12 rue Condorcet, 95150 Taverny</p>
-    <p style="margin-top:0.3rem;">✉️ formation@alfred-gory.fr</p>
-    <p style="margin-top:1.5rem; font-size:0.78rem; opacity:0.4;">© 2025 Cabinet Alfred Gory — Tous droits réservés</p>
+    <div class="footer-top">
+
+      <!-- Colonne 1 : identité -->
+      <div>
+        <div class="footer-logo">Cabinet <span>Alfred Gory</span></div>
+        <p class="footer-desc">Organisme de formation spécialisé en paie, RH et droit social. Des parcours certifiés conçus par des experts terrain pour vous rendre autonome.</p>
+        <div class="footer-contact-line"><span>📍</span><span>10-12 rue Condorcet, 95150 Taverny</span></div>
+        <div class="footer-contact-line"><span>✉️</span><span>formation@alfred-gory.fr</span></div>
+        <div class="footer-contact-line"><span>⏱</span><span>Réponse sous 48h ouvrées</span></div>
+        <div class="footer-badges">
+          <span class="footer-badge">🏅 Qualiopi</span>
+          <span class="footer-badge">💳 CPF</span>
+          <span class="footer-badge">🤝 OPCO</span>
+          <span class="footer-badge">📋 L.6351-1</span>
+        </div>
+      </div>
+
+      <!-- Colonne 2 : formations -->
+      <div class="footer-col">
+        <h4>Nos formations</h4>
+        <a href="formations.html">Gestion de la paie</a>
+        <a href="formations.html">Maîtrise de Silae</a>
+        <a href="formations.html">Gestion d'entreprise</a>
+        <a href="formations.html">Recrutement & RH</a>
+        <a href="formations.html">Excel pour la paie</a>
+        <a href="formations.html">Droit social pratique</a>
+      </div>
+
+      <!-- Colonne 3 : informations -->
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <a href="#pourquoi">À propos du cabinet</a>
+        <a href="#temoignages">Avis apprenants</a>
+        <a href="#blog">Actualités juridiques</a>
+        <a href="#contact">Nous contacter</a>
+        <a href="#contact">Demander un devis</a>
+      </div>
+
+      <!-- Colonne 4 : financement -->
+      <div class="footer-col">
+        <h4>Financement</h4>
+        <a href="#contact">Via le CPF</a>
+        <a href="#contact">Via votre OPCO</a>
+        <a href="#contact">Plan de formation</a>
+        <a href="#contact">AGEFICE (TNS)</a>
+        <a href="#contact">Prise en charge partielle</a>
+      </div>
+
+    </div>
+
+    <!-- Mention légale Qualiopi -->
+    <div style="max-width:1200px; margin:0 auto; padding:0 3rem 1.5rem; font-size:0.72rem; color:#4a5568; line-height:1.6; border-top:1px solid rgba(201,168,76,0.08); padding-top:1.2rem;">
+      Cet enregistrement ne vaut pas agrément de l'État. Les formations proposées par Cabinet Alfred Gory sont réalisées conformément aux articles L.6311-1 et suivants du Code du travail. Les financements CPF, OPCO et AGEFICE sont soumis aux conditions propres à chaque organisme financeur.
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Cabinet Alfred Gory — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="#contact">Mentions légales</a>
+        <a href="#contact">Politique de confidentialité</a>
+        <a href="#contact">CGV</a>
+        <a href="#contact">Accessibilité</a>
+      </div>
+    </div>
   </footer>
+
+  <!-- BANNIÈRE RGPD -->
+  <div id="rgpd" style="position:fixed; bottom:0; left:0; right:0; z-index:8888; background:#0f1419; border-top:1px solid rgba(201,168,76,0.25); padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; transform:translateY(100%); transition:transform 0.4s ease;">
+    <p style="color:#8b949e; font-size:0.8rem; max-width:700px; margin:0;">🍪 Ce site utilise uniquement des cookies techniques indispensables à son fonctionnement. Aucune donnée n'est transmise à des tiers à des fins publicitaires.</p>
+    <div style="display:flex; gap:0.8rem; flex-shrink:0;">
+      <button onclick="acceptRgpd()" style="background:#c9a84c; border:none; color:#0d1117; font-weight:700; font-size:0.8rem; padding:0.5rem 1.2rem; border-radius:6px; cursor:pointer;">Accepter</button>
+      <button onclick="acceptRgpd()" style="background:transparent; border:1px solid rgba(201,168,76,0.3); color:#8b949e; font-size:0.8rem; padding:0.5rem 1rem; border-radius:6px; cursor:pointer;">Refuser les optionnels</button>
+    </div>
+  </div>
 
   <!-- BOUTON RETOUR EN HAUT -->
   <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -1432,6 +1613,46 @@
       });
     }, { threshold: 0.5 });
     document.querySelectorAll('.counter').forEach(function(el) { counterObserver.observe(el); });
+
+    // BARRE DE PROGRESSION
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      document.getElementById('read-progress').style.width = pct + '%';
+    });
+
+    // RGPD — affiche après 1.5s si pas encore accepté
+    function acceptRgpd() {
+      document.getElementById('rgpd').style.transform = 'translateY(100%)';
+      try { localStorage.setItem('rgpd_ok', '1'); } catch(e){}
+    }
+    try {
+      if (!localStorage.getItem('rgpd_ok')) {
+        setTimeout(function() {
+          document.getElementById('rgpd').style.transform = 'translateY(0)';
+        }, 1500);
+      }
+    } catch(e) {}
+
+    // MICRO-ANIMATION : survol des cartes formation — lueur dorée
+    document.querySelectorAll('.fcard').forEach(function(card) {
+      card.addEventListener('mouseenter', function() {
+        this.style.borderColor = 'rgba(201,168,76,0.4)';
+        this.style.boxShadow = '0 0 30px rgba(201,168,76,0.08), 0 20px 40px rgba(0,0,0,0.3)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.borderColor = '';
+        this.style.boxShadow = '';
+      });
+    });
+
+    // TOOLTIP sur les badges certifications
+    document.querySelectorAll('.footer-badge').forEach(function(b) {
+      b.style.cursor = 'default';
+      b.title = b.textContent.trim() + ' — cliquez pour en savoir plus';
+    });
+
   </script>
 
   <script src="assistant.js"></script>
