@@ -74,8 +74,8 @@
   ];
 
   var defaultRep = [
-    "Je ne suis pas sûr de comprendre votre question. Pouvez-vous reformuler ? Vous pouvez me demander des informations sur nos formations, les tarifs, le financement CPF ou nous contacter. 😊",
-    "Je n'ai pas bien compris. Essayez de me demander par exemple : *'Quelles formations proposez-vous ?'* ou *'Comment financer ma formation ?'* 🎓"
+    "Je ne suis pas sûr de comprendre votre question. Pouvez-vous reformuler ?\n\nVous pouvez me demander par exemple : *'Quelles formations proposez-vous ?'* ou *'Comment financer ma formation ?'*\n\nPour toute autre question : ✉️ formation@alfred-gory.fr 😊",
+    "Je n'ai pas bien compris votre demande. N'hésitez pas à reformuler !\n\nJe peux vous renseigner sur nos formations, les durées, les prérequis et le financement CPF/OPCO.\n\nSinon, contactez-nous directement : ✉️ formation@alfred-gory.fr 🎓"
   ];
 
   // ALGORITHME DE COMPRÉHENSION
