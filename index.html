@@ -737,6 +737,58 @@
     </div>
   </section>
 
+  <!-- FIL D'ACTUALITÉS -->
+  <div id="ticker-zone" style="background:#0d1117; border-top:1px solid rgba(201,168,76,0.15); border-bottom:1px solid rgba(201,168,76,0.15); overflow:hidden; display:none;">
+    <div style="display:flex; align-items:stretch;">
+      <div style="background:rgba(201,168,76,0.12); padding:0.6rem 1.2rem; display:flex; align-items:center; gap:0.5rem; flex-shrink:0; border-right:1px solid rgba(201,168,76,0.2);">
+        <span style="color:#c9a84c; font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;">Actualités</span>
+      </div>
+      <div style="overflow:hidden; flex:1; position:relative;">
+        <div id="ticker-track" style="display:flex; align-items:center; gap:0; white-space:nowrap; will-change:transform;">
+          <span id="ticker-content" style="display:inline-flex; align-items:center; gap:2.5rem; padding:0.6rem 2rem; font-size:0.82rem; color:#8b949e;"></span>
+          <span id="ticker-clone"   style="display:inline-flex; align-items:center; gap:2.5rem; padding:0.6rem 2rem; font-size:0.82rem; color:#8b949e;"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    fetch('articles.json?v='+Date.now())
+      .then(function(r){return r.json();})
+      .then(function(data){
+        if(!data.articles||!data.articles.length) return;
+        var zone = document.getElementById('ticker-zone');
+        var content = document.getElementById('ticker-content');
+        var clone = document.getElementById('ticker-clone');
+        var html = data.articles.map(function(a){
+          return '<a href="'+(a.lien||'#blog')+'" '+(a.lien&&a.lien!=='#contact'&&a.lien!=='#blog'?'target="_blank" rel="noopener"':'')+
+            ' style="color:#c9a84c;text-decoration:none;font-weight:600;transition:color 0.2s;" onmouseover="this.style.color=\'#e8d08a\'" onmouseout="this.style.color=\'#c9a84c\'">'+
+            '<span style="color:#8b949e;font-weight:400;margin-right:0.4rem;">'+a.icone+'</span>'+a.titre+'</a>'+
+            '<span style="color:rgba(201,168,76,0.3);">◆</span>';
+        }).join('');
+        content.innerHTML = html;
+        clone.innerHTML = html;
+        zone.style.display = 'block';
+        var track = document.getElementById('ticker-track');
+        var pos = 0;
+        var paused = false;
+        zone.addEventListener('mouseenter',function(){paused=true;});
+        zone.addEventListener('mouseleave',function(){paused=false;});
+        function animate(){
+          if(!paused){
+            pos -= 0.6;
+            var w = content.offsetWidth;
+            if(Math.abs(pos) >= w) pos = 0;
+            track.style.transform = 'translateX('+pos+'px)';
+          }
+          requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+      }).catch(function(){});
+  })();
+  </script>
+
   <!-- STATS -->
   <div class="stats">
     <div class="stat-item">
@@ -1046,15 +1098,27 @@
         if(!data.articles || !data.articles.length){ grid.innerHTML = '<p style="color:#8b949e;text-align:center;grid-column:1/-1">Aucun article disponible pour le moment.</p>'; return; }
         grid.innerHTML = data.articles.map(function(a){
           var lienAttr = a.lien && a.lien !== '#contact' ? 'href="'+a.lien+'" target="_blank" rel="noopener"' : 'href="#contact"';
-          return '<article style="background:#161b22;border:1px solid rgba(201,168,76,0.15);border-radius:16px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'0 20px 40px rgba(0,0,0,0.3)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">'
-            +'<div style="background:linear-gradient(135deg,#1c2333,#0d1117);padding:2rem;text-align:center;font-size:3rem;">'+a.icone+'</div>'
-            +'<div style="padding:1.5rem;">'
-            +'<span style="background:rgba(201,168,76,0.15);color:#c9a84c;font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;font-weight:600;">'+a.categorie+'</span>'
-            +'<h3 style="color:#e6edf3;font-family:\'Playfair Display\',serif;margin:0.8rem 0 0.6rem;font-size:1.05rem;line-height:1.4;">'+a.titre+'</h3>'
-            +'<p style="color:#8b949e;font-size:0.86rem;line-height:1.7;">'+a.resume+'</p>'
-            +'<div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.4rem;">'
-            +'<span style="color:#8b949e;font-size:0.76rem;">📅 '+a.date+' — '+a.source+'</span>'
-            +'<a '+lienAttr+' style="color:#c9a84c;font-size:0.8rem;font-weight:600;text-decoration:none;">'+a.lecture+' →</a>'
+          var accent = a.couleur_accent || '#c9a84c';
+          var bg = a.couleur_bg || 'linear-gradient(135deg,#1c2333,#0d1117)';
+          var visuel = a.image
+            ? '<div style="height:160px;overflow:hidden;position:relative;">'
+              +'<img src="'+a.image+'" alt="'+a.titre+'" loading="lazy" onerror="this.parentElement.innerHTML=\'<div style=&quot;background:'+bg.replace(/"/g,'&quot;')+';&quot;></div>\'" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform=\'scale(1.04)\'" onmouseout="this.style.transform=\'\'"/>'
+              +'<div style="position:absolute;top:0.8rem;left:0.8rem;background:rgba(13,17,23,0.75);backdrop-filter:blur(6px);padding:0.25rem 0.7rem;border-radius:20px;font-size:0.7rem;font-weight:700;color:'+accent+';">'+a.categorie+'</div>'
+              +'</div>'
+            : '<div style="background:'+bg+';padding:2rem;text-align:center;font-size:2.8rem;position:relative;">'
+              +a.icone
+              +'<div style="position:absolute;top:0.8rem;left:0.8rem;background:rgba(13,17,23,0.6);backdrop-filter:blur(4px);padding:0.25rem 0.7rem;border-radius:20px;font-size:0.7rem;font-weight:700;color:'+accent+';">'+a.categorie+'</div>'
+              +'</div>';
+          var badge = a.image ? '' : '';
+          return '<article style="background:#161b22;border:1px solid rgba(201,168,76,0.12);border-radius:16px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'0 20px 40px rgba(0,0,0,0.35)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">'
+            +visuel
+            +'<div style="padding:1.4rem;flex:1;display:flex;flex-direction:column;">'
+            +(a.image ? '' : '')
+            +'<h3 style="color:#e6edf3;font-family:\'Playfair Display\',serif;margin:0 0 0.6rem;font-size:1.05rem;line-height:1.4;">'+a.titre+'</h3>'
+            +'<p style="color:#8b949e;font-size:0.85rem;line-height:1.7;flex:1;">'+a.resume+'</p>'
+            +'<div style="margin-top:1.2rem;padding-top:0.9rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.4rem;">'
+            +'<span style="color:#8b949e;font-size:0.75rem;">📅 '+a.date+' — '+a.source+'</span>'
+            +'<a '+lienAttr+' style="color:'+accent+';font-size:0.8rem;font-weight:600;text-decoration:none;">'+a.lecture+' →</a>'
             +'</div></div></article>';
         }).join('');
       })
