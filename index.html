@@ -1342,13 +1342,6 @@
     </div>
   </section>
 
-  <!-- COMPTEUR VISITEURS -->
-  <div style="background:var(--marine2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 2rem;text-align:center;">
-    <span style="font-size:0.8rem;color:var(--texte-muted);letter-spacing:1px;text-transform:uppercase;">Visiteurs aujourd'hui</span>
-    <span id="visitorCount" style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--or);margin-left:1rem;font-weight:700;">—</span>
-    <span style="font-size:0.75rem;color:var(--texte-muted);margin-left:0.5rem;">personnes sur le site</span>
-  </div>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-top">
@@ -1543,15 +1536,6 @@
       document.getElementById('carteDetail').classList.add('visible');
     }
 
-    // COMPTEUR VISITEURS
-    fetch('https://api.counterapi.dev/v1/alfred-gory-formation/visits/up')
-      .then(function(r) { return r.json(); })
-      .then(function(d) {
-        document.getElementById('visitorCount').textContent = d.count || d.value || '—';
-      })
-      .catch(function() {
-        document.getElementById('visitorCount').textContent = '—';
-      });
 
     // Menu hamburger
     function toggleMenu() {
