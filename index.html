@@ -1113,47 +1113,90 @@
       var canvas = document.getElementById('particles');
       var ctx = canvas.getContext('2d');
       var pts = [];
-      function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+      var mouse = { x: -999, y: -999 };
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
       resize();
       window.addEventListener('resize', resize);
-      for (var i = 0; i < 60; i++) {
+
+      window.addEventListener('mousemove', function(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      for (var i = 0; i < 120; i++) {
         pts.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.5 + 0.3,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          a: Math.random()
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          r: Math.random() * 2.5 + 0.5,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          a: Math.random() * 0.8 + 0.2
         });
       }
+
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
         pts.forEach(function(p) {
-          p.x += p.vx; p.y += p.vy;
+          p.x += p.vx;
+          p.y += p.vy;
           if (p.x < 0) p.x = canvas.width;
           if (p.x > canvas.width) p.x = 0;
           if (p.y < 0) p.y = canvas.height;
           if (p.y > canvas.height) p.y = 0;
+
+          // attraction douce vers la souris
+          var dx = mouse.x - p.x, dy = mouse.y - p.y;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 150) {
+            p.vx += dx * 0.00015;
+            p.vy += dy * 0.00015;
+          }
+          // limite de vitesse
+          var speed = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
+          if (speed > 1.2) { p.vx *= 0.95; p.vy *= 0.95; }
+
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(201,168,76,' + (p.a * 0.6) + ')';
+          ctx.fillStyle = 'rgba(201,168,76,' + p.a + ')';
           ctx.fill();
         });
-        pts.forEach(function(a, i) {
-          pts.forEach(function(b, j) {
-            if (j <= i) return;
-            var dx = a.x - b.x, dy = a.y - b.y;
+
+        // lignes entre particules proches
+        for (var i = 0; i < pts.length; i++) {
+          for (var j = i + 1; j < pts.length; j++) {
+            var dx = pts[i].x - pts[j].x;
+            var dy = pts[i].y - pts[j].y;
             var dist = Math.sqrt(dx*dx + dy*dy);
-            if (dist < 120) {
+            if (dist < 160) {
               ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(b.x, b.y);
-              ctx.strokeStyle = 'rgba(201,168,76,' + (0.08 * (1 - dist/120)) + ')';
-              ctx.lineWidth = 0.5;
+              ctx.moveTo(pts[i].x, pts[i].y);
+              ctx.lineTo(pts[j].x, pts[j].y);
+              ctx.strokeStyle = 'rgba(201,168,76,' + (0.12 * (1 - dist/160)) + ')';
+              ctx.lineWidth = 0.8;
               ctx.stroke();
             }
-          });
+          }
+        }
+
+        // lignes vers la souris
+        pts.forEach(function(p) {
+          var dx = mouse.x - p.x, dy = mouse.y - p.y;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 180) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = 'rgba(201,168,76,' + (0.2 * (1 - dist/180)) + ')';
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
         });
+
         requestAnimationFrame(draw);
       }
       draw();
