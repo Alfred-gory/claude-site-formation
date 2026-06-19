@@ -1074,17 +1074,32 @@
   </section>
 
   <!-- BLOG / ACTUALITÉS -->
-  <section id="blog" style="padding:5rem 0; background:#0d1117;">
-    <div class="container">
-      <div class="section-header fade-in">
-        <span class="section-tag">Actualités</span>
-        <h2>Nos <span class="gold">Conseils & Ressources</span></h2>
-        <p>Actualités juridiques et pratiques en paie, droit social et RH — mises à jour chaque matin</p>
+  <section id="blog" style="padding:5rem 0; background:#080c10; border-top:3px solid rgba(201,168,76,0.35); border-bottom:3px solid rgba(201,168,76,0.35); position:relative;">
+    <!-- Motif de fond discret -->
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(201,168,76,0.02) 0px,rgba(201,168,76,0.02) 1px,transparent 1px,transparent 80px),repeating-linear-gradient(0deg,rgba(201,168,76,0.02) 0px,rgba(201,168,76,0.02) 1px,transparent 1px,transparent 80px);pointer-events:none;"></div>
+    <div class="container" style="position:relative;">
+
+      <!-- En-tête style presse -->
+      <div class="fade-in" style="display:flex; align-items:center; gap:1.5rem; margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:1px solid rgba(201,168,76,0.2);">
+        <div>
+          <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:0.3rem;">
+            <span style="display:inline-block; width:4px; height:1.8rem; background:#c9a84c; border-radius:2px; flex-shrink:0;"></span>
+            <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#c9a84c;">Veille juridique & RH</span>
+          </div>
+          <h2 style="font-family:'Playfair Display',serif; color:#e6edf3; font-size:clamp(1.4rem,3vw,2rem); margin:0; font-weight:700;">Actualités <span style="color:#c9a84c;">du moment</span></h2>
+          <p style="color:#8b949e; font-size:0.85rem; margin:0.4rem 0 0;">Sélection quotidienne en paie, droit social et RH — sources officielles</p>
+        </div>
+        <div style="margin-left:auto; text-align:right; flex-shrink:0;">
+          <div style="font-size:1.8rem; margin-bottom:0.2rem;">📰</div>
+          <p id="blog-maj" style="color:#8b949e; font-size:0.72rem; margin:0; white-space:nowrap;"></p>
+        </div>
       </div>
-      <div id="blog-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:3rem;">
-        <div style="color:#8b949e; text-align:center; padding:3rem; grid-column:1/-1;">Chargement des actualités...</div>
+
+      <!-- Grille style presse : 1 grande + 2 petites -->
+      <div id="blog-grid" style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
+        <div style="color:#8b949e; text-align:center; padding:3rem;">Chargement des actualités...</div>
       </div>
-      <p id="blog-maj" style="text-align:center; color:#8b949e; font-size:0.78rem; margin-top:1.5rem;"></p>
+
     </div>
   </section>
 
@@ -1095,32 +1110,51 @@
         var grid = document.getElementById('blog-grid');
         var maj = document.getElementById('blog-maj');
         if(maj && data.mis_a_jour) maj.textContent = '🔄 Dernière mise à jour : ' + data.mis_a_jour;
-        if(!data.articles || !data.articles.length){ grid.innerHTML = '<p style="color:#8b949e;text-align:center;grid-column:1/-1">Aucun article disponible pour le moment.</p>'; return; }
-        grid.innerHTML = data.articles.map(function(a){
-          var lienAttr = a.lien && a.lien !== '#contact' ? 'href="'+a.lien+'" target="_blank" rel="noopener"' : 'href="#contact"';
-          var accent = a.couleur_accent || '#c9a84c';
-          var bg = a.couleur_bg || 'linear-gradient(135deg,#1c2333,#0d1117)';
-          var visuel = a.image
-            ? '<div style="height:160px;overflow:hidden;position:relative;">'
-              +'<img src="'+a.image+'" alt="'+a.titre+'" loading="lazy" onerror="this.parentElement.innerHTML=\'<div style=&quot;background:'+bg.replace(/"/g,'&quot;')+';&quot;></div>\'" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;" onmouseover="this.style.transform=\'scale(1.04)\'" onmouseout="this.style.transform=\'\'"/>'
-              +'<div style="position:absolute;top:0.8rem;left:0.8rem;background:rgba(13,17,23,0.75);backdrop-filter:blur(6px);padding:0.25rem 0.7rem;border-radius:20px;font-size:0.7rem;font-weight:700;color:'+accent+';">'+a.categorie+'</div>'
-              +'</div>'
-            : '<div style="background:'+bg+';padding:2rem;text-align:center;font-size:2.8rem;position:relative;">'
-              +a.icone
-              +'<div style="position:absolute;top:0.8rem;left:0.8rem;background:rgba(13,17,23,0.6);backdrop-filter:blur(4px);padding:0.25rem 0.7rem;border-radius:20px;font-size:0.7rem;font-weight:700;color:'+accent+';">'+a.categorie+'</div>'
-              +'</div>';
-          var badge = a.image ? '' : '';
-          return '<article style="background:#161b22;border:1px solid rgba(201,168,76,0.12);border-radius:16px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'0 20px 40px rgba(0,0,0,0.35)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'">'
-            +visuel
-            +'<div style="padding:1.4rem;flex:1;display:flex;flex-direction:column;">'
-            +(a.image ? '' : '')
-            +'<h3 style="color:#e6edf3;font-family:\'Playfair Display\',serif;margin:0 0 0.6rem;font-size:1.05rem;line-height:1.4;">'+a.titre+'</h3>'
-            +'<p style="color:#8b949e;font-size:0.85rem;line-height:1.7;flex:1;">'+a.resume+'</p>'
-            +'<div style="margin-top:1.2rem;padding-top:0.9rem;border-top:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.4rem;">'
-            +'<span style="color:#8b949e;font-size:0.75rem;">📅 '+a.date+' — '+a.source+'</span>'
-            +'<a '+lienAttr+' style="color:'+accent+';font-size:0.8rem;font-weight:600;text-decoration:none;">'+a.lecture+' →</a>'
-            +'</div></div></article>';
-        }).join('');
+        if(!data.articles || !data.articles.length){ grid.innerHTML = '<p style="color:#8b949e;text-align:center;">Aucun article disponible pour le moment.</p>'; return; }
+
+        function badge(a){ var accent=a.couleur_accent||'#c9a84c'; return '<span style="display:inline-block;background:rgba(13,17,23,0.7);border:1px solid '+accent+';color:'+accent+';font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:4px;">'+a.icone+' '+a.categorie+'</span>'; }
+        function visuelFond(a,h){ var accent=a.couleur_accent||'#c9a84c'; var bg=a.couleur_bg||'linear-gradient(135deg,#1c2333,#0d1117)';
+          if(a.image) return '<div style="height:'+h+';overflow:hidden;position:relative;flex-shrink:0;"><img src="'+a.image+'" alt="" loading="lazy" onerror="this.parentElement.style.background=\''+bg.replace(/'/g,'"')+'\';this.remove()" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;"/></div>';
+          return '<div style="height:'+h+';background:'+bg+';display:flex;align-items:center;justify-content:center;font-size:3rem;flex-shrink:0;">'+a.icone+'</div>';
+        }
+
+        var arts = data.articles;
+        var une = arts[0];
+        var autres = arts.slice(1);
+        var lienUne = une.lien&&une.lien!=='#contact'?'href="'+une.lien+'" target="_blank" rel="noopener"':'href="#contact"';
+        var accent0 = une.couleur_accent||'#c9a84c';
+
+        // Article à la UNE — grand format horizontal
+        var htmlUne = '<a '+lienUne+' style="display:grid;grid-template-columns:1fr 1fr;background:#0f1419;border:1px solid rgba(201,168,76,0.25);border-left:4px solid '+accent0+';border-radius:12px;overflow:hidden;text-decoration:none;transition:box-shadow 0.3s;margin-bottom:1.5rem;" onmouseover="this.style.boxShadow=\'0 8px 30px rgba(0,0,0,0.4)\'" onmouseout="this.style.boxShadow=\'\'">'
+          +visuelFond(une,'100%')
+          +'<div style="padding:2rem;display:flex;flex-direction:column;justify-content:space-between;">'
+          +'<div>'
+          +'<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">'+badge(une)+'<span style="font-size:0.7rem;color:#8b949e;">À la une</span></div>'
+          +'<h3 style="font-family:\'Playfair Display\',serif;color:#e6edf3;font-size:1.3rem;line-height:1.4;margin:0 0 0.8rem;">'+une.titre+'</h3>'
+          +'<p style="color:#8b949e;font-size:0.86rem;line-height:1.7;margin:0;">'+une.resume+'</p>'
+          +'</div>'
+          +'<div style="margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;">'
+          +'<span style="color:#8b949e;font-size:0.75rem;">📅 '+une.date+' — '+une.source+'</span>'
+          +'<span style="color:'+accent0+';font-size:0.82rem;font-weight:600;">'+une.lecture+' →</span>'
+          +'</div></div></a>';
+
+        // Articles secondaires — format liste compacte
+        var htmlAutres = autres.length ? '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">'
+          + autres.map(function(a){
+              var lien = a.lien&&a.lien!=='#contact'?'href="'+a.lien+'" target="_blank" rel="noopener"':'href="#contact"';
+              var acc = a.couleur_accent||'#c9a84c';
+              return '<a '+lien+' style="display:flex;gap:1rem;align-items:flex-start;background:#0f1419;border:1px solid rgba(201,168,76,0.12);border-left:3px solid '+acc+';border-radius:10px;padding:1rem;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background=\'#141c24\'" onmouseout="this.style.background=\'#0f1419\'">'
+                +'<div style="font-size:1.8rem;flex-shrink:0;line-height:1;">'+a.icone+'</div>'
+                +'<div style="min-width:0;">'
+                +badge(a)
+                +'<h4 style="font-family:\'Playfair Display\',serif;color:#e6edf3;font-size:0.92rem;line-height:1.4;margin:0.5rem 0 0.4rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">'+a.titre+'</h4>'
+                +'<span style="color:#8b949e;font-size:0.73rem;">'+a.date+' · '+a.source+'</span>'
+                +'</div></a>';
+            }).join('')
+          +'</div>' : '';
+
+        grid.style.display = 'block';
+        grid.innerHTML = htmlUne + htmlAutres;
       })
       .catch(function(){ document.getElementById('blog-grid').innerHTML = '<p style="color:#8b949e;text-align:center;grid-column:1/-1">Actualités temporairement indisponibles.</p>'; });
   </script>
