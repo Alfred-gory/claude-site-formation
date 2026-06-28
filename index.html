@@ -261,34 +261,229 @@
     .mobile-menu a:hover { color: var(--accent-dark); }
     .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
 
-    /* HERO */
+    /* HERO — NOUVELLE VERSION */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, rgba(15,30,53,0.92) 0%, rgba(30,58,95,0.88) 50%, rgba(37,99,235,0.75) 100%),
-                  url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      display: flex; align-items: center; padding: 8rem 3rem 5rem;
+      background: #070d1a;
+      display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
+      padding: 0;
     }
-    .hero::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
-      background: linear-gradient(to bottom, transparent, #ffffff);
+    /* Orbes lumineux animés */
+    .hero-orb {
+      position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
     }
-    .hero-content { max-width: 700px; position: relative; z-index: 2; }
-    .hero-tag {
+    .hero-orb1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(30,58,95,0.7) 0%, transparent 70%);
+      top: -150px; left: -150px;
+      animation: orb-drift1 14s ease-in-out infinite alternate;
+    }
+    .hero-orb2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+      bottom: -100px; right: -100px;
+      animation: orb-drift2 18s ease-in-out infinite alternate;
+    }
+    .hero-orb3 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%);
+      top: 40%; left: 55%;
+      animation: orb-drift3 11s ease-in-out infinite alternate;
+    }
+    @keyframes orb-drift1 { from{transform:translate(0,0)} to{transform:translate(80px,60px)} }
+    @keyframes orb-drift2 { from{transform:translate(0,0)} to{transform:translate(-60px,-40px)} }
+    @keyframes orb-drift3 { from{transform:translate(0,0)} to{transform:translate(-50px,70px)} }
+    /* Grille de fond subtile */
+    .hero-grid-bg {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+    /* Ligne dorée décorative */
+    .hero-deco-line {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: linear-gradient(to bottom, transparent, var(--accent-dark) 30%, var(--accent) 60%, transparent);
+      opacity: 0.6;
+    }
+    /* Contenu principal */
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1200px; width: 100%;
+      padding: 10rem 3rem 6rem;
+      align-items: center;
+    }
+    .hero-left {}
+    .hero-right {
+      display: flex; flex-direction: column; gap: 2rem;
+      padding-left: 2rem;
+      border-left: 1px solid rgba(201,168,76,0.15);
+    }
+    /* Badge certification */
+    .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3);
-      color: var(--accent); font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
+      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
+      padding: 0.35rem 0.9rem; border-radius: 4px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 2rem; width: fit-content;
     }
-    .hero h1 {
+    .hero-badge-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: badge-blink 2s infinite; }
+    @keyframes badge-blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    /* Titre principal */
+    .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      color: #fff; line-height: 1.2; margin-bottom: 1.5rem; font-weight: 700;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
-    .hero h1 em { color: var(--accent); font-style: normal; }
-    .hero p { color: rgba(255,255,255,0.82); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 560px; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-title .ht-line1 {
+      display: block;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .hero-title .ht-big {
+      display: block;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      line-height: 0.95;
+      margin-bottom: 0.3rem;
+    }
+    .hero-title .ht-cycle-wrap {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      height: 1.05em;
+      vertical-align: bottom;
+    }
+    .hero-title .ht-cycle {
+      display: block;
+      color: var(--accent);
+      animation: cycle-slide 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    @keyframes cycle-slide {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    @keyframes cycle-slide-out {
+      from { transform: translateY(0);     opacity: 1; }
+      to   { transform: translateY(-100%); opacity: 0; }
+    }
+    .hero-title .ht-line3 {
+      display: block;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      line-height: 1;
+      color: rgba(255,255,255,0.9);
+    }
+    /* Sous-titre */
+    .hero-sub {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.95rem; line-height: 1.8;
+      margin-top: 2rem;
+      max-width: 480px;
+    }
+    /* Boutons */
+    .hero-ctas { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .hero-btn-main {
+      background: var(--accent-dark); color: #0a0f1a;
+      padding: 0.9rem 2rem; border-radius: 6px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: all 0.25s; letter-spacing: 0.02em;
+      box-shadow: 0 0 30px rgba(201,168,76,0.25);
+    }
+    .hero-btn-main:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 40px rgba(201,168,76,0.4); }
+    .hero-btn-ghost {
+      background: transparent; color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.9rem 2rem; border-radius: 6px;
+      font-weight: 500; font-size: 0.9rem; text-decoration: none;
+      transition: all 0.25s;
+    }
+    .hero-btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; background: rgba(255,255,255,0.05); }
+    /* Panneau de droite — stats et modules */
+    .hero-stat-panel {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 1.2rem;
+    }
+    .hsp-label {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); font-weight: 600;
+    }
+    .hsp-nums { display: flex; gap: 0; }
+    .hsp-num {
+      flex: 1; text-align: center; padding: 1rem 0.5rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .hsp-num:last-child { border-right: none; }
+    .hsp-num b {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 700; color: var(--accent);
+      line-height: 1;
+    }
+    .hsp-num span { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.3rem; display: block; }
+    /* Modules cards */
+    .hero-modules { display: flex; flex-direction: column; gap: 0.6rem; }
+    .hero-module {
+      display: flex; align-items: center; gap: 1rem;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px; padding: 0.75rem 1rem;
+      transition: border-color 0.2s, background 0.2s; cursor: default;
+    }
+    .hero-module:hover { border-color: rgba(201,168,76,0.25); background: rgba(201,168,76,0.04); }
+    .hm-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-dark); flex-shrink: 0; }
+    .hm-name { font-size: 0.82rem; color: rgba(255,255,255,0.7); font-weight: 500; flex: 1; }
+    .hm-tag {
+      font-size: 0.65rem; color: var(--accent); background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2); padding: 0.18rem 0.5rem; border-radius: 3px;
+      font-weight: 600; letter-spacing: 0.05em; white-space: nowrap;
+    }
+    /* Scroll hint */
+    .hero-scroll {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      z-index: 3;
+    }
+    .hero-scroll span { font-size: 0.65rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero-scroll-mouse {
+      width: 22px; height: 34px; border: 2px solid rgba(255,255,255,0.2); border-radius: 12px;
+      display: flex; align-items: flex-start; justify-content: center; padding-top: 5px;
+    }
+    .hero-scroll-wheel {
+      width: 3px; height: 6px; background: var(--accent); border-radius: 2px;
+      animation: scroll-wheel 1.8s ease-in-out infinite;
+    }
+    @keyframes scroll-wheel { 0%{opacity:1;transform:translateY(0)} 70%{opacity:0;transform:translateY(10px)} 100%{opacity:0;transform:translateY(0)} }
+    /* Bas de page — coupe diagonale */
+    .hero-cut {
+      position: absolute; bottom: -1px; left: 0; right: 0; z-index: 3;
+      height: 80px;
+    }
+    .hero-cut svg { width: 100%; height: 100%; }
+    /* Responsive hero */
+    @media(max-width:900px){
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding: 9rem 1.5rem 5rem; }
+      .hero-right { padding-left: 0; border-left: none; border-top: 1px solid rgba(201,168,76,0.15); padding-top: 2rem; }
+      .hero-title .ht-big, .hero-title .ht-line3 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+    }
+    @media(max-width:500px){
+      .hero-title .ht-big, .hero-title .ht-line3 { font-size: clamp(2.2rem, 12vw, 3.5rem); }
+      .hero-ctas { flex-direction: column; }
+      .hero-btn-main, .hero-btn-ghost { text-align: center; }
+    }
+    /* Conserve les anciens styles de boutons utilisés ailleurs */
     .btn-primary {
       background: var(--accent); color: var(--primary-dark);
       padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem;
@@ -301,13 +496,6 @@
       text-decoration: none; transition: all 0.3s;
     }
     .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
-    .hero-stats {
-      display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2.5rem;
-      border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap;
-    }
-    .hero-stat { text-align: left; }
-    .hero-stat strong { display: block; font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Playfair Display', serif; }
-    .hero-stat span { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
 
     /* TICKER */
     #ticker-zone {
@@ -654,37 +842,120 @@
   </div>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-tag">Organisme certifié Qualiopi — éligible OPCO &amp; financement CPF selon formations</div>
-      <h1>
-        Des formations sur mesure,<br>dispensées par des <em>experts terrain</em>
-      </h1>
-      <p>Paie, RH, droit social ou tout autre domaine professionnel — en ligne, dans nos locaux à Taverny ou directement dans votre entreprise. Plus de 15 ans d'expérience au service de votre montée en compétences.</p>
-      <div class="hero-btns">
-        <a href="#formations" class="btn-primary">Découvrir les formations</a>
-        <a href="#contact" class="btn-outline">Nous contacter</a>
+  <section class="hero" id="hero">
+    <!-- Fond animé -->
+    <div class="hero-orb hero-orb1"></div>
+    <div class="hero-orb hero-orb2"></div>
+    <div class="hero-orb hero-orb3"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-deco-line"></div>
+
+    <div class="hero-inner">
+      <!-- GAUCHE : titre + CTA -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Certifié Qualiopi &nbsp;·&nbsp; NDA 11951022295
+        </div>
+        <h1 class="hero-title">
+          <span class="ht-line1">Devenez expert en</span>
+          <span class="ht-big">
+            <span class="ht-cycle-wrap"><span class="ht-cycle" id="heroCycle">la paie</span></span>
+          </span>
+          <span class="ht-line3">comme jamais.</span>
+        </h1>
+        <p class="hero-sub">Formations professionnelles certifiées — en ligne, en présentiel à Taverny (95) ou dans votre entreprise. Finançables OPCO &amp; CPF.</p>
+        <div class="hero-ctas">
+          <a href="#formations" class="hero-btn-main">Voir les formations</a>
+          <a href="#contact" class="hero-btn-ghost">Prendre contact</a>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <strong class="counter" data-target="200">0</strong>
-          <span>Apprenants formés</span>
+
+      <!-- DROITE : stats + modules -->
+      <div class="hero-right">
+        <div class="hero-stat-panel">
+          <div class="hsp-label">En chiffres</div>
+          <div class="hsp-nums">
+            <div class="hsp-num">
+              <b class="counter" data-target="200">0</b>
+              <span>apprenants formés</span>
+            </div>
+            <div class="hsp-num">
+              <b class="counter" data-target="98">0</b>
+              <span>% satisfaction</span>
+            </div>
+            <div class="hsp-num">
+              <b class="counter" data-target="15">0</b>
+              <span>ans d'expertise</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-stat">
-          <strong class="counter" data-target="98">0</strong>
-          <span>% de satisfaction</span>
-        </div>
-        <div class="hero-stat">
-          <strong class="counter" data-target="15">0</strong>
-          <span>Ans d'expérience</span>
-        </div>
-        <div class="hero-stat">
-          <strong class="counter" data-target="6">0</strong>
-          <span>Formations disponibles</span>
+        <div class="hero-modules">
+          <div class="hero-module">
+            <div class="hm-dot"></div>
+            <span class="hm-name">Gestion de la paie</span>
+            <span class="hm-tag">35h · CPF</span>
+          </div>
+          <div class="hero-module">
+            <div class="hm-dot"></div>
+            <span class="hm-name">Maîtrise de Silae</span>
+            <span class="hm-tag">21h · OPCO</span>
+          </div>
+          <div class="hero-module">
+            <div class="hm-dot"></div>
+            <span class="hm-name">Droit social pratique</span>
+            <span class="hm-tag">21h · OPCO</span>
+          </div>
+          <div class="hero-module">
+            <div class="hm-dot"></div>
+            <span class="hm-name">Recrutement &amp; RH</span>
+            <span class="hm-tag">14h · OPCO</span>
+          </div>
+          <div class="hero-module" style="border-style:dashed; opacity:0.5;">
+            <div class="hm-dot" style="background:rgba(255,255,255,0.2)"></div>
+            <span class="hm-name" style="color:rgba(255,255,255,0.35);">Tout autre domaine professionnel</span>
+            <span class="hm-tag" style="opacity:0.5;">Sur mesure</span>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="hero-scroll-mouse"><div class="hero-scroll-wheel"></div></div>
+    </div>
+
+    <!-- Coupe diagonale bas -->
+    <div class="hero-cut">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,80 1440,0 1440,80" fill="#ffffff"/>
+      </svg>
+    </div>
   </section>
+
+  <script>
+  // Rotation du mot clé dans le hero
+  (function(){
+    var words = ['la paie','le droit social','Silae','les RH','votre métier'];
+    var i = 0;
+    var el = document.getElementById('heroCycle');
+    if(!el) return;
+    setInterval(function(){
+      el.style.animation = 'none';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(100%)';
+      setTimeout(function(){
+        i = (i+1) % words.length;
+        el.textContent = words[i];
+        el.style.transition = 'none';
+        el.style.animation = 'cycle-slide 0.5s cubic-bezier(0.4,0,0.2,1) forwards';
+        el.style.opacity = '';
+        el.style.transform = '';
+      }, 300);
+    }, 2800);
+  })();
+  </script>
 
   <!-- FIL D'ACTUALITÉS -->
   <div id="ticker-zone" style="overflow:hidden; display:none;">
