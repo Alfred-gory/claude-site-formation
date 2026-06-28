@@ -821,8 +821,9 @@
     <ul class="nav-links">
       <li><a href="#formations">Formations</a></li>
       <li><a href="#modalites">Modalités</a></li>
+      <li><a href="#quiz">Quiz niveau</a></li>
+      <li><a href="#simulateur">Financement</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#blog">Actualités</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">S'inscrire</a>
@@ -1400,6 +1401,481 @@
       </div>
     </div>
   </section>
+
+  <!-- QUIZ DE NIVEAU -->
+  <section class="section-wrap" id="quiz" style="background:var(--bg);">
+    <div class="container">
+      <div class="section-header-center fade-in">
+        <span class="section-eyebrow">Quiz interactif</span>
+        <h2 class="section-title">Testez votre niveau en <span>5 questions</span></h2>
+        <div class="section-line" style="margin:1rem auto;"></div>
+        <p class="section-sub" style="margin:0 auto;">Découvrez en 2 minutes où vous en êtes et quelle formation vous correspond. Résultat immédiat et personnalisé.</p>
+      </div>
+
+      <div id="quiz-box" class="quiz-box fade-in">
+        <!-- Intro -->
+        <div id="quiz-intro" class="quiz-screen">
+          <div class="quiz-intro-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="rgba(201,168,76,0.1)"/><path d="M24 14v2M24 22v10M19 19a5 5 0 0 1 10 0c0 3-3 4-5 6" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="34" r="1.5" fill="#c9a84c"/></svg>
+          </div>
+          <h3>5 questions · 2 minutes</h3>
+          <p>Paie, droit social, financement — mesurez vos connaissances et recevez une recommandation de formation sur-mesure.</p>
+          <div class="quiz-topics">
+            <span class="qt">Droit du travail</span>
+            <span class="qt">Gestion de la paie</span>
+            <span class="qt">Financement CPF</span>
+            <span class="qt">Logiciels RH</span>
+          </div>
+          <button class="quiz-start-btn" onclick="quizStart()">Commencer le test</button>
+        </div>
+
+        <!-- Question -->
+        <div id="quiz-question" class="quiz-screen" style="display:none;">
+          <div class="quiz-progress-bar-wrap">
+            <div class="quiz-progress-bar" id="quizBar" style="width:0%"></div>
+          </div>
+          <div class="quiz-qnum" id="quizQnum">Question 1 / 5</div>
+          <div class="quiz-q" id="quizQ"></div>
+          <div class="quiz-answers" id="quizAnswers"></div>
+          <div class="quiz-feedback" id="quizFeedback" style="display:none;"></div>
+          <button class="quiz-next-btn" id="quizNext" style="display:none;" onclick="quizNext()">Question suivante →</button>
+        </div>
+
+        <!-- Résultat -->
+        <div id="quiz-result" class="quiz-screen" style="display:none;">
+          <div class="quiz-score-ring">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle cx="55" cy="55" r="48" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="8"/>
+              <circle id="quizScoreCircle" cx="55" cy="55" r="48" fill="none" stroke="#c9a84c" stroke-width="8"
+                stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="301.6"
+                transform="rotate(-90 55 55)" style="transition:stroke-dashoffset 1.2s ease;"/>
+            </svg>
+            <div class="quiz-score-text" id="quizScoreText">0/5</div>
+          </div>
+          <div class="quiz-result-level" id="quizLevel"></div>
+          <div class="quiz-result-reco" id="quizReco"></div>
+          <div class="quiz-result-btns">
+            <a href="#contact" class="hero-btn-main" style="font-size:0.88rem;">Démarrer cette formation</a>
+            <button class="hero-btn-ghost" onclick="quizReset()" style="font-size:0.88rem;">Recommencer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .quiz-box {
+      max-width: 680px; margin: 3rem auto 0;
+      background: var(--bg-dark);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    }
+    .quiz-screen { padding: 2.5rem 2.5rem 2rem; }
+    .quiz-intro-icon { text-align:center; margin-bottom:1.2rem; }
+    .quiz-box h3 { font-family:'Playfair Display',serif; font-size:1.7rem; color:#fff; text-align:center; margin-bottom:0.8rem; }
+    .quiz-box p { color:rgba(255,255,255,0.55); text-align:center; font-size:0.95rem; line-height:1.7; }
+    .quiz-topics { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin:1.5rem 0; }
+    .qt { background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.2); color:var(--accent); padding:0.3rem 0.8rem; border-radius:20px; font-size:0.78rem; font-weight:600; }
+    .quiz-start-btn {
+      display:block; margin:0 auto;
+      background:var(--accent-dark); color:#0a0f1a;
+      border:none; padding:0.9rem 2.5rem; border-radius:8px;
+      font-weight:700; font-size:0.95rem; cursor:pointer;
+      transition:all 0.2s; font-family:'Inter',sans-serif;
+    }
+    .quiz-start-btn:hover { background:var(--accent); transform:translateY(-2px); }
+    .quiz-progress-bar-wrap { background:rgba(255,255,255,0.08); border-radius:4px; height:4px; margin-bottom:2rem; }
+    .quiz-progress-bar { background:linear-gradient(90deg,var(--accent-dark),var(--accent)); height:100%; border-radius:4px; transition:width 0.5s ease; }
+    .quiz-qnum { font-size:0.72rem; color:var(--accent); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1rem; }
+    .quiz-q { font-family:'Playfair Display',serif; font-size:1.3rem; color:#fff; line-height:1.45; margin-bottom:1.8rem; }
+    .quiz-answers { display:flex; flex-direction:column; gap:0.7rem; }
+    .quiz-answer {
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);
+      border-radius:10px; padding:0.85rem 1.1rem;
+      color:rgba(255,255,255,0.75); font-size:0.92rem; cursor:pointer;
+      transition:all 0.18s; text-align:left; font-family:'Inter',sans-serif;
+      display:flex; align-items:center; gap:0.8rem;
+    }
+    .quiz-answer:hover { border-color:rgba(201,168,76,0.4); color:#fff; background:rgba(201,168,76,0.07); }
+    .quiz-answer.correct { border-color:#2ecc71; background:rgba(46,204,113,0.1); color:#2ecc71; }
+    .quiz-answer.wrong { border-color:#e74c3c; background:rgba(231,76,60,0.1); color:#e74c3c; }
+    .quiz-answer.disabled { pointer-events:none; opacity:0.5; }
+    .quiz-answer.correct.disabled, .quiz-answer.wrong.disabled { opacity:1; }
+    .qa-letter {
+      width:26px; height:26px; border-radius:50%; border:1px solid currentColor;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.75rem; font-weight:700; flex-shrink:0;
+    }
+    .quiz-feedback {
+      margin-top:1rem; padding:0.9rem 1.1rem;
+      background:rgba(255,255,255,0.04); border-radius:8px;
+      border-left:3px solid var(--accent-dark);
+      color:rgba(255,255,255,0.7); font-size:0.85rem; line-height:1.65;
+    }
+    .quiz-feedback strong { color:var(--accent); }
+    .quiz-next-btn {
+      margin-top:1.5rem; background:transparent;
+      border:1px solid rgba(201,168,76,0.3); color:var(--accent);
+      padding:0.7rem 1.5rem; border-radius:8px; cursor:pointer;
+      font-family:'Inter',sans-serif; font-size:0.88rem; font-weight:600;
+      transition:all 0.2s; float:right;
+    }
+    .quiz-next-btn:hover { background:rgba(201,168,76,0.1); }
+    .quiz-score-ring { position:relative; width:110px; height:110px; margin:0 auto 1.5rem; }
+    .quiz-score-text {
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:#fff;
+    }
+    .quiz-result-level {
+      font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--accent);
+      text-align:center; margin-bottom:0.8rem; font-weight:700;
+    }
+    .quiz-result-reco {
+      text-align:center; color:rgba(255,255,255,0.6); font-size:0.92rem; line-height:1.7;
+      margin-bottom:2rem; max-width:480px; margin-left:auto; margin-right:auto;
+    }
+    .quiz-result-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    @media(max-width:600px){ .quiz-screen { padding:1.8rem 1.3rem; } .quiz-q { font-size:1.1rem; } }
+  </style>
+
+  <script>
+  var quizData = [
+    {
+      q: "Quel document doit être remis obligatoirement à un apprenant à l'issue d'une formation professionnelle ?",
+      r: ["Un diplôme d'État","Une attestation de formation","Un certificat Qualiopi","Un relevé de notes"],
+      c: 1,
+      exp: "L'article <strong>L.6353-1 du Code du travail</strong> impose à tout organisme de formation de remettre une attestation mentionnant la nature, la durée, les objectifs et les résultats de la formation."
+    },
+    {
+      q: "Depuis 2019, le CPF (Compte Personnel de Formation) se calcule en :",
+      r: ["Heures","Points","Euros","Crédits"],
+      c: 2,
+      exp: "La loi <strong>Avenir professionnel de 2018</strong> a converti le CPF en euros. Un salarié à temps plein acquiert 500 €/an, plafonné à 5 000 €."
+    },
+    {
+      q: "Un salarié à temps plein acquiert combien de jours ouvrables de congés payés par mois de travail effectif ?",
+      r: ["2 jours","2,5 jours","3 jours","1,5 jour"],
+      c: 1,
+      exp: "Un salarié acquiert <strong>2,5 jours ouvrables</strong> par mois de travail effectif, soit 30 jours pour une année complète (articles L.3141-3 et suivants du Code du travail)."
+    },
+    {
+      q: "La DSN (Déclaration Sociale Nominative) est une déclaration transmise :",
+      r: ["Annuellement","Trimestriellement","Mensuellement","Chaque semaine"],
+      c: 2,
+      exp: "La <strong>DSN est mensuelle</strong>, transmise dans les 5 ou 15 premiers jours du mois suivant la période de paie. Elle remplace la plupart des déclarations sociales."
+    },
+    {
+      q: "Le plan de développement des compétences est à l'initiative de :",
+      r: ["Le salarié (via son CPF)","L'employeur, financé via l'OPCO","France Travail","La CPAM"],
+      c: 1,
+      exp: "Le <strong>plan de développement des compétences</strong> est décidé par l'employeur et financé par l'entreprise, souvent avec l'aide de son OPCO (Opérateur de Compétences de branche). Il ne s'impute pas sur le CPF du salarié."
+    }
+  ];
+  var quizCurrent = 0, quizScore = 0;
+  function quizStart() {
+    quizCurrent = 0; quizScore = 0;
+    document.getElementById('quiz-intro').style.display = 'none';
+    document.getElementById('quiz-question').style.display = 'block';
+    quizShowQ();
+  }
+  function quizShowQ() {
+    var d = quizData[quizCurrent];
+    var pct = (quizCurrent / quizData.length) * 100;
+    document.getElementById('quizBar').style.width = pct + '%';
+    document.getElementById('quizQnum').textContent = 'Question ' + (quizCurrent+1) + ' / ' + quizData.length;
+    document.getElementById('quizQ').textContent = d.q;
+    document.getElementById('quizFeedback').style.display = 'none';
+    document.getElementById('quizNext').style.display = 'none';
+    var letters = ['A','B','C','D'];
+    var html = '';
+    d.r.forEach(function(r, i) {
+      html += '<button class="quiz-answer" onclick="quizAnswer('+i+')">' +
+        '<span class="qa-letter">'+letters[i]+'</span> '+r+'</button>';
+    });
+    document.getElementById('quizAnswers').innerHTML = html;
+  }
+  function quizAnswer(idx) {
+    var d = quizData[quizCurrent];
+    var btns = document.querySelectorAll('.quiz-answer');
+    btns.forEach(function(b, i) {
+      b.classList.add('disabled');
+      if (i === d.c) b.classList.add('correct');
+      else if (i === idx && idx !== d.c) b.classList.add('wrong');
+    });
+    if (idx === d.c) quizScore++;
+    var fb = document.getElementById('quizFeedback');
+    fb.innerHTML = (idx === d.c ? '<strong>Bonne réponse !</strong> ' : '<strong>Pas tout à fait.</strong> ') + d.exp;
+    fb.style.display = 'block';
+    var next = document.getElementById('quizNext');
+    next.textContent = quizCurrent < quizData.length - 1 ? 'Question suivante →' : 'Voir mon résultat →';
+    next.style.display = 'block';
+  }
+  function quizNext() {
+    quizCurrent++;
+    if (quizCurrent < quizData.length) { quizShowQ(); }
+    else { quizShowResult(); }
+  }
+  function quizShowResult() {
+    document.getElementById('quiz-question').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+    document.getElementById('quizBar').style.width = '100%';
+    document.getElementById('quizScoreText').textContent = quizScore + '/5';
+    var offset = 301.6 * (1 - quizScore/5);
+    setTimeout(function(){ document.getElementById('quizScoreCircle').style.strokeDashoffset = offset; }, 100);
+    var level, reco;
+    if (quizScore <= 1) {
+      level = 'Niveau débutant';
+      reco = 'Les bases sont à consolider — c\'est tout à fait normal ! Notre formation <strong>Gestion de la paie (35h)</strong> vous amènera de zéro à expert, avec un accompagnement personnalisé tout au long du parcours.';
+    } else if (quizScore <= 3) {
+      level = 'Niveau intermédiaire';
+      reco = 'Vous avez de bonnes bases ! Approfondissez et sécurisez vos pratiques avec notre formation <strong>Droit social pratique (21h)</strong> ou <strong>Maîtrise de Silae (21h)</strong>.';
+    } else {
+      level = 'Niveau confirmé';
+      reco = 'Excellente maîtrise du cadre réglementaire ! Pour aller encore plus loin, notre formation <strong>Recrutement & RH (14h)</strong> ou une formation <strong>intra-entreprise sur mesure</strong> est faite pour vous.';
+    }
+    document.getElementById('quizLevel').textContent = level;
+    document.getElementById('quizReco').innerHTML = reco;
+  }
+  function quizReset() {
+    document.getElementById('quiz-result').style.display = 'none';
+    document.getElementById('quiz-intro').style.display = 'block';
+    document.getElementById('quizBar').style.width = '0%';
+    document.getElementById('quizScoreCircle').style.strokeDashoffset = '301.6';
+  }
+  </script>
+
+  <!-- SIMULATEUR DE FINANCEMENT -->
+  <section class="section-wrap alt" id="simulateur">
+    <div class="container">
+      <div class="section-header-center fade-in">
+        <span class="section-eyebrow">Outil pratique</span>
+        <h2 class="section-title">Simulez votre <span>financement</span></h2>
+        <div class="section-line" style="margin:1rem auto;"></div>
+        <p class="section-sub" style="margin:0 auto;">Découvrez en 30 secondes quel dispositif vous correspond et obtenez une estimation de prise en charge.</p>
+      </div>
+
+      <div class="simu-box fade-in">
+        <div class="simu-steps">
+          <!-- Étape 1 -->
+          <div class="simu-step active" id="sStep1">
+            <div class="simu-step-label">Étape 1 — Votre situation</div>
+            <div class="simu-cards">
+              <div class="simu-card" onclick="simuSelect(1,'salarie')">
+                <div class="simu-card-icon"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="6" y="18" width="20" height="10" rx="2" stroke="#c9a84c" stroke-width="1.8"/><circle cx="16" cy="11" r="5" stroke="#c9a84c" stroke-width="1.8"/></svg></div>
+                <strong>Salarié(e)</strong>
+                <span>CDI, CDD, temps partiel</span>
+              </div>
+              <div class="simu-card" onclick="simuSelect(1,'dirigeant')">
+                <div class="simu-card-icon"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><path d="M8 26V14l8-8 8 8v12H8z" stroke="#c9a84c" stroke-width="1.8" stroke-linejoin="round"/><rect x="13" y="19" width="6" height="7" rx="1" stroke="#c9a84c" stroke-width="1.5"/></svg></div>
+                <strong>Dirigeant / TNS</strong>
+                <span>Gérant, indépendant, artisan</span>
+              </div>
+              <div class="simu-card" onclick="simuSelect(1,'demandeur')">
+                <div class="simu-card-icon"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="12" r="5" stroke="#c9a84c" stroke-width="1.8"/><path d="M6 26a10 10 0 0 1 20 0" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round"/><path d="M16 20v6M13 23l3 3 3-3" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                <strong>Demandeur d'emploi</strong>
+                <span>Inscrit à France Travail</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Étape 2 -->
+          <div class="simu-step" id="sStep2" style="display:none;">
+            <div class="simu-step-label">Étape 2 — Votre objectif</div>
+            <div class="simu-cards">
+              <div class="simu-card" onclick="simuSelect(2,'montee')">
+                <strong>Monter en compétences</strong>
+                <span>Approfondir un domaine existant</span>
+              </div>
+              <div class="simu-card" onclick="simuSelect(2,'reconversion')">
+                <strong>Me reconvertir</strong>
+                <span>Changer de métier ou de poste</span>
+              </div>
+              <div class="simu-card" onclick="simuSelect(2,'equipe')">
+                <strong>Former mon équipe</strong>
+                <span>Formation intra-entreprise</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Résultat -->
+          <div class="simu-result" id="sResult" style="display:none;"></div>
+        </div>
+
+        <!-- Barre de progression -->
+        <div class="simu-progress">
+          <div class="simu-prog-step active" id="sProg1">1</div>
+          <div class="simu-prog-line"></div>
+          <div class="simu-prog-step" id="sProg2">2</div>
+          <div class="simu-prog-line"></div>
+          <div class="simu-prog-step" id="sProg3">&#x2713;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .simu-box {
+      max-width: 720px; margin: 3rem auto 0;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      padding: 2.5rem;
+    }
+    .simu-step-label { font-size:0.72rem; color:var(--accent-dark); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1.5rem; }
+    .simu-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    @media(max-width:600px){ .simu-cards { grid-template-columns:1fr; } }
+    .simu-card {
+      border: 2px solid var(--border); border-radius:12px; padding:1.4rem 1rem;
+      cursor:pointer; text-align:center; transition:all 0.2s;
+      display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+    }
+    .simu-card:hover { border-color:var(--accent-dark); box-shadow:0 4px 20px rgba(201,168,76,0.12); transform:translateY(-2px); }
+    .simu-card-icon { margin-bottom:0.3rem; }
+    .simu-card strong { font-size:0.92rem; color:var(--primary); font-weight:700; }
+    .simu-card span { font-size:0.78rem; color:var(--muted); }
+    .simu-result {
+      border-radius:12px; padding:2rem;
+      animation:ag-msg-in 0.3s ease;
+    }
+    .simu-result-header { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--primary); margin-bottom:0.8rem; }
+    .simu-result-devices { display:flex; flex-direction:column; gap:0.8rem; margin:1.2rem 0; }
+    .simu-device {
+      display:flex; align-items:center; gap:1rem;
+      background:var(--bg-alt); border-radius:8px; padding:0.9rem 1rem;
+      border-left:3px solid var(--accent-dark);
+    }
+    .simu-device-pct { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--accent-dark); min-width:50px; }
+    .simu-device-info strong { display:block; font-size:0.88rem; color:var(--primary); }
+    .simu-device-info span { font-size:0.78rem; color:var(--muted); }
+    .simu-result-cta { display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap; }
+    .simu-progress { display:flex; align-items:center; justify-content:center; gap:0; margin-top:2rem; }
+    .simu-prog-step {
+      width:32px; height:32px; border-radius:50%; background:var(--bg-alt);
+      border:2px solid var(--border); display:flex; align-items:center; justify-content:center;
+      font-size:0.8rem; font-weight:700; color:var(--muted); transition:all 0.3s;
+    }
+    .simu-prog-step.active { background:var(--accent-dark); border-color:var(--accent-dark); color:#fff; }
+    .simu-prog-step.done { background:var(--success); border-color:var(--success); color:#fff; }
+    .simu-prog-line { width:60px; height:2px; background:var(--border); }
+  </style>
+
+  <script>
+  var simuSituation = '';
+  function simuSelect(step, val) {
+    if (step === 1) {
+      simuSituation = val;
+      document.getElementById('sStep1').style.display = 'none';
+      document.getElementById('sStep2').style.display = 'block';
+      document.getElementById('sProg1').classList.remove('active');
+      document.getElementById('sProg1').classList.add('done');
+      document.getElementById('sProg2').classList.add('active');
+    } else {
+      document.getElementById('sStep2').style.display = 'none';
+      document.getElementById('sProg2').classList.remove('active');
+      document.getElementById('sProg2').classList.add('done');
+      document.getElementById('sProg3').classList.add('done');
+      simuShowResult(simuSituation, val);
+    }
+  }
+  var simuResults = {
+    'salarie-montee': {
+      titre: 'Votre financement : OPCO + Plan de compétences',
+      devices: [
+        { pct:'70-100%', nom:'OPCO (Opérateur de Compétences)', detail:'Financement via le plan de développement des compétences de votre entreprise. Votre employeur sollicite votre OPCO.' },
+        { pct:'Jusqu\'à 5 000€', nom:'CPF (Compte Personnel de Formation)', detail:'Vos droits CPF acquis tout au long de votre carrière. Utilisables sur Mon Compte Formation selon les formations référencées.' }
+      ],
+      note:'Commencez par demander à votre RH si la formation entre dans le plan de développement des compétences — c\'est souvent la voie la plus rapide.'
+    },
+    'salarie-reconversion': {
+      titre: 'Votre financement : CPF + Pro-A',
+      devices: [
+        { pct:'100%', nom:'CPF de transition professionnelle', detail:'Dispositif spécifique reconversion : salaire maintenu et formation prise en charge par la CPIR (Transitions Pro).' },
+        { pct:'Variable', nom:'Pro-A (reconversion en alternance)', detail:'Dispositif de l\'employeur permettant une reconversion en maintenant le contrat de travail.' }
+      ],
+      note:'Pour une reconversion, le CPF de transition est souvent le dispositif le plus avantageux : salaire maintenu + prise en charge totale.'
+    },
+    'salarie-equipe': {
+      titre: 'Formation intra-entreprise via votre OPCO',
+      devices: [
+        { pct:'Jusqu\'à 100%', nom:'OPCO — Intra-entreprise', detail:'Votre OPCO finance tout ou partie de la formation de vos équipes dans vos locaux ou dans les nôtres (classe de 8 max.).' },
+        { pct:'Variable', nom:'Plan de développement des compétences', detail:'Formation décidée et financée par l\'employeur, potentiellement co-financée par l\'OPCO.' }
+      ],
+      note:'Nous intervenons directement dans vos locaux pour former vos équipes sur mesure. Contactez-nous pour un devis intra.'
+    },
+    'dirigeant-montee': {
+      titre: 'Votre financement : AGEFICE ou FAF',
+      devices: [
+        { pct:'Jusqu\'à 1 500€/an', nom:'AGEFICE (Dirigeants non-salariés)', detail:'Financement spécifique pour les chefs d\'entreprise du commerce, de l\'industrie et des services.' },
+        { pct:'Variable', nom:'FAF (selon votre statut)', detail:'Fonds d\'Assurance Formation selon votre secteur : FIFPL (libéraux), FIF PL, AGEFICE, etc.' }
+      ],
+      note:'Le montant et les conditions dépendent de votre secteur d\'activité. Contactez-nous et nous vous guidons vers le bon dispositif.'
+    },
+    'dirigeant-reconversion': {
+      titre: 'Votre financement : AGEFICE + CPF',
+      devices: [
+        { pct:'Variable', nom:'AGEFICE', detail:'Financement formation pour les dirigeants non-salariés du commerce.' },
+        { pct:'Jusqu\'à 5 000€', nom:'CPF (si vous êtes aussi salarié)', detail:'Si vous êtes salarié par votre propre société, vous avez des droits CPF mobilisables.' }
+      ],
+      note:'En tant que dirigeant, vos options de financement dépendent de votre statut exact. Un échange de 15 minutes suffit pour clarifier la situation.'
+    },
+    'dirigeant-equipe': {
+      titre: 'Formation intra + OPCO',
+      devices: [
+        { pct:'Jusqu\'à 100%', nom:'OPCO de votre branche', detail:'Financement de la formation de vos salariés. Le montant varie selon votre OPCO et le nombre de salariés.' },
+        { pct:'Variable', nom:'AGEFICE (pour vous-même)', detail:'Vous pouvez également financer votre propre formation en parallèle.' }
+      ],
+      note:'Nous pouvons former vos équipes ET vous accompagner vous-même. Contactez-nous pour un devis groupé.'
+    },
+    'demandeur-montee': {
+      titre: 'Votre financement : France Travail + CPF',
+      devices: [
+        { pct:'100%', nom:'AIF — Aide Individuelle à la Formation', detail:'France Travail peut financer intégralement votre formation si elle est validée par votre conseiller.' },
+        { pct:'Jusqu\'à 5 000€', nom:'CPF (droits acquis)', detail:'Vos droits CPF accumulés lors de vos anciennes activités salariées sont toujours disponibles.' }
+      ],
+      note:'Parlez-en à votre conseiller France Travail et mentionnez notre certification Qualiopi — c\'est un critère favorable pour l\'AIF.'
+    },
+    'demandeur-reconversion': {
+      titre: 'Prise en charge à 100% possible',
+      devices: [
+        { pct:'100%', nom:'France Travail — AIF ou POE', detail:'La Préparation Opérationnelle à l\'Emploi (POE) et l\'AIF permettent une prise en charge totale dans le cadre d\'un projet professionnel.' },
+        { pct:'Maintien', nom:'ARE (allocation chômage maintenue)', detail:'Votre allocation peut être maintenue pendant la formation sous conditions.' }
+      ],
+      note:'Pour une reconversion en tant que demandeur d\'emploi, les possibilités de financement à 100% sont réelles. Prenez contact — nous vous accompagnons dans le montage du dossier.'
+    },
+    'demandeur-equipe': {
+      titre: 'Financement pour votre futur employeur',
+      devices: [
+        { pct:'Variable', nom:'OPCO de l\'entreprise qui vous recrute', detail:'L\'entreprise qui vous embauche peut financer votre formation via son OPCO dans le cadre d\'une POE collective.' },
+        { pct:'100%', nom:'CPF + AIF combinables', detail:'Vos droits CPF peuvent être combinés avec l\'AIF France Travail pour financer une formation complète.' }
+      ],
+      note:'Si vous avez un projet de recrutement en vue, un montage formation peut être mis en place avec l\'entreprise. Contactez-nous.'
+    }
+  };
+  function simuShowResult(sit, obj) {
+    var key = sit + '-' + obj;
+    var data = simuResults[key] || simuResults['salarie-montee'];
+    var html = '<div class="simu-result-header">' + data.titre + '</div>';
+    html += '<div class="simu-result-devices">';
+    data.devices.forEach(function(d){
+      html += '<div class="simu-device"><div class="simu-device-pct">'+d.pct+'</div><div class="simu-device-info"><strong>'+d.nom+'</strong><span>'+d.detail+'</span></div></div>';
+    });
+    html += '</div>';
+    html += '<p style="font-size:0.83rem;color:var(--muted);border-top:1px solid var(--border);padding-top:1rem;margin-top:0.5rem;">' + data.note + '</p>';
+    html += '<div class="simu-result-cta"><a href="#contact" class="btn-primary" style="font-size:0.88rem;">Démarrer ma formation</a><button onclick="simuReset()" style="background:none;border:1px solid var(--border);padding:0.7rem 1.2rem;border-radius:6px;cursor:pointer;font-size:0.85rem;color:var(--muted);">Refaire la simulation</button></div>';
+    var r = document.getElementById('sResult');
+    r.innerHTML = html;
+    r.style.display = 'block';
+  }
+  function simuReset() {
+    simuSituation = '';
+    document.getElementById('sResult').style.display = 'none';
+    document.getElementById('sStep1').style.display = 'block';
+    document.getElementById('sProg1').className = 'simu-prog-step active';
+    document.getElementById('sProg2').className = 'simu-prog-step';
+    document.getElementById('sProg3').className = 'simu-prog-step';
+  }
+  </script>
 
   <!-- FAQ -->
   <section class="section-wrap alt" id="faq">
