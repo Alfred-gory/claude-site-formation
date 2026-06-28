@@ -243,20 +243,10 @@
     }
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem; color: var(--primary);
-      font-weight: 700; letter-spacing: 0.02em;
-      display: flex; align-items: center; gap: 0.6rem;
-      text-decoration: none;
+      font-size: 1.2rem; color: var(--primary);
+      font-weight: 700; text-decoration: none;
     }
-    .logo-mark {
-      width: 32px; height: 32px; border-radius: 6px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .logo-mark svg { display: block; }
-    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-    .logo-text-top { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); font-family: 'Inter', sans-serif; font-weight: 600; }
-    .logo-text-main { font-size: 1.1rem; color: var(--primary); }
+    .logo span { color: var(--accent-dark); }
     .nav-links { display: flex; list-style: none; gap: 0; }
     .nav-links a {
       color: var(--muted); font-size: 0.8rem; font-weight: 500;
@@ -355,7 +345,7 @@
     .hero-inner {
       position: relative; z-index: 2;
       max-width: 860px; width: 100%;
-      padding: 8rem 3rem 6rem;
+      padding: 7.5rem 3rem 5rem;
       text-align: center;
     }
     /* Pastille Qualiopi */
@@ -822,25 +812,15 @@
       .tb-sep:nth-child(4),.tb-item:nth-child(5),.tb-sep:nth-child(6),.tb-item:nth-child(7) { display: none; }
     }
     nav { top: 30px; }
-    .hero { padding-top: 9rem; }
   </style>
 
   <!-- NAVIGATION -->
   <nav id="navbar">
-    <a class="logo" href="#">
-      <div class="logo-mark">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L14 7H10V16H8V7H4L9 2Z" fill="rgba(201,168,76,0.9)"/></svg>
-      </div>
-      <div class="logo-text">
-        <span class="logo-text-top">Cabinet</span>
-        <span class="logo-text-main">Alfred Gory</span>
-      </div>
-    </a>
+    <a class="logo" href="index.html">Cabinet <span>Alfred Gory</span></a>
     <ul class="nav-links">
-      <li><a href="#formations">Formations</a></li>
-      <li><a href="#modalites">Modalités</a></li>
-      <li><a href="#quiz">Quiz niveau</a></li>
-      <li><a href="#simulateur">Financement</a></li>
+      <li><a href="formations.html">Formations</a></li>
+      <li><a href="financement.html">Financement</a></li>
+      <li><a href="#quiz">Testez-vous</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -2213,16 +2193,17 @@
         <a href="#pourquoi">À propos du cabinet</a>
         <a href="#temoignages">Avis apprenants</a>
         <a href="#blog">Actualités juridiques</a>
+        <a href="financement.html">Guide financement</a>
+        <a href="mentions-legales.html">Mentions légales</a>
         <a href="#contact">Nous contacter</a>
-        <a href="#contact">Demander un devis</a>
       </div>
       <div class="footer-col">
         <h4>Financement</h4>
-        <a href="#contact">Via le CPF</a>
-        <a href="#contact">Via votre OPCO</a>
-        <a href="#contact">Plan de développement des compétences</a>
-        <a href="#contact">AGEFICE (TNS)</a>
-        <a href="#contact">Prise en charge partielle</a>
+        <a href="financement.html#opco">Via votre OPCO</a>
+        <a href="financement.html#cpf">Via le CPF</a>
+        <a href="financement.html#agefice">AGEFICE (TNS / dirigeants)</a>
+        <a href="financement.html#ft">France Travail (demandeurs d'emploi)</a>
+        <a href="financement.html">Simulateur de financement</a>
       </div>
     </div>
     <div class="footer-mention">
@@ -2232,8 +2213,8 @@
     <div class="footer-bottom">
       <p>© 2026 Cabinet Alfred Gory — Tous droits réservés</p>
       <div class="footer-legal">
-        <a href="#mentions">Mentions légales</a>
-        <a href="#mentions">Politique de confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="mentions-legales.html#rgpd">Politique de confidentialité</a>
         <a href="#contact">CGV sur demande</a>
       </div>
     </div>
