@@ -3,736 +3,417 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cabinet Alfred Gory — Formation RH et Paie</title>
-  <meta name="description" content="Cabinet Alfred Gory : formations professionnelles en gestion de la paie, maîtrise de Silae, gestion d'entreprise et droit social." />
-  <meta name="keywords" content="cabinet Alfred Gory, formation paie, formation Silae, formation RH, gestion entreprise, droit social, formation en ligne" />
+  <title>Cabinet Alfred Gory — Formation RH, Paie & Droit Social</title>
+  <meta name="description" content="Formations professionnelles certifiées en paie, RH, droit social et tout domaine sur mesure. En ligne, en présentiel dans nos locaux ou en entreprise. Cabinet Alfred Gory, Taverny (95)." />
+  <meta name="keywords" content="formation paie, formation RH, droit social, formation sur mesure, présentiel, intra-entreprise, cabinet Alfred Gory, CPF, OPCO" />
   <meta name="author" content="Cabinet Alfred Gory" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --or: #c9a84c;
-      --or-clair: #e8d08a;
-      --marine: #0d1117;
-      --marine2: #161b22;
-      --marine3: #1c2333;
-      --texte: #e6edf3;
-      --texte-muted: #8b949e;
-      --border: rgba(201,168,76,0.15);
+      --primary:      #1e3a5f;
+      --primary-dark: #0f1e35;
+      --primary-mid:  #2563eb;
+      --accent:       #f59e0b;
+      --accent-dark:  #c9a84c;
+      --success:      #059669;
+      --bg:           #ffffff;
+      --bg-alt:       #f8fafc;
+      --bg-dark:      #0f1e35;
+      --text:         #1e293b;
+      --muted:        #64748b;
+      --border:       #e2e8f0;
+      --shadow:       0 4px 24px rgba(30,58,95,0.10);
+      --shadow-lg:    0 12px 40px rgba(30,58,95,0.15);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--marine);
-      color: var(--texte);
-      overflow-x: hidden;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
     /* SCROLLBAR */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--marine); }
-    ::-webkit-scrollbar-thumb { background: var(--or); border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg-alt); }
+    ::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 3px; }
 
-    /* BARRE DE PROGRESSION DE LECTURE */
+    /* BARRE DE PROGRESSION */
     #read-progress {
       position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
-      background: linear-gradient(90deg, #c9a84c, #e8d08a, #c9a84c);
+      background: linear-gradient(90deg, var(--accent-dark), var(--accent), var(--accent-dark));
       width: 0%; transition: width 0.1s linear;
-      box-shadow: 0 0 8px rgba(201,168,76,0.6);
+      box-shadow: 0 0 8px rgba(245,158,11,0.5);
     }
 
-    /* NAVIGATION */
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 1.2rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(13,17,23,0.85);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 20px rgba(30,58,95,0.08);
       transition: all 0.3s;
     }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--texte);
-      letter-spacing: 0.5px;
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--primary); font-weight: 700; }
+    .logo span { color: var(--accent-dark); }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { color: var(--muted); font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta { background: var(--primary); color: #fff; padding: 0.6rem 1.4rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .nav-cta:hover { background: var(--primary-mid); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--primary); border-radius: 2px; transition: all 0.3s; }
+    @media(max-width:900px){
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
     }
-    .logo span { color: var(--or); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      color: var(--texte-muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-      transition: color 0.2s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--or);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover { color: var(--or); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      background: transparent;
-      color: var(--or);
-      border: 1px solid var(--or);
-      padding: 0.5rem 1.4rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      transition: all 0.3s;
-    }
-    .nav-cta:hover { background: var(--or); color: var(--marine); }
 
-    /* HAMBURGER MOBILE */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--or);
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
+    /* MOBILE MENU */
     .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 65px; left: 0; right: 0;
-      background: rgba(13,17,23,0.97);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      z-index: 999;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-    .mobile-menu a {
-      color: var(--texte-muted);
-      text-decoration: none;
-      font-size: 1rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+      z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
     }
     .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.3rem; color: var(--primary); font-family: 'Playfair Display', serif; text-decoration: none; font-weight: 600; }
+    .mobile-menu a:hover { color: var(--accent-dark); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
 
     /* HERO */
     .hero {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(135deg, rgba(15,30,53,0.92) 0%, rgba(30,58,95,0.88) 50%, rgba(37,99,235,0.75) 100%),
+                  url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex; align-items: center; padding: 8rem 3rem 5rem;
+      position: relative; overflow: hidden;
     }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+      background: linear-gradient(to bottom, transparent, #ffffff);
     }
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
+    .hero-content { max-width: 700px; position: relative; z-index: 2; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3);
+      color: var(--accent); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
     }
-    /* PARTICULES */
-    #particles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-
-    /* CARTE INTERACTIVE FORMATIONS */
-    .carte-formations {
-      position: relative;
-      width: 100%;
-      max-width: 700px;
-      margin: 4rem auto 0;
-      aspect-ratio: 4/3;
-    }
-    .carte-fond {
-      width: 100%; height: 100%;
-      background: var(--marine2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-    .carte-fond::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(201,168,76,0.05) 0%, transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(201,168,76,0.03) 0%, transparent 50%);
-    }
-    .carte-lignes {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-    .carte-noeud {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      cursor: pointer;
-      z-index: 2;
-    }
-    .carte-noeud-cercle {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: var(--marine);
-      border: 2px solid var(--or);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      margin: 0 auto 0.4rem;
-      transition: all 0.3s;
-      box-shadow: 0 0 0 0 rgba(201,168,76,0.3);
-    }
-    .carte-noeud:hover .carte-noeud-cercle,
-    .carte-noeud.actif .carte-noeud-cercle {
-      background: rgba(201,168,76,0.15);
-      box-shadow: 0 0 0 8px rgba(201,168,76,0.1);
-      transform: scale(1.15);
-    }
-    .carte-noeud-label {
-      font-size: 0.7rem;
-      color: var(--texte-muted);
-      white-space: nowrap;
-      transition: color 0.3s;
-      font-weight: 500;
-    }
-    .carte-noeud:hover .carte-noeud-label,
-    .carte-noeud.actif .carte-noeud-label { color: var(--or); }
-    .carte-connexion {
-      position: absolute;
-      background: rgba(201,168,76,0.15);
-      height: 1px;
-      transform-origin: left center;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .carte-detail {
-      position: absolute;
-      bottom: 1rem; left: 50%;
-      transform: translateX(-50%);
-      background: rgba(13,17,23,0.95);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      width: 90%;
-      text-align: left;
-      display: none;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-    }
-    .carte-detail.visible { display: block; }
-    .carte-detail h4 { color: var(--or); font-size: 0.9rem; margin-bottom: 0.3rem; }
-    .carte-detail p { color: var(--texte-muted); font-size: 0.8rem; line-height: 1.5; }
-    .carte-detail .duree-badge {
-      display: inline-block;
-      background: rgba(201,168,76,0.1);
-      color: var(--or);
-      font-size: 0.72rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 3px;
-      margin-top: 0.4rem;
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 800px; }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(201,168,76,0.08);
-      border: 1px solid rgba(201,168,76,0.3);
-      color: var(--or);
-      padding: 0.4rem 1.2rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      font-weight: 500;
-    }
-    .hero-badge::before { content: '◆'; font-size: 0.5rem; }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: #fff; line-height: 1.2; margin-bottom: 1.5rem; font-weight: 700;
     }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--or);
-      position: relative;
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p { color: rgba(255,255,255,0.82); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 560px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: var(--primary-dark);
+      padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 20px rgba(245,158,11,0.35);
     }
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--texte-muted);
-      line-height: 1.9;
-      max-width: 580px;
-      margin: 0 auto 3rem;
-      font-weight: 300;
+    .btn-primary:hover { background: #fbbf24; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.45); }
+    .btn-outline {
+      background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4);
+      padding: 0.9rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: all 0.3s;
     }
-    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-or {
-      background: var(--or);
-      color: var(--marine);
-      padding: 0.9rem 2.2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      transition: all 0.3s;
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap;
     }
-    .btn-or:hover { background: var(--or-clair); transform: translateY(-2px); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--texte);
-      padding: 0.9rem 2.2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: all 0.3s;
+    .hero-stat { text-align: left; }
+    .hero-stat strong { display: block; font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Playfair Display', serif; }
+    .hero-stat span { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+
+    /* TICKER */
+    #ticker-zone {
+      background: var(--primary-dark); border-bottom: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
     }
-    .btn-ghost:hover { border-color: var(--or); color: var(--or); }
+
+    /* CERTIFICATIONS STRIP */
+    .cert-strip {
+      background: #fff; border-bottom: 1px solid var(--border);
+      padding: 1.2rem 2rem;
+    }
+    .cert-strip-inner {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 1.5rem 3rem; max-width: 1100px; margin: 0 auto;
+    }
+    .cert-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      opacity: 0.7; transition: opacity 0.2s; cursor: default;
+    }
+    .cert-item:hover { opacity: 1; }
+    .cert-item-text div:first-child { font-size: 0.62rem; color: var(--accent-dark); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .cert-item-text div:last-child { font-size: 0.78rem; color: var(--primary); font-weight: 600; }
+    .cert-sep { width: 1px; height: 2rem; background: var(--border); flex-shrink: 0; }
 
     /* STATS */
-    .stats {
+    .stats-section {
+      background: var(--primary-dark);
       padding: 4rem 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: wrap;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--marine2);
     }
-    .stat-item {
-      flex: 1;
-      min-width: 150px;
-      text-align: center;
-      padding: 1.5rem 2rem;
-      border-right: 1px solid var(--border);
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 2rem; max-width: 900px; margin: 0 auto;
     }
-    .stat-item:last-child { border-right: none; }
-    .stat-item h2 {
+    @media(max-width:700px){ .stats-grid { grid-template-columns: repeat(2,1fr); } }
+    .stat-box { text-align: center; padding: 2rem; }
+    .stat-num {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: var(--or);
-      font-weight: 700;
-      line-height: 1;
+      font-size: 3rem; font-weight: 700; color: var(--accent);
+      display: block; line-height: 1;
     }
-    .stat-item p { color: var(--texte-muted); font-size: 0.82rem; margin-top: 0.5rem; letter-spacing: 0.5px; text-transform: uppercase; }
+    .stat-label { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin-top: 0.5rem; }
 
-    /* SECTIONS */
-    section { padding: 6rem 2rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--or);
-      font-weight: 500;
-      margin-bottom: 0.8rem;
+    /* SECTION HEADER */
+    .section-wrap { padding: 5rem 2rem; }
+    .section-wrap.alt { background: var(--bg-alt); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent-dark); margin-bottom: 0.8rem; display: block;
     }
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--texte);
-      margin-bottom: 0.8rem;
-      font-weight: 700;
+      font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--primary);
+      font-weight: 700; line-height: 1.25; margin-bottom: 1rem;
     }
-    .section-sub { color: var(--texte-muted); font-size: 0.95rem; line-height: 1.7; max-width: 500px; }
-    .section-header { margin-bottom: 3.5rem; }
-    .divider { width: 40px; height: 2px; background: var(--or); margin: 1.2rem 0; }
+    .section-title span { color: var(--accent-dark); }
+    .section-sub { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 600px; }
+    .section-line { width: 48px; height: 3px; background: var(--accent-dark); border-radius: 2px; margin: 1rem 0; }
+    .section-header-center { text-align: center; }
+    .section-header-center .section-line { margin: 1rem auto; }
+    .section-header-center .section-sub { margin: 0 auto; }
 
-    /* FORMATIONS */
-    .formations-bg { background: var(--marine2); }
+    /* FORMATIONS GRID */
     .formations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5px;
-      border: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px,1fr));
+      gap: 2rem; margin-top: 3rem;
     }
     .fcard {
-      background: var(--marine);
-      padding: 2rem;
-      transition: all 0.3s;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid transparent;
+      background: #fff; border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: var(--shadow);
     }
-    .fcard::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--or);
-      transform: scaleX(0);
-      transition: transform 0.3s;
+    .fcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .fcard-img {
+      height: 180px; overflow: hidden; position: relative; flex-shrink: 0;
     }
-    .fcard:hover { background: var(--marine3); border-color: var(--border); }
-    .fcard:hover::before { transform: scaleX(1); }
-    .fcard-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: rgba(201,168,76,0.1);
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 1rem;
+    .fcard-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s;
     }
-    .fcard-icon { font-size: 1.8rem; margin-bottom: 1rem; }
-    .fcard h3 { font-size: 1.1rem; color: var(--texte); margin-bottom: 0.3rem; font-weight: 600; }
-    .fcard .niveau { font-size: 0.78rem; color: var(--or); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.2rem; }
-    .fcard ul { list-style: none; }
+    .fcard:hover .fcard-img img { transform: scale(1.05); }
+    .fcard-badge {
+      position: absolute; top: 1rem; left: 1rem;
+      background: var(--primary); color: #fff;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 4px;
+    }
+    .fcard-num-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      background: var(--accent); color: var(--primary-dark);
+      font-size: 0.7rem; font-weight: 700;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fcard-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .fcard-icon-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
+    .fcard-emoji { font-size: 1.4rem; }
+    .fcard-niveau { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+    .fcard h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--primary); margin-bottom: 0.8rem; font-weight: 700; }
+    .fcard ul { list-style: none; flex: 1; }
     .fcard ul li {
-      font-size: 0.88rem;
-      color: var(--texte-muted);
-      padding: 0.35rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.83rem; color: var(--muted); padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border); display: flex; gap: 0.5rem; align-items: flex-start;
     }
-    .fcard ul li:last-child { border-bottom: none; }
-    .fcard ul li::before { content: '→'; color: var(--or); font-size: 0.75rem; flex-shrink: 0; }
-    .fcard-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
+    .fcard ul li::before { content: '✓'; color: var(--success); font-weight: 700; flex-shrink: 0; font-size: 0.75rem; margin-top: 0.1rem; }
+    .fcard-progress { margin-top: 1.2rem; }
+    .fcard-progress-label { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); margin-bottom: 0.4rem; }
+    .fcard-bar { background: #e2e8f0; border-radius: 4px; height: 5px; overflow: hidden; }
+    .fcard-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-dark), var(--accent)); border-radius: 4px; width: 0%; transition: width 1.2s ease; }
+    .fcard-footer2 {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border);
     }
-    .fcard-duree { font-size: 0.8rem; color: var(--texte-muted); }
+    .fcard-duree { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
     .fcard-btn {
-      font-size: 0.8rem;
-      color: var(--or);
-      text-decoration: none;
-      letter-spacing: 0.5px;
-      font-weight: 500;
-      transition: letter-spacing 0.2s;
+      background: var(--primary); color: #fff; padding: 0.5rem 1.1rem;
+      border-radius: 6px; font-size: 0.78rem; font-weight: 600;
+      text-decoration: none; transition: background 0.2s;
     }
-    .fcard-btn:hover { letter-spacing: 1.5px; }
+    .fcard-btn:hover { background: var(--primary-mid); }
 
-    /* PROGRESS BARS */
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.78rem;
-      color: var(--texte-muted);
-      margin-top: 1rem;
-      margin-bottom: 0.3rem;
+    /* CARTE INTERACTIVE */
+    .carte-formations { position: relative; height: 380px; margin-top: 3rem; }
+    .carte-fond { position: absolute; inset: 0; border-radius: 20px; border: 1px solid var(--border); overflow: hidden; background: var(--bg-alt); }
+    .carte-lignes { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(30,58,95,0.04) 0%, transparent 70%); }
+    .carte-noeud { position: absolute; transform: translate(-50%, -50%); text-align: center; cursor: pointer; z-index: 2; }
+    .carte-noeud-cercle {
+      width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--border);
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin: 0 auto; transition: all 0.3s;
+      box-shadow: var(--shadow);
     }
-    .progress-bar {
-      height: 3px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 2px;
-      overflow: hidden;
+    .carte-noeud:hover .carte-noeud-cercle { border-color: var(--accent-dark); transform: scale(1.15); box-shadow: var(--shadow-lg); }
+    .carte-noeud-label { font-size: 0.68rem; color: var(--muted); margin-top: 0.4rem; font-weight: 500; line-height: 1.3; }
+    .carte-detail {
+      display: none; position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.5rem;
+      min-width: 280px; z-index: 10; box-shadow: var(--shadow-lg);
     }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--or), var(--or-clair));
-      border-radius: 2px;
-      width: 0;
-      transition: width 1.5s ease;
-    }
+    .carte-detail.visible { display: block; }
+    .carte-detail h4 { font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 0.5rem; font-size: 1rem; }
+    .carte-detail p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .carte-detail a { display: inline-block; margin-top: 0.8rem; font-size: 0.8rem; color: var(--accent-dark); font-weight: 600; text-decoration: none; }
 
     /* TEMOIGNAGES */
-    .temo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+    .temo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; margin-top: 3rem; }
     .temo-card {
-      background: var(--marine2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-      position: relative;
-      transition: border-color 0.3s;
+      background: #fff; border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem; position: relative; overflow: hidden;
+      box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s;
     }
-    .temo-card:hover { border-color: rgba(201,168,76,0.4); }
-    .temo-card::before {
-      content: '"';
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      color: rgba(201,168,76,0.1);
-      position: absolute;
-      top: -0.5rem;
-      left: 1.5rem;
-      line-height: 1;
+    .temo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .temo-card::before { content: '"'; position: absolute; top: 0.5rem; right: 1.2rem; font-size: 5rem; color: var(--bg-alt); font-family: Georgia,serif; line-height: 1; }
+    .stars { color: var(--accent); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .temo-card > p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; font-style: italic; margin-bottom: 1.2rem; }
+    .temo-auteur { display: flex; align-items: center; gap: 0.8rem; }
+    .avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .temo-auteur strong { display: block; color: var(--primary); font-size: 0.88rem; font-weight: 700; }
+    .temo-auteur span { font-size: 0.75rem; color: var(--muted); }
+    .temo-tags { margin-top: 0.4rem; display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .temo-tag { font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 10px; font-weight: 600; }
+
+    /* GARANTIES */
+    .garanties-band {
+      background: linear-gradient(135deg, var(--primary), var(--primary-mid));
+      padding: 3rem 2rem; margin-top: 3rem; border-radius: 16px;
+      display: flex; align-items: center; justify-content: space-around;
+      flex-wrap: wrap; gap: 2rem;
     }
-    .stars { color: var(--or); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 2px; }
-    .temo-card p { color: var(--texte-muted); font-size: 0.92rem; line-height: 1.8; font-style: italic; }
-    .temo-auteur {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-    .avatar {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.3);
-      color: var(--or);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-    .temo-auteur strong { display: block; font-size: 0.9rem; color: var(--texte); font-weight: 500; }
-    .temo-auteur span { font-size: 0.78rem; color: var(--texte-muted); }
+    .gar-item { text-align: center; color: #fff; }
+    .gar-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .gar-item strong { display: block; font-size: 0.9rem; font-weight: 700; }
+    .gar-item span { font-size: 0.75rem; opacity: 0.75; margin-top: 0.2rem; display: block; }
+    .gar-sep { width: 1px; height: 3rem; background: rgba(255,255,255,0.2); }
 
     /* POURQUOI */
-    .why-bg { background: var(--marine2); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-    }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin-top: 3rem; }
     .why-item {
-      padding: 2rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      transition: all 0.3s;
-      background: var(--marine);
+      background: #fff; border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: var(--shadow);
     }
-    .why-item:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-4px); }
-    .why-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-    .why-item h3 { font-size: 1rem; color: var(--texte); margin-bottom: 0.6rem; font-weight: 600; }
-    .why-item p { color: var(--texte-muted); font-size: 0.88rem; line-height: 1.7; }
-
-    /* CPF BADGE */
-    .cpf-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(201,168,76,0.08);
-      border: 1px solid rgba(201,168,76,0.3);
-      padding: 0.6rem 1.2rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      color: var(--or);
-      margin-top: 2rem;
-      font-weight: 500;
-    }
+    .why-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(201,168,76,0.3); }
+    .why-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .why-item h3 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.05rem; margin-bottom: 0.6rem; }
+    .why-item p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
 
     /* CONTACT */
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .contact-info h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .contact-info p { color: var(--texte-muted); font-size: 0.92rem; line-height: 1.8; margin-bottom: 2rem; }
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      color: var(--texte-muted);
-      font-size: 0.88rem;
-      margin-bottom: 0.8rem;
-    }
-    .contact-detail span:first-child { color: var(--or); font-size: 1rem; }
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; }
+    @media(max-width:900px){ .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; } }
+    .contact-info { padding: 2rem 0; }
+    .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+    .contact-info p { color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .contact-detail { display: flex; align-items: center; gap: 0.8rem; color: var(--muted); font-size: 0.88rem; margin-bottom: 0.8rem; }
+    .contact-detail span:first-child { width: 36px; height: 36px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
     .contact-form-box {
-      background: var(--marine2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2.5rem;
+      background: #fff; border: 1px solid var(--border); border-radius: 20px;
+      padding: 2.5rem; box-shadow: var(--shadow-lg);
     }
     .form-group { margin-bottom: 1.2rem; }
-    .form-group label {
-      display: block;
-      font-size: 0.78rem;
-      color: var(--texte-muted);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      font-weight: 500;
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--primary); margin-bottom: 0.4rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      background: var(--bg-alt); border: 1.5px solid var(--border);
+      border-radius: 8px; color: var(--text); font-size: 0.9rem; font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      background: var(--marine);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 4px;
-      color: var(--texte);
-      font-size: 0.92rem;
-      font-family: 'Inter', sans-serif;
-      transition: border-color 0.2s;
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--accent-dark); box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+      background: #fff;
     }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--or);
-    }
-    .form-group select option { background: var(--marine); }
-    .form-group textarea { height: 120px; resize: vertical; }
+    .form-group textarea { height: 100px; resize: vertical; }
     .submit-btn {
-      width: 100%;
-      background: var(--or);
-      color: var(--marine);
-      padding: 1rem;
-      border: none;
-      border-radius: 4px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      cursor: pointer;
-      letter-spacing: 0.5px;
-      transition: all 0.3s;
-      font-family: 'Inter', sans-serif;
+      width: 100%; padding: 1rem; background: var(--primary); color: #fff;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif;
     }
-    .submit-btn:hover { background: var(--or-clair); transform: translateY(-1px); }
-    .merci {
-      display: none;
-      background: rgba(201,168,76,0.08);
-      border: 1px solid rgba(201,168,76,0.3);
-      border-radius: 8px;
-      padding: 2rem;
-      text-align: center;
-      color: var(--or);
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-top: 1rem;
-    }
+    .submit-btn:hover { background: var(--primary-mid); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(30,58,95,0.25); }
+    .merci { display: none; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 1.5rem; color: #166534; font-size: 0.9rem; line-height: 1.8; margin-bottom: 1rem; }
 
     /* FOOTER */
-    footer {
-      background: #080c10;
-      border-top: 1px solid var(--border);
-      padding: 0;
-    }
+    footer { background: var(--primary-dark); }
     .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 3rem;
-      padding: 4rem 3rem 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+      padding: 4rem 3rem 3rem; max-width: 1200px; margin: 0 auto;
     }
     @media(max-width:900px){ .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; } }
     @media(max-width:560px){ .footer-top { grid-template-columns: 1fr; } }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--texte);
-      margin-bottom: 0.8rem;
-    }
-    .footer-logo span { color: var(--or); }
-    .footer-desc { color: var(--texte-muted); font-size: 0.83rem; line-height: 1.8; margin-bottom: 1.2rem; }
-    .footer-contact-line { display: flex; align-items: center; gap: 0.5rem; color: var(--texte-muted); font-size: 0.82rem; margin-bottom: 0.4rem; }
-    .footer-contact-line span:first-child { color: var(--or); }
-    .footer-col h4 { color: var(--texte); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
-    .footer-col a { display: block; color: var(--texte-muted); font-size: 0.82rem; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--or); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #fff; margin-bottom: 0.8rem; }
+    .footer-logo span { color: var(--accent-dark); }
+    .footer-desc { color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.8; margin-bottom: 1.2rem; }
+    .footer-contact-line { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); font-size: 0.82rem; margin-bottom: 0.4rem; }
+    .footer-contact-line span:first-child { color: var(--accent-dark); }
     .footer-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
-    .footer-badge { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2); color: var(--or); font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; letter-spacing: 0.05em; }
-    .footer-bottom { border-top: 1px solid var(--border); padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1200px; margin: 0 auto; }
-    .footer-bottom p { color: #4a5568; font-size: 0.75rem; }
-    .footer-bottom a { color: #4a5568; text-decoration: none; font-size: 0.75rem; }
-    .footer-bottom a:hover { color: var(--or); }
-    .footer-legal { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25); color: var(--accent-dark); font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; }
+    .footer-col h4 { color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-col a { display: block; color: rgba(255,255,255,0.5); font-size: 0.82rem; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent-dark); }
+    .footer-mention { max-width: 1200px; margin: 0 auto; padding: 1.2rem 3rem; font-size: 0.72rem; color: rgba(255,255,255,0.25); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1200px; margin: 0 auto; }
+    .footer-bottom p, .footer-bottom a { color: rgba(255,255,255,0.3); font-size: 0.75rem; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--accent-dark); }
+    .footer-legal { display: flex; gap: 1.5rem; }
 
     /* BOUTON RETOUR EN HAUT */
     .top-btn {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 44px; height: 44px;
-      background: var(--or);
-      color: var(--marine);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 500;
-      transition: all 0.3s;
+      position: fixed; bottom: 6rem; right: 1.5rem;
+      width: 42px; height: 42px; background: var(--primary); color: #fff;
+      border: none; border-radius: 8px; cursor: pointer;
+      font-size: 1rem; display: none; align-items: center; justify-content: center;
+      z-index: 500; transition: all 0.3s; box-shadow: var(--shadow);
     }
-    .top-btn:hover { background: var(--or-clair); transform: translateY(-2px); }
+    .top-btn:hover { background: var(--primary-mid); transform: translateY(-2px); }
     .top-btn.visible { display: flex; }
 
     /* ANIMATIONS */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat-item:last-child { border-bottom: none; }
-      section { padding: 4rem 1.5rem; }
+    /* RGPD */
+    #rgpd {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 8888;
+      background: #fff; border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 30px rgba(30,58,95,0.12);
+      padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      transform: translateY(100%); transition: transform 0.4s ease;
     }
+    #rgpd p { color: var(--muted); font-size: 0.8rem; max-width: 700px; margin: 0; }
+    .rgpd-btns { display: flex; gap: 0.8rem; flex-shrink: 0; }
+    .rgpd-accept { background: var(--primary); border: none; color: #fff; font-weight: 700; font-size: 0.8rem; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; }
+    .rgpd-refuse { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <!-- Barre de progression -->
   <div id="read-progress"></div>
 
+  <!-- NAVIGATION -->
   <nav id="navbar">
     <div class="logo">Cabinet <span>Alfred Gory</span></div>
     <ul class="nav-links">
       <li><a href="#formations">Formations</a></li>
+      <li><a href="#modalites">Modalités</a></li>
       <li><a href="#temoignages">Avis</a></li>
       <li><a href="#blog">Actualités</a></li>
-      <li><a href="#pourquoi">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">S'inscrire</a>
@@ -743,6 +424,7 @@
 
   <!-- MENU MOBILE -->
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
     <a href="#formations" onclick="toggleMenu()">Formations</a>
     <a href="#temoignages" onclick="toggleMenu()">Avis clients</a>
     <a href="#blog" onclick="toggleMenu()">Actualités</a>
@@ -752,33 +434,47 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <canvas id="particles"></canvas>
     <div class="hero-content">
-      <div class="hero-badge">Cabinet RH &amp; Formation</div>
+      <div class="hero-tag">Organisme certifié Qualiopi — éligible CPF &amp; OPCO</div>
       <h1>
-        L'excellence<br>au service de votre<br>
-        <em>montée en compétences</em>
+        Des formations sur mesure,<br>dispensées par des <em>experts terrain</em>
       </h1>
-      <p>Formations professionnelles en gestion de la paie, maîtrise de Silae et gestion d'entreprise. Des parcours certifiés, conçus par des experts terrain.</p>
+      <p>Paie, RH, droit social ou tout autre domaine professionnel — en ligne, dans nos locaux à Taverny ou directement dans votre entreprise. Plus de 15 ans d'expérience au service de votre montée en compétences.</p>
       <div class="hero-btns">
-        <a href="#formations" class="btn-or">Découvrir nos formations</a>
-        <a href="#contact" class="btn-ghost">Nous contacter</a>
+        <a href="#formations" class="btn-primary">Découvrir les formations</a>
+        <a href="#contact" class="btn-outline">Nous contacter</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong class="counter" data-target="200">0</strong>
+          <span>Apprenants formés</span>
+        </div>
+        <div class="hero-stat">
+          <strong class="counter" data-target="98">0</strong>
+          <span>% de satisfaction</span>
+        </div>
+        <div class="hero-stat">
+          <strong class="counter" data-target="15">0</strong>
+          <span>Ans d'expérience</span>
+        </div>
+        <div class="hero-stat">
+          <strong class="counter" data-target="6">0</strong>
+          <span>Formations disponibles</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FIL D'ACTUALITÉS -->
-  <div id="ticker-zone" style="background:#0d1117; border-top:1px solid rgba(201,168,76,0.15); border-bottom:1px solid rgba(201,168,76,0.15); overflow:hidden; display:none;">
+  <div id="ticker-zone" style="overflow:hidden; display:none;">
     <div style="display:flex; align-items:stretch;">
-      <div style="background:rgba(201,168,76,0.12); padding:0.6rem 1.2rem; display:flex; align-items:center; gap:0.5rem; flex-shrink:0; border-right:1px solid rgba(201,168,76,0.2);">
-        <span style="color:#c9a84c; font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;">Actualités</span>
+      <div style="background:rgba(245,158,11,0.15); padding:0.6rem 1.2rem; display:flex; align-items:center; flex-shrink:0; border-right:1px solid rgba(255,255,255,0.08);">
+        <span style="color:var(--accent); font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; white-space:nowrap;">Actualités</span>
       </div>
-      <div style="overflow:hidden; flex:1; position:relative;">
-        <div id="ticker-track" style="display:flex; align-items:center; gap:0; white-space:nowrap; will-change:transform;">
-          <span id="ticker-content" style="display:inline-flex; align-items:center; gap:2.5rem; padding:0.6rem 2rem; font-size:0.82rem; color:#8b949e;"></span>
-          <span id="ticker-clone"   style="display:inline-flex; align-items:center; gap:2.5rem; padding:0.6rem 2rem; font-size:0.82rem; color:#8b949e;"></span>
+      <div style="overflow:hidden; flex:1;">
+        <div id="ticker-track" style="display:flex; align-items:center; white-space:nowrap; will-change:transform;">
+          <span id="ticker-content" style="display:inline-flex; align-items:center; gap:2.5rem; padding:0.6rem 2rem; font-size:0.8rem; color:rgba(255,255,255,0.7);"></span>
+          <span id="ticker-clone"   style="display:inline-flex; align-items:center; gap:2.5rem; padding:0.6rem 2rem; font-size:0.8rem; color:rgba(255,255,255,0.7);"></span>
         </div>
       </div>
     </div>
@@ -795,25 +491,19 @@
         var clone = document.getElementById('ticker-clone');
         var html = data.articles.map(function(a){
           return '<a href="'+(a.lien||'#blog')+'" '+(a.lien&&a.lien!=='#contact'&&a.lien!=='#blog'?'target="_blank" rel="noopener"':'')+
-            ' style="color:#c9a84c;text-decoration:none;font-weight:600;transition:color 0.2s;" onmouseover="this.style.color=\'#e8d08a\'" onmouseout="this.style.color=\'#c9a84c\'">'+
-            '<span style="color:#8b949e;font-weight:400;margin-right:0.4rem;">'+a.icone+'</span>'+a.titre+'</a>'+
-            '<span style="color:rgba(201,168,76,0.3);">◆</span>';
+            ' style="color:var(--accent);text-decoration:none;font-weight:600;">'+
+            '<span style="opacity:0.6;font-weight:400;margin-right:0.4rem;">'+a.icone+'</span>'+a.titre+'</a>'+
+            '<span style="opacity:0.2;">◆</span>';
         }).join('');
         content.innerHTML = html;
         clone.innerHTML = html;
         zone.style.display = 'block';
         var track = document.getElementById('ticker-track');
-        var pos = 0;
-        var paused = false;
+        var pos = 0; var paused = false;
         zone.addEventListener('mouseenter',function(){paused=true;});
         zone.addEventListener('mouseleave',function(){paused=false;});
         function animate(){
-          if(!paused){
-            pos -= 0.6;
-            var w = content.offsetWidth;
-            if(Math.abs(pos) >= w) pos = 0;
-            track.style.transform = 'translateX('+pos+'px)';
-          }
+          if(!paused){ pos -= 0.6; var w = content.offsetWidth; if(Math.abs(pos)>=w) pos=0; track.style.transform='translateX('+pos+'px)'; }
           requestAnimationFrame(animate);
         }
         requestAnimationFrame(animate);
@@ -821,178 +511,185 @@
   })();
   </script>
 
-  <!-- BANDE CERTIFICATIONS / PARTENAIRES -->
-  <div style="background:#080c10; border-bottom:1px solid rgba(201,168,76,0.12); padding:1.2rem 2rem; overflow:hidden;">
-    <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:2rem 3rem; max-width:1100px; margin:0 auto;">
-      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
-        <span style="font-size:1.4rem;">🏅</span>
-        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Démarche</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">Qualiopi</div></div>
-      </div>
-      <div style="width:1px; height:2rem; background:rgba(201,168,76,0.15); flex-shrink:0;"></div>
-      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
-        <span style="font-size:1.4rem;">💳</span>
-        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Éligible</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">Compte CPF</div></div>
-      </div>
-      <div style="width:1px; height:2rem; background:rgba(201,168,76,0.15); flex-shrink:0;"></div>
-      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
-        <span style="font-size:1.4rem;">🤝</span>
-        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Finançable</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">OPCO & AGEFICE</div></div>
-      </div>
-      <div style="width:1px; height:2rem; background:rgba(201,168,76,0.15); flex-shrink:0;"></div>
-      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
-        <span style="font-size:1.4rem;">🖥️</span>
-        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Format</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">100 % en ligne</div></div>
-      </div>
-      <div style="width:1px; height:2rem; background:rgba(201,168,76,0.15); flex-shrink:0;"></div>
-      <div style="display:flex; align-items:center; gap:0.6rem; opacity:0.75; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
-        <span style="font-size:1.4rem;">📋</span>
-        <div><div style="font-size:0.65rem; color:#c9a84c; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Attestation</div><div style="font-size:0.8rem; color:#e6edf3; font-weight:600;">de fin de formation</div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat-item">
-      <h2 class="counter" data-target="200">0</h2>
-      <p>Apprenants formés</p>
-    </div>
-    <div class="stat-item">
-      <h2 class="counter" data-target="15">0</h2>
-      <p>Années d'expérience</p>
-    </div>
-    <div class="stat-item">
-      <h2 class="counter" data-target="98">0</h2>
-      <p>% de satisfaction</p>
-    </div>
-    <div class="stat-item">
-      <h2 class="counter" data-target="6">0</h2>
-      <p>Formations disponibles</p>
+  <!-- CERTIFICATIONS STRIP -->
+  <div class="cert-strip">
+    <div class="cert-strip-inner">
+      <div class="cert-item"><div class="cert-item-text"><div>Démarche</div><div>Qualiopi</div></div></div>
+      <div class="cert-sep"></div>
+      <div class="cert-item"><div class="cert-item-text"><div>Éligible</div><div>Compte CPF</div></div></div>
+      <div class="cert-sep"></div>
+      <div class="cert-item"><div class="cert-item-text"><div>Finançable</div><div>OPCO &amp; AGEFICE</div></div></div>
+      <div class="cert-sep"></div>
+      <div class="cert-item"><div class="cert-item-text"><div>Format</div><div>En ligne / Présentiel</div></div></div>
+      <div class="cert-sep"></div>
+      <div class="cert-item"><div class="cert-item-text"><div>Attestation</div><div>de fin de formation</div></div></div>
     </div>
   </div>
 
   <!-- FORMATIONS -->
-  <section class="formations-bg" id="formations">
+  <section class="section-wrap" id="formations">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Nos programmes</div>
-        <h2 class="section-title">Des formations d'excellence</h2>
-        <div class="divider"></div>
-        <p class="section-sub">Des parcours complets pour maîtriser les outils de la paie, des RH et de la gestion d'entreprise.</p>
+      <div class="fade-in">
+        <span class="section-eyebrow">Nos programmes</span>
+        <h2 class="section-title">Formations <span>sur mesure</span> dans tous les domaines</h2>
+        <div class="section-line"></div>
+        <p class="section-sub">Paie, RH, droit social, management, bureautique — et bien au-delà. Nous concevons des parcours adaptés à vos besoins, en ligne, en présentiel dans nos locaux (classe de 8 personnes maximum) ou directement dans votre entreprise.</p>
       </div>
       <div class="formations-grid">
 
         <div class="fcard fade-in">
-          <div class="fcard-num">01</div>
-          <div class="fcard-icon">📊</div>
-          <h3>Gestion de la paie</h3>
-          <div class="niveau">Débutant → Avancé</div>
-          <ul>
-            <li>Bases du droit du travail</li>
-            <li>Calcul des cotisations sociales</li>
-            <li>Établissement du bulletin de paie</li>
-            <li>Déclarations sociales (DSN)</li>
-          </ul>
-          <div class="progress-label"><span>Niveau de maîtrise visé</span><span>Expert</span></div>
-          <div class="progress-bar"><div class="progress-fill" data-width="90"></div></div>
-          <div class="fcard-footer">
-            <span class="fcard-duree">⏱ 35 heures</span>
-            <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+          <div class="fcard-img">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="Gestion de la paie" loading="lazy" />
+            <div class="fcard-badge">Paie</div>
+            <div class="fcard-num-badge">01</div>
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-icon-row"><span class="fcard-niveau">Débutant → Avancé</span></div>
+            <h3>Gestion de la paie</h3>
+            <ul>
+              <li>Bases du droit du travail</li>
+              <li>Calcul des cotisations sociales</li>
+              <li>Établissement du bulletin de paie</li>
+              <li>Déclarations sociales (DSN)</li>
+            </ul>
+            <div class="fcard-progress">
+              <div class="fcard-progress-label"><span>Niveau de maîtrise visé</span><span>Expert</span></div>
+              <div class="fcard-bar"><div class="fcard-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="fcard-footer2">
+              <span class="fcard-duree">35 heures</span>
+              <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+            </div>
           </div>
         </div>
 
         <div class="fcard fade-in">
-          <div class="fcard-num">02</div>
-          <div class="fcard-icon">💻</div>
-          <h3>Maîtrise de Silae</h3>
-          <div class="niveau">Logiciel de paie</div>
-          <ul>
-            <li>Prise en main du logiciel</li>
-            <li>Paramétrage des dossiers</li>
-            <li>Saisie et édition des bulletins</li>
-            <li>Génération de la DSN</li>
-          </ul>
-          <div class="progress-label"><span>Niveau de maîtrise visé</span><span>Autonome</span></div>
-          <div class="progress-bar"><div class="progress-fill" data-width="85"></div></div>
-          <div class="fcard-footer">
-            <span class="fcard-duree">⏱ 21 heures</span>
-            <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+          <div class="fcard-img">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Maîtrise Silae" loading="lazy" />
+            <div class="fcard-badge">Logiciel</div>
+            <div class="fcard-num-badge">02</div>
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-icon-row"><span class="fcard-niveau">Logiciel de paie</span></div>
+            <h3>Maîtrise de Silae</h3>
+            <ul>
+              <li>Prise en main du logiciel</li>
+              <li>Paramétrage des dossiers</li>
+              <li>Saisie et édition des bulletins</li>
+              <li>Génération de la DSN</li>
+            </ul>
+            <div class="fcard-progress">
+              <div class="fcard-progress-label"><span>Niveau de maîtrise visé</span><span>Autonome</span></div>
+              <div class="fcard-bar"><div class="fcard-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="fcard-footer2">
+              <span class="fcard-duree">21 heures</span>
+              <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+            </div>
           </div>
         </div>
 
         <div class="fcard fade-in">
-          <div class="fcard-num">03</div>
-          <div class="fcard-icon">🏢</div>
-          <h3>Gestion d'entreprise</h3>
-          <div class="niveau">Dirigeants &amp; Managers</div>
-          <ul>
-            <li>Lecture des bilans comptables</li>
-            <li>Gestion des ressources humaines</li>
-            <li>Obligations sociales</li>
-            <li>Pilotage et tableaux de bord</li>
-          </ul>
-          <div class="progress-label"><span>Niveau de maîtrise visé</span><span>Stratégique</span></div>
-          <div class="progress-bar"><div class="progress-fill" data-width="80"></div></div>
-          <div class="fcard-footer">
-            <span class="fcard-duree">⏱ 28 heures</span>
-            <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+          <div class="fcard-img">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Gestion d'entreprise" loading="lazy" />
+            <div class="fcard-badge">Management</div>
+            <div class="fcard-num-badge">03</div>
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-icon-row"><span class="fcard-niveau">Dirigeants &amp; Managers</span></div>
+            <h3>Gestion d'entreprise</h3>
+            <ul>
+              <li>Lecture des bilans comptables</li>
+              <li>Gestion des ressources humaines</li>
+              <li>Obligations sociales</li>
+              <li>Pilotage et tableaux de bord</li>
+            </ul>
+            <div class="fcard-progress">
+              <div class="fcard-progress-label"><span>Niveau de maîtrise visé</span><span>Stratégique</span></div>
+              <div class="fcard-bar"><div class="fcard-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="fcard-footer2">
+              <span class="fcard-duree">28 heures</span>
+              <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+            </div>
           </div>
         </div>
 
         <div class="fcard fade-in">
-          <div class="fcard-num">04</div>
-          <div class="fcard-icon">📋</div>
-          <h3>Recrutement &amp; RH</h3>
-          <div class="niveau">Processus &amp; Outils</div>
-          <ul>
-            <li>Techniques de recrutement</li>
-            <li>Rédaction des contrats</li>
-            <li>Gestion des congés</li>
-            <li>Entretiens professionnels</li>
-          </ul>
-          <div class="progress-label"><span>Niveau de maîtrise visé</span><span>Professionnel</span></div>
-          <div class="progress-bar"><div class="progress-fill" data-width="75"></div></div>
-          <div class="fcard-footer">
-            <span class="fcard-duree">⏱ 14 heures</span>
-            <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+          <div class="fcard-img">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Recrutement RH" loading="lazy" />
+            <div class="fcard-badge">RH</div>
+            <div class="fcard-num-badge">04</div>
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-icon-row"><span class="fcard-niveau">Processus &amp; Outils</span></div>
+            <h3>Recrutement &amp; RH</h3>
+            <ul>
+              <li>Techniques de recrutement</li>
+              <li>Rédaction des contrats</li>
+              <li>Gestion des congés</li>
+              <li>Entretiens professionnels</li>
+            </ul>
+            <div class="fcard-progress">
+              <div class="fcard-progress-label"><span>Niveau de maîtrise visé</span><span>Professionnel</span></div>
+              <div class="fcard-bar"><div class="fcard-bar-fill" data-width="75"></div></div>
+            </div>
+            <div class="fcard-footer2">
+              <span class="fcard-duree">14 heures</span>
+              <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+            </div>
           </div>
         </div>
 
         <div class="fcard fade-in">
-          <div class="fcard-num">05</div>
-          <div class="fcard-icon">🔢</div>
-          <h3>Excel pour la paie</h3>
-          <div class="niveau">Bureautique RH</div>
-          <ul>
-            <li>Tableaux de suivi des salariés</li>
-            <li>Calculs automatisés</li>
-            <li>Tableaux croisés dynamiques</li>
-            <li>Modèles prêts à l'emploi</li>
-          </ul>
-          <div class="progress-label"><span>Niveau de maîtrise visé</span><span>Avancé</span></div>
-          <div class="progress-bar"><div class="progress-fill" data-width="70"></div></div>
-          <div class="fcard-footer">
-            <span class="fcard-duree">⏱ 14 heures</span>
-            <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+          <div class="fcard-img">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Excel pour la paie" loading="lazy" />
+            <div class="fcard-badge">Bureautique</div>
+            <div class="fcard-num-badge">05</div>
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-icon-row"><span class="fcard-niveau">Bureautique RH</span></div>
+            <h3>Excel pour la paie</h3>
+            <ul>
+              <li>Tableaux de suivi des salariés</li>
+              <li>Calculs automatisés</li>
+              <li>Tableaux croisés dynamiques</li>
+              <li>Modèles prêts à l'emploi</li>
+            </ul>
+            <div class="fcard-progress">
+              <div class="fcard-progress-label"><span>Niveau de maîtrise visé</span><span>Avancé</span></div>
+              <div class="fcard-bar"><div class="fcard-bar-fill" data-width="70"></div></div>
+            </div>
+            <div class="fcard-footer2">
+              <span class="fcard-duree">14 heures</span>
+              <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+            </div>
           </div>
         </div>
 
         <div class="fcard fade-in">
-          <div class="fcard-num">06</div>
-          <div class="fcard-icon">⚖️</div>
-          <h3>Droit social pratique</h3>
-          <div class="niveau">Conformité &amp; Obligations</div>
-          <ul>
-            <li>Code du travail appliqué</li>
-            <li>Gestion des litiges</li>
-            <li>Rupture du contrat</li>
-            <li>Veille réglementaire RH</li>
-          </ul>
-          <div class="progress-label"><span>Niveau de maîtrise visé</span><span>Expert</span></div>
-          <div class="progress-bar"><div class="progress-fill" data-width="88"></div></div>
-          <div class="fcard-footer">
-            <span class="fcard-duree">⏱ 21 heures</span>
-            <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+          <div class="fcard-img">
+            <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=600&q=80" alt="Droit social" loading="lazy" />
+            <div class="fcard-badge">Droit social</div>
+            <div class="fcard-num-badge">06</div>
+          </div>
+          <div class="fcard-body">
+            <div class="fcard-icon-row"><span class="fcard-niveau">Conformité &amp; Obligations</span></div>
+            <h3>Droit social pratique</h3>
+            <ul>
+              <li>Code du travail appliqué</li>
+              <li>Gestion des litiges</li>
+              <li>Rupture du contrat</li>
+              <li>Veille réglementaire RH</li>
+            </ul>
+            <div class="fcard-progress">
+              <div class="fcard-progress-label"><span>Niveau de maîtrise visé</span><span>Expert</span></div>
+              <div class="fcard-bar"><div class="fcard-bar-fill" data-width="88"></div></div>
+            </div>
+            <div class="fcard-footer2">
+              <span class="fcard-duree">21 heures</span>
+              <a href="formations.html" class="fcard-btn">Voir le programme →</a>
+            </div>
           </div>
         </div>
 
@@ -1000,77 +697,44 @@
     </div>
   </section>
 
-  <!-- CARTE INTERACTIVE -->
-  <section style="padding: 5rem 2rem; background: var(--marine);">
-    <div class="container">
-      <div class="section-header fade-in" style="text-align:center;">
-        <div class="section-label">Explorez</div>
-        <h2 class="section-title">Carte de nos formations</h2>
-        <div class="divider" style="margin: 1.2rem auto;"></div>
-        <p class="section-sub" style="margin: 0 auto;">Cliquez sur une formation pour découvrir son contenu</p>
+  <!-- STATS -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-box fade-in">
+        <span class="stat-num counter" data-target="200">0</span>
+        <div class="stat-label">Apprenants formés</div>
       </div>
-      <div class="carte-formations fade-in">
-        <div class="carte-fond">
-          <div class="carte-lignes"></div>
-          <svg id="carteSvg" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;"></svg>
-
-          <div class="carte-noeud" style="left:50%;top:50%;" data-id="centre">
-            <div class="carte-noeud-cercle" style="width:70px;height:70px;border-color:var(--or);background:rgba(201,168,76,0.15);">🏛️</div>
-            <div class="carte-noeud-label" style="color:var(--or);font-weight:600;">Cabinet<br>Alfred Gory</div>
-          </div>
-
-          <div class="carte-noeud" style="left:18%;top:20%;" data-id="0" onclick="afficherDetail(0)">
-            <div class="carte-noeud-cercle">📊</div>
-            <div class="carte-noeud-label">Gestion<br>de la paie</div>
-          </div>
-          <div class="carte-noeud" style="left:82%;top:20%;" data-id="1" onclick="afficherDetail(1)">
-            <div class="carte-noeud-cercle">💻</div>
-            <div class="carte-noeud-label">Maîtrise<br>de Silae</div>
-          </div>
-          <div class="carte-noeud" style="left:10%;top:60%;" data-id="2" onclick="afficherDetail(2)">
-            <div class="carte-noeud-cercle">🏢</div>
-            <div class="carte-noeud-label">Gestion<br>d'entreprise</div>
-          </div>
-          <div class="carte-noeud" style="left:90%;top:60%;" data-id="3" onclick="afficherDetail(3)">
-            <div class="carte-noeud-cercle">📋</div>
-            <div class="carte-noeud-label">Recrutement<br>&amp; RH</div>
-          </div>
-          <div class="carte-noeud" style="left:30%;top:85%;" data-id="4" onclick="afficherDetail(4)">
-            <div class="carte-noeud-cercle">🔢</div>
-            <div class="carte-noeud-label">Excel<br>paie</div>
-          </div>
-          <div class="carte-noeud" style="left:70%;top:85%;" data-id="5" onclick="afficherDetail(5)">
-            <div class="carte-noeud-cercle">⚖️</div>
-            <div class="carte-noeud-label">Droit<br>social</div>
-          </div>
-
-          <div class="carte-detail" id="carteDetail">
-            <h4 id="carteDetailTitre"></h4>
-            <p id="carteDetailDesc"></p>
-            <span class="duree-badge" id="carteDetailDuree"></span>
-          </div>
-        </div>
+      <div class="stat-box fade-in">
+        <span class="stat-num counter" data-target="15">0</span>
+        <div class="stat-label">Années d'expérience</div>
+      </div>
+      <div class="stat-box fade-in">
+        <span class="stat-num counter" data-target="98">0</span>
+        <div class="stat-label">% de satisfaction</div>
+      </div>
+      <div class="stat-box fade-in">
+        <span class="stat-num counter" data-target="6">0</span>
+        <div class="stat-label">Formations disponibles</div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- TEMOIGNAGES -->
-  <section id="temoignages">
+  <section class="section-wrap alt" id="temoignages">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Ils nous font confiance</div>
-        <h2 class="section-title">Avis de nos apprenants</h2>
-        <div class="divider"></div>
+      <div class="section-header-center fade-in">
+        <span class="section-eyebrow">Ils nous font confiance</span>
+        <h2 class="section-title">Avis de nos <span>apprenants</span></h2>
+        <div class="section-line"></div>
         <div style="display:flex; align-items:center; justify-content:center; gap:0.4rem; margin-top:0.5rem;">
-          <span style="color:#c9a84c; font-size:1.1rem;">★★★★★</span>
-          <span style="color:#e6edf3; font-size:0.9rem; font-weight:600; margin-left:0.3rem;">4,9 / 5</span>
-          <span style="color:#8b949e; font-size:0.82rem;">— Note moyenne de satisfaction</span>
+          <span style="color:var(--accent); font-size:1rem;">★★★★★</span>
+          <span style="color:var(--primary); font-size:0.9rem; font-weight:600; margin-left:0.3rem;">4,9 / 5</span>
+          <span style="color:var(--muted); font-size:0.82rem;">— Note moyenne de satisfaction</span>
         </div>
       </div>
       <div class="temo-grid">
 
-        <div class="temo-card fade-in" style="position:relative; overflow:hidden;">
-          <div style="position:absolute; top:1rem; right:1rem; font-size:2rem; opacity:0.06; font-family:Georgia,serif; line-height:1;">"</div>
+        <div class="temo-card fade-in">
           <div class="stars">★★★★★</div>
           <p>"La formation Silae m'a permis de prendre en main le logiciel en quelques jours. Les exercices sont vraiment adaptés à la réalité du terrain. Je recommande vivement !"</p>
           <div class="temo-auteur">
@@ -1078,16 +742,15 @@
             <div>
               <strong>Sophie M.</strong>
               <span>Gestionnaire de paie — Paris</span>
-              <div style="margin-top:0.3rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
-                <span style="background:rgba(201,168,76,0.1); color:#c9a84c; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">Formation Silae</span>
-                <span style="background:rgba(46,204,113,0.1); color:#2ecc71; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">✓ Certifiée</span>
+              <div class="temo-tags">
+                <span class="temo-tag" style="background:rgba(201,168,76,0.1); color:var(--accent-dark);">Silae</span>
+                <span class="temo-tag" style="background:rgba(5,150,105,0.1); color:var(--success);">✓ Certifiée</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="temo-card fade-in" style="position:relative; overflow:hidden;">
-          <div style="position:absolute; top:1rem; right:1rem; font-size:2rem; opacity:0.06; font-family:Georgia,serif; line-height:1;">"</div>
+        <div class="temo-card fade-in">
           <div class="stars">★★★★★</div>
           <p>"Excellent cabinet. La formation gestion d'entreprise m'a permis de mettre en place de nouveaux outils de pilotage dès la semaine suivante. Le formateur était très disponible."</p>
           <div class="temo-auteur">
@@ -1095,16 +758,15 @@
             <div>
               <strong>Karim D.</strong>
               <span>Dirigeant TPE — Lyon</span>
-              <div style="margin-top:0.3rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
-                <span style="background:rgba(201,168,76,0.1); color:#c9a84c; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">Gestion d'entreprise</span>
-                <span style="background:rgba(46,204,113,0.1); color:#2ecc71; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">✓ Financé OPCO</span>
+              <div class="temo-tags">
+                <span class="temo-tag" style="background:rgba(201,168,76,0.1); color:var(--accent-dark);">Gestion d'entreprise</span>
+                <span class="temo-tag" style="background:rgba(5,150,105,0.1); color:var(--success);">✓ OPCO</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="temo-card fade-in" style="position:relative; overflow:hidden;">
-          <div style="position:absolute; top:1rem; right:1rem; font-size:2rem; opacity:0.06; font-family:Georgia,serif; line-height:1;">"</div>
+        <div class="temo-card fade-in">
           <div class="stars">★★★★★</div>
           <p>"Très pédagogique et professionnelle. La formation paie m'a donné toutes les bases pour gérer les bulletins de salaire en toute autonomie. Le contenu est à jour."</p>
           <div class="temo-auteur">
@@ -1112,9 +774,9 @@
             <div>
               <strong>Amélie L.</strong>
               <span>Assistante RH — Bordeaux</span>
-              <div style="margin-top:0.3rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
-                <span style="background:rgba(201,168,76,0.1); color:#c9a84c; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">Gestion de la paie</span>
-                <span style="background:rgba(46,204,113,0.1); color:#2ecc71; font-size:0.68rem; padding:0.15rem 0.5rem; border-radius:10px; font-weight:600;">✓ Financée CPF</span>
+              <div class="temo-tags">
+                <span class="temo-tag" style="background:rgba(201,168,76,0.1); color:var(--accent-dark);">Gestion de la paie</span>
+                <span class="temo-tag" style="background:rgba(5,150,105,0.1); color:var(--success);">✓ CPF</span>
               </div>
             </div>
           </div>
@@ -1122,97 +784,108 @@
 
       </div>
 
-      <!-- Bandeau garantie satisfaction -->
-      <div class="fade-in" style="margin-top:3rem; background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02)); border:1px solid rgba(201,168,76,0.2); border-radius:12px; padding:2rem; display:flex; align-items:center; justify-content:space-around; flex-wrap:wrap; gap:1.5rem;">
-        <div style="text-align:center;">
-          <div style="font-size:2rem; margin-bottom:0.4rem;">🛡️</div>
-          <div style="color:#e6edf3; font-weight:700; font-size:0.9rem;">Satisfaction garantie</div>
-          <div style="color:#8b949e; font-size:0.78rem; margin-top:0.2rem;">Remboursement si non satisfait</div>
+      <div class="garanties-band fade-in">
+        <div class="gar-item"><strong>Satisfaction garantie</strong><span>Remboursement si non satisfait</span></div>
+        <div class="gar-sep"></div>
+        <div class="gar-item"><strong>Accompagnement inclus</strong><span>Formateur joignable tout au long</span></div>
+        <div class="gar-sep"></div>
+        <div class="gar-item"><strong>Attestation officielle</strong><span>Délivrée à l'issue de chaque formation</span></div>
+        <div class="gar-sep"></div>
+        <div class="gar-item"><strong>Accès à vie</strong><span>Supports de cours conservés</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODALITÉS -->
+  <section class="section-wrap" id="modalites" style="background:var(--primary-dark);">
+    <div class="container">
+      <div class="section-header-center fade-in" style="margin-bottom:3rem;">
+        <span class="section-eyebrow" style="color:var(--accent-dark);">Nos modalités</span>
+        <h2 class="section-title" style="color:#fff;">Trois façons de <span>vous former</span></h2>
+        <div class="section-line" style="margin:1rem auto;"></div>
+        <p class="section-sub" style="color:rgba(255,255,255,0.6);">Choisissez la formule qui correspond à votre organisation, votre rythme et vos contraintes.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;">
+
+        <div class="fade-in" style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-top:3px solid var(--accent-dark);border-radius:12px;padding:2.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:1rem;">Distanciel</div>
+          <h3 style="font-family:'Playfair Display',serif;color:#fff;font-size:1.2rem;margin-bottom:1rem;">Formation en ligne</h3>
+          <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;line-height:1.8;margin-bottom:1.5rem;">Suivez votre parcours à votre rythme, depuis n'importe où, avec un accès permanent aux supports et un formateur disponible par messagerie.</p>
+          <ul style="list-style:none;">
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>Accès 24h/24, 7j/7</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>Supports téléchargeables</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>Éligible CPF &amp; OPCO</li>
+          </ul>
         </div>
-        <div style="width:1px; height:3rem; background:rgba(201,168,76,0.2);"></div>
-        <div style="text-align:center;">
-          <div style="font-size:2rem; margin-bottom:0.4rem;">📞</div>
-          <div style="color:#e6edf3; font-weight:700; font-size:0.9rem;">Accompagnement inclus</div>
-          <div style="color:#8b949e; font-size:0.78rem; margin-top:0.2rem;">Formateur joignable tout au long</div>
+
+        <div class="fade-in" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-top:3px solid var(--accent-dark);border-radius:12px;padding:2.5rem;position:relative;">
+          <div style="position:absolute;top:-1px;right:1.5rem;background:var(--accent-dark);color:var(--primary-dark);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;padding:0.25rem 0.7rem;border-radius:0 0 6px 6px;">Recommandé</div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:1rem;">Présentiel — Nos locaux</div>
+          <h3 style="font-family:'Playfair Display',serif;color:#fff;font-size:1.2rem;margin-bottom:1rem;">Formation en classe</h3>
+          <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;line-height:1.8;margin-bottom:1.5rem;">Sessions en petit groupe de 8 personnes maximum dans nos locaux de Taverny (95). Un cadre propice à l'échange et à la pratique intensive.</p>
+          <ul style="list-style:none;">
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>8 participants maximum</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>Exercices pratiques en groupe</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>10-12 rue Condorcet, Taverny (95)</li>
+          </ul>
         </div>
-        <div style="width:1px; height:3rem; background:rgba(201,168,76,0.2);"></div>
-        <div style="text-align:center;">
-          <div style="font-size:2rem; margin-bottom:0.4rem;">📄</div>
-          <div style="color:#e6edf3; font-weight:700; font-size:0.9rem;">Attestation officielle</div>
-          <div style="color:#8b949e; font-size:0.78rem; margin-top:0.2rem;">Délivrée à l'issue de chaque formation</div>
+
+        <div class="fade-in" style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-top:3px solid var(--accent-dark);border-radius:12px;padding:2.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:1rem;">Intra-entreprise</div>
+          <h3 style="font-family:'Playfair Display',serif;color:#fff;font-size:1.2rem;margin-bottom:1rem;">Intervention en entreprise</h3>
+          <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;line-height:1.8;margin-bottom:1.5rem;">Nous nous déplaçons dans vos locaux pour former vos équipes sur site. Programme entièrement conçu autour de vos outils et vos procédures internes.</p>
+          <ul style="list-style:none;">
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>Programme 100% sur mesure</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>Déplacement partout en France</li>
+            <li style="color:rgba(255,255,255,0.5);font-size:0.82rem;padding:0.4rem 0;display:flex;gap:0.6rem;"><span style="color:var(--accent-dark);font-weight:700;">—</span>Finançable plan de formation</li>
+          </ul>
         </div>
-        <div style="width:1px; height:3rem; background:rgba(201,168,76,0.2);"></div>
-        <div style="text-align:center;">
-          <div style="font-size:2rem; margin-bottom:0.4rem;">♻️</div>
-          <div style="color:#e6edf3; font-weight:700; font-size:0.9rem;">Accès à vie</div>
-          <div style="color:#8b949e; font-size:0.78rem; margin-top:0.2rem;">Supports de cours conservés</div>
-        </div>
+
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="#contact" class="btn-primary">Demander un devis sur mesure</a>
       </div>
     </div>
   </section>
 
   <!-- POURQUOI -->
-  <section class="why-bg" id="pourquoi">
+  <section class="section-wrap" id="pourquoi">
     <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Notre différence</div>
-        <h2 class="section-title">Pourquoi choisir Cabinet Alfred Gory ?</h2>
-        <div class="divider"></div>
-        <p class="section-sub">Une approche professionnelle, humaine et adaptée à votre réalité terrain.</p>
-        <div class="cpf-badge">✦ Formations éligibles CPF &amp; OPCO</div>
+      <div class="section-header-center fade-in">
+        <span class="section-eyebrow">Notre différence</span>
+        <h2 class="section-title">Pourquoi choisir <span>Cabinet Alfred Gory ?</span></h2>
+        <div class="section-line"></div>
+        <p class="section-sub">Une approche professionnelle, humaine et adaptée à votre réalité terrain. Formations éligibles CPF &amp; OPCO.</p>
       </div>
       <div class="why-grid">
-        <div class="why-item fade-in">
-          <span class="why-icon">🎯</span>
-          <h3>Sur mesure</h3>
-          <p>Chaque parcours est adapté à votre niveau et à votre secteur d'activité.</p>
-        </div>
-        <div class="why-item fade-in">
-          <span class="why-icon">👩‍🏫</span>
-          <h3>Formateurs experts</h3>
-          <p>Des professionnels RH et paie avec plus de 15 ans d'expérience terrain.</p>
-        </div>
-        <div class="why-item fade-in">
-          <span class="why-icon">📱</span>
-          <h3>100% en ligne</h3>
-          <p>Suivez vos formations depuis chez vous, à votre rythme, sur tous vos appareils.</p>
-        </div>
-        <div class="why-item fade-in">
-          <span class="why-icon">🏅</span>
-          <h3>Certifié Qualiopi</h3>
-          <p>Nos formations sont reconnues et finançables par votre OPCO ou CPF.</p>
-        </div>
+        <div class="why-item fade-in"><h3>Sur mesure</h3><p>Chaque parcours est conçu selon vos objectifs, votre niveau et votre secteur d'activité — aucun programme standard imposé.</p></div>
+        <div class="why-item fade-in"><h3>Formateurs experts</h3><p>Des professionnels RH et paie avec plus de 15 ans d'expérience terrain, pas de simples théoriciens.</p></div>
+        <div class="why-item fade-in"><h3>En ligne ou en présentiel</h3><p>Distanciel à votre rythme, présentiel dans nos locaux (8 personnes max) ou intervention directement dans votre entreprise.</p></div>
+        <div class="why-item fade-in"><h3>Certifié Qualiopi</h3><p>Formations reconnues par l'État, finançables via votre OPCO, CPF ou plan de développement des compétences.</p></div>
       </div>
     </div>
   </section>
 
   <!-- BLOG / ACTUALITÉS -->
   <section id="blog" style="padding:5rem 0; background:#080c10; border-top:3px solid rgba(201,168,76,0.35); border-bottom:3px solid rgba(201,168,76,0.35); position:relative;">
-    <!-- Motif de fond discret -->
     <div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(201,168,76,0.02) 0px,rgba(201,168,76,0.02) 1px,transparent 1px,transparent 80px),repeating-linear-gradient(0deg,rgba(201,168,76,0.02) 0px,rgba(201,168,76,0.02) 1px,transparent 1px,transparent 80px);pointer-events:none;"></div>
     <div class="container" style="position:relative;">
-
-      <!-- En-tête style presse -->
       <div class="fade-in" style="display:flex; align-items:center; gap:1.5rem; margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:1px solid rgba(201,168,76,0.2);">
         <div>
           <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:0.3rem;">
-            <span style="display:inline-block; width:4px; height:1.8rem; background:#c9a84c; border-radius:2px; flex-shrink:0;"></span>
-            <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#c9a84c;">Veille juridique & RH</span>
+            <span style="display:inline-block; width:4px; height:1.8rem; background:var(--accent-dark); border-radius:2px;"></span>
+            <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-dark);">Veille juridique & RH</span>
           </div>
-          <h2 style="font-family:'Playfair Display',serif; color:#e6edf3; font-size:clamp(1.4rem,3vw,2rem); margin:0; font-weight:700;">Actualités <span style="color:#c9a84c;">du moment</span></h2>
+          <h2 style="font-family:'Playfair Display',serif; color:#e6edf3; font-size:clamp(1.4rem,3vw,2rem); margin:0; font-weight:700;">Actualités <span style="color:var(--accent-dark);">du moment</span></h2>
           <p style="color:#8b949e; font-size:0.85rem; margin:0.4rem 0 0;">Sélection quotidienne en paie, droit social et RH — sources officielles</p>
         </div>
         <div style="margin-left:auto; text-align:right; flex-shrink:0;">
-          <div style="font-size:1.8rem; margin-bottom:0.2rem;">📰</div>
           <p id="blog-maj" style="color:#8b949e; font-size:0.72rem; margin:0; white-space:nowrap;"></p>
         </div>
       </div>
-
-      <!-- Grille style presse : 1 grande + 2 petites -->
-      <div id="blog-grid" style="display:grid; grid-template-columns:1fr; gap:1.5rem;">
+      <div id="blog-grid" style="display:block;">
         <div style="color:#8b949e; text-align:center; padding:3rem;">Chargement des actualités...</div>
       </div>
-
     </div>
   </section>
 
@@ -1222,85 +895,67 @@
       .then(function(data){
         var grid = document.getElementById('blog-grid');
         var maj = document.getElementById('blog-maj');
-        if(maj && data.mis_a_jour) maj.textContent = '🔄 Dernière mise à jour : ' + data.mis_a_jour;
-        if(!data.articles || !data.articles.length){ grid.innerHTML = '<p style="color:#8b949e;text-align:center;">Aucun article disponible pour le moment.</p>'; return; }
-
+        if(maj && data.mis_a_jour) maj.textContent = 'Mise à jour : ' + data.mis_a_jour;
+        if(!data.articles || !data.articles.length){ grid.innerHTML = '<p style="color:#8b949e;text-align:center;">Aucun article disponible.</p>'; return; }
         function badge(a){ var accent=a.couleur_accent||'#c9a84c'; return '<span style="display:inline-block;background:rgba(13,17,23,0.7);border:1px solid '+accent+';color:'+accent+';font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:4px;">'+a.icone+' '+a.categorie+'</span>'; }
-        function visuelFond(a,h){ var accent=a.couleur_accent||'#c9a84c'; var bg=a.couleur_bg||'linear-gradient(135deg,#1c2333,#0d1117)';
-          if(a.image) return '<div style="height:'+h+';overflow:hidden;position:relative;flex-shrink:0;"><img src="'+a.image+'" alt="" loading="lazy" onerror="this.parentElement.style.background=\''+bg.replace(/'/g,'"')+'\';this.remove()" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;"/></div>';
+        function visuelFond(a,h){ var bg=a.couleur_bg||'linear-gradient(135deg,#1c2333,#0d1117)';
+          if(a.image) return '<div style="height:'+h+';overflow:hidden;position:relative;flex-shrink:0;"><img src="'+a.image+'" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>';
           return '<div style="height:'+h+';background:'+bg+';display:flex;align-items:center;justify-content:center;font-size:3rem;flex-shrink:0;">'+a.icone+'</div>';
         }
-
-        var arts = data.articles;
-        var une = arts[0];
-        var autres = arts.slice(1);
+        var arts = data.articles; var une = arts[0]; var autres = arts.slice(1);
         var lienUne = une.lien&&une.lien!=='#contact'?'href="'+une.lien+'" target="_blank" rel="noopener"':'href="#contact"';
         var accent0 = une.couleur_accent||'#c9a84c';
-
-        // Article à la UNE — grand format horizontal
         var htmlUne = '<a '+lienUne+' style="display:grid;grid-template-columns:1fr 1fr;background:#0f1419;border:1px solid rgba(201,168,76,0.25);border-left:4px solid '+accent0+';border-radius:12px;overflow:hidden;text-decoration:none;transition:box-shadow 0.3s;margin-bottom:1.5rem;" onmouseover="this.style.boxShadow=\'0 8px 30px rgba(0,0,0,0.4)\'" onmouseout="this.style.boxShadow=\'\'">'
           +visuelFond(une,'100%')
           +'<div style="padding:2rem;display:flex;flex-direction:column;justify-content:space-between;">'
-          +'<div>'
-          +'<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;">'+badge(une)+'<span style="font-size:0.7rem;color:#8b949e;">À la une</span></div>'
-          +'<h3 style="font-family:\'Playfair Display\',serif;color:#e6edf3;font-size:1.3rem;line-height:1.4;margin:0 0 0.8rem;">'+une.titre+'</h3>'
-          +'<p style="color:#8b949e;font-size:0.86rem;line-height:1.7;margin:0;">'+une.resume+'</p>'
-          +'</div>'
+          +'<div>'+badge(une)+'<span style="font-size:0.7rem;color:#8b949e;margin-left:0.5rem;">À la une</span>'
+          +'<h3 style="font-family:\'Playfair Display\',serif;color:#e6edf3;font-size:1.3rem;line-height:1.4;margin:0.8rem 0;">'+une.titre+'</h3>'
+          +'<p style="color:#8b949e;font-size:0.86rem;line-height:1.7;">'+une.resume+'</p></div>'
           +'<div style="margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;">'
           +'<span style="color:#8b949e;font-size:0.75rem;">📅 '+une.date+' — '+une.source+'</span>'
           +'<span style="color:'+accent0+';font-size:0.82rem;font-weight:600;">'+une.lecture+' →</span>'
           +'</div></div></a>';
-
-        // Articles secondaires — format liste compacte
         var htmlAutres = autres.length ? '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">'
-          + autres.map(function(a){
-              var lien = a.lien&&a.lien!=='#contact'?'href="'+a.lien+'" target="_blank" rel="noopener"':'href="#contact"';
-              var acc = a.couleur_accent||'#c9a84c';
-              return '<a '+lien+' style="display:flex;gap:1rem;align-items:flex-start;background:#0f1419;border:1px solid rgba(201,168,76,0.12);border-left:3px solid '+acc+';border-radius:10px;padding:1rem;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background=\'#141c24\'" onmouseout="this.style.background=\'#0f1419\'">'
-                +'<div style="font-size:1.8rem;flex-shrink:0;line-height:1;">'+a.icone+'</div>'
-                +'<div style="min-width:0;">'
-                +badge(a)
-                +'<h4 style="font-family:\'Playfair Display\',serif;color:#e6edf3;font-size:0.92rem;line-height:1.4;margin:0.5rem 0 0.4rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">'+a.titre+'</h4>'
-                +'<span style="color:#8b949e;font-size:0.73rem;">'+a.date+' · '+a.source+'</span>'
-                +'</div></a>';
-            }).join('')
-          +'</div>' : '';
-
-        grid.style.display = 'block';
+          +autres.map(function(a){
+            var lien=a.lien&&a.lien!=='#contact'?'href="'+a.lien+'" target="_blank" rel="noopener"':'href="#contact"';
+            var acc=a.couleur_accent||'#c9a84c';
+            return '<a '+lien+' style="display:flex;gap:1rem;background:#0f1419;border:1px solid rgba(201,168,76,0.12);border-left:3px solid '+acc+';border-radius:10px;padding:1rem;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background=\'#141c24\'" onmouseout="this.style.background=\'#0f1419\'">'
+              +'<div style="font-size:1.8rem;flex-shrink:0;line-height:1;">'+a.icone+'</div>'
+              +'<div style="min-width:0;">'+badge(a)
+              +'<h4 style="font-family:\'Playfair Display\',serif;color:#e6edf3;font-size:0.9rem;line-height:1.4;margin:0.4rem 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">'+a.titre+'</h4>'
+              +'<span style="color:#8b949e;font-size:0.73rem;">'+a.date+' · '+a.source+'</span></div></a>';
+          }).join('')+'</div>' : '';
         grid.innerHTML = htmlUne + htmlAutres;
-      })
-      .catch(function(){ document.getElementById('blog-grid').innerHTML = '<p style="color:#8b949e;text-align:center;grid-column:1/-1">Actualités temporairement indisponibles.</p>'; });
+      }).catch(function(){ document.getElementById('blog-grid').innerHTML = '<p style="color:#8b949e;text-align:center;">Actualités temporairement indisponibles.</p>'; });
   </script>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section class="section-wrap" id="contact">
     <div class="container">
       <div class="contact-wrapper">
         <div class="contact-info fade-in">
-          <div class="section-label">Nous rejoindre</div>
-          <h2 class="section-title">Commençons ensemble</h2>
-          <div class="divider"></div>
+          <span class="section-eyebrow">Nous rejoindre</span>
+          <h2 class="section-title">Commençons <span>ensemble</span></h2>
+          <div class="section-line"></div>
           <p>Remplissez le formulaire et nous vous recontactons sous 48h pour étudier votre projet de formation.</p>
-          <div class="contact-detail">
-            <span>✉</span>
-            <span>formation@alfred-gory.fr</span>
-          </div>
-          <div class="contact-detail">
-            <span>⏱</span>
-            <span>Réponse sous 48h</span>
-          </div>
-          <div class="contact-detail">
-            <span>✦</span>
-            <span>Financement CPF &amp; OPCO accepté</span>
+          <div class="contact-detail"><span style="font-size:0.75rem;font-weight:700;color:var(--accent-dark);">@</span><span>formation@alfred-gory.fr</span></div>
+          <div class="contact-detail"><span style="font-size:0.75rem;font-weight:700;color:var(--accent-dark);">Adresse</span><span>10-12 rue Condorcet, 95150 Taverny</span></div>
+          <div class="contact-detail"><span style="font-size:0.75rem;font-weight:700;color:var(--accent-dark);">Délai</span><span>Réponse sous 48h ouvrées</span></div>
+          <div class="contact-detail"><span style="font-size:0.75rem;font-weight:700;color:var(--accent-dark);">Format</span><span>En ligne, présentiel ou intra-entreprise</span></div>
+          <div style="margin-top:2rem; padding:1.5rem; background:var(--bg-alt); border-radius:12px; border:1px solid var(--border);">
+            <div style="font-size:0.78rem; color:var(--muted); line-height:1.7;">
+              <strong style="color:var(--primary); display:block; margin-bottom:0.5rem;">Besoin d'aide pour financer ?</strong>
+              Nos conseillers vous accompagnent gratuitement dans le montage de votre dossier CPF, OPCO ou AGEFICE. Aucune avance de frais nécessaire.
+            </div>
           </div>
         </div>
         <div class="contact-form-box fade-in">
-          <div data-fs-success class="merci" id="merci">
-            ✦ Merci pour votre demande.<br>
+          <div class="merci" id="merci">
+            ✅ Merci pour votre demande !<br>
             Nous vous recontactons sous <strong>48h</strong>.<br>
-            <span style="font-size:0.82rem; opacity:0.7;">Cabinet Alfred Gory — formation@alfred-gory.fr</span>
+            <span style="font-size:0.82rem; color:var(--muted);">Cabinet Alfred Gory — formation@alfred-gory.fr</span>
           </div>
-          <div data-fs-error style="color:#e57373; font-size:0.85rem; margin-bottom:1rem; display:none;"></div>
+          <div data-fs-error style="color:#dc2626; font-size:0.85rem; margin-bottom:1rem; display:none;"></div>
           <form id="contactForm">
             <div class="form-group">
               <label>Prénom et Nom</label>
@@ -1330,7 +985,7 @@
               <label>Message</label>
               <textarea name="message" placeholder="Parlez-nous de votre besoin..."></textarea>
             </div>
-            <button type="submit" class="submit-btn" data-fs-submit-btn>Envoyer ma demande</button>
+            <button type="submit" class="submit-btn" data-fs-submit-btn>Envoyer ma demande →</button>
           </form>
           <script>
             window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
@@ -1345,23 +1000,19 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-top">
-
-      <!-- Colonne 1 : identité -->
       <div>
         <div class="footer-logo">Cabinet <span>Alfred Gory</span></div>
         <p class="footer-desc">Organisme de formation spécialisé en paie, RH et droit social. Des parcours certifiés conçus par des experts terrain pour vous rendre autonome.</p>
-        <div class="footer-contact-line"><span>📍</span><span>10-12 rue Condorcet, 95150 Taverny</span></div>
-        <div class="footer-contact-line"><span>✉️</span><span>formation@alfred-gory.fr</span></div>
-        <div class="footer-contact-line"><span>⏱</span><span>Réponse sous 48h ouvrées</span></div>
+        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Adresse</span><span>10-12 rue Condorcet, 95150 Taverny</span></div>
+        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Email</span><span>formation@alfred-gory.fr</span></div>
+        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Délai</span><span>Réponse sous 48h ouvrées</span></div>
         <div class="footer-badges">
-          <span class="footer-badge">🏅 Qualiopi</span>
-          <span class="footer-badge">💳 CPF</span>
-          <span class="footer-badge">🤝 OPCO</span>
-          <span class="footer-badge">📋 L.6351-1</span>
+          <span class="footer-badge">Qualiopi</span>
+          <span class="footer-badge">CPF</span>
+          <span class="footer-badge">OPCO</span>
+          <span class="footer-badge">L.6351-1</span>
         </div>
       </div>
-
-      <!-- Colonne 2 : formations -->
       <div class="footer-col">
         <h4>Nos formations</h4>
         <a href="formations.html">Gestion de la paie</a>
@@ -1371,8 +1022,6 @@
         <a href="formations.html">Excel pour la paie</a>
         <a href="formations.html">Droit social pratique</a>
       </div>
-
-      <!-- Colonne 3 : informations -->
       <div class="footer-col">
         <h4>Informations</h4>
         <a href="#pourquoi">À propos du cabinet</a>
@@ -1381,8 +1030,6 @@
         <a href="#contact">Nous contacter</a>
         <a href="#contact">Demander un devis</a>
       </div>
-
-      <!-- Colonne 4 : financement -->
       <div class="footer-col">
         <h4>Financement</h4>
         <a href="#contact">Via le CPF</a>
@@ -1391,251 +1038,88 @@
         <a href="#contact">AGEFICE (TNS)</a>
         <a href="#contact">Prise en charge partielle</a>
       </div>
-
     </div>
-
-    <!-- Mention légale Qualiopi -->
-    <div style="max-width:1200px; margin:0 auto; padding:0 3rem 1.5rem; font-size:0.72rem; color:#4a5568; line-height:1.6; border-top:1px solid rgba(201,168,76,0.08); padding-top:1.2rem;">
+    <div class="footer-mention">
       Cet enregistrement ne vaut pas agrément de l'État. Les formations proposées par Cabinet Alfred Gory sont réalisées conformément aux articles L.6311-1 et suivants du Code du travail. Les financements CPF, OPCO et AGEFICE sont soumis aux conditions propres à chaque organisme financeur.
     </div>
-
     <div class="footer-bottom">
       <p>© 2025 Cabinet Alfred Gory — Tous droits réservés</p>
       <div class="footer-legal">
         <a href="#contact">Mentions légales</a>
         <a href="#contact">Politique de confidentialité</a>
         <a href="#contact">CGV</a>
-        <a href="#contact">Accessibilité</a>
       </div>
     </div>
   </footer>
 
-  <!-- BANNIÈRE RGPD -->
-  <div id="rgpd" style="position:fixed; bottom:0; left:0; right:0; z-index:8888; background:#0f1419; border-top:1px solid rgba(201,168,76,0.25); padding:1rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; transform:translateY(100%); transition:transform 0.4s ease;">
-    <p style="color:#8b949e; font-size:0.8rem; max-width:700px; margin:0;">🍪 Ce site utilise uniquement des cookies techniques indispensables à son fonctionnement. Aucune donnée n'est transmise à des tiers à des fins publicitaires.</p>
-    <div style="display:flex; gap:0.8rem; flex-shrink:0;">
-      <button onclick="acceptRgpd()" style="background:#c9a84c; border:none; color:#0d1117; font-weight:700; font-size:0.8rem; padding:0.5rem 1.2rem; border-radius:6px; cursor:pointer;">Accepter</button>
-      <button onclick="acceptRgpd()" style="background:transparent; border:1px solid rgba(201,168,76,0.3); color:#8b949e; font-size:0.8rem; padding:0.5rem 1rem; border-radius:6px; cursor:pointer;">Refuser les optionnels</button>
-    </div>
-  </div>
-
   <!-- BOUTON RETOUR EN HAUT -->
   <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+  <!-- BANNIÈRE RGPD -->
+  <div id="rgpd">
+    <p>Ce site utilise uniquement des cookies techniques indispensables à son fonctionnement. Aucune donnée n'est transmise à des tiers à des fins publicitaires.</p>
+    <div class="rgpd-btns">
+      <button class="rgpd-accept" onclick="acceptRgpd()">Accepter</button>
+      <button class="rgpd-refuse" onclick="acceptRgpd()">Refuser les optionnels</button>
+    </div>
+  </div>
+
   <script>
-    // PARTICULES ANIMÉES
-    (function() {
-      var canvas = document.getElementById('particles');
-      var ctx = canvas.getContext('2d');
-      var pts = [];
-      var mouse = { x: -999, y: -999 };
-
-      function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-
-      window.addEventListener('mousemove', function(e) {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      });
-
-      for (var i = 0; i < 120; i++) {
-        pts.push({
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
-          r: Math.random() * 2.5 + 0.5,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          a: Math.random() * 0.8 + 0.2
-        });
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        pts.forEach(function(p) {
-          p.x += p.vx;
-          p.y += p.vy;
-          if (p.x < 0) p.x = canvas.width;
-          if (p.x > canvas.width) p.x = 0;
-          if (p.y < 0) p.y = canvas.height;
-          if (p.y > canvas.height) p.y = 0;
-
-          // attraction douce vers la souris
-          var dx = mouse.x - p.x, dy = mouse.y - p.y;
-          var dist = Math.sqrt(dx*dx + dy*dy);
-          if (dist < 150) {
-            p.vx += dx * 0.00015;
-            p.vy += dy * 0.00015;
-          }
-          // limite de vitesse
-          var speed = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
-          if (speed > 1.2) { p.vx *= 0.95; p.vy *= 0.95; }
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(201,168,76,' + p.a + ')';
-          ctx.fill();
-        });
-
-        // lignes entre particules proches
-        for (var i = 0; i < pts.length; i++) {
-          for (var j = i + 1; j < pts.length; j++) {
-            var dx = pts[i].x - pts[j].x;
-            var dy = pts[i].y - pts[j].y;
-            var dist = Math.sqrt(dx*dx + dy*dy);
-            if (dist < 160) {
-              ctx.beginPath();
-              ctx.moveTo(pts[i].x, pts[i].y);
-              ctx.lineTo(pts[j].x, pts[j].y);
-              ctx.strokeStyle = 'rgba(201,168,76,' + (0.12 * (1 - dist/160)) + ')';
-              ctx.lineWidth = 0.8;
-              ctx.stroke();
-            }
-          }
-        }
-
-        // lignes vers la souris
-        pts.forEach(function(p) {
-          var dx = mouse.x - p.x, dy = mouse.y - p.y;
-          var dist = Math.sqrt(dx*dx + dy*dy);
-          if (dist < 180) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = 'rgba(201,168,76,' + (0.2 * (1 - dist/180)) + ')';
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
-          }
-        });
-
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-
-    // CARTE INTERACTIVE
-    var formations = [
-      { titre: "Gestion de la paie", desc: "Bases du droit du travail, cotisations sociales, bulletins de paie, DSN.", duree: "35 heures" },
-      { titre: "Maîtrise de Silae", desc: "Prise en main du logiciel, paramétrage, saisie des bulletins, génération DSN.", duree: "21 heures" },
-      { titre: "Gestion d'entreprise", desc: "Bilans comptables, RH, obligations sociales, tableaux de bord.", duree: "28 heures" },
-      { titre: "Recrutement & RH", desc: "Techniques de recrutement, contrats, congés, entretiens professionnels.", duree: "14 heures" },
-      { titre: "Excel pour la paie", desc: "Tableaux de suivi, calculs automatisés, tableaux croisés dynamiques.", duree: "14 heures" },
-      { titre: "Droit social pratique", desc: "Code du travail, litiges, rupture de contrat, veille réglementaire.", duree: "21 heures" }
-    ];
-    function afficherDetail(id) {
-      document.querySelectorAll('.carte-noeud').forEach(function(n) { n.classList.remove('actif'); });
-      document.querySelector('.carte-noeud[data-id="' + id + '"]').classList.add('actif');
-      var f = formations[id];
-      document.getElementById('carteDetailTitre').textContent = f.titre;
-      document.getElementById('carteDetailDesc').textContent = f.desc;
-      document.getElementById('carteDetailDuree').textContent = '⏱ ' + f.duree;
-      document.getElementById('carteDetail').classList.add('visible');
-    }
-
-
-    // Menu hamburger
+    // MENU MOBILE
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
     }
 
-    // Bouton retour en haut
-    window.addEventListener('scroll', function() {
-      var btn = document.getElementById('topBtn');
-      if (window.scrollY > 400) btn.classList.add('visible');
-      else btn.classList.remove('visible');
-    });
-
-    // Compteurs animés
-    function animateCounter(el) {
-      var target = parseInt(el.getAttribute('data-target'));
-      var duration = 2000;
-      var step = target / (duration / 16);
-      var current = 0;
-      var timer = setInterval(function() {
-        current += step;
-        if (current >= target) { current = target; clearInterval(timer); }
-        el.textContent = (target >= 100 ? '+' : '') + Math.floor(current) + (el.closest('.stat-item').querySelector('p').textContent.includes('%') ? '' : '');
-      }, 16);
-    }
-
-    // Animations au scroll
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Barres de progression
-          entry.target.querySelectorAll && entry.target.querySelectorAll('.progress-fill').forEach(function(bar) {
-            setTimeout(function() { bar.style.width = bar.getAttribute('data-width') + '%'; }, 300);
-          });
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
-
-    // Barres de progression (au scroll)
-    var progressObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.style.width = entry.target.getAttribute('data-width') + '%';
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.progress-fill').forEach(function(el) { progressObserver.observe(el); });
-
-    // Compteurs (au scroll)
-    var counterObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.counter').forEach(function(el) { counterObserver.observe(el); });
-
     // BARRE DE PROGRESSION
     window.addEventListener('scroll', function() {
-      var scrollTop = window.scrollY;
-      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      var pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       document.getElementById('read-progress').style.width = pct + '%';
+      // Bouton retour en haut
+      document.getElementById('topBtn').classList.toggle('visible', window.scrollY > 400);
     });
 
-    // RGPD — affiche après 1.5s si pas encore accepté
+    // RGPD
     function acceptRgpd() {
       document.getElementById('rgpd').style.transform = 'translateY(100%)';
-      try { localStorage.setItem('rgpd_ok', '1'); } catch(e){}
+      try { localStorage.setItem('rgpd_ok','1'); } catch(e){}
     }
     try {
-      if (!localStorage.getItem('rgpd_ok')) {
-        setTimeout(function() {
-          document.getElementById('rgpd').style.transform = 'translateY(0)';
-        }, 1500);
-      }
-    } catch(e) {}
+      if(!localStorage.getItem('rgpd_ok')) setTimeout(function(){ document.getElementById('rgpd').style.transform='translateY(0)'; }, 1500);
+    } catch(e){}
 
-    // MICRO-ANIMATION : survol des cartes formation — lueur dorée
-    document.querySelectorAll('.fcard').forEach(function(card) {
-      card.addEventListener('mouseenter', function() {
-        this.style.borderColor = 'rgba(201,168,76,0.4)';
-        this.style.boxShadow = '0 0 30px rgba(201,168,76,0.08), 0 20px 40px rgba(0,0,0,0.3)';
-      });
-      card.addEventListener('mouseleave', function() {
-        this.style.borderColor = '';
-        this.style.boxShadow = '';
-      });
-    });
+    // FADE-IN AU SCROLL
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
 
-    // TOOLTIP sur les badges certifications
-    document.querySelectorAll('.footer-badge').forEach(function(b) {
-      b.style.cursor = 'default';
-      b.title = b.textContent.trim() + ' — cliquez pour en savoir plus';
-    });
+    // BARRES DE PROGRESSION
+    var progressObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var w = e.target.getAttribute('data-width');
+          setTimeout(function(){ e.target.style.width = w + '%'; }, 200);
+          progressObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.fcard-bar-fill').forEach(function(el){ progressObserver.observe(el); });
+
+    // COMPTEURS ANIMÉS
+    function animateCounter(el) {
+      var target = parseInt(el.getAttribute('data-target'));
+      var step = Math.ceil(target / 60);
+      var current = 0;
+      var timer = setInterval(function() {
+        current = Math.min(current + step, target);
+        el.textContent = current + (target === 98 ? '' : '+');
+        if(current >= target) { el.textContent = target + (target === 98 ? '%' : '+'); clearInterval(timer); }
+      }, 25);
+    }
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e){ if(e.isIntersecting){ animateCounter(e.target); counterObserver.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(function(el){ counterObserver.observe(el); });
 
   </script>
 
