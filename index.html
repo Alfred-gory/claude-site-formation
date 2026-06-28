@@ -588,6 +588,45 @@
 
   <div id="read-progress"></div>
 
+  <!-- TOP BAR -->
+  <div id="topbar">
+    <div id="topbar-inner">
+      <span class="tb-item">Certifié Qualiopi</span>
+      <span class="tb-sep">·</span>
+      <span class="tb-item">En ligne · Présentiel · Intra-entreprise</span>
+      <span class="tb-sep">·</span>
+      <span class="tb-item">Financement OPCO &amp; CPF</span>
+      <span class="tb-sep">·</span>
+      <a href="mailto:formation@alfred-gory.fr" class="tb-link">formation@alfred-gory.fr</a>
+      <span class="tb-sep">·</span>
+      <span class="tb-item">Réponse sous 48h</span>
+    </div>
+  </div>
+  <style>
+    #topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+      background: var(--primary-dark);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      overflow: hidden;
+    }
+    #topbar-inner {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 0 0.8rem;
+      padding: 0.35rem 1rem;
+      font-size: 0.72rem; white-space: nowrap;
+    }
+    .tb-item { color: rgba(255,255,255,0.7); font-weight: 500; }
+    .tb-sep { color: rgba(201,168,76,0.5); font-size: 0.6rem; }
+    .tb-link { color: var(--accent-dark); font-weight: 700; text-decoration: none; transition: color 0.2s; }
+    .tb-link:hover { color: var(--accent); }
+    @media(max-width:640px){
+      #topbar-inner { gap: 0 0.5rem; }
+      .tb-sep:nth-child(4),.tb-item:nth-child(5),.tb-sep:nth-child(6),.tb-item:nth-child(7) { display: none; }
+    }
+    nav { top: 30px; }
+    .hero { padding-top: 9rem; }
+  </style>
+
   <!-- NAVIGATION -->
   <nav id="navbar">
     <div class="logo">Cabinet <span>Alfred Gory</span></div>
