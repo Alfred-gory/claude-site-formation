@@ -287,27 +287,12 @@
     .mobile-menu a:hover { color: var(--accent-dark); }
     .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
 
-    /* CURSEUR PERSONNALISÉ */
-    body { cursor: none; }
-    .cursor-dot {
-      position: fixed; width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent-dark); pointer-events: none; z-index: 99999;
-      transform: translate(-50%,-50%); transition: width .15s, height .15s, background .15s;
-      mix-blend-mode: multiply;
-    }
-    .cursor-ring {
-      position: fixed; width: 38px; height: 38px; border-radius: 50%;
-      border: 1.5px solid rgba(201,168,76,0.5); pointer-events: none; z-index: 99998;
-      transform: translate(-50%,-50%); transition: width .3s, height .3s, border-color .3s;
-    }
-    .cursor-dot.big { width: 16px; height: 16px; }
-    .cursor-ring.big { width: 58px; height: 58px; border-color: var(--accent-dark); }
-    @media(pointer:coarse){ .cursor-dot,.cursor-ring{display:none} body{cursor:auto} }
+    /* (curseur personnalisé supprimé) */
 
     /* ═══════════════════ HERO BENTO GRID ═══════════════════ */
     .hero {
       min-height: 100vh; position: relative; overflow: hidden;
-      background: #0b1628; padding-top: 98px;
+      background: #f7f5f1; padding-top: 98px;
       display: flex; align-items: center; justify-content: center;
     }
     #heroCanvas {
@@ -337,34 +322,29 @@
     /* A — grande cellule identité (col 1, row 1-2) */
     .bcA {
       grid-column: 1; grid-row: 1 / 3;
-      background: linear-gradient(145deg, #0f2244 0%, #0b1628 100%);
-      border: 1px solid rgba(201,168,76,0.18);
+      background: #fff; border: 1px solid rgba(30,58,95,0.1);
       display: flex; flex-direction: column; justify-content: space-between;
     }
     .bc-orb {
       position: absolute; width: 280px; height: 280px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
-      top: -60px; right: -60px;
-      transition: left .4s ease, top .4s ease;
-      pointer-events: none;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+      top: -60px; right: -60px; transition: left .4s ease, top .4s ease; pointer-events: none;
     }
     .bcA-eyebrow {
-      font-size: 0.6rem; color: rgba(201,168,76,0.55); font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 0.6rem; color: var(--accent-dark); font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7;
     }
     .bcA-name {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-      color: #fff; line-height: 1.15; font-weight: 400; margin-top: auto;
+      color: var(--primary); line-height: 1.15; font-weight: 400; margin-top: auto;
     }
     .bcA-name strong { font-weight: 700; color: var(--accent-dark); display: block; }
-    .bcA-sub {
-      font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 0.6rem;
-    }
+    .bcA-sub { font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin-top: 0.6rem; }
     .bcA-content { display: flex; flex-direction: column; height: 100%; }
     .bcA-qualiopi {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25);
       padding: 0.35rem 0.8rem; border-radius: 50px;
       font-size: 0.65rem; color: var(--accent-dark); font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase;
@@ -373,64 +353,63 @@
     .qbadge-dot { width:6px; height:6px; border-radius:50%; background:var(--accent-dark); animation: bdot 2s infinite; }
     @keyframes bdot { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
-    /* B — stat 98% satisfaction (col 2, row 1) */
+    /* B — stat 98% (fond or) */
     .bcB {
       grid-column: 2; grid-row: 1;
       background: var(--accent-dark);
       display: flex; flex-direction: column; justify-content: space-between;
     }
-    /* C — stat 200+ (col 3, row 1) */
+    /* C — stat 200+ (fond marine) */
     .bcC {
       grid-column: 3; grid-row: 1;
-      background: #132038; border: 1px solid rgba(255,255,255,0.06);
+      background: var(--primary); border: none;
       display: flex; flex-direction: column; justify-content: flex-end;
     }
-    .bstat-label { font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+    .bstat-label { font-size: 0.65rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+    .bcB .bstat-label { color: rgba(11,22,40,0.55); }
     .bstat-num {
       font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4vw, 4rem);
       font-weight: 700; color: #fff; line-height: 1; display: block;
     }
-    .bstat-gold { color: #0b1628; }
-    .bcB .bstat-label { color: rgba(11,22,40,0.6); }
     .bcB .bstat-num { color: #0b1628; }
-    .bstat-unit { font-size: 1.6rem; font-weight: 700; color: rgba(255,255,255,0.7); }
-    .bcB .bstat-unit { color: rgba(11,22,40,0.5); }
+    .bstat-unit { font-size: 1.6rem; font-weight: 700; color: rgba(255,255,255,0.6); }
+    .bcB .bstat-unit { color: rgba(11,22,40,0.45); }
     .bstat-unit-sm { font-size: 2rem; font-weight: 700; color: var(--accent-dark); }
-    .bstat-bar { height: 3px; background: rgba(11,22,40,0.15); border-radius: 2px; margin-top: 0.5rem; overflow: hidden; }
-    .bstat-fill { height: 100%; background: rgba(11,22,40,0.4); border-radius: 2px; width: 0%; transition: width 1.5s ease; }
+    .bstat-bar { height: 3px; background: rgba(11,22,40,0.12); border-radius: 2px; margin-top: 0.5rem; overflow: hidden; }
+    .bstat-fill { height: 100%; background: rgba(11,22,40,0.35); border-radius: 2px; width: 0%; transition: width 1.5s ease; }
 
-    /* D — formation phare (col 2-3, row 2) */
+    /* D — formation phare (fond blanc, bordure or) */
     .bcD {
       grid-column: 2 / 4; grid-row: 2;
-      background: #0f2244; border: 1px solid rgba(255,255,255,0.07);
+      background: #fff; border: 1px solid rgba(201,168,76,0.25);
       display: flex; flex-direction: column; justify-content: space-between;
     }
     .bcD-tag {
-      display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
+      display: inline-block; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
       color: var(--accent-dark); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 4px;
       width: fit-content; margin-bottom: 0.5rem;
     }
     .bcD-title {
-      font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff;
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--primary);
       font-weight: 700; line-height: 1.2; margin-bottom: 0.3rem;
     }
-    .bcD-meta { font-size: 0.7rem; color: rgba(255,255,255,0.35); margin-bottom: 0.7rem; }
+    .bcD-meta { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.7rem; }
     .bcD-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.8rem; }
-    .bcD-list li { font-size: 0.72rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 0.4rem; }
+    .bcD-list li { font-size: 0.72rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
     .bcD-list li::before { content: '—'; color: var(--accent-dark); font-weight: 700; }
     .bcD-cta {
-      display: inline-block; background: var(--accent-dark); color: #fff;
+      display: inline-block; background: var(--primary); color: #fff;
       padding: 0.6rem 1.3rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700;
       text-decoration: none; letter-spacing: 0.03em; width: fit-content;
-      transition: transform .4s cubic-bezier(0.34,1.56,0.64,1), background .2s;
+      transition: background .2s, transform .3s;
     }
-    .bcD-cta:hover { background: var(--accent); }
+    .bcD-cta:hover { background: var(--primary-mid); }
 
-    /* E — mini quiz (col 1, row 3) */
+    /* E — mini quiz (fond crème) */
     .bcE {
       grid-column: 1; grid-row: 3;
-      background: #f7f5f1; border: none;
+      background: #eeeae2; border: none;
       display: flex; flex-direction: column; gap: 0.6rem;
     }
     .bcE-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; }
@@ -442,39 +421,39 @@
       cursor: pointer; text-align: left; font-family: 'Inter',sans-serif;
       transition: background .15s, border-color .15s; line-height: 1.4;
     }
-    .bcE-btn:hover:not(:disabled) { background: rgba(30,58,95,0.05); border-color: var(--primary); }
+    .bcE-btn:hover:not(:disabled) { background: rgba(30,58,95,0.04); border-color: var(--primary); }
     .bcE-btn:disabled { cursor: default; }
     .bcE-correct { background: #f0fdf4 !important; border-color: #22c55e !important; color: #15803d !important; }
     .bcE-wrong { background: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
     .bcE-result { font-size: 0.75rem; font-weight: 600; }
-    .bcE-next {
-      background: none; border: none; color: var(--accent-dark); font-size: 0.75rem;
-      font-weight: 700; cursor: pointer; text-align: left; font-family: 'Inter',sans-serif; padding: 0;
-    }
+    .bcE-next { background: none; border: none; color: var(--accent-dark); font-size: 0.75rem; font-weight: 700; cursor: pointer; text-align: left; font-family: 'Inter',sans-serif; padding: 0; }
 
-    /* F — stat 15 ans (col 2, row 3) */
+    /* F — stat 15 ans (fond crème foncé) */
     .bcF {
       grid-column: 2; grid-row: 3;
-      background: #132038; border: 1px solid rgba(255,255,255,0.06);
+      background: #e8e3d8; border: none;
       display: flex; flex-direction: column; justify-content: flex-end;
     }
+    .bcF .bstat-label { color: var(--muted); }
+    .bcF .bstat-num { color: var(--primary); }
+    .bcF .bstat-unit { color: var(--accent-dark); }
 
-    /* G — CTA principal (col 3, row 3) */
+    /* G — CTA (fond or) */
     .bcG {
       grid-column: 3; grid-row: 3;
-      background: linear-gradient(145deg, var(--primary) 0%, #1a4a8a 100%);
+      background: var(--accent-dark);
       display: flex; flex-direction: column; justify-content: space-between; gap: 0.8rem;
     }
-    .bcG-text { font-size: 0.68rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+    .bcG-text { font-size: 0.68rem; color: rgba(11,22,40,0.5); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
     .bcG-btn {
-      display: block; background: var(--accent-dark); color: #fff;
+      display: block; background: var(--primary); color: #fff;
       padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.78rem; font-weight: 700;
       text-decoration: none; text-align: center; letter-spacing: 0.03em;
-      transition: transform .4s cubic-bezier(0.34,1.56,0.64,1), background .2s;
+      transition: background .2s, transform .3s;
     }
-    .bcG-btn:hover { background: var(--accent); }
-    .bcG-link { font-size: 0.72rem; color: rgba(255,255,255,0.45); text-decoration: none; font-weight: 600; text-align: center; }
-    .bcG-link:hover { color: var(--accent-dark); }
+    .bcG-btn:hover { background: var(--primary-mid); }
+    .bcG-link { font-size: 0.72rem; color: rgba(11,22,40,0.5); text-decoration: none; font-weight: 600; text-align: center; }
+    .bcG-link:hover { color: var(--primary); }
 
     /* H — formats (ligne entre D et G, cachée ici, intégré en bcD) */
     .bcH { display: none; }
@@ -792,10 +771,6 @@
 
   <div id="read-progress"></div>
 
-  <!-- CURSEUR PERSONNALISÉ -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-
   <!-- TOP BAR -->
   <div id="topbar">
     <div id="topbar-inner">
@@ -956,19 +931,6 @@
     }, {passive:true});
   })();
 
-  // ── Curseur personnalisé ──
-  (function(){
-    var dot = document.querySelector('.cursor-dot');
-    var ring = document.querySelector('.cursor-ring');
-    if(!dot || !ring) return;
-    var mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',function(e){ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
-    (function loop(){ rx+=(mx-rx)*0.11; ry+=(my-ry)*0.11; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a,button,.tilt-cell,.fcard,.temo-card,.why-item').forEach(function(el){
-      el.addEventListener('mouseenter',function(){ dot.classList.add('big'); ring.classList.add('big'); });
-      el.addEventListener('mouseleave',function(){ dot.classList.remove('big'); ring.classList.remove('big'); });
-    });
-  })();
 
   // ── Canvas particules ──
   (function(){
