@@ -1,44 +1,77 @@
 {
-  "mis_a_jour": "19/06/2025 à 08h00",
+  "mis_a_jour": "Juillet 2025",
   "articles": [
     {
-      "titre": "Comment lire un bulletin de paie ?",
-      "resume": "Le bulletin de paie peut sembler complexe. Découvrez les lignes essentielles : salaire brut, cotisations, net imposable et net à payer. Un guide pratique pour salariés et employeurs.",
+      "titre": "SMIC 2025 : 11,88 € brut/heure au 1er janvier — impact sur la réduction Fillon",
+      "resume": "Le SMIC horaire brut passe à 11,88 € au 1er janvier 2025 (+2 %). Le SMIC mensuel brut pour 35h atteint 1 801,80 €. Cette revalorisation modifie le seuil de la réduction générale de cotisations patronales (1,6 × SMIC) et peut déclencher une remise à jour des grilles conventionnelles dans de nombreuses branches.",
+      "date": "1er janvier 2025",
+      "source": "Journal Officiel",
       "categorie": "Paie",
       "icone": "📊",
-      "couleur_bg": "linear-gradient(135deg,#1a2a1a,#0d1a0d)",
-      "couleur_accent": "#4caf7a",
-      "image": null,
-      "date": "19 Jun 2025",
-      "source": "Cabinet Alfred Gory",
       "lien": "#contact",
-      "lecture": "5 min de lecture"
+      "lecture": "Nous contacter",
+      "couleur_accent": "#c9a84c",
+      "couleur_bg": "linear-gradient(135deg,#1a2a1a,#0f1a0f)"
     },
     {
-      "titre": "Rupture conventionnelle : ce qu'il faut savoir",
-      "resume": "La rupture conventionnelle permet de mettre fin à un CDI d'un commun accord. Procédure, délais de rétractation, indemnités minimales : le guide complet pour sécuriser la démarche.",
-      "categorie": "Droit social",
-      "icone": "⚖️",
-      "couleur_bg": "linear-gradient(135deg,#1a1a2a,#0d0d22)",
-      "couleur_accent": "#7c8ee8",
-      "image": null,
-      "date": "15 Jun 2025",
-      "source": "Cabinet Alfred Gory",
-      "lien": "#contact",
-      "lecture": "7 min de lecture"
-    },
-    {
-      "titre": "CPF : comment utiliser son compte formation ?",
-      "resume": "Chaque salarié dispose d'un Compte Personnel de Formation alimenté chaque année. Découvrez comment mobiliser vos droits pour financer une de nos formations en paie, RH ou droit social.",
+      "titre": "CPF : la participation obligatoire de 100 € reste en vigueur en 2025",
+      "resume": "Depuis le 2 mai 2024, tout titulaire du CPF doit verser 100 € lors de la mobilisation de ses droits, sauf exonération (demandeurs d'emploi, abondement employeur, RQTH…). Le Conseil d'État a validé le dispositif — il s'applique toujours en 2025. Pensez à vérifier votre solde sur Mon Compte Formation.",
+      "date": "Janvier 2025",
+      "source": "Ministère du Travail",
       "categorie": "Formation",
       "icone": "🎓",
-      "couleur_bg": "linear-gradient(135deg,#1a1a2a,#0d0d1a)",
-      "couleur_accent": "#c9a84c",
-      "image": null,
-      "date": "10 Jun 2025",
-      "source": "Cabinet Alfred Gory",
       "lien": "#contact",
-      "lecture": "4 min de lecture"
+      "lecture": "Nous contacter",
+      "couleur_accent": "#3b82f6",
+      "couleur_bg": "linear-gradient(135deg,#0a1628,#132038)"
+    },
+    {
+      "titre": "Rupture conventionnelle : arrêt maladie et vice du consentement — précisions 2025",
+      "resume": "Un salarié en arrêt maladie peut valablement conclure une rupture conventionnelle dès lors que l'état de santé n'a pas altéré son consentement. La signature pendant un arrêt n'est pas automatiquement nulle (Cass. soc., 19 mars 2025). La preuve du vice du consentement reste à la charge du salarié.",
+      "date": "Mars 2025",
+      "source": "Cour de cassation",
+      "categorie": "Droit social",
+      "icone": "⚖️",
+      "lien": "#contact",
+      "lecture": "Nous contacter",
+      "couleur_accent": "#8b5cf6",
+      "couleur_bg": "linear-gradient(135deg,#1a0f28,#120a1e)"
+    },
+    {
+      "titre": "Index égalité F/H 2025 : sanctions renforcées pour les entreprises sous 75/100",
+      "resume": "Les entreprises de 50 salariés et plus devaient publier leur index avant le 1er mars 2025. En cas de score inférieur à 75/100 sans plan de rattrapage, les sanctions peuvent atteindre 1 % de la masse salariale. La DGEFP intensifie ses contrôles cette année — veillez à documenter vos mesures correctives.",
+      "date": "Mars 2025",
+      "source": "Ministère du Travail",
+      "categorie": "RH",
+      "icone": "👥",
+      "lien": "#contact",
+      "lecture": "Nous contacter",
+      "couleur_accent": "#10b981",
+      "couleur_bg": "linear-gradient(135deg,#0a1e16,#071510)"
+    },
+    {
+      "titre": "Forfait jours : charge de travail raisonnable — obligation de contrôle effectif",
+      "resume": "L'accord collectif mettant en place le forfait jours doit prévoir des mécanismes réels de contrôle de la charge de travail. À défaut, la convention individuelle est nulle et le salarié peut réclamer le paiement des heures supplémentaires réalisées (Cass. soc., 12 février 2025).",
+      "date": "Février 2025",
+      "source": "Cour de cassation",
+      "categorie": "Droit social",
+      "icone": "🗓️",
+      "lien": "#contact",
+      "lecture": "Nous contacter",
+      "couleur_accent": "#f59e0b",
+      "couleur_bg": "linear-gradient(135deg,#1e1a0a,#161209)"
+    },
+    {
+      "titre": "DSN 2025 : rappel des obligations pour les employeurs de moins de 11 salariés",
+      "resume": "Pour les employeurs de moins de 11 salariés, le dépôt de la DSN reste fixé au 15 du mois. En 2025, l'Urssaf renforce l'obligation de déclarer les congés payés dans la DSN et généralise la norme pour les organismes complémentaires (mutuelle, prévoyance). Formez-vous pour éviter les pénalités.",
+      "date": "Janvier 2025",
+      "source": "Urssaf.fr",
+      "categorie": "Paie",
+      "icone": "📋",
+      "lien": "#contact",
+      "lecture": "Nous contacter",
+      "couleur_accent": "#c9a84c",
+      "couleur_bg": "linear-gradient(135deg,#1c1a0a,#2a260f)"
     }
   ]
 }

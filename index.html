@@ -8,6 +8,9 @@
   <meta name="keywords" content="formation gestionnaire de paie, formation RH en ligne, formation droit social, formation Silae, organisme de formation Taverny, formation intra-entreprise, CPF paie, OPCO formation, cabinet Alfred Gory, formation Val-d'Oise" />
   <meta name="author" content="Cabinet Alfred Gory" />
   <meta name="robots" content="index, follow" />
+  <!-- Google Analytics GA4 — remplacez G-XXXXXXXXXX par votre vrai Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
   <meta name="geo.region" content="FR-95" />
   <meta name="geo.placename" content="Taverny" />
   <link rel="canonical" href="https://www.alfred-gory.com/" />
@@ -1066,6 +1069,7 @@
     resize(); window.addEventListener('resize', resize);
     var pts = [];
     for(var i=0;i<40;i++) pts.push({ x:Math.random()*1600, y:Math.random()*1000, vx:(Math.random()-.5)*.18, vy:(Math.random()-.5)*.18, r:Math.random()*1.5+.3, gold:Math.random()>.55 });
+    var gardeRafId;
     function draw(){
       ctx.clearRect(0,0,W,H);
       pts.forEach(function(p,i){
@@ -1079,15 +1083,16 @@
             ctx.strokeStyle='rgba(201,168,76,'+(0.05*(1-dd/130))+')'; ctx.lineWidth=.6; ctx.stroke(); }
         }
       });
-      requestAnimationFrame(draw);
+      gardeRafId = requestAnimationFrame(draw);
     }
-    draw();
+    gardeRafId = requestAnimationFrame(draw);
   })();
 
   function enterSite(){
     var g = document.getElementById('pageGarde');
     g.classList.add('exit');
     document.body.style.overflow = 'auto';
+    if(typeof gardeRafId !== 'undefined') cancelAnimationFrame(gardeRafId);
     setTimeout(function(){ g.style.display = 'none'; }, 820);
   }
 
@@ -1288,9 +1293,18 @@
             ctx.strokeStyle='rgba(201,168,76,'+(0.07*(1-dd/110))+')'; ctx.lineWidth=.5; ctx.stroke(); }
         }
       });
-      requestAnimationFrame(draw);
+      if(heroRunning) heroRafId = requestAnimationFrame(draw);
+      else heroRafId = null;
     }
-    draw();
+    var heroRafId;
+    var heroRunning = true;
+    heroRafId = requestAnimationFrame(draw);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){
+        heroRunning = entries[0].isIntersecting;
+        if(heroRunning && !heroRafId) heroRafId = requestAnimationFrame(draw);
+      }, {threshold:0}).observe(c);
+    }
   })();
 
   // ── Orbe animé panneau A ──
@@ -1698,6 +1712,152 @@
       <div style="text-align:center;margin-top:2.5rem;">
         <a href="#contact" class="btn-primary" style="background:var(--primary);color:#fff;box-shadow:0 4px 20px rgba(30,58,95,0.2);">Démarrer mon projet de formation</a>
       </div>
+    </div>
+  </section>
+
+  <!-- SESSIONS & TARIFS -->
+  <section class="section-wrap" id="sessions" style="background:#f7f5f1;">
+    <div class="container">
+      <div class="fade-in" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3rem;">
+        <div>
+          <span class="section-eyebrow">Calendrier & tarifs</span>
+          <h2 class="section-title">Prochaines <span>sessions</span></h2>
+          <div class="section-line"></div>
+          <p class="section-sub">Groupes limités à 8 participants maximum. Intra-entreprise disponible à la date de votre choix.</p>
+        </div>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--primary);color:#fff;padding:0.75rem 1.5rem;border-radius:8px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0;">Réserver ma place</a>
+      </div>
+
+      <!-- Tableau des formations -->
+      <div style="display:grid;grid-template-columns:1fr;gap:1rem;" class="fade-in">
+
+        <!-- Formation 1 -->
+        <div style="background:#fff;border:1px solid rgba(30,58,95,0.1);border-radius:14px;padding:1.5rem;display:grid;grid-template-columns:1fr auto auto;gap:1.5rem;align-items:center;" class="session-row">
+          <div>
+            <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.4rem;">
+              <span style="background:var(--primary);color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:4px;">Paie</span>
+              <span style="font-size:0.7rem;color:var(--muted);">35h · Débutant → Expert</span>
+            </div>
+            <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--primary);font-weight:700;margin-bottom:0.3rem;">Gestion de la paie</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.4rem;">
+              <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--accent-dark);font-size:0.65rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;">CPF</span>
+              <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--accent-dark);font-size:0.65rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;">OPCO</span>
+              <span style="background:rgba(30,58,95,0.06);border:1px solid rgba(30,58,95,0.1);color:var(--muted);font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:4px;">Présentiel & En ligne</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="background:rgba(30,58,95,0.05);border-radius:10px;padding:0.8rem 1.2rem;">
+              <p style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:0.3rem;">Prochaine session</p>
+              <p style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--primary);font-weight:700;">À venir</p>
+              <p style="font-size:0.68rem;color:var(--accent-dark);font-weight:600;">Septembre 2025</p>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <p style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">À partir de</p>
+            <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);font-weight:700;line-height:1;">1 890 €</p>
+            <p style="font-size:0.68rem;color:var(--muted);">HT · finançable</p>
+          </div>
+        </div>
+
+        <!-- Formation 2 -->
+        <div style="background:#fff;border:1px solid rgba(30,58,95,0.1);border-radius:14px;padding:1.5rem;display:grid;grid-template-columns:1fr auto auto;gap:1.5rem;align-items:center;" class="session-row">
+          <div>
+            <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.4rem;">
+              <span style="background:#0f766e;color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:4px;">Logiciel</span>
+              <span style="font-size:0.7rem;color:var(--muted);">21h · Débutant</span>
+            </div>
+            <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--primary);font-weight:700;margin-bottom:0.3rem;">Maîtrise de Silae</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.4rem;">
+              <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--accent-dark);font-size:0.65rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;">CPF</span>
+              <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--accent-dark);font-size:0.65rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;">OPCO</span>
+              <span style="background:rgba(30,58,95,0.06);border:1px solid rgba(30,58,95,0.1);color:var(--muted);font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:4px;">Présentiel & En ligne</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="background:rgba(30,58,95,0.05);border-radius:10px;padding:0.8rem 1.2rem;">
+              <p style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:0.3rem;">Prochaine session</p>
+              <p style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--primary);font-weight:700;">À venir</p>
+              <p style="font-size:0.68rem;color:var(--accent-dark);font-weight:600;">Octobre 2025</p>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <p style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">À partir de</p>
+            <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);font-weight:700;line-height:1;">1 190 €</p>
+            <p style="font-size:0.68rem;color:var(--muted);">HT · finançable</p>
+          </div>
+        </div>
+
+        <!-- Formation 3 -->
+        <div style="background:#fff;border:1px solid rgba(30,58,95,0.1);border-radius:14px;padding:1.5rem;display:grid;grid-template-columns:1fr auto auto;gap:1.5rem;align-items:center;" class="session-row">
+          <div>
+            <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.4rem;">
+              <span style="background:#7c3aed;color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:4px;">Droit</span>
+              <span style="font-size:0.7rem;color:var(--muted);">21h · Intermédiaire</span>
+            </div>
+            <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--primary);font-weight:700;margin-bottom:0.3rem;">Droit social pratique</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.4rem;">
+              <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--accent-dark);font-size:0.65rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;">OPCO</span>
+              <span style="background:rgba(30,58,95,0.06);border:1px solid rgba(30,58,95,0.1);color:var(--muted);font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:4px;">Présentiel & En ligne</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="background:rgba(30,58,95,0.05);border-radius:10px;padding:0.8rem 1.2rem;">
+              <p style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:0.3rem;">Prochaine session</p>
+              <p style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--primary);font-weight:700;">À venir</p>
+              <p style="font-size:0.68rem;color:var(--accent-dark);font-weight:600;">Novembre 2025</p>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <p style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">À partir de</p>
+            <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);font-weight:700;line-height:1;">1 190 €</p>
+            <p style="font-size:0.68rem;color:var(--muted);">HT · finançable</p>
+          </div>
+        </div>
+
+        <!-- Formation 4 -->
+        <div style="background:#fff;border:1px solid rgba(30,58,95,0.1);border-radius:14px;padding:1.5rem;display:grid;grid-template-columns:1fr auto auto;gap:1.5rem;align-items:center;" class="session-row">
+          <div>
+            <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.4rem;">
+              <span style="background:#b45309;color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:4px;">RH</span>
+              <span style="font-size:0.7rem;color:var(--muted);">14h · Tous niveaux</span>
+            </div>
+            <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--primary);font-weight:700;margin-bottom:0.3rem;">Recrutement & Ressources Humaines</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.4rem;">
+              <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--accent-dark);font-size:0.65rem;font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;">OPCO</span>
+              <span style="background:rgba(30,58,95,0.06);border:1px solid rgba(30,58,95,0.1);color:var(--muted);font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:4px;">Présentiel & En ligne</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="background:rgba(30,58,95,0.05);border-radius:10px;padding:0.8rem 1.2rem;">
+              <p style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:0.3rem;">Prochaine session</p>
+              <p style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--primary);font-weight:700;">À venir</p>
+              <p style="font-size:0.68rem;color:var(--accent-dark);font-weight:600;">Décembre 2025</p>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <p style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">À partir de</p>
+            <p style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);font-weight:700;line-height:1;">890 €</p>
+            <p style="font-size:0.68rem;color:var(--muted);">HT · finançable</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Note intra -->
+      <div class="fade-in" style="margin-top:1.5rem;background:linear-gradient(135deg,var(--primary),var(--primary-mid));border-radius:12px;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <p style="color:rgba(255,255,255,0.7);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;margin-bottom:0.2rem;">Formation intra-entreprise</p>
+          <p style="color:#fff;font-size:0.95rem;font-weight:600;">Nous intervenons directement dans vos locaux — dates et contenu sur mesure</p>
+        </div>
+        <a href="#contact" style="display:inline-block;background:var(--accent-dark);color:#fff;padding:0.7rem 1.5rem;border-radius:8px;font-size:0.8rem;font-weight:700;text-decoration:none;white-space:nowrap;">Demander un devis intra →</a>
+      </div>
+
+      <style>
+        @media(max-width:700px){
+          .session-row { grid-template-columns: 1fr !important; gap: 1rem !important; }
+          .session-row > div:last-child { text-align: left !important; }
+        }
+      </style>
     </div>
   </section>
 
