@@ -765,6 +765,147 @@
     .rgpd-btns { display: flex; gap: 0.8rem; flex-shrink: 0; }
     .rgpd-accept { background: var(--primary); border: none; color: #fff; font-weight: 700; font-size: 0.8rem; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; }
     .rgpd-refuse { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+
+    /* .mag-btn — transition nécessaire pour l'effet magnétique JS */
+    .mag-btn { display: inline-block; }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE TABLETTE (≤ 900px) & MOBILE (≤ 600px)
+       ══════════════════════════════════════════════ */
+
+    /* — Sections générales — */
+    @media(max-width:900px){
+      .section-wrap { padding: 3rem 1.2rem; }
+      .container { padding: 0 0.2rem; }
+      .section-title { font-size: clamp(1.3rem, 5vw, 1.9rem); }
+    }
+    @media(max-width:600px){
+      .section-wrap { padding: 2.2rem 1rem; }
+    }
+
+    /* — Hero bento (règles globales, compléments) — */
+    @media(max-width:900px){
+      .hero { padding-top: 88px; min-height: auto; padding-bottom: 2rem; }
+      .bento { height: auto; gap: 8px; padding: 1rem; }
+      .bento-cell { padding: 1.3rem; border-radius: 14px; }
+      /* Réorganisation colonnes */
+      .bcA { grid-column: 1 / 3; min-height: 180px; }
+      .bcB { grid-column: 1; min-height: 110px; }
+      .bcC { grid-column: 2; min-height: 110px; }
+      .bcD { grid-column: 1 / 3; }
+      .bcE { grid-column: 1 / 3; }
+      .bcF { grid-column: 1; min-height: 110px; }
+      .bcG { grid-column: 2; }
+      .bstat-num { font-size: 2.4rem; }
+      .bcA-name { font-size: 1.6rem; }
+      .bcA-qualiopi { position: static; margin-top: 1rem; align-self: flex-start; }
+      /* Désactive tilt sur touch */
+      .tilt-cell { transform: none !important; }
+    }
+    @media(max-width:540px){
+      .bento { grid-template-columns: 1fr; }
+      .bcA,.bcB,.bcC,.bcD,.bcE,.bcF,.bcG { grid-column: 1; }
+      .bstat-num { font-size: 2rem; }
+    }
+
+    /* — Formations cards — */
+    @media(max-width:900px){
+      .formations-grid { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.2rem; }
+    }
+    @media(max-width:600px){
+      .formations-grid { grid-template-columns: 1fr; }
+      .fcard-img { height: 140px; }
+      .fcard-body { padding: 1.1rem; }
+    }
+
+    /* — Carte formations interactive — */
+    @media(max-width:700px){
+      .carte-formations { height: 420px; }
+      .carte-detail { min-width: 200px; font-size: 0.8rem; }
+    }
+
+    /* — Stats section — */
+    @media(max-width:480px){
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .stat-num { font-size: 2.2rem; }
+    }
+
+    /* — Garanties — */
+    @media(max-width:600px){
+      .garanties-band { padding: 2rem 1rem; gap: 1.5rem; }
+      .gar-sep { display: none; }
+    }
+
+    /* — Pourquoi grid — */
+    @media(max-width:600px){
+      .why-grid { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    /* — Témoignages — */
+    @media(max-width:600px){
+      .temo-grid { grid-template-columns: 1fr; }
+      .temo-card { padding: 1.4rem; }
+    }
+
+    /* — Contact — */
+    @media(max-width:600px){
+      .contact-form-box { padding: 1.4rem; border-radius: 14px; }
+      .contact-info h2 { font-size: 1.5rem; }
+    }
+
+    /* — Quiz — */
+    @media(max-width:600px){
+      .quiz-box { border-radius: 14px; }
+      .quiz-screen { padding: 1.4rem 1.1rem; }
+      .quiz-q { font-size: 1rem; margin-bottom: 1.2rem; }
+      .quiz-answer { padding: 0.7rem 0.9rem; font-size: 0.85rem; }
+      .quiz-start-btn { width: 100%; }
+      .quiz-result-btns { flex-direction: column; align-items: center; }
+    }
+
+    /* — Simulateur — */
+    @media(max-width:700px){
+      .simu-box { border-radius: 14px; }
+      .simu-cards { grid-template-columns: 1fr !important; }
+    }
+
+    /* — Footer — */
+    @media(max-width:480px){
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding: 1rem 1.2rem; }
+      .footer-legal { flex-wrap: wrap; gap: 0.8rem; }
+      .footer-mention { padding: 1rem 1.2rem; }
+    }
+
+    /* — Page de garde — */
+    @media(max-width:600px){
+      .garde-name { font-size: clamp(2.4rem, 14vw, 4rem); }
+      .garde-frame { width: 32px; height: 32px; top: 1rem; bottom: 1rem; left: 1rem; right: 1rem; }
+      .garde-frame-tl { top: 1rem; left: 1rem; }
+      .garde-frame-tr { top: 1rem; right: 1rem; }
+      .garde-frame-bl { bottom: 1rem; left: 1rem; }
+      .garde-frame-br { bottom: 1rem; right: 1rem; }
+      .garde-domains { gap: 0.5rem; font-size: 0.65rem; }
+      .garde-bottom { font-size: 0.58rem; gap: 0.4rem; flex-wrap: wrap; justify-content: center; padding: 0 1rem; }
+      .garde-surtitle { font-size: 0.55rem; margin-bottom: 1.8rem; }
+    }
+
+    /* — RGPD — */
+    @media(max-width:600px){
+      #rgpd { padding: 0.8rem 1rem; }
+      #rgpd p { font-size: 0.75rem; }
+      .rgpd-btns { width: 100%; }
+      .rgpd-accept, .rgpd-refuse { flex: 1; text-align: center; }
+    }
+
+    /* — Topbar — */
+    @media(max-width:480px){
+      #topbar-inner { font-size: 0.65rem; padding: 0.3rem 0.5rem; }
+    }
+
+    /* — Nav mobile — */
+    @media(max-width:900px){
+      nav { height: 60px; top: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -1017,11 +1158,11 @@
   <!-- MENU MOBILE -->
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-close" onclick="toggleMenu()">✕</button>
-    <a href="#formations" onclick="toggleMenu()">Formations</a>
+    <a href="formations.html" onclick="toggleMenu()">Formations</a>
+    <a href="financement.html" onclick="toggleMenu()">Financement</a>
+    <a href="#quiz" onclick="toggleMenu()">Testez-vous</a>
     <a href="#temoignages" onclick="toggleMenu()">Avis clients</a>
-    <a href="#blog" onclick="toggleMenu()">Actualités</a>
-    <a href="#pourquoi" onclick="toggleMenu()">À propos</a>
-    <a href="#contact" onclick="toggleMenu()">S'inscrire</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
   </div>
 
   <!-- HERO BENTO GRID -->
@@ -1164,32 +1305,33 @@
     });
   })();
 
-  // ── Tilt 3D sur les panneaux ──
-  document.querySelectorAll('.tilt-cell').forEach(function(el){
-    el.addEventListener('mousemove',function(e){
-      var r=el.getBoundingClientRect();
-      var dx=(e.clientX-r.left-r.width/2)/(r.width/2);
-      var dy=(e.clientY-r.top-r.height/2)/(r.height/2);
-      el.style.transform='perspective(900px) rotateY('+(dx*7)+'deg) rotateX('+(-dy*7)+'deg) translateZ(8px)';
-      el.style.transition='transform .1s linear';
+  // ── Tilt 3D et magnétique (désactivé sur écrans tactiles) ──
+  var isTouch = window.matchMedia('(pointer:coarse)').matches;
+  if(!isTouch){
+    document.querySelectorAll('.tilt-cell').forEach(function(el){
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect();
+        var dx=(e.clientX-r.left-r.width/2)/(r.width/2);
+        var dy=(e.clientY-r.top-r.height/2)/(r.height/2);
+        el.style.transform='perspective(900px) rotateY('+(dx*7)+'deg) rotateX('+(-dy*7)+'deg) translateZ(8px)';
+        el.style.transition='transform .1s linear';
+      });
+      el.addEventListener('mouseleave',function(){
+        el.style.transform=''; el.style.transition='transform .6s cubic-bezier(0.34,1.56,0.64,1)';
+      });
     });
-    el.addEventListener('mouseleave',function(){
-      el.style.transform=''; el.style.transition='transform .6s cubic-bezier(0.34,1.56,0.64,1)';
+    document.querySelectorAll('.mag-btn').forEach(function(btn){
+      btn.addEventListener('mousemove',function(e){
+        var r=btn.getBoundingClientRect();
+        var dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height/2);
+        btn.style.transform='translate('+(dx*.28)+'px,'+(dy*.28)+'px)';
+        btn.style.transition='transform .1s linear';
+      });
+      btn.addEventListener('mouseleave',function(){
+        btn.style.transform=''; btn.style.transition='transform .5s cubic-bezier(0.34,1.56,0.64,1)';
+      });
     });
-  });
-
-  // ── Boutons magnétiques ──
-  document.querySelectorAll('.mag-btn').forEach(function(btn){
-    btn.addEventListener('mousemove',function(e){
-      var r=btn.getBoundingClientRect();
-      var dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height/2);
-      btn.style.transform='translate('+(dx*.28)+'px,'+(dy*.28)+'px)';
-      btn.style.transition='transform .1s linear';
-    });
-    btn.addEventListener('mouseleave',function(){
-      btn.style.transform=''; btn.style.transition='transform .5s cubic-bezier(0.34,1.56,0.64,1)';
-    });
-  });
+  }
 
   // ── Compteurs animés ──
   var counters = document.querySelectorAll('[data-target]');
