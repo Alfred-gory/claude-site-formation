@@ -1210,39 +1210,54 @@
   },{threshold:.4});
   counters.forEach(function(el){ io.observe(el); });
 
-  // ── Mini quiz bento ──
+  // ── Mini quiz bento (pioche dans QUIZ_BANK, 3 questions, aléatoire) ──
   (function(){
-    var qs=[
-      { q:"Qu'est-ce que la DSN ?", choices:["Une déclaration fiscale annuelle","La Déclaration Sociale Nominative mensuelle","Un logiciel de paie"], ok:1 },
-      { q:"Qu'est-ce qu'un OPCO ?", choices:["Un organisme de formation","Un opérateur de compétences finançant la formation","Un contrat de travail"], ok:1 },
-      { q:"Le bulletin de paie doit être conservé :", choices:["5 ans","Toute la vie du salarié","1 an"], ok:1 },
-      { q:"La convention collective est négociée entre :", choices:["L'État et les syndicats","Les employeurs et les syndicats de salariés","Le salarié et l'employeur"], ok:1 },
-    ];
     var qEl=document.getElementById('bqQuestion');
     var cEl=document.getElementById('bqChoices');
     var rEl=document.getElementById('bqResult');
     var nEl=document.getElementById('bqNext');
     if(!qEl) return;
-    var qi=0, score=0;
+
+    function pickMini(){
+      var pool = QUIZ_BANK.slice();
+      for(var i=pool.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=pool[i];pool[i]=pool[j];pool[j]=t; }
+      return pool.slice(0,3).map(function(q){
+        /* Garde seulement 3 choix (les 3 premiers + la bonne si elle est en pos 3) */
+        var choices = q.r.slice(0,3);
+        var ok = q.c;
+        if(q.c >= 3){ choices[2] = q.r[q.c]; ok = 2; }
+        return { q:q.q, choices:choices, ok:ok };
+      });
+    }
+
+    var qs=pickMini(), qi=0, score=0;
+
     function load(){
       var q=qs[qi];
       qEl.textContent=q.q;
-      rEl.textContent=''; nEl.style.display='none';
+      rEl.textContent=''; rEl.style.color=''; nEl.style.display='none';
       cEl.innerHTML='';
       q.choices.forEach(function(c,i){
         var b=document.createElement('button');
         b.className='bcE-btn'; b.textContent=c;
         b.addEventListener('click',function(){
           if(i===q.ok){ b.classList.add('bcE-correct'); rEl.textContent='Bonne réponse !'; rEl.style.color='#22c55e'; score++; }
-          else { b.classList.add('bcE-wrong'); cEl.children[q.ok].classList.add('bcE-correct'); rEl.textContent='Mauvaise réponse.'; rEl.style.color='#ef4444'; }
+          else { b.classList.add('bcE-wrong'); cEl.children[q.ok].classList.add('bcE-correct'); rEl.textContent='Pas tout à fait.'; rEl.style.color='#ef4444'; }
           Array.from(cEl.children).forEach(function(bb){ bb.disabled=true; });
-          nEl.style.display = qi<qs.length-1 ? 'block' : 'none';
-          if(qi===qs.length-1) rEl.textContent+=' Score : '+score+'/'+qs.length;
+          if(qi<qs.length-1){ nEl.style.display='block'; nEl.textContent='Suivant →'; }
+          else { rEl.textContent+=' Score : '+score+'/'+qs.length+' — '; var a=document.createElement('a'); a.href='#quiz'; a.textContent='Quiz complet'; a.style.color='var(--accent-dark)'; a.style.fontWeight='700'; rEl.appendChild(a); }
         });
         cEl.appendChild(b);
       });
     }
     nEl.addEventListener('click',function(){ qi++; load(); });
+
+    /* Recommencer = nouvelles questions */
+    var restart=document.createElement('button');
+    restart.className='bcE-next'; restart.textContent='Nouvelles questions ↺'; restart.style.cssText='display:block;margin-top:0.3rem;opacity:0.6;font-size:0.68rem;';
+    restart.addEventListener('click',function(){ qs=pickMini(); qi=0; score=0; load(); });
+    document.getElementById('bentoQuiz').appendChild(restart);
+
     load();
   })();
   </script>
@@ -1829,103 +1844,318 @@
   </style>
 
   <script>
-  var quizData = [
+  /* ═══════════════════════════════════════════════════════════
+     BANQUE DE 24 QUESTIONS — paie, droit social, RH, Silae
+     Chaque question porte un tag "theme" pour la recommandation
+     ═══════════════════════════════════════════════════════════ */
+  var QUIZ_BANK = [
+    /* ── PAIE ── */
     {
-      q: "Quel document doit être remis obligatoirement à un apprenant à l'issue d'une formation professionnelle ?",
-      r: ["Un diplôme d'État","Une attestation de formation","Un certificat Qualiopi","Un relevé de notes"],
-      c: 1,
-      exp: "L'article <strong>L.6353-1 du Code du travail</strong> impose à tout organisme de formation de remettre une attestation mentionnant la nature, la durée, les objectifs et les résultats de la formation."
-    },
-    {
-      q: "Depuis 2019, le CPF (Compte Personnel de Formation) se calcule en :",
-      r: ["Heures","Points","Euros","Crédits"],
+      theme:'paie',
+      q: "Quel élément ne figure PAS obligatoirement sur un bulletin de paie ?",
+      r: ["Le nom et l'adresse de l'employeur","La convention collective applicable","Le montant du capital social de l'entreprise","La période et le nombre d'heures de travail"],
       c: 2,
-      exp: "La loi <strong>Avenir professionnel de 2018</strong> a converti le CPF en euros. Un salarié à temps plein acquiert 500 €/an, plafonné à 5 000 €."
+      exp: "Le bulletin de paie doit mentionner employeur, salarié, convention collective, période, heures, salaire brut, cotisations et net (art. R.3243-1 CT). Le capital social n'est pas requis."
     },
     {
+      theme:'paie',
+      q: "Quelle est la durée légale de conservation des bulletins de paie par l'employeur ?",
+      r: ["3 ans","5 ans","10 ans","Illimitée"],
+      c: 1,
+      exp: "L'employeur doit conserver un double des bulletins de paie pendant <strong>5 ans</strong> (art. L.3243-4 CT). Le salarié, lui, doit les conserver sans limite de durée."
+    },
+    {
+      theme:'paie',
+      q: "Le taux patronal de la cotisation vieillesse CNAV (tranche 1, 2024) est d'environ :",
+      r: ["4,45 %","6,90 %","8,55 %","10,45 %"],
+      c: 2,
+      exp: "En 2024, la cotisation vieillesse CNAV plafonnée s'élève à <strong>8,55 % pour la part patronale</strong> et 6,90 % pour la part salariale sur la tranche 1 (dans la limite du PMSS)."
+    },
+    {
+      theme:'paie',
+      q: "La DSN (Déclaration Sociale Nominative) est transmise :",
+      r: ["Chaque semaine","Chaque trimestre","Chaque mois","Une fois par an"],
+      c: 2,
+      exp: "La <strong>DSN est mensuelle</strong> : au 5 ou au 15 du mois selon la taille de l'entreprise. Elle remplace la quasi-totalité des déclarations sociales et permet un suivi en temps réel."
+    },
+    {
+      theme:'paie',
+      q: "Le SMIC horaire brut est revalorisé automatiquement :",
+      r: ["Tous les 3 ans par décret","Chaque 1er janvier et lorsque l'inflation dépasse 2 %","Uniquement lors des élections présidentielles","À la demande des syndicats"],
+      c: 1,
+      exp: "Le SMIC est revalorisé au <strong>1er janvier</strong> chaque année. Une revalorisation automatique s'applique également en cours d'année dès que l'indice des prix à la consommation dépasse 2 % (art. L.3231-5 CT)."
+    },
+    {
+      theme:'paie',
+      q: "La réduction générale de cotisations patronales (ex-réduction Fillon) est calculée sur :",
+      r: ["Le salaire brut de base uniquement","La rémunération brute totale dans la limite de 1,6 SMIC","Le salaire net","Le salaire horaire moyen de la branche"],
+      c: 1,
+      exp: "La <strong>réduction générale</strong> (dite réduction Fillon) s'applique aux rémunérations inférieures ou égales à 1,6 fois le SMIC mensuel brut. Elle réduit significativement les charges patronales sur les bas salaires."
+    },
+    /* ── DROIT SOCIAL ── */
+    {
+      theme:'droit',
       q: "Un salarié à temps plein acquiert combien de jours ouvrables de congés payés par mois de travail effectif ?",
       r: ["2 jours","2,5 jours","3 jours","1,5 jour"],
       c: 1,
-      exp: "Un salarié acquiert <strong>2,5 jours ouvrables</strong> par mois de travail effectif, soit 30 jours pour une année complète (articles L.3141-3 et suivants du Code du travail)."
+      exp: "Un salarié acquiert <strong>2,5 jours ouvrables</strong> par mois, soit 30 jours sur l'année de référence (art. L.3141-3 CT). Attention : « ouvrables » inclut le samedi, contrairement aux jours ouvrés."
     },
     {
-      q: "La DSN (Déclaration Sociale Nominative) est une déclaration transmise :",
-      r: ["Annuellement","Trimestriellement","Mensuellement","Chaque semaine"],
-      c: 2,
-      exp: "La <strong>DSN est mensuelle</strong>, transmise dans les 5 ou 15 premiers jours du mois suivant la période de paie. Elle remplace la plupart des déclarations sociales."
-    },
-    {
-      q: "Le plan de développement des compétences est à l'initiative de :",
-      r: ["Le salarié (via son CPF)","L'employeur, financé via l'OPCO","France Travail","La CPAM"],
+      theme:'droit',
+      q: "Quel est le délai légal de préavis pour un CDI en cas de licenciement d'un salarié ayant plus de 2 ans d'ancienneté (hors faute grave ou lourde) ?",
+      r: ["1 mois","2 mois","3 mois","6 mois"],
       c: 1,
-      exp: "Le <strong>plan de développement des compétences</strong> est décidé par l'employeur et financé par l'entreprise, souvent avec l'aide de son OPCO (Opérateur de Compétences de branche). Il ne s'impute pas sur le CPF du salarié."
+      exp: "Au-delà de 2 ans d'ancienneté, le préavis légal est de <strong>2 mois</strong> (art. L.1234-1 CT). La convention collective peut prévoir un délai plus favorable au salarié."
+    },
+    {
+      theme:'droit',
+      q: "La période d'essai d'un cadre en CDI est au maximum de :",
+      r: ["1 mois","2 mois","3 mois","4 mois"],
+      c: 3,
+      exp: "La période d'essai initiale est de <strong>4 mois</strong> pour les cadres (art. L.1221-19 CT). Elle peut être renouvelée une fois si la convention collective le prévoit, sans dépasser 8 mois au total."
+    },
+    {
+      theme:'droit',
+      q: "Un CDD peut être renouvelé au maximum :",
+      r: ["1 fois","2 fois","3 fois","Sans limite si accord de branche"],
+      c: 1,
+      exp: "Depuis la loi du 29 mars 2023, un CDD peut être renouvelé <strong>2 fois</strong> (art. L.1243-13 CT), à condition que la durée totale ne dépasse pas le maximum prévu par la loi ou la branche."
+    },
+    {
+      theme:'droit',
+      q: "Le reçu pour solde de tout compte, une fois signé, peut être dénoncé dans un délai de :",
+      r: ["15 jours","6 mois","1 an","2 ans"],
+      c: 1,
+      exp: "Le salarié dispose de <strong>6 mois</strong> pour dénoncer le reçu pour solde de tout compte par lettre recommandée (art. L.1234-20 CT). Passé ce délai, il est libératoire pour l'employeur."
+    },
+    {
+      theme:'droit',
+      q: "Le délai de prescription pour contester un licenciement sans cause réelle et sérieuse est de :",
+      r: ["6 mois","1 an","2 ans","5 ans"],
+      c: 2,
+      exp: "Depuis la loi Travail de 2016, le délai pour saisir le Conseil de prud'hommes en cas de contestation du licenciement est de <strong>12 mois</strong> à compter de la notification (art. L.1471-1 CT)."
+    },
+    {
+      theme:'droit',
+      q: "La rupture conventionnelle homologuée génère droit à :",
+      r: ["Aucune indemnité","L'indemnité légale ou conventionnelle de licenciement","Une indemnité de préavis uniquement","L'allocation chômage et l'indemnité légale de licenciement"],
+      c: 3,
+      exp: "La rupture conventionnelle ouvre droit à une <strong>indemnité spécifique</strong> (au moins égale à l'indemnité légale de licenciement) ET à l'<strong>allocation chômage</strong> (ARE), contrairement à la démission."
+    },
+    /* ── RH & RECRUTEMENT ── */
+    {
+      theme:'rh',
+      q: "L'entretien professionnel obligatoire a lieu au minimum tous les :",
+      r: ["1 an","2 ans","3 ans","5 ans"],
+      c: 1,
+      exp: "L'entretien professionnel doit être organisé par l'employeur tous les <strong>2 ans</strong> (art. L.6315-1 CT). Il est distinct de l'entretien d'évaluation et porte sur les perspectives d'évolution professionnelle."
+    },
+    {
+      theme:'rh',
+      q: "Une offre d'emploi peut légalement mentionner :",
+      r: ["Une limite d'âge maximale","Un critère de nationalité","Le niveau de diplôme requis","Le sexe du candidat souhaité"],
+      c: 2,
+      exp: "Seul le <strong>niveau de diplôme ou de qualification</strong> peut être mentionné. L'âge, le sexe, la nationalité, l'origine ou toute autre caractéristique discriminante sont interdits (art. L.1132-1 CT)."
+    },
+    {
+      theme:'rh',
+      q: "La durée maximale d'une mission d'intérim pour un accroissement temporaire d'activité est de :",
+      r: ["3 mois","6 mois","18 mois","24 mois"],
+      c: 2,
+      exp: "Pour un accroissement temporaire d'activité, la durée maximale d'une mission intérimaire est de <strong>18 mois</strong> (renouvellements inclus). Elle peut aller jusqu'à 36 mois dans certains cas exceptionnels."
+    },
+    {
+      theme:'rh',
+      q: "Le registre unique du personnel doit être conservé pendant :",
+      r: ["3 ans après le départ du salarié","5 ans","10 ans","Sans limite de durée"],
+      c: 3,
+      exp: "Le registre unique du personnel doit être conservé <strong>5 ans après le départ du dernier salarié inscrit</strong> (art. R.1221-26 CT). Il est consultable par l'inspection du travail à tout moment."
+    },
+    {
+      theme:'rh',
+      q: "L'index de l'égalité professionnelle Femmes-Hommes est obligatoire pour les entreprises d'au moins :",
+      r: ["11 salariés","50 salariés","100 salariés","250 salariés"],
+      c: 2,
+      exp: "L'index égalité F/H est obligatoire depuis 2019 pour les entreprises de <strong>50 salariés et plus</strong>. Il est calculé sur 5 indicateurs (écart de rémunération, augmentations, promotions…) et publié chaque 1er mars."
+    },
+    /* ── SILAE & OUTILS ── */
+    {
+      theme:'silae',
+      q: "Dans Silae, la clôture de paie mensuelle génère automatiquement :",
+      r: ["Les contrats de travail","La DSN et les bulletins définitifs","Les fiches de poste","Les déclarations fiscales TVA"],
+      c: 1,
+      exp: "Après clôture dans Silae, le logiciel produit les <strong>bulletins de paie définitifs</strong> et prépare la <strong>DSN mensuelle</strong> prête à être envoyée à Net-Entreprises, ainsi que les journaux comptables."
+    },
+    {
+      theme:'silae',
+      q: "Dans Silae, un « dossier » correspond à :",
+      r: ["Un salarié","Un service de l'entreprise","Une société employeur","Un exercice fiscal"],
+      c: 2,
+      exp: "Dans Silae, chaque <strong>dossier</strong> représente une <strong>société employeur</strong> avec son propre paramétrage (convention collective, établissements, taux AT…). Un cabinet paie gère plusieurs dossiers depuis un même compte."
+    },
+    {
+      theme:'silae',
+      q: "La saisie de variables de paie dans Silae peut se faire de plusieurs façons. Laquelle est fausse ?",
+      r: ["Import Excel via tableau de variables","Saisie directe fiche par fiche","Signature électronique depuis le portail","Synchronisation automatique avec les pointeuses"],
+      c: 2,
+      exp: "Silae permet la saisie directe, l'import Excel et la synchronisation avec des pointeuses via API. La <strong>signature électronique</strong> concerne les bulletins dématérialisés, pas la saisie des variables."
+    },
+    /* ── FINANCEMENT & FORMATION ── */
+    {
+      theme:'formation',
+      q: "Quel document est obligatoirement remis à l'apprenant à l'issue d'une formation professionnelle (art. L.6353-1 CT) ?",
+      r: ["Un diplôme d'État","Une attestation de fin de formation","Un certificat Qualiopi","Un relevé de compétences RNCP"],
+      c: 1,
+      exp: "L'<strong>attestation de fin de formation</strong> (art. L.6353-1 CT) est obligatoire. Elle mentionne la nature, la durée, les objectifs et les résultats de l'évaluation. Elle ne vaut pas diplôme mais prouve la réalisation de la formation."
+    },
+    {
+      theme:'formation',
+      q: "Le CPF (Compte Personnel de Formation) est alimenté chaque année à hauteur de :",
+      r: ["300 € pour tous les salariés","500 € pour un salarié à temps plein, 300 € pour un temps partiel","500 € pour tous les salariés, plafonné à 5 000 €","800 € pour les salariés sans qualification"],
+      c: 1,
+      exp: "Un salarié à temps plein acquiert <strong>500 €/an</strong> (plafonné à 5 000 €). Pour les personnes non qualifiées (sans niveau CAP/BEP), l'alimentation est de 800 €/an (plafond 8 000 €). Depuis 2023, le CPF est soumis à une participation de 100 €."
+    },
+    {
+      theme:'formation',
+      q: "La certification Qualiopi atteste :",
+      r: ["La qualité des formateurs à titre individuel","La qualité du processus des prestataires de formation","Le niveau des diplômes délivrés","L'agrément de l'État pour les formations diplômantes"],
+      c: 1,
+      exp: "<strong>Qualiopi</strong> est une certification de processus (et non de résultats), obligatoire pour bénéficier de fonds publics et mutualisés (CPF, OPCO, France Travail). Elle est délivrée par des organismes certificateurs accrédités."
+    },
+    {
+      theme:'formation',
+      q: "Un OPCO (Opérateur de Compétences) finance les formations :",
+      r: ["Uniquement pour les demandeurs d'emploi","Des entreprises adhérentes selon leur branche professionnelle","De toutes les entreprises sans condition","Uniquement les formations diplômantes RNCP"],
+      c: 1,
+      exp: "Les <strong>OPCO</strong> financent la formation des salariés des entreprises de leur branche. L'entreprise verse une contribution formation (0,55 % à 1 % de la masse salariale) à son OPCO qui redistribue selon les règles de la branche."
     }
   ];
-  var quizCurrent = 0, quizScore = 0;
+
+  /* Mélange Fisher-Yates */
+  function shuffle(arr) {
+    var a = arr.slice();
+    for(var i=a.length-1;i>0;i--){
+      var j=Math.floor(Math.random()*(i+1));
+      var t=a[i]; a[i]=a[j]; a[j]=t;
+    }
+    return a;
+  }
+
+  var QUIZ_N = 6; /* nombre de questions tirées par session */
+  var quizSession = [], quizCurrent = 0, quizScore = 0;
+  var quizThemeScores = {}; /* compteur de bonnes réponses par thème */
+
   function quizStart() {
-    quizCurrent = 0; quizScore = 0;
+    /* Tirage aléatoire sans remise, équilibré par thème */
+    var byTheme = {};
+    QUIZ_BANK.forEach(function(q){ (byTheme[q.theme] = byTheme[q.theme]||[]).push(q); });
+    Object.keys(byTheme).forEach(function(t){ byTheme[t] = shuffle(byTheme[t]); });
+    var themes = shuffle(Object.keys(byTheme));
+    var pool = [];
+    var ri = 0;
+    while(pool.length < QUIZ_N){
+      var t = themes[ri % themes.length]; ri++;
+      if(byTheme[t] && byTheme[t].length){
+        pool.push(byTheme[t].shift());
+      }
+    }
+    quizSession = shuffle(pool);
+    quizCurrent = 0; quizScore = 0; quizThemeScores = {};
+
     document.getElementById('quiz-intro').style.display = 'none';
     document.getElementById('quiz-question').style.display = 'block';
     quizShowQ();
   }
+
   function quizShowQ() {
-    var d = quizData[quizCurrent];
-    var pct = (quizCurrent / quizData.length) * 100;
+    var d = quizSession[quizCurrent];
+    var pct = (quizCurrent / QUIZ_N) * 100;
     document.getElementById('quizBar').style.width = pct + '%';
-    document.getElementById('quizQnum').textContent = 'Question ' + (quizCurrent+1) + ' / ' + quizData.length;
+    document.getElementById('quizQnum').textContent = 'Question ' + (quizCurrent+1) + ' / ' + QUIZ_N;
     document.getElementById('quizQ').textContent = d.q;
     document.getElementById('quizFeedback').style.display = 'none';
     document.getElementById('quizNext').style.display = 'none';
     var letters = ['A','B','C','D'];
     var html = '';
-    d.r.forEach(function(r, i) {
-      html += '<button class="quiz-answer" onclick="quizAnswer('+i+')">' +
+    d.r.forEach(function(r,i){
+      html += '<button class="quiz-answer" onclick="quizAnswer('+i+')">'+
         '<span class="qa-letter">'+letters[i]+'</span> '+r+'</button>';
     });
     document.getElementById('quizAnswers').innerHTML = html;
   }
+
   function quizAnswer(idx) {
-    var d = quizData[quizCurrent];
+    var d = quizSession[quizCurrent];
     var btns = document.querySelectorAll('.quiz-answer');
-    btns.forEach(function(b, i) {
+    btns.forEach(function(b,i){
       b.classList.add('disabled');
-      if (i === d.c) b.classList.add('correct');
-      else if (i === idx && idx !== d.c) b.classList.add('wrong');
+      if(i===d.c) b.classList.add('correct');
+      else if(i===idx && idx!==d.c) b.classList.add('wrong');
     });
-    if (idx === d.c) quizScore++;
+    var ok = idx===d.c;
+    if(ok){ quizScore++; quizThemeScores[d.theme] = (quizThemeScores[d.theme]||0)+1; }
     var fb = document.getElementById('quizFeedback');
-    fb.innerHTML = (idx === d.c ? '<strong>Bonne réponse !</strong> ' : '<strong>Pas tout à fait.</strong> ') + d.exp;
+    fb.innerHTML = (ok ? '<strong>Bonne réponse !</strong> ' : '<strong>Pas tout à fait.</strong> ') + d.exp;
     fb.style.display = 'block';
     var next = document.getElementById('quizNext');
-    next.textContent = quizCurrent < quizData.length - 1 ? 'Question suivante →' : 'Voir mon résultat →';
+    next.textContent = quizCurrent < QUIZ_N-1 ? 'Question suivante →' : 'Voir mon résultat →';
     next.style.display = 'block';
   }
+
   function quizNext() {
     quizCurrent++;
-    if (quizCurrent < quizData.length) { quizShowQ(); }
-    else { quizShowResult(); }
+    if(quizCurrent < QUIZ_N) quizShowQ(); else quizShowResult();
   }
+
   function quizShowResult() {
     document.getElementById('quiz-question').style.display = 'none';
     document.getElementById('quiz-result').style.display = 'block';
     document.getElementById('quizBar').style.width = '100%';
-    document.getElementById('quizScoreText').textContent = quizScore + '/5';
-    var offset = 301.6 * (1 - quizScore/5);
+    document.getElementById('quizScoreText').textContent = quizScore + '/' + QUIZ_N;
+    var offset = 301.6 * (1 - quizScore/QUIZ_N);
     setTimeout(function(){ document.getElementById('quizScoreCircle').style.strokeDashoffset = offset; }, 100);
-    var level, reco;
-    if (quizScore <= 1) {
+
+    /* Thème le plus fort et le plus faible */
+    var weakTheme = '', weakScore = Infinity;
+    Object.keys(quizThemeScores).forEach(function(t){
+      if(quizThemeScores[t] < weakScore){ weakScore=quizThemeScores[t]; weakTheme=t; }
+    });
+    /* Si aucune bonne réponse dans aucun thème, on prend le premier */
+    if(!weakTheme) weakTheme = quizSession[0].theme;
+
+    var themeLabel = {paie:'Gestion de la paie',droit:'Droit social',rh:'RH & Recrutement',silae:'Silae',formation:'Formation professionnelle'};
+    var themeLink  = {paie:'formations.html',droit:'formations.html',rh:'formations.html',silae:'formations.html',formation:'financement.html'};
+
+    var level, reco, link, linkLabel;
+    var pct = quizScore / QUIZ_N;
+
+    if(pct <= 0.33){
       level = 'Niveau débutant';
-      reco = 'Les bases sont à consolider — c\'est tout à fait normal ! Notre formation <strong>Gestion de la paie (35h)</strong> vous amènera de zéro à expert, avec un accompagnement personnalisé tout au long du parcours.';
-    } else if (quizScore <= 3) {
+      reco = 'Les fondamentaux sont à poser — c\'est tout à fait normal ! Notre formation <strong>Gestion de la paie (35h)</strong> part de zéro et vous accompagne jusqu\'à la maîtrise complète du bulletin de paie, des cotisations et de la DSN. Finançable OPCO & CPF.';
+      link = 'formations.html'; linkLabel = 'Découvrir la formation Gestion de la paie →';
+    } else if(pct <= 0.67){
       level = 'Niveau intermédiaire';
-      reco = 'Vous avez de bonnes bases ! Approfondissez et sécurisez vos pratiques avec notre formation <strong>Droit social pratique (21h)</strong> ou <strong>Maîtrise de Silae (21h)</strong>.';
+      if(weakTheme==='silae'){
+        reco = 'Vos connaissances réglementaires sont solides mais la maîtrise de l\'outil Silae est à renforcer. Notre formation <strong>Maîtrise de Silae (21h)</strong> vous rend autonome sur la saisie, le paramétrage des dossiers et la génération de la DSN.';
+        link = 'formations.html'; linkLabel = 'Voir la formation Silae →';
+      } else if(weakTheme==='droit'){
+        reco = 'Vos bases en paie sont acquises — passez à l\'étape suivante : sécurisez vos pratiques RH avec notre formation <strong>Droit social pratique (21h)</strong> (Code du travail, ruptures, litiges, veille réglementaire).';
+        link = 'formations.html'; linkLabel = 'Voir la formation Droit social →';
+      } else {
+        reco = 'Bon niveau général ! Pour aller plus loin, notre formation <strong>Recrutement & RH (14h)</strong> ou <strong>Droit social pratique (21h)</strong> vous permettra de monter en compétences sur les points identifiés.';
+        link = 'formations.html'; linkLabel = 'Voir toutes nos formations →';
+      }
     } else {
       level = 'Niveau confirmé';
-      reco = 'Excellente maîtrise du cadre réglementaire ! Pour aller encore plus loin, notre formation <strong>Recrutement & RH (14h)</strong> ou une formation <strong>intra-entreprise sur mesure</strong> est faite pour vous.';
+      reco = 'Excellente maîtrise ! Vous avez les épaules d\'un expert. Pour aller encore plus loin, découvrez nos formations <strong>intra-entreprise sur mesure</strong> ou notre parcours <strong>Recrutement & RH (14h)</strong> pour élargir votre périmètre.';
+      link = 'formations.html'; linkLabel = 'Formations pour experts →';
     }
+
     document.getElementById('quizLevel').textContent = level;
-    document.getElementById('quizReco').innerHTML = reco;
+    document.getElementById('quizReco').innerHTML = reco +
+      '<br><a href="'+link+'" style="display:inline-block;margin-top:1rem;background:var(--accent-dark);color:#fff;padding:0.65rem 1.4rem;border-radius:8px;font-size:0.82rem;font-weight:700;text-decoration:none;">'+linkLabel+'</a>';
   }
+
   function quizReset() {
     document.getElementById('quiz-result').style.display = 'none';
     document.getElementById('quiz-intro').style.display = 'block';
