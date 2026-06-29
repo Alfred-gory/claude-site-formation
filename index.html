@@ -771,6 +771,195 @@
 
   <div id="read-progress"></div>
 
+  <!-- ═══════════════════ PAGE DE GARDE ═══════════════════ -->
+  <div id="pageGarde">
+    <canvas id="gardeCanvas"></canvas>
+
+    <div class="garde-frame garde-frame-tl"></div>
+    <div class="garde-frame garde-frame-tr"></div>
+    <div class="garde-frame garde-frame-bl"></div>
+    <div class="garde-frame garde-frame-br"></div>
+
+    <div class="garde-inner">
+      <p class="garde-surtitle">Organisme de formation professionnelle · Certifié Qualiopi</p>
+
+      <div class="garde-logo-block">
+        <div class="garde-line garde-line-left"></div>
+        <p class="garde-cabinet">Cabinet</p>
+        <div class="garde-line garde-line-right"></div>
+      </div>
+      <h1 class="garde-name">Alfred Gory</h1>
+
+      <div class="garde-domains">
+        <span>Paie</span>
+        <span class="garde-dot">◆</span>
+        <span>Droit social</span>
+        <span class="garde-dot">◆</span>
+        <span>RH</span>
+        <span class="garde-dot">◆</span>
+        <span>Silae</span>
+      </div>
+
+      <button class="garde-enter" id="gardeEnter" onclick="enterSite()">
+        <span>Explorer</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </button>
+    </div>
+
+    <div class="garde-bottom">
+      <span>Taverny · Val-d'Oise (95)</span>
+      <span class="garde-sep">·</span>
+      <span>formation@alfred-gory.fr</span>
+      <span class="garde-sep">·</span>
+      <span>NDA 11951022295</span>
+    </div>
+  </div>
+
+  <style>
+    #pageGarde {
+      position: fixed; inset: 0; z-index: 9000;
+      background: #f7f5f1;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      overflow: hidden;
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    #pageGarde.exit {
+      opacity: 0; transform: scale(1.03); pointer-events: none;
+    }
+
+    /* Canvas fond */
+    #gardeCanvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+    /* Cadre décoratif aux 4 coins */
+    .garde-frame {
+      position: absolute; width: 60px; height: 60px; z-index: 1; pointer-events: none;
+    }
+    .garde-frame-tl { top: 2rem; left: 2rem; border-top: 1.5px solid var(--accent-dark); border-left: 1.5px solid var(--accent-dark); }
+    .garde-frame-tr { top: 2rem; right: 2rem; border-top: 1.5px solid var(--accent-dark); border-right: 1.5px solid var(--accent-dark); }
+    .garde-frame-bl { bottom: 2rem; left: 2rem; border-bottom: 1.5px solid var(--accent-dark); border-left: 1.5px solid var(--accent-dark); }
+    .garde-frame-br { bottom: 2rem; right: 2rem; border-bottom: 1.5px solid var(--accent-dark); border-right: 1.5px solid var(--accent-dark); }
+
+    .garde-inner {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+      text-align: center;
+      animation: gardeReveal 1.4s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes gardeReveal {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .garde-surtitle {
+      font-size: 0.62rem; color: var(--accent-dark); font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2.8rem;
+      opacity: 0.8;
+    }
+
+    .garde-logo-block {
+      display: flex; align-items: center; gap: 1.2rem; margin-bottom: 0.2rem;
+    }
+    .garde-line-left, .garde-line-right {
+      height: 1px; width: 70px; background: var(--accent-dark); opacity: 0.35;
+    }
+    .garde-cabinet {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem; font-weight: 400; color: var(--muted);
+      letter-spacing: 0.35em; text-transform: uppercase;
+    }
+
+    .garde-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 700; color: var(--primary);
+      line-height: 1; letter-spacing: -0.02em;
+      margin: 0 0 2rem;
+    }
+
+    .garde-domains {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 3.5rem;
+    }
+    .garde-dot { color: var(--accent-dark); font-size: 0.4rem; }
+
+    .garde-enter {
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      background: none; border: none; cursor: pointer; color: var(--primary);
+      font-family: 'Inter', sans-serif;
+      transition: transform .3s;
+    }
+    .garde-enter:hover { transform: translateY(4px); }
+    .garde-enter span {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent-dark);
+    }
+    .garde-enter svg { animation: bounce-arrow 2s ease-in-out infinite; color: var(--accent-dark); }
+    @keyframes bounce-arrow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+    .garde-bottom {
+      position: absolute; bottom: 2.5rem; left: 0; right: 0;
+      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+      font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; z-index: 2;
+      animation: gardeReveal 1.8s cubic-bezier(0.22,1,0.36,1) .4s both;
+    }
+    .garde-sep { color: var(--accent-dark); opacity: 0.4; }
+
+    @media(max-width:600px){
+      .garde-name { font-size: clamp(2.8rem, 12vw, 5rem); }
+      .garde-domains { flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+      .garde-frame { width: 40px; height: 40px; }
+    }
+  </style>
+
+  <script>
+  // Canvas fond doux pour la page de garde
+  (function(){
+    var c = document.getElementById('gardeCanvas');
+    if(!c) return;
+    var ctx = c.getContext('2d');
+    var W, H;
+    function resize(){ W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; }
+    resize(); window.addEventListener('resize', resize);
+    var pts = [];
+    for(var i=0;i<40;i++) pts.push({ x:Math.random()*1600, y:Math.random()*1000, vx:(Math.random()-.5)*.18, vy:(Math.random()-.5)*.18, r:Math.random()*1.5+.3, gold:Math.random()>.55 });
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      pts.forEach(function(p,i){
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle = p.gold ? 'rgba(201,168,76,.25)' : 'rgba(30,58,95,.12)'; ctx.fill();
+        for(var j=i+1;j<pts.length;j++){
+          var p2=pts[j], dd=Math.sqrt((p.x-p2.x)**2+(p.y-p2.y)**2);
+          if(dd<130){ ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y);
+            ctx.strokeStyle='rgba(201,168,76,'+(0.05*(1-dd/130))+')'; ctx.lineWidth=.6; ctx.stroke(); }
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  function enterSite(){
+    var g = document.getElementById('pageGarde');
+    g.classList.add('exit');
+    document.body.style.overflow = 'auto';
+    setTimeout(function(){ g.style.display = 'none'; }, 820);
+  }
+
+  // Fermer aussi sur scroll
+  var _entered = false;
+  window.addEventListener('wheel', function(){
+    if(_entered) return; _entered = true; enterSite();
+  }, {once: true, passive: true});
+
+  // Bloquer le scroll tant que la page de garde est visible
+  document.body.style.overflow = 'hidden';
+  </script>
+
   <!-- TOP BAR -->
   <div id="topbar">
     <div id="topbar-inner">
