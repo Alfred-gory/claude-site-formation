@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questionnaire de satisfaction — Cabinet Alfred Gory</title>
+  <meta name="description" content="Évaluez votre formation SILAE avec le Cabinet Alfred Gory. Questionnaire de satisfaction stagiaires, entreprises, formateurs et financeurs." />
+  <link rel="canonical" href="https://www.alfred-gory.com/satisfaction.html" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--primary:#1e3a5f;--primary-dark:#0f1e35;--accent-dark:#c9a84c;--bg:#ffffff;--bg-alt:#f8fafc;--bg-warm:#f7f5f1;--text:#1e293b;--muted:#64748b;--border:#e2e8f0}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+    #topbar{position:fixed;top:0;left:0;right:0;z-index:1100;background:var(--primary-dark)}
+    #topbar-inner{display:flex;align-items:center;justify-content:center;gap:0 0.8rem;padding:0.35rem 1rem;font-size:0.72rem}
+    .tb-item{color:rgba(255,255,255,0.7)}.tb-sep{color:rgba(201,168,76,0.4);font-size:0.6rem}.tb-link{color:var(--accent-dark);text-decoration:none}
+    nav{position:fixed;top:30px;left:0;right:0;z-index:1000;height:68px;padding:0 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,58,95,0.08);box-shadow:0 2px 20px rgba(30,58,95,0.07)}
+    .logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--primary);font-weight:700;text-decoration:none}.logo span{color:var(--accent-dark)}
+    .nav-links{display:flex;list-style:none;gap:0}.nav-links a{color:var(--muted);font-size:0.8rem;font-weight:500;text-decoration:none;padding:0.5rem 0.9rem}.nav-links a:hover{color:var(--primary)}.nav-links a.active{color:var(--primary);font-weight:700}
+    .nav-cta{background:var(--accent-dark);color:#fff;padding:0.55rem 1.3rem;border-radius:6px;font-size:0.8rem;font-weight:700;text-decoration:none}
+    @media(max-width:900px){.nav-links,.nav-cta{display:none}nav{padding:0 1.5rem}}
+
+    /* HERO */
+    .page-hero{padding:7.5rem 3rem 3rem;background:linear-gradient(135deg,var(--primary) 0%,#2d5a8e 100%);color:#fff}
+    .page-hero .page-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:0.6rem;display:block}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:0.6rem}
+    .page-hero-sub{color:rgba(255,255,255,0.75);font-size:0.92rem;line-height:1.7;max-width:600px}
+    .breadcrumb{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:rgba(255,255,255,0.5);margin-bottom:1.2rem}.breadcrumb a{color:rgba(255,255,255,0.5);text-decoration:none}
+
+    /* SELECTOR PROFIL */
+    .profil-section{padding:3rem 3rem 0;background:var(--bg)}
+    .container{max-width:920px;margin:0 auto}
+    .profil-intro{text-align:center;margin-bottom:2rem}
+    .profil-intro p{font-size:0.92rem;color:var(--muted);margin-top:0.5rem}
+    .profil-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:0}
+    @media(max-width:700px){.profil-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:440px){.profil-grid{grid-template-columns:1fr}}
+    .profil-btn{border:2px solid var(--border);border-radius:12px;padding:1.2rem 1rem;background:#fff;cursor:pointer;transition:all 0.2s;text-align:center;font-family:'Inter',sans-serif}
+    .profil-btn:hover{border-color:var(--primary);background:var(--bg-alt)}
+    .profil-btn.active{border-color:var(--accent-dark);background:var(--primary);color:#fff}
+    .profil-btn.active .profil-icon,.profil-btn.active .profil-label{color:#fff}
+    .profil-icon{font-size:1.6rem;margin-bottom:0.4rem;display:block}
+    .profil-label{font-size:0.82rem;font-weight:700;color:var(--primary);display:block}
+    .profil-btn.active .profil-label{color:var(--accent-dark)}
+    .profil-sub{font-size:0.72rem;color:var(--muted);margin-top:0.2rem;display:block}
+    .profil-btn.active .profil-sub{color:rgba(255,255,255,0.6)}
+
+    /* FORMULAIRES */
+    .form-section{padding:2rem 3rem 4rem}
+    .form-panel{display:none}.form-panel.active{display:block}
+    .form-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2.5rem;margin-top:2rem}
+    .form-header{margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:2px solid var(--border)}
+    .form-header h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);margin-bottom:0.3rem}
+    .form-header p{font-size:0.85rem;color:var(--muted)}
+    .form-section-title{font-weight:700;color:var(--primary);font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;margin:2rem 0 1rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}
+    .form-row{display:grid;gap:1rem;margin-bottom:1rem}
+    .form-row.cols2{grid-template-columns:1fr 1fr}
+    @media(max-width:600px){.form-row.cols2{grid-template-columns:1fr}}
+    .form-group{display:flex;flex-direction:column;gap:0.35rem}
+    .form-group label{font-size:0.82rem;font-weight:600;color:var(--primary)}
+    .form-group label .req{color:#e11d48}
+    .form-group input,.form-group select,.form-group textarea{border:1.5px solid var(--border);border-radius:8px;padding:0.6rem 0.9rem;font-size:0.9rem;font-family:'Inter',sans-serif;color:var(--text);background:#fff;width:100%;transition:border-color 0.2s}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary)}
+    .form-group textarea{resize:vertical;min-height:80px}
+    .form-group .hint{font-size:0.73rem;color:var(--muted)}
+
+    /* STAR RATING */
+    .star-group{display:flex;flex-direction:row-reverse;gap:0.2rem;margin-top:0.3rem}
+    .star-group input{display:none}
+    .star-group label{font-size:1.6rem;cursor:pointer;color:#d1d5db;transition:color 0.15s;line-height:1}
+    .star-group input:checked ~ label,.star-group label:hover,.star-group label:hover ~ label{color:var(--accent-dark)}
+    .star-legend{display:flex;justify-content:space-between;font-size:0.68rem;color:var(--muted);margin-top:0.2rem;padding:0 0.1rem}
+
+    /* RADIO PILL */
+    .radio-group,.check-group{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.2rem}
+    .radio-pill input,.check-pill input{display:none}
+    .radio-pill label,.check-pill label{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 0.9rem;border:1.5px solid var(--border);border-radius:50px;font-size:0.82rem;cursor:pointer;transition:all 0.2s;color:var(--text)}
+    .radio-pill input:checked + label,.check-pill input:checked + label{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+    /* NPS */
+    .nps-group{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.3rem}
+    .nps-group input{display:none}
+    .nps-group label{width:2.4rem;height:2.4rem;border:1.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s;color:var(--muted)}
+    .nps-group input:checked + label{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .nps-group label:hover{border-color:var(--primary);color:var(--primary)}
+
+    /* SUBMIT */
+    .form-submit{margin-top:2.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .form-submit button{background:var(--primary);color:#fff;border:none;padding:0.9rem 2.4rem;border-radius:8px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s}
+    .form-submit button:hover{background:var(--accent-dark)}
+    .form-gdpr{font-size:0.73rem;color:var(--muted);max-width:380px;line-height:1.6}
+    .form-success{display:none;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:2rem;text-align:center}
+    .form-success h3{color:#15803d;font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:0.6rem}
+    .form-success p{color:#166534;font-size:0.9rem;line-height:1.7}
+
+    /* INFO BOX */
+    .info-box{background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--accent-dark);border-radius:8px;padding:1rem 1.4rem;font-size:0.84rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem}
+    .info-box strong{color:var(--primary)}
+
+    footer{background:var(--primary-dark);color:rgba(255,255,255,0.65);padding:2rem;text-align:center;font-size:0.8rem}
+    footer a{color:var(--accent-dark);text-decoration:none}
+    footer p+p{margin-top:0.5rem}
+  </style>
+</head>
+<body>
+
+<div id="topbar"><div id="topbar-inner">
+  <span class="tb-item">Organisme de formation enregistré</span>
+  <span class="tb-sep">·</span>
+  <span class="tb-item">NDA 11951022295</span>
+  <span class="tb-sep">·</span>
+  <a href="mailto:secretariat@alfred-gory.fr" class="tb-link">secretariat@alfred-gory.fr</a>
+  <span class="tb-sep">·</span>
+  <span class="tb-item">Réponse sous 48h</span>
+</div></div>
+
+<nav>
+  <a class="logo" href="index.html">Cabinet <span>Alfred Gory</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="formations.html">Formation SILAE</a></li>
+    <li><a href="financement.html">Paiement</a></li>
+    <li><a href="accessibilite.html">Accessibilité</a></li>
+    <li><a href="reglement-interieur.html">Règlement intérieur</a></li>
+    <li><a href="mailto:formation@alfred-gory.fr" class="nav-cta">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div style="max-width:920px;margin:0 auto">
+    <div class="breadcrumb"><a href="index.html">Accueil</a><span>›</span><span>Questionnaire de satisfaction</span></div>
+    <span class="page-eyebrow">Évaluation qualité</span>
+    <h1>Votre avis compte</h1>
+    <p class="page-hero-sub">Aidez-nous à améliorer nos formations. Sélectionnez votre profil ci-dessous et répondez au questionnaire adapté à votre situation. Cela prend moins de 5 minutes.</p>
+  </div>
+</div>
+
+<!-- SÉLECTEUR DE PROFIL -->
+<section class="profil-section">
+  <div class="container">
+    <div class="profil-intro">
+      <p>Sélectionnez votre profil pour accéder au questionnaire qui vous correspond</p>
+    </div>
+    <div class="profil-grid">
+      <button class="profil-btn active" onclick="switchProfil('stagiaire', this)">
+        <span class="profil-icon">🎓</span>
+        <span class="profil-label">Stagiaire</span>
+        <span class="profil-sub">Vous avez suivi la formation</span>
+      </button>
+      <button class="profil-btn" onclick="switchProfil('entreprise', this)">
+        <span class="profil-icon">🏢</span>
+        <span class="profil-label">Entreprise</span>
+        <span class="profil-sub">Vous avez envoyé un collaborateur</span>
+      </button>
+      <button class="profil-btn" onclick="switchProfil('formateur', this)">
+        <span class="profil-icon">📚</span>
+        <span class="profil-label">Formateur</span>
+        <span class="profil-sub">Vous avez animé la session</span>
+      </button>
+      <button class="profil-btn" onclick="switchProfil('financeur', this)">
+        <span class="profil-icon">💼</span>
+        <span class="profil-label">Financeur / PDC</span>
+        <span class="profil-sub">Vous avez financé la formation</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRES -->
+<section class="form-section">
+  <div class="container">
+
+    <!-- ================================================ -->
+    <!-- STAGIAIRE -->
+    <!-- ================================================ -->
+    <div class="form-panel active" id="panel-stagiaire">
+      <div class="form-card">
+        <div class="form-header">
+          <h2>🎓 Questionnaire stagiaire</h2>
+          <p>Ce questionnaire est confidentiel et permet au Cabinet Alfred Gory d'améliorer continuellement la qualité de ses formations.</p>
+        </div>
+
+        <form id="form-q-stagiaire" action="https://formspree.io/f/mbdenjvd" method="POST">
+          <input type="hidden" name="_subject" value="[SATISFACTION-STAGIAIRE] Questionnaire de satisfaction — Formation SILAE" />
+          <input type="hidden" name="type_questionnaire" value="Stagiaire" />
+
+          <div class="form-section-title">1. Identification</div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Nom et prénom <span class="req">*</span></label>
+              <input type="text" name="nom_prenom" required placeholder="DUPONT Jean" />
+            </div>
+            <div class="form-group">
+              <label>Date de la formation <span class="req">*</span></label>
+              <input type="text" name="date_formation" required placeholder="Ex : 15 juin 2026" />
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="votre@email.fr" />
+            </div>
+            <div class="form-group">
+              <label>Format suivi <span class="req">*</span></label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="format_suivi" id="sf1" value="Présentiel" required /><label for="sf1">Présentiel</label></div>
+                <div class="radio-pill"><input type="radio" name="format_suivi" id="sf2" value="Classe virtuelle" /><label for="sf2">Classe virtuelle</label></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section-title">2. Évaluation — Indicateurs qualité</div>
+          <div class="info-box"><strong>Comment noter ?</strong> 1 étoile = insuffisant · 2 = passable · 3 = satisfaisant · 4 = bien · 5 = excellent</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Atteinte de vos objectifs personnels <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_objectifs" id="so5" value="5" required /><label for="so5" title="5 - Excellent">★</label>
+                <input type="radio" name="note_objectifs" id="so4" value="4" /><label for="so4" title="4 - Bien">★</label>
+                <input type="radio" name="note_objectifs" id="so3" value="3" /><label for="so3" title="3 - Satisfaisant">★</label>
+                <input type="radio" name="note_objectifs" id="so2" value="2" /><label for="so2" title="2 - Passable">★</label>
+                <input type="radio" name="note_objectifs" id="so1" value="1" /><label for="so1" title="1 - Insuffisant">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Qualité pédagogique du formateur <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_formateur" id="sfo5" value="5" required /><label for="sfo5">★</label>
+                <input type="radio" name="note_formateur" id="sfo4" value="4" /><label for="sfo4">★</label>
+                <input type="radio" name="note_formateur" id="sfo3" value="3" /><label for="sfo3">★</label>
+                <input type="radio" name="note_formateur" id="sfo2" value="2" /><label for="sfo2">★</label>
+                <input type="radio" name="note_formateur" id="sfo1" value="1" /><label for="sfo1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+            <div class="form-group">
+              <label>Pertinence et clarté du contenu <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_contenu" id="sc5" value="5" required /><label for="sc5">★</label>
+                <input type="radio" name="note_contenu" id="sc4" value="4" /><label for="sc4">★</label>
+                <input type="radio" name="note_contenu" id="sc3" value="3" /><label for="sc3">★</label>
+                <input type="radio" name="note_contenu" id="sc2" value="2" /><label for="sc2">★</label>
+                <input type="radio" name="note_contenu" id="sc1" value="1" /><label for="sc1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Qualité des supports pédagogiques <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_supports" id="ss5" value="5" required /><label for="ss5">★</label>
+                <input type="radio" name="note_supports" id="ss4" value="4" /><label for="ss4">★</label>
+                <input type="radio" name="note_supports" id="ss3" value="3" /><label for="ss3">★</label>
+                <input type="radio" name="note_supports" id="ss2" value="2" /><label for="ss2">★</label>
+                <input type="radio" name="note_supports" id="ss1" value="1" /><label for="ss1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+            <div class="form-group">
+              <label>Organisation & conditions d'accueil <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_accueil" id="sa5" value="5" required /><label for="sa5">★</label>
+                <input type="radio" name="note_accueil" id="sa4" value="4" /><label for="sa4">★</label>
+                <input type="radio" name="note_accueil" id="sa3" value="3" /><label for="sa3">★</label>
+                <input type="radio" name="note_accueil" id="sa2" value="2" /><label for="sa2">★</label>
+                <input type="radio" name="note_accueil" id="sa1" value="1" /><label for="sa1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Note globale de la formation <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_globale" id="sg5" value="5" required /><label for="sg5">★</label>
+                <input type="radio" name="note_globale" id="sg4" value="4" /><label for="sg4">★</label>
+                <input type="radio" name="note_globale" id="sg3" value="3" /><label for="sg3">★</label>
+                <input type="radio" name="note_globale" id="sg2" value="2" /><label for="sg2">★</label>
+                <input type="radio" name="note_globale" id="sg1" value="1" /><label for="sg1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+
+          <div class="form-section-title">3. Recommandation</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Recommanderiez-vous cette formation à un collègue ? <span class="req">*</span></label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="recommandation" id="sr1" value="Oui" required /><label for="sr1">✓ Oui, certainement</label></div>
+                <div class="radio-pill"><input type="radio" name="recommandation" id="sr2" value="Peut-être" /><label for="sr2">~ Peut-être</label></div>
+                <div class="radio-pill"><input type="radio" name="recommandation" id="sr3" value="Non" /><label for="sr3">✗ Non</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>La formation a-t-elle répondu à vos attentes ? <span class="req">*</span></label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="attentes" id="sat1" value="Totalement" required /><label for="sat1">Totalement</label></div>
+                <div class="radio-pill"><input type="radio" name="attentes" id="sat2" value="Partiellement" /><label for="sat2">Partiellement</label></div>
+                <div class="radio-pill"><input type="radio" name="attentes" id="sat3" value="Pas vraiment" /><label for="sat3">Pas vraiment</label></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section-title">4. Retour qualitatif</div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Points forts de la formation</label>
+              <textarea name="points_forts" rows="3" placeholder="Ce qui vous a le plus apporté…"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Points à améliorer</label>
+              <textarea name="points_amelioration" rows="3" placeholder="Ce que vous changeriez…"></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Commentaires libres</label>
+              <textarea name="commentaires" rows="2" placeholder="Tout ce que vous souhaitez partager…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit">Envoyer mon évaluation →</button>
+            <p class="form-gdpr">Vos réponses sont transmises au Cabinet Alfred Gory à des fins d'amélioration continue. Elles restent confidentielles et ne sont pas communiquées à des tiers.</p>
+          </div>
+        </form>
+        <div class="form-success" id="success-stagiaire">
+          <h3>Merci pour votre retour !</h3>
+          <p>Votre évaluation a bien été transmise au Cabinet Alfred Gory.<br>Elle contribue directement à l'amélioration de la qualité de nos formations.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================ -->
+    <!-- ENTREPRISE -->
+    <!-- ================================================ -->
+    <div class="form-panel" id="panel-entreprise">
+      <div class="form-card">
+        <div class="form-header">
+          <h2>🏢 Questionnaire entreprise</h2>
+          <p>Évaluez la formation suivie par vos collaborateurs et aidez-nous à mieux répondre à vos besoins professionnels.</p>
+        </div>
+
+        <form id="form-q-entreprise" action="https://formspree.io/f/mbdenjvd" method="POST">
+          <input type="hidden" name="_subject" value="[SATISFACTION-ENTREPRISE] Questionnaire de satisfaction — Formation SILAE" />
+          <input type="hidden" name="type_questionnaire" value="Entreprise" />
+
+          <div class="form-section-title">1. Identification</div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Raison sociale <span class="req">*</span></label>
+              <input type="text" name="raison_sociale" required placeholder="SAS MON ENTREPRISE" />
+            </div>
+            <div class="form-group">
+              <label>Nom du répondant <span class="req">*</span></label>
+              <input type="text" name="repondant" required placeholder="Nom — Fonction" />
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" name="email" required placeholder="contact@monentreprise.fr" />
+            </div>
+            <div class="form-group">
+              <label>Date de la formation <span class="req">*</span></label>
+              <input type="text" name="date_formation" required placeholder="Ex : 15 juin 2026" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nom du / des participant(s) formé(s)</label>
+              <input type="text" name="participants" placeholder="Noms des collaborateurs formés" />
+            </div>
+          </div>
+
+          <div class="form-section-title">2. Évaluation — Indicateurs qualité</div>
+          <div class="info-box"><strong>Comment noter ?</strong> 1 étoile = insuffisant · 2 = passable · 3 = satisfaisant · 4 = bien · 5 = excellent</div>
+
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Adéquation du programme à vos besoins <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_adequation" id="ea5" value="5" required /><label for="ea5">★</label>
+                <input type="radio" name="note_adequation" id="ea4" value="4" /><label for="ea4">★</label>
+                <input type="radio" name="note_adequation" id="ea3" value="3" /><label for="ea3">★</label>
+                <input type="radio" name="note_adequation" id="ea2" value="2" /><label for="ea2">★</label>
+                <input type="radio" name="note_adequation" id="ea1" value="1" /><label for="ea1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+            <div class="form-group">
+              <label>Qualité pédagogique <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_pedago" id="ep5" value="5" required /><label for="ep5">★</label>
+                <input type="radio" name="note_pedago" id="ep4" value="4" /><label for="ep4">★</label>
+                <input type="radio" name="note_pedago" id="ep3" value="3" /><label for="ep3">★</label>
+                <input type="radio" name="note_pedago" id="ep2" value="2" /><label for="ep2">★</label>
+                <input type="radio" name="note_pedago" id="ep1" value="1" /><label for="ep1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Organisation administrative <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_admin" id="ead5" value="5" required /><label for="ead5">★</label>
+                <input type="radio" name="note_admin" id="ead4" value="4" /><label for="ead4">★</label>
+                <input type="radio" name="note_admin" id="ead3" value="3" /><label for="ead3">★</label>
+                <input type="radio" name="note_admin" id="ead2" value="2" /><label for="ead2">★</label>
+                <input type="radio" name="note_admin" id="ead1" value="1" /><label for="ead1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+            <div class="form-group">
+              <label>Rapport qualité / prix <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_prix" id="eqp5" value="5" required /><label for="eqp5">★</label>
+                <input type="radio" name="note_prix" id="eqp4" value="4" /><label for="eqp4">★</label>
+                <input type="radio" name="note_prix" id="eqp3" value="3" /><label for="eqp3">★</label>
+                <input type="radio" name="note_prix" id="eqp2" value="2" /><label for="eqp2">★</label>
+                <input type="radio" name="note_prix" id="eqp1" value="1" /><label for="eqp1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Note globale <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_globale" id="eg5" value="5" required /><label for="eg5">★</label>
+                <input type="radio" name="note_globale" id="eg4" value="4" /><label for="eg4">★</label>
+                <input type="radio" name="note_globale" id="eg3" value="3" /><label for="eg3">★</label>
+                <input type="radio" name="note_globale" id="eg2" value="2" /><label for="eg2">★</label>
+                <input type="radio" name="note_globale" id="eg1" value="1" /><label for="eg1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+
+          <div class="form-section-title">3. Transfert des compétences</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Avez-vous observé un transfert de compétences chez le(s) collaborateur(s) formé(s) ? <span class="req">*</span></label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="transfert" id="et1" value="Oui, clairement" required /><label for="et1">Oui, clairement</label></div>
+                <div class="radio-pill"><input type="radio" name="transfert" id="et2" value="Partiellement" /><label for="et2">Partiellement</label></div>
+                <div class="radio-pill"><input type="radio" name="transfert" id="et3" value="Trop tôt pour évaluer" /><label for="et3">Trop tôt pour évaluer</label></div>
+                <div class="radio-pill"><input type="radio" name="transfert" id="et4" value="Non" /><label for="et4">Non</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Recommanderiez-vous le Cabinet Alfred Gory ? <span class="req">*</span></label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="recommandation" id="er1" value="Oui" required /><label for="er1">✓ Oui, certainement</label></div>
+                <div class="radio-pill"><input type="radio" name="recommandation" id="er2" value="Peut-être" /><label for="er2">~ Peut-être</label></div>
+                <div class="radio-pill"><input type="radio" name="recommandation" id="er3" value="Non" /><label for="er3">✗ Non</label></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section-title">4. Retour qualitatif</div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Points forts</label>
+              <textarea name="points_forts" rows="3" placeholder="Ce qui vous a le plus convaincu…"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Points à améliorer</label>
+              <textarea name="points_amelioration" rows="3" placeholder="Ce que vous changeriez…"></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Commentaires</label>
+              <textarea name="commentaires" rows="2" placeholder="Tout autre retour utile…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit">Envoyer notre évaluation →</button>
+            <p class="form-gdpr">Vos réponses sont transmises au Cabinet Alfred Gory à des fins d'amélioration continue et restent confidentielles.</p>
+          </div>
+        </form>
+        <div class="form-success" id="success-entreprise">
+          <h3>Merci pour votre évaluation !</h3>
+          <p>Votre retour a bien été transmis au Cabinet Alfred Gory.<br>Il nous aide à adapter nos formations aux besoins des entreprises.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================ -->
+    <!-- FORMATEUR -->
+    <!-- ================================================ -->
+    <div class="form-panel" id="panel-formateur">
+      <div class="form-card">
+        <div class="form-header">
+          <h2>📚 Auto-évaluation formateur</h2>
+          <p>Questionnaire interne d'auto-évaluation à compléter après chaque session animée.</p>
+        </div>
+
+        <form id="form-q-formateur" action="https://formspree.io/f/mbdenjvd" method="POST">
+          <input type="hidden" name="_subject" value="[SATISFACTION-FORMATEUR] Auto-évaluation formateur — Formation SILAE" />
+          <input type="hidden" name="type_questionnaire" value="Formateur" />
+
+          <div class="form-section-title">1. Identification de la session</div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Nom du formateur <span class="req">*</span></label>
+              <input type="text" name="nom_formateur" required placeholder="Nom — Prénom" />
+            </div>
+            <div class="form-group">
+              <label>Date de la session <span class="req">*</span></label>
+              <input type="text" name="date_session" required placeholder="Ex : 15 juin 2026" />
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Nombre de participants <span class="req">*</span></label>
+              <input type="number" name="nb_participants" required placeholder="Ex : 4" min="1" />
+            </div>
+            <div class="form-group">
+              <label>Format de la session</label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="format_session" id="ff1" value="Présentiel" /><label for="ff1">Présentiel</label></div>
+                <div class="radio-pill"><input type="radio" name="format_session" id="ff2" value="Classe virtuelle" /><label for="ff2">Virtuelle</label></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section-title">2. Auto-évaluation pédagogique</div>
+          <div class="info-box"><strong>Comment noter ?</strong> 1 = insuffisant · 2 = passable · 3 = satisfaisant · 4 = bien · 5 = excellent</div>
+
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Objectifs pédagogiques atteints <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_obj_pedago" id="fop5" value="5" required /><label for="fop5">★</label>
+                <input type="radio" name="note_obj_pedago" id="fop4" value="4" /><label for="fop4">★</label>
+                <input type="radio" name="note_obj_pedago" id="fop3" value="3" /><label for="fop3">★</label>
+                <input type="radio" name="note_obj_pedago" id="fop2" value="2" /><label for="fop2">★</label>
+                <input type="radio" name="note_obj_pedago" id="fop1" value="1" /><label for="fop1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+            <div class="form-group">
+              <label>Engagement des apprenants <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_engagement" id="fen5" value="5" required /><label for="fen5">★</label>
+                <input type="radio" name="note_engagement" id="fen4" value="4" /><label for="fen4">★</label>
+                <input type="radio" name="note_engagement" id="fen3" value="3" /><label for="fen3">★</label>
+                <input type="radio" name="note_engagement" id="fen2" value="2" /><label for="fen2">★</label>
+                <input type="radio" name="note_engagement" id="fen1" value="1" /><label for="fen1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Adéquation du programme au public <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_adequation" id="fad5" value="5" required /><label for="fad5">★</label>
+                <input type="radio" name="note_adequation" id="fad4" value="4" /><label for="fad4">★</label>
+                <input type="radio" name="note_adequation" id="fad3" value="3" /><label for="fad3">★</label>
+                <input type="radio" name="note_adequation" id="fad2" value="2" /><label for="fad2">★</label>
+                <input type="radio" name="note_adequation" id="fad1" value="1" /><label for="fad1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+            <div class="form-group">
+              <label>Qualité des ressources à disposition <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_ressources" id="fre5" value="5" required /><label for="fre5">★</label>
+                <input type="radio" name="note_ressources" id="fre4" value="4" /><label for="fre4">★</label>
+                <input type="radio" name="note_ressources" id="fre3" value="3" /><label for="fre3">★</label>
+                <input type="radio" name="note_ressources" id="fre2" value="2" /><label for="fre2">★</label>
+                <input type="radio" name="note_ressources" id="fre1" value="1" /><label for="fre1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+
+          <div class="form-section-title">3. Retour qualitatif</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Difficultés rencontrées pendant la session</label>
+              <textarea name="difficultes" rows="2" placeholder="Points de blocage, questions hors programme, niveaux hétérogènes…"></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Adaptations réalisées en cours de session</label>
+              <textarea name="adaptations" rows="2" placeholder="Ralentissement, ajout d'exemples, modification d'exercices…"></textarea>
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Suggestions d'amélioration du programme</label>
+              <textarea name="suggestions_programme" rows="2" placeholder="Contenu à ajouter, à retirer, à approfondir…"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Ressources ou supports à mettre à jour</label>
+              <textarea name="ressources_maj" rows="2" placeholder="Slides, exercices, exemples à actualiser…"></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Commentaires libres</label>
+              <textarea name="commentaires" rows="2" placeholder="Tout autre observation utile pour améliorer la session…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit">Envoyer mon auto-évaluation →</button>
+            <p class="form-gdpr">Ce formulaire est à usage interne. Les données sont transmises à la direction pédagogique du Cabinet Alfred Gory.</p>
+          </div>
+        </form>
+        <div class="form-success" id="success-formateur">
+          <h3>Auto-évaluation transmise !</h3>
+          <p>Votre retour formateur a bien été enregistré.<br>Merci pour votre contribution à l'amélioration continue de nos formations.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================ -->
+    <!-- FINANCEUR -->
+    <!-- ================================================ -->
+    <div class="form-panel" id="panel-financeur">
+      <div class="form-card">
+        <div class="form-header">
+          <h2>💼 Questionnaire financeur / PDC</h2>
+          <p>Vous avez pris en charge tout ou partie de cette formation dans le cadre du plan de développement des compétences. Merci de partager votre évaluation.</p>
+        </div>
+
+        <form id="form-q-financeur" action="https://formspree.io/f/mbdenjvd" method="POST">
+          <input type="hidden" name="_subject" value="[SATISFACTION-FINANCEUR] Questionnaire financeur — Formation SILAE" />
+          <input type="hidden" name="type_questionnaire" value="Financeur/PDC" />
+
+          <div class="form-section-title">1. Identification</div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Raison sociale / Organisme <span class="req">*</span></label>
+              <input type="text" name="raison_sociale" required placeholder="SAS MON ENTREPRISE" />
+            </div>
+            <div class="form-group">
+              <label>Nom et fonction du répondant <span class="req">*</span></label>
+              <input type="text" name="repondant" required placeholder="Nom — Fonction" />
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" name="email" required placeholder="contact@financeur.fr" />
+            </div>
+            <div class="form-group">
+              <label>Date de la formation financée <span class="req">*</span></label>
+              <input type="text" name="date_formation" required placeholder="Ex : juin 2026" />
+            </div>
+          </div>
+
+          <div class="form-section-title">2. Évaluation — Indicateurs qualité</div>
+          <div class="info-box"><strong>Comment noter ?</strong> 1 étoile = insuffisant · 2 = passable · 3 = satisfaisant · 4 = bien · 5 = excellent</div>
+
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Conformité aux engagements pris <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_conformite" id="nc5" value="5" required /><label for="nc5">★</label>
+                <input type="radio" name="note_conformite" id="nc4" value="4" /><label for="nc4">★</label>
+                <input type="radio" name="note_conformite" id="nc3" value="3" /><label for="nc3">★</label>
+                <input type="radio" name="note_conformite" id="nc2" value="2" /><label for="nc2">★</label>
+                <input type="radio" name="note_conformite" id="nc1" value="1" /><label for="nc1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+            <div class="form-group">
+              <label>Qualité des documents fournis <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_documents" id="nd5" value="5" required /><label for="nd5">★</label>
+                <input type="radio" name="note_documents" id="nd4" value="4" /><label for="nd4">★</label>
+                <input type="radio" name="note_documents" id="nd3" value="3" /><label for="nd3">★</label>
+                <input type="radio" name="note_documents" id="nd2" value="2" /><label for="nd2">★</label>
+                <input type="radio" name="note_documents" id="nd1" value="1" /><label for="nd1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+          <div class="form-row cols2">
+            <div class="form-group">
+              <label>Respect des délais (convention, facture) <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_delais" id="nde5" value="5" required /><label for="nde5">★</label>
+                <input type="radio" name="note_delais" id="nde4" value="4" /><label for="nde4">★</label>
+                <input type="radio" name="note_delais" id="nde3" value="3" /><label for="nde3">★</label>
+                <input type="radio" name="note_delais" id="nde2" value="2" /><label for="nde2">★</label>
+                <input type="radio" name="note_delais" id="nde1" value="1" /><label for="nde1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+            <div class="form-group">
+              <label>Réactivité & communication <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_communication" id="nco5" value="5" required /><label for="nco5">★</label>
+                <input type="radio" name="note_communication" id="nco4" value="4" /><label for="nco4">★</label>
+                <input type="radio" name="note_communication" id="nco3" value="3" /><label for="nco3">★</label>
+                <input type="radio" name="note_communication" id="nco2" value="2" /><label for="nco2">★</label>
+                <input type="radio" name="note_communication" id="nco1" value="1" /><label for="nco1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Satisfaction globale <span class="req">*</span></label>
+              <div class="star-group">
+                <input type="radio" name="note_globale" id="nfg5" value="5" required /><label for="nfg5">★</label>
+                <input type="radio" name="note_globale" id="nfg4" value="4" /><label for="nfg4">★</label>
+                <input type="radio" name="note_globale" id="nfg3" value="3" /><label for="nfg3">★</label>
+                <input type="radio" name="note_globale" id="nfg2" value="2" /><label for="nfg2">★</label>
+                <input type="radio" name="note_globale" id="nfg1" value="1" /><label for="nfg1">★</label>
+              </div>
+              <div class="star-legend"><span>Insuffisant</span><span>Excellent</span></div>
+            </div>
+          </div>
+
+          <div class="form-section-title">3. Recommandation</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Recommanderiez-vous le Cabinet Alfred Gory pour une prochaine formation ? <span class="req">*</span></label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="recommandation" id="fnr1" value="Oui" required /><label for="fnr1">✓ Oui</label></div>
+                <div class="radio-pill"><input type="radio" name="recommandation" id="fnr2" value="Peut-être" /><label for="fnr2">~ Peut-être</label></div>
+                <div class="radio-pill"><input type="radio" name="recommandation" id="fnr3" value="Non" /><label for="fnr3">✗ Non</label></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section-title">4. Commentaires</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Points forts & axes d'amélioration</label>
+              <textarea name="commentaires" rows="3" placeholder="Vos observations sur l'organisation, la relation, la qualité des livrables…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit">Envoyer notre évaluation →</button>
+            <p class="form-gdpr">Vos réponses sont transmises au Cabinet Alfred Gory à des fins d'amélioration continue et restent confidentielles.</p>
+          </div>
+        </form>
+        <div class="form-success" id="success-financeur">
+          <h3>Merci pour votre évaluation !</h3>
+          <p>Votre retour a bien été transmis au Cabinet Alfred Gory.<br>Il contribue à l'amélioration de notre organisation et de nos pratiques.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Cabinet Alfred Gory — NDA 11951022295 — SIREN 891 446 825 — 10–12 rue Condorcet, 95150 Taverny</p>
+  <p style="font-style:italic;font-size:0.75rem;">Cet enregistrement ne vaut pas agrément de l'État (article L.6352-13 CT).</p>
+  <p style="margin-top:0.5rem;">
+    <a href="index.html">Accueil</a> &nbsp;·&nbsp;
+    <a href="formations.html">Formation SILAE</a> &nbsp;·&nbsp;
+    <a href="financement.html">Paiement</a> &nbsp;·&nbsp;
+    <a href="accessibilite.html">Accessibilité</a> &nbsp;·&nbsp;
+    <a href="reglement-interieur.html">Règlement intérieur</a> &nbsp;·&nbsp;
+    <a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp;
+    <a href="conditions-generales.html">CGV</a>
+  </p>
+</footer>
+
+<script>
+  function switchProfil(profil, btn) {
+    document.querySelectorAll('.profil-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.form-panel').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('panel-' + profil).classList.add('active');
+    document.getElementById('panel-' + profil).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Soumission formulaires
+  ['form-q-stagiaire','form-q-entreprise','form-q-formateur','form-q-financeur'].forEach(function(id) {
+    var form = document.getElementById(id);
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(resp) {
+        if (resp.ok) {
+          form.style.display = 'none';
+          var suffix = id.replace('form-q-','');
+          document.getElementById('success-' + suffix).style.display = 'block';
+        } else {
+          btn.textContent = 'Envoyer →';
+          btn.disabled = false;
+          alert('Une erreur est survenue. Merci de nous contacter : secretariat@alfred-gory.fr');
+        }
+      }).catch(function() {
+        btn.textContent = 'Envoyer →';
+        btn.disabled = false;
+        alert('Impossible d\'envoyer. Contactez-nous : secretariat@alfred-gory.fr');
+      });
+    });
+  });
+
+  // Sélection du profil via URL param ?profil=stagiaire
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var profil = params.get('profil');
+    if (profil) {
+      var btn = document.querySelector('[onclick*="' + profil + '"]');
+      if (btn) btn.click();
+    }
+  })();
+</script>
+</body>
+</html>
