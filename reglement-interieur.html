@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Règlement intérieur — Cabinet Alfred Gory</title>
+  <meta name="description" content="Règlement intérieur de l'organisme de formation Cabinet Alfred Gory, applicable à tous les stagiaires (présentiel et classe virtuelle)." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.alfred-gory.com/reglement-interieur.html" />
+  <!-- Google Analytics GA4 — remplacez G-XXXXXXXXXX par votre vrai Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --accent-dark: #c9a84c;
+      --bg-warm: #f7f5f1;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.7; }
+
+    /* TOPBAR */
+    #topbar { background: var(--primary); color: rgba(255,255,255,0.75); font-size: 0.72rem; letter-spacing: 0.08em; padding: 0 2rem; height: 30px; display: flex; align-items: center; justify-content: center; gap: 1.2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1100; }
+    .tb-sep { opacity: 0.4; }
+
+    /* NAV */
+    nav { position: fixed; top: 30px; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    .logo span { color: var(--accent-dark); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-dark); }
+    .nav-cta { background: var(--primary); color: #fff !important; padding: 0.45rem 1.1rem; border-radius: 6px; }
+    .nav-cta:hover { background: var(--accent-dark) !important; color: #fff !important; }
+
+    /* PAGE CONTENT */
+    .page-wrap { max-width: 820px; margin: 0 auto; padding: 7rem 2rem 4rem; }
+
+    /* HEADER */
+    .ri-header { border-bottom: 3px solid var(--accent-dark); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+    .ri-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--primary); margin-bottom: 1rem; }
+    .ri-meta { background: var(--bg-warm); border-radius: 10px; padding: 1.2rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 2rem; font-size: 0.85rem; }
+    .ri-meta-item { display: flex; flex-direction: column; gap: 0.1rem; }
+    .ri-meta-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+    .ri-meta-val { color: var(--primary); font-weight: 600; }
+
+    /* ARTICLES */
+    .ri-toc { background: #f0f4f8; border-radius: 10px; padding: 1.2rem 1.5rem; margin-bottom: 2.5rem; }
+    .ri-toc h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.8rem; font-weight: 700; }
+    .ri-toc ol { padding-left: 1.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem; }
+    .ri-toc li { font-size: 0.82rem; }
+    .ri-toc a { color: var(--primary); text-decoration: none; }
+    .ri-toc a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    .article { margin-bottom: 2.5rem; scroll-margin-top: 120px; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--primary); font-weight: 700; border-left: 4px solid var(--accent-dark); padding-left: 0.85rem; margin-bottom: 0.9rem; }
+    .article p { margin-bottom: 0.7rem; font-size: 0.92rem; color: #374151; }
+    .article ul, .article ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+    .article li { font-size: 0.92rem; color: #374151; margin-bottom: 0.3rem; }
+    .article ol { list-style-type: decimal; }
+
+    .article-divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+    /* SIGNATURE BLOCK */
+    .ri-signature { background: var(--bg-warm); border-radius: 10px; padding: 1.5rem; margin-top: 3rem; }
+    .ri-signature p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .ri-signature strong { color: var(--primary); display: block; margin-top: 0.5rem; font-size: 1rem; }
+
+    /* FOOTER */
+    footer { background: var(--primary); color: rgba(255,255,255,0.7); padding: 2.5rem 2rem; text-align: center; font-size: 0.82rem; }
+    footer a { color: var(--accent-dark); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
+
+    @media (max-width: 600px) {
+      .ri-meta { grid-template-columns: 1fr; }
+      .ri-toc ol { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="topbar">
+    <span>Cabinet Alfred Gory · Organisme de formation</span>
+    <span class="tb-sep">·</span>
+    <span>formation@alfred-gory.fr</span>
+  </div>
+
+  <nav>
+    <a class="logo" href="index.html">Cabinet <span>Alfred Gory</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="formations.html">Formation SILAE</a></li>
+      <li><a href="financement.html">Financement</a></li>
+      <li><a href="mailto:formation@alfred-gory.fr" class="nav-cta">Nous contacter</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrap">
+    <div class="ri-header">
+      <h1>Règlement intérieur</h1>
+      <div class="ri-meta">
+        <div class="ri-meta-item">
+          <span class="ri-meta-label">Organisme</span>
+          <span class="ri-meta-val">Cabinet Alfred Gory</span>
+        </div>
+        <div class="ri-meta-item">
+          <span class="ri-meta-label">Forme juridique</span>
+          <span class="ri-meta-val">SAS</span>
+        </div>
+        <div class="ri-meta-item">
+          <span class="ri-meta-label">Adresse</span>
+          <span class="ri-meta-val">10–12 rue Condorcet, 95150 Taverny</span>
+        </div>
+        <div class="ri-meta-item">
+          <span class="ri-meta-label">SIREN</span>
+          <span class="ri-meta-val">891 446 825</span>
+        </div>
+        <div class="ri-meta-item">
+          <span class="ri-meta-label">Date d'entrée en vigueur</span>
+          <span class="ri-meta-val">19 février 2026</span>
+        </div>
+        <div class="ri-meta-item">
+          <span class="ri-meta-label">Base légale</span>
+          <span class="ri-meta-val">Art. L.6352-3 et s. du Code du travail</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ri-toc">
+      <h2>Sommaire</h2>
+      <ol>
+        <li><a href="#art1">Objet</a></li>
+        <li><a href="#art2">Champ d'application</a></li>
+        <li><a href="#art3">Hygiène et sécurité</a></li>
+        <li><a href="#art4">Discipline générale</a></li>
+        <li><a href="#art5">Horaires</a></li>
+        <li><a href="#art6">Sanctions disciplinaires</a></li>
+        <li><a href="#art7">Procédure disciplinaire</a></li>
+        <li><a href="#art8">Harcèlement et discrimination</a></li>
+        <li><a href="#art9">Accident</a></li>
+        <li><a href="#art10">Réclamations</a></li>
+        <li><a href="#art11">Entrée en vigueur</a></li>
+      </ol>
+    </div>
+
+    <article class="article" id="art1">
+      <h2 class="article-title">Article 1 — Objet</h2>
+      <p>Le présent règlement intérieur est établi conformément aux articles L.6352-3 et suivants du Code du travail.</p>
+      <p>Il s'applique à tous les stagiaires participant à une action de formation organisée par le Cabinet Alfred Gory.</p>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art2">
+      <h2 class="article-title">Article 2 — Champ d'application</h2>
+      <p>Le présent règlement s'applique :</p>
+      <ul>
+        <li>Aux formations en présentiel ;</li>
+        <li>Aux formations en classe virtuelle.</li>
+      </ul>
+      <p>Chaque stagiaire est considéré comme ayant accepté les termes du présent règlement lorsqu'il suit une formation organisée par le Cabinet Alfred Gory.</p>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art3">
+      <h2 class="article-title">Article 3 — Règles d'hygiène et de sécurité</h2>
+      <p><strong>En présentiel :</strong></p>
+      <ul>
+        <li>Les stagiaires sont tenus de respecter l'ensemble des consignes de sécurité applicables dans les locaux mis à leur disposition, notamment celles relatives à la prévention des incendies, à l'évacuation des bâtiments et à l'utilisation des équipements.</li>
+        <li>Il est interdit de fumer dans les locaux.</li>
+        <li>L'utilisation du matériel doit être conforme aux instructions du formateur.</li>
+        <li>Lorsque la formation a lieu sur le site de l'entreprise ou dans une salle louée, les consignes générales et particulières de sécurité applicables sont celles de l'entreprise d'accueil.</li>
+      </ul>
+      <p><strong>En distanciel :</strong></p>
+      <ul>
+        <li>Le stagiaire doit disposer d'un matériel informatique adapté.</li>
+        <li>Il s'engage à utiliser la plateforme dans un cadre strictement professionnel.</li>
+      </ul>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art4">
+      <h2 class="article-title">Article 4 — Discipline générale</h2>
+      <p>Il est formellement interdit :</p>
+      <ul>
+        <li>D'avoir un comportement irrespectueux envers le formateur ou les autres stagiaires ;</li>
+        <li>De perturber le bon déroulement de la formation ;</li>
+        <li>D'entrer ou de demeurer dans les locaux de formation à d'autres fins que la formation ;</li>
+        <li>D'y introduire, faire introduire ou faciliter l'introduction de personnes étrangères à l'organisme ;</li>
+        <li>D'utiliser les supports pédagogiques à des fins commerciales ;</li>
+        <li>D'enregistrer la formation sans autorisation préalable.</li>
+      </ul>
+      <p>Le stagiaire est invité à se présenter à l'organisme en tenue vestimentaire correcte.</p>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art5">
+      <h2 class="article-title">Article 5 — Horaires</h2>
+      <p>Les horaires sont fixés dans la convention ou le contrat de formation.</p>
+      <p>Les stagiaires doivent :</p>
+      <ul>
+        <li>Respecter scrupuleusement les horaires fixés ;</li>
+        <li>Prévenir l'organisme en cas d'absence ou de retard.</li>
+      </ul>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art6">
+      <h2 class="article-title">Article 6 — Sanctions disciplinaires</h2>
+      <p>Tout agissement considéré comme fautif par le directeur de l'organisme de formation ou son représentant pourra, en fonction de sa nature et de sa gravité, faire l'objet de l'une ou de l'autre des sanctions ci-après, par ordre d'importance :</p>
+      <ol>
+        <li>Avertissement oral ;</li>
+        <li>Avertissement écrit ;</li>
+        <li>Exclusion temporaire ;</li>
+        <li>Exclusion définitive.</li>
+      </ol>
+      <p>Aucune sanction ne peut être prise sans que le stagiaire ait été informé des griefs retenus contre lui.</p>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art7">
+      <h2 class="article-title">Article 7 — Procédure disciplinaire</h2>
+      <p>En cas de sanction envisagée :</p>
+      <ol>
+        <li>Convocation du stagiaire ;</li>
+        <li>Exposé des faits ;</li>
+        <li>Possibilité pour le stagiaire de présenter ses observations ;</li>
+        <li>Notification écrite de la décision.</li>
+      </ol>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art8">
+      <h2 class="article-title">Article 8 — Harcèlement et discrimination</h2>
+      <p>Tout comportement constitutif de harcèlement moral, sexuel ou de discrimination est strictement interdit. Ces comportements sont passibles des sanctions prévues à l'article 6 et peuvent donner lieu à des poursuites pénales.</p>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art9">
+      <h2 class="article-title">Article 9 — Accident</h2>
+      <p>Tout stagiaire victime ou témoin d'un accident survenu pendant la formation doit en avertir immédiatement la direction de l'organisme de formation. Un registre des accidents est tenu à disposition.</p>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art10">
+      <h2 class="article-title">Article 10 — Réclamations</h2>
+      <p>Toute réclamation peut être adressée par écrit à :</p>
+      <ul>
+        <li><strong>Cabinet Alfred Gory</strong></li>
+        <li>10–12 rue Condorcet — 95150 Taverny</li>
+        <li>Email : <a href="mailto:formation@alfred-gory.fr">formation@alfred-gory.fr</a></li>
+      </ul>
+      <p>Un accusé de réception vous sera adressé dans les <strong>48 heures ouvrées</strong> et une réponse dans un délai de <strong>20 jours ouvrés</strong>.</p>
+    </article>
+    <hr class="article-divider">
+
+    <article class="article" id="art11">
+      <h2 class="article-title">Article 11 — Entrée en vigueur et publicité</h2>
+      <p>Le présent règlement intérieur entre en vigueur à compter du <strong>19 février 2026</strong>.</p>
+      <p>Il est affiché dans la salle de formation, accessible sur le présent site internet et envoyé sur simple demande à l'adresse <a href="mailto:formation@alfred-gory.fr">formation@alfred-gory.fr</a>.</p>
+    </article>
+
+    <div class="ri-signature">
+      <p>Fait à Taverny</p>
+      <p>Le 19 février 2026</p>
+      <strong>Sabri GORY — Président du Cabinet Alfred Gory</strong>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="formations.html">Formation SILAE</a>
+      <a href="financement.html">Financement</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="reglement-interieur.html">Règlement intérieur</a>
+    </div>
+    <p>© 2026 Cabinet Alfred Gory — SAS — SIREN 891 446 825 — 10–12 rue Condorcet, 95150 Taverny</p>
+    <p style="margin-top:0.4rem;"><a href="mailto:formation@alfred-gory.fr">formation@alfred-gory.fr</a></p>
+  </footer>
+</body>
+</html>
