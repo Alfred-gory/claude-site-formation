@@ -255,12 +255,6 @@
           </div>
         </div>
         <div class="contact-form-box fade-in">
-          <div class="merci" id="merci" style="display:none;background:#d1fae5;border:1px solid #6ee7b7;border-radius:10px;padding:1.5rem;text-align:center;color:#065f46;font-weight:600;line-height:1.7;">
-            ✅ Merci pour votre demande !<br>
-            Nous vous recontactons sous <strong>48h ouvrées</strong>.<br>
-            <span style="font-size:0.82rem;font-weight:400;">Cabinet Alfred Gory — formation@alfred-gory.fr</span>
-          </div>
-          <div id="contactError" style="display:none;background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:0.8rem 1rem;color:#991b1b;font-size:0.85rem;margin-bottom:1rem;">Une erreur est survenue. Réessayez ou écrivez à formation@alfred-gory.fr</div>
           <form id="contactForm" action="https://formsubmit.co/el/sejuca" method="POST">
             <div class="form-group">
               <label>Prénom et Nom</label>
@@ -317,27 +311,10 @@
               <textarea name="message" placeholder="Décrivez votre besoin, votre niveau actuel, vos disponibilités ou toute autre information utile..."></textarea>
             </div>
             <input type="hidden" name="_subject" value="[CONTACT] Nouvelle demande — Cabinet Alfred Gory" />
-            <button type="submit" class="submit-btn" id="contactBtn">Envoyer ma demande →</button>
+            <input type="hidden" name="_next" value="https://www.alfred-gory.com/merci.html" />
+            <input type="hidden" name="_captcha" value="false" />
+            <button type="submit" class="submit-btn">Envoyer ma demande →</button>
           </form>
-          <script>
-            document.getElementById('contactForm').addEventListener('submit', async function(e) {
-              e.preventDefault();
-              const btn = document.getElementById('contactBtn');
-              const merci = document.getElementById('merci');
-              const err = document.getElementById('contactError');
-              btn.disabled = true; btn.textContent = 'Envoi en cours…';
-              err.style.display = 'none';
-              try {
-                const res = await fetch(this.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(this) });
-                const data = await res.json();
-                if (data.success === 'true' || data.success === true) {
-                  this.style.display = 'none'; merci.style.display = 'block';
-                } else { throw new Error(); }
-              } catch {
-                err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Envoyer ma demande →';
-              }
-            });
-          </script>
         </div>
       </div>
     </div>
