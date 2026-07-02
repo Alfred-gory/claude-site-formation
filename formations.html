@@ -191,7 +191,21 @@
       .form-tab { border: 1.5px solid var(--border); border-radius: 8px; }
       .form-tab.active { background: var(--primary); color: #fff; }
       .form-tab.active::after { display: none; }
+      .hamburger { display: flex !important; }
     }
+    /* HAMBURGER */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { width: 22px; height: 2px; background: var(--primary); border-radius: 2px; transition: all 0.3s; display: block; }
+    /* MOBILE MENU */
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+      z-index: 9999; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.3rem; color: var(--primary); font-family: 'Playfair Display', serif; text-decoration: none; font-weight: 600; }
+    .mobile-menu a:hover { color: var(--accent-dark); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
   </style>
 </head>
 <body>
@@ -207,13 +221,30 @@
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="formations.html" class="active">Formation SILAE</a></li>
+      <li><a href="inscription.html">Inscription</a></li>
       <li><a href="financement.html">Paiement</a></li>
+      <li><a href="cabinet.html">Le cabinet</a></li>
       <li><a href="accessibilite.html">Accessibilité</a></li>
-      <li><a href="reglement-interieur.html">Règlement intérieur</a></li>
       <li><a href="satisfaction.html">Satisfaction</a></li>
-    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li>
+      <li><a href="contact.html" class="nav-cta">Nous contacter</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="index.html" onclick="toggleMenu()">Accueil</a>
+    <a href="formations.html" onclick="toggleMenu()">Formation SILAE</a>
+    <a href="inscription.html" onclick="toggleMenu()">Inscription</a>
+    <a href="financement.html" onclick="toggleMenu()">Paiement</a>
+    <a href="cabinet.html" onclick="toggleMenu()">Le cabinet</a>
+    <a href="satisfaction.html" onclick="toggleMenu()">Satisfaction</a>
+    <a href="accessibilite.html" onclick="toggleMenu()">Accessibilité</a>
+    <a href="contact.html" onclick="toggleMenu()">Nous contacter</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -1123,6 +1154,11 @@
         });
       });
     });
+  </script>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
   </script>
 </body>
 </html>
