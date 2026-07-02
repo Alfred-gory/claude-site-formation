@@ -1,5 +1,5 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
-Disallow: /articles.json
+Disallow: /satisfaction.html
 
 Sitemap: https://www.alfred-gory.com/sitemap.xml

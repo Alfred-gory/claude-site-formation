@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nous contacter - Cabinet Alfred Gory - Formation SILAE Taverny (95)</title>
-  <meta name="description" content="Contactez le Cabinet Alfred Gory pour votre projet de formation SILAE ou gestion de la paie. Reponse sous 48h. 10-12 rue Condorcet, 95150 Taverny." />
-  <link rel="canonical" href="https://www.alfred-gory.com/contact.html" />
+  <title>Le Cabinet Alfred Gory - Organisme de formation paie SILAE - Taverny (95)</title>
+  <meta name="description" content="Presentation du Cabinet Alfred Gory, organisme de formation professionnelle specialise en paie et logiciel SILAE. NDA 11951022295. Taverny, Val d Oise (95)." />
+  <link rel="canonical" href="https://www.alfred-gory.com/cabinet.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -80,7 +80,7 @@
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { width: 22px; height: 2px; background: var(--primary); border-radius: 2px; }
     @media(max-width:900px){
-      .nav-links { display: none; }
+      .nav-links, .nav-desktop-cta { display: none; }
       .hamburger { display: flex; }
       nav { padding: 0 1.5rem; }
     }
@@ -104,6 +104,7 @@
     }
     .page-hero-inner { max-width: 1100px; margin: 0 auto; }
     .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
       background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
       color: var(--accent-dark); border-radius: 50px;
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
@@ -113,40 +114,15 @@
     .page-hero h1 em { color: var(--accent-dark); font-style: normal; }
     .page-hero p { color: rgba(255,255,255,0.8); font-size: 1rem; max-width: 560px; }
 
-    /* CONTACT */
+    /* SECTIONS */
     .section { padding: 5rem 2rem; }
+    .section.alt { background: var(--bg-warm); }
     .container { max-width: 1100px; margin: 0 auto; }
-    .contact-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; }
-    @media(max-width:900px){ .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; } }
-    .contact-info { padding: 2rem 0; }
-    .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
-    .contact-info p { color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
-    .contact-detail { display: flex; align-items: center; gap: 0.8rem; color: var(--muted); font-size: 0.88rem; margin-bottom: 0.8rem; }
-    .contact-detail span:first-child { width: 36px; height: 36px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
-    .contact-form-box {
-      background: #fff; border: 1px solid var(--border); border-radius: 20px;
-      padding: 2.5rem; box-shadow: var(--shadow-lg);
-    }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--primary); margin-bottom: 0.4rem; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 0.75rem 1rem;
-      background: var(--bg-alt); border: 1.5px solid var(--border);
-      border-radius: 8px; color: var(--text); font-size: 0.9rem; font-family: 'Inter', sans-serif;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      outline: none; border-color: var(--accent-dark); box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
-      background: #fff;
-    }
-    .form-group textarea { height: 100px; resize: vertical; }
-    .submit-btn {
-      width: 100%; padding: 1rem; background: var(--primary); color: #fff;
-      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 700;
-      cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif;
-    }
-    .submit-btn:hover { background: var(--primary-mid); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(30,58,95,0.25); }
-    .merci { display: none; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 1.5rem; color: #166534; font-size: 0.9rem; line-height: 1.8; margin-bottom: 1rem; }
+    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin-bottom: 0.5rem; display: block; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--primary); margin-bottom: 1rem; font-weight: 700; }
+    .section-title span { color: var(--accent-dark); }
+    .section-line { width: 48px; height: 3px; background: var(--accent-dark); border-radius: 2px; margin: 1rem auto; }
+    .section-sub { color: var(--muted); max-width: 640px; margin: 0 auto; text-align: center; }
 
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -200,10 +176,10 @@
       <li><a href="formations.html">Formation</a></li>
       <li><a href="inscription.html">Inscription</a></li>
       <li><a href="financement.html">Paiement</a></li>
-      <li><a href="cabinet.html">Le cabinet</a></li>
+      <li><a href="cabinet.html" class="active">Le cabinet</a></li>
       <li><a href="satisfaction.html">Satisfaction</a></li>
       <li><a href="accessibilite.html">Accessibilité</a></li>
-      <li><a href="contact.html" class="nav-cta active">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -226,104 +202,86 @@
   <!-- HERO -->
   <section class="page-hero">
     <div class="page-hero-inner">
-      <div class="hero-badge">Nous rejoindre</div>
-      <h1>Commençons <em>ensemble</em></h1>
-      <p>Remplissez le formulaire et nous vous recontactons sous 48h pour étudier votre projet de formation.</p>
+      <div class="hero-badge">Qui sommes-nous</div>
+      <h1>Le Cabinet <em>Alfred Gory</em></h1>
+      <p>Organisme de formation professionnelle spécialisé dans la gestion de la paie et le logiciel SILAE. Fondé à Taverny (Val d'Oise), le cabinet intervient en présentiel et en classe virtuelle partout en France.</p>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="section" id="contact">
+  <!-- CABINET SECTION -->
+  <section class="section alt" id="cabinet">
     <div class="container">
-      <div class="contact-wrapper">
-        <div class="contact-info fade-in">
-          <h2>Contactez-nous</h2>
-          <p>Remplissez le formulaire et nous vous recontactons sous 48h pour étudier votre projet de formation.</p>
-          <div class="contact-detail"><span>@</span><span>formation@alfred-gory.fr</span></div>
-          <div class="contact-detail"><span>📍</span><span>10-12 rue Condorcet, 95150 Taverny</span></div>
-          <div class="contact-detail"><span>⏱</span><span>Réponse sous 48h ouvrées</span></div>
-          <div class="contact-detail"><span>🎓</span><span>En ligne, présentiel ou intra-entreprise</span></div>
-          <div style="margin-top:2rem; padding:1.5rem; background:var(--bg-alt); border-radius:12px; border:1px solid var(--border);">
-            <div style="font-size:0.78rem; color:var(--muted); line-height:1.7;">
-              <strong style="color:var(--primary); display:block; margin-bottom:0.5rem;">Modalités de règlement</strong>
-              Paiement par virement bancaire ou chèque. Prise en charge employeur possible dans le cadre du plan de développement des compétences (PDC).
-            </div>
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">Qui sommes-nous</span>
+        <h2 class="section-title">Le Cabinet <span>Alfred Gory</span></h2>
+        <div class="section-line"></div>
+        <p class="section-sub">Organisme de formation professionnelle spécialisé dans la gestion de la paie et le logiciel SILAE. Fondé à Taverny (Val d'Oise), le cabinet intervient en présentiel et en classe virtuelle partout en France.</p>
+      </div>
+
+      <!-- ORGANIGRAMME -->
+      <div class="fade-in" style="margin-top:3rem;">
+        <div style="text-align:center;margin-bottom:2rem;">
+          <div style="display:inline-block;background:var(--primary);color:#fff;border-radius:14px;padding:1.4rem 2.5rem;min-width:280px;">
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:0.4rem;">Organisme de formation</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff;">Cabinet Alfred Gory</div>
+            <div style="font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:0.3rem;">NDA 11951022295 — SIREN 891 446 825</div>
           </div>
-          <div style="margin-top:1.5rem;">
-            <p style="font-size:0.88rem;color:var(--muted);margin-bottom:0.8rem;">Prêt à vous inscrire ? Accédez directement aux formulaires d'inscription :</p>
-            <a href="inscription.html" style="display:inline-block;background:var(--accent-dark);color:#fff;padding:0.6rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:700;text-decoration:none;">S'inscrire à la formation →</a>
+          <!-- Connecteur vertical -->
+          <div style="width:2px;height:2rem;background:var(--border);margin:0 auto;"></div>
+          <div style="display:flex;width:50%;margin:0 auto;height:2px;background:var(--border);"></div>
+        </div>
+        <!-- Deux colonnes référents -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:760px;margin:0 auto;">
+          <div style="background:#fff;border:1px solid var(--border);border-top:3px solid var(--accent-dark);border-radius:12px;padding:1.6rem;text-align:center;">
+            <div style="width:52px;height:52px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 0.8rem;font-size:1.3rem;">👤</div>
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:0.4rem;">Référent pédagogique<br>Référent administratif &amp; financier<br>Référent handicap</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--primary);font-weight:700;margin-bottom:0.6rem;">M. Sabri GORY</div>
+            <div style="font-size:0.8rem;color:var(--muted);line-height:1.6;margin-bottom:0.8rem;">Responsable de l'ingénierie pédagogique, de la gestion administrative et financière des formations, et référent dédié pour les personnes en situation de handicap.</div>
+            <a href="mailto:secretariat@alfred-gory.fr" style="display:inline-block;background:var(--primary);color:#fff;padding:0.35rem 0.9rem;border-radius:50px;font-size:0.78rem;text-decoration:none;">secretariat@alfred-gory.fr</a>
+          </div>
+          <div style="background:#fff;border:1px solid var(--border);border-top:3px solid var(--primary);border-radius:12px;padding:1.6rem;text-align:center;">
+            <div style="width:52px;height:52px;background:var(--accent-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 0.8rem;font-size:1.3rem;">👤</div>
+            <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:0.4rem;">Responsable développement<br>Personne de contact</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--primary);font-weight:700;margin-bottom:0.6rem;">M. GUERCHICH Bilal</div>
+            <div style="font-size:0.8rem;color:var(--muted);line-height:1.6;margin-bottom:0.8rem;">Premier point de contact pour toute demande d'information, de renseignement sur nos formations ou d'orientation. Responsable du développement de l'offre de formation.</div>
+            <a href="mailto:formation@alfred-gory.fr" style="display:inline-block;background:var(--accent-dark);color:#fff;padding:0.35rem 0.9rem;border-radius:50px;font-size:0.78rem;text-decoration:none;">formation@alfred-gory.fr</a>
           </div>
         </div>
-        <div class="contact-form-box fade-in">
-          <div class="merci" id="merci">
-            ✅ Merci pour votre demande !<br>
-            Nous vous recontactons sous <strong>48h</strong>.<br>
-            <span style="font-size:0.82rem; color:var(--muted);">Cabinet Alfred Gory — formation@alfred-gory.fr</span>
-          </div>
-          <div data-fs-error style="color:#dc2626; font-size:0.85rem; margin-bottom:1rem; display:none;"></div>
-          <form id="contactForm">
-            <div class="form-group">
-              <label>Prénom et Nom</label>
-              <input type="text" name="nom" placeholder="Marie Dupont" required data-fs-field />
-            </div>
-            <div class="form-group">
-              <label>Adresse email</label>
-              <input type="email" name="email" placeholder="votre@email.fr" required data-fs-field />
-            </div>
-            <div class="form-group">
-              <label>Téléphone</label>
-              <input type="tel" name="telephone" placeholder="06 00 00 00 00" />
-            </div>
-            <div class="form-group">
-              <label>Formation souhaitée</label>
-              <select name="formation">
-                <option value="">— Choisissez —</option>
-                <option>Maîtriser SILAE (7h)</option>
-                <option>Formation intra-entreprise sur mesure</option>
-                <option>Autre (préciser dans le message)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Modalité souhaitée</label>
-              <select name="modalite">
-                <option value="">— Comment souhaitez-vous vous former ? —</option>
-                <option>Présentiel — dans vos locaux à Taverny (95)</option>
-                <option>Classe virtuelle (visioconférence)</option>
-                <option>Intra-entreprise — dans mon entreprise</option>
-                <option>Je ne sais pas encore</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Prise en charge</label>
-              <select name="financement">
-                <option value="">— Comment comptez-vous régler ? —</option>
-                <option>Paiement personnel (virement ou chèque)</option>
-                <option>Prise en charge employeur (plan de développement des compétences)</option>
-                <option>Je ne sais pas encore</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Nombre de participants <span style="font-weight:400;color:var(--muted);">(si intra-entreprise)</span></label>
-              <select name="participants">
-                <option value="">— Optionnel —</option>
-                <option>1 personne</option>
-                <option>2 à 4 personnes</option>
-                <option>5 à 8 personnes</option>
-                <option>Plus de 8 personnes</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Votre message</label>
-              <textarea name="message" placeholder="Décrivez votre besoin, votre niveau actuel, vos disponibilités ou toute autre information utile..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn" data-fs-submit-btn>Envoyer ma demande →</button>
-          </form>
-          <script>
-            window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-            formspree('initForm', { formElement: '#contactForm', formId: 'mbdenjvd' });
-          </script>
-          <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+      </div>
+
+      <!-- INFOS PRATIQUES CABINET -->
+      <div class="fade-in" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2.5rem;">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="font-size:1.2rem;margin-bottom:0.4rem;">📍</div>
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.3rem;">Siège social</div>
+          <div style="font-size:0.85rem;color:var(--primary);font-weight:600;">10–12 rue Condorcet<br>95150 Taverny</div>
         </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="font-size:1.2rem;margin-bottom:0.4rem;">📋</div>
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.3rem;">Enregistrement</div>
+          <div style="font-size:0.85rem;color:var(--primary);font-weight:600;">NDA 11951022295<br><span style="font-size:0.75rem;color:var(--muted);font-weight:400;">DREETS Île-de-France</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="font-size:1.2rem;margin-bottom:0.4rem;">🎓</div>
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.3rem;">Démarche qualité</div>
+          <div style="font-size:0.85rem;color:var(--primary);font-weight:600;">En cours de démarche<br><span style="color:var(--accent-dark);">Qualiopi</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="font-size:1.2rem;margin-bottom:0.4rem;">♿</div>
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.3rem;">Accessibilité</div>
+          <div style="font-size:0.85rem;color:var(--primary);font-weight:600;"><a href="accessibilite.html" style="color:var(--accent-dark);text-decoration:none;">Politique handicap →</a></div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="font-size:1.2rem;margin-bottom:0.4rem;">🏨</div>
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.3rem;">Hébergement &amp; restauration</div>
+          <div style="font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;line-height:1.5;">Séjour dans la région de Taverny (Val d'Oise) ?</div>
+          <div style="font-size:0.85rem;color:var(--primary);font-weight:600;"><a href="https://www.tourisme-valdoise.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-dark);text-decoration:none;">Office de tourisme →</a></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="fade-in" style="text-align:center;margin-top:3rem;">
+        <a href="contact.html" style="display:inline-block;background:var(--primary);color:#fff;padding:0.85rem 2rem;border-radius:8px;font-size:0.95rem;font-weight:700;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--accent-dark)'" onmouseout="this.style.background='var(--primary)'">Nous contacter →</a>
       </div>
     </div>
   </section>

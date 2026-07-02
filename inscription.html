@@ -1,126 +1,126 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formation SILAE 7h - Maitriser la paie - Cabinet Alfred Gory Taverny (95)</title>
-  <meta name="description" content="Formation SILAE complete en 7h : parametrage, bulletins de paie, charges sociales. Presentiel a Taverny (95) ou visioconference. Cabinet Alfred Gory, NDA 11951022295." />
-  <link rel="canonical" href="https://www.alfred-gory.com/formations.html" />
-  <!-- Google Analytics GA4 — remplacez G-XXXXXXXXXX par votre vrai Measurement ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <title>Inscription — Formation SILAE | Cabinet Alfred Gory</title>
+  <meta name="description" content="Inscrivez-vous à la formation SILAE 7h du Cabinet Alfred Gory. Formulaire stagiaire, entreprise ou fiche d'adaptation handicap. Réponse sous 48h." />
+  <link rel="canonical" href="https://www.alfred-gory.com/inscription.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary:      #1e3a5f;
+      --primary-dark: #0f1e35;
       --primary-mid:  #2d5a8e;
       --accent-dark:  #c9a84c;
       --bg-warm:      #f7f5f1;
+      --bg-alt:       #f8fafc;
       --text:         #1e293b;
       --muted:        #64748b;
       --border:       #e2e8f0;
       --shadow:       0 4px 24px rgba(30,58,95,0.10);
+      --shadow-lg:    0 12px 40px rgba(30,58,95,0.15);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.7; }
 
     /* TOPBAR */
-    #topbar { background: var(--primary); color: rgba(255,255,255,0.75); font-size: 0.72rem; letter-spacing: 0.08em; padding: 0 2rem; height: 30px; display: flex; align-items: center; justify-content: center; gap: 1.2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1100; }
-    .tb-sep { opacity: 0.4; }
+    #topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+      background: var(--primary-dark);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      height: 30px; display: flex; align-items: center; justify-content: center;
+    }
+    #topbar-inner {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 0 0.8rem; padding: 0.35rem 1rem;
+      font-size: 0.72rem; white-space: nowrap;
+    }
+    .tb-item { color: rgba(255,255,255,0.7); font-weight: 500; }
+    .tb-sep { color: rgba(201,168,76,0.5); font-size: 0.6rem; }
+    .tb-link { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
+    .tb-link:hover { color: #f59e0b; }
 
     /* NAV */
-    nav { position: fixed; top: 30px; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; }
+    nav {
+      position: fixed; top: 30px; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 68px; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 2rem;
+    }
     .logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--primary); text-decoration: none; }
     .logo span { color: var(--accent-dark); }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
-    .nav-links a { color: var(--text); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent-dark); }
+    .nav-links { display: flex; gap: 0; list-style: none; align-items: center; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.8rem; font-weight: 500;
+      text-decoration: none; transition: color 0.2s;
+      padding: 0.5rem 0.9rem; position: relative; letter-spacing: 0.03em;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0.9rem; right: 0.9rem;
+      height: 2px; background: var(--accent-dark);
+      transform: scaleX(0); transition: transform 0.25s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
     .nav-links a.active { color: var(--primary); font-weight: 700; }
-    .nav-cta { background: var(--primary); color: #fff !important; padding: 0.45rem 1.1rem; border-radius: 6px; }
-    .nav-cta:hover { background: var(--accent-dark) !important; }
+    .nav-cta {
+      background: var(--accent-dark); color: #fff !important;
+      padding: 0.6rem 1.3rem; border-radius: 6px;
+      font-size: 0.8rem; font-weight: 700; text-decoration: none;
+      transition: all 0.2s; letter-spacing: 0.04em;
+    }
+    .nav-cta:hover { background: #f59e0b !important; }
+    .nav-cta::after { display: none !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--primary); border-radius: 2px; }
+    @media(max-width:900px){
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      nav { padding: 0 1.5rem; height: 60px; }
+    }
 
-    /* HERO */
-    .hero { padding: 7rem 2rem 4rem; background: linear-gradient(135deg, var(--primary) 0%, #2d5a8e 100%); color: #fff; }
-    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: var(--accent-dark); border-radius: 50px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.9rem; margin-bottom: 1.2rem; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
-    .hero h1 em { color: var(--accent-dark); font-style: normal; }
-    .hero-desc { color: rgba(255,255,255,0.8); font-size: 1rem; max-width: 560px; margin-bottom: 1.8rem; }
-    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent-dark); color: #fff; border: none; padding: 0.75rem 1.6rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: opacity 0.2s; display: inline-block; }
-    .btn-primary:hover { opacity: 0.88; }
-    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.5); padding: 0.75rem 1.6rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: border-color 0.2s; display: inline-block; }
-    .btn-outline:hover { border-color: #fff; }
-    .hero-stats { display: flex; flex-direction: column; gap: 0.8rem; }
-    .hstat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 1rem 1.4rem; text-align: center; min-width: 130px; }
-    .hstat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--accent-dark); }
-    .hstat-label { font-size: 0.72rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.08em; }
+    /* MOBILE MENU */
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+      z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.2rem; color: var(--primary); font-family: 'Playfair Display', serif; text-decoration: none; font-weight: 600; }
+    .mobile-menu a:hover { color: var(--accent-dark); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
+
+    /* HERO PAGE */
+    .page-hero {
+      padding: 7rem 2rem 4rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
+      color: #fff;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .hero-badge {
+      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+      color: var(--accent-dark); border-radius: 50px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.9rem; margin-bottom: 1.2rem; display: inline-block;
+    }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+    .page-hero h1 em { color: var(--accent-dark); font-style: normal; }
+    .page-hero p { color: rgba(255,255,255,0.8); font-size: 1rem; max-width: 560px; margin-bottom: 1.5rem; }
 
     /* SECTIONS */
     .section { padding: 5rem 2rem; }
     .section.alt { background: var(--bg-warm); }
     .container { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin-bottom: 0.5rem; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--primary); margin-bottom: 1rem; }
-    .section-lead { color: var(--muted); max-width: 640px; margin-bottom: 3rem; }
+    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin-bottom: 0.5rem; display: block; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--primary); margin-bottom: 1rem; font-weight: 700; }
+    .section-lead { color: var(--muted); max-width: 700px; margin-bottom: 2.5rem; }
 
-    /* PROGRAMME */
-    .prog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-bottom: 3rem; }
-    .module-card { background: #fff; border-radius: 14px; padding: 1.6rem; border: 1px solid var(--border); box-shadow: var(--shadow); }
-    .module-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
-    .module-num { background: var(--primary); color: var(--accent-dark); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
-    .module-time { font-size: 0.72rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
-    .module-title { font-weight: 700; color: var(--primary); font-size: 0.95rem; margin-bottom: 0.6rem; }
-    .module-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-    .module-list li { font-size: 0.83rem; color: #374151; display: flex; gap: 0.5rem; align-items: flex-start; }
-    .module-list li::before { content: '→'; color: var(--accent-dark); flex-shrink: 0; font-weight: 700; }
-
-    /* INFO CARDS */
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
-    .info-card { background: #fff; border-radius: 12px; padding: 1.3rem; border: 1px solid var(--border); }
-    .info-card-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .info-card-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.4rem; }
-    .info-card-body { font-size: 0.88rem; color: var(--primary); font-weight: 600; }
-    .info-card-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
-
-    /* OBJECTIFS */
-    .obj-list { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
-    .obj-item { display: flex; align-items: flex-start; gap: 0.8rem; padding: 0.75rem 1rem; background: #fff; border-radius: 10px; border: 1px solid var(--border); }
-    .obj-check { width: 22px; height: 22px; background: #d1fae5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
-    .obj-check svg { width: 12px; height: 12px; stroke: #059669; stroke-width: 2.5; fill: none; }
-    .obj-text { font-size: 0.9rem; color: var(--text); }
-
-    /* EVAL & MODALITES */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .card-block { background: #fff; border-radius: 14px; padding: 1.8rem; border: 1px solid var(--border); }
-    .card-block h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--primary); margin-bottom: 1rem; }
-    .card-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-    .card-block li { font-size: 0.88rem; color: #374151; display: flex; gap: 0.5rem; align-items: flex-start; }
-    .card-block li::before { content: '✓'; color: #059669; font-weight: 700; flex-shrink: 0; }
-
-    /* PSH */
-    .psh-box { background: #f0f4f8; border-left: 4px solid var(--primary); border-radius: 0 12px 12px 0; padding: 1.5rem 1.8rem; }
-    .psh-box h3 { font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 0.8rem; }
-    .psh-box p { font-size: 0.88rem; color: #374151; margin-bottom: 0.5rem; }
-    .psh-contact { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .psh-pill { background: var(--primary); color: #fff; padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.8rem; text-decoration: none; }
-    .psh-pill:hover { opacity: 0.85; }
-
-    /* TARIF */
-    .tarif-wrap { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; }
-    .tarif-price { text-align: center; }
-    .tarif-amount { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--primary); }
-    .tarif-ttc { font-size: 0.8rem; color: var(--muted); }
-    .tarif-person { font-size: 0.78rem; color: var(--muted); }
-    .tarif-intra { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-top: 0.3rem; }
-    .tarif-detail ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-    .tarif-detail li { font-size: 0.88rem; color: #374151; display: flex; gap: 0.5rem; }
-    .tarif-detail li::before { content: '·'; color: var(--accent-dark); font-weight: 700; font-size: 1.2rem; line-height: 1.4; }
-
-    /* FORMULAIRES */
+    /* TABS FORMULAIRES */
     .form-tabs { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--border); }
     .form-tab { padding: 0.8rem 1.8rem; background: none; border: none; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--muted); cursor: pointer; position: relative; transition: color 0.2s; }
     .form-tab.active { color: var(--primary); }
@@ -152,7 +152,6 @@
     .radio-pill input:checked + label, .check-pill input:checked + label {
       background: var(--primary); color: #fff; border-color: var(--primary);
     }
-
     .scale-group { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
     .scale-group input { display: none; }
     .scale-group label { width: 40px; height: 40px; border: 1.5px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.2s; color: var(--muted); }
@@ -165,353 +164,134 @@
     .form-success { display: none; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 1.4rem 1.8rem; color: #15803d; }
     .form-success h3 { margin-bottom: 0.5rem; }
 
-    /* FOOTER */
-    footer { background: var(--primary); color: rgba(255,255,255,0.7); padding: 3rem 2rem 2rem; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
-    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem; }
-    .footer-desc { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; line-height: 1.6; }
-    .footer-col h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); margin-bottom: 1rem; }
-    .footer-col a, .footer-col p { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.5rem; }
-    .footer-col a:hover { color: var(--accent-dark); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; font-size: 0.78rem; }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-stats { flex-direction: row; }
-      .two-col { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .tarif-wrap { grid-template-columns: 1fr; text-align: center; }
-    }
     @media (max-width: 600px) {
       .form-row.cols2 { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      nav .nav-links { display: none; }
       .form-tabs { flex-direction: column; border-bottom: none; gap: 0.5rem; }
       .form-tab { border: 1.5px solid var(--border); border-radius: 8px; }
       .form-tab.active { background: var(--primary); color: #fff; }
       .form-tab.active::after { display: none; }
     }
+
+    /* FOOTER */
+    footer { background: var(--primary-dark); }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+      padding: 4rem 3rem 3rem; max-width: 1200px; margin: 0 auto;
+    }
+    @media(max-width:900px){ .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; } }
+    @media(max-width:560px){ .footer-top { grid-template-columns: 1fr; } }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #fff; margin-bottom: 0.8rem; }
+    .footer-logo span { color: var(--accent-dark); }
+    .footer-desc { color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.8; margin-bottom: 1.2rem; }
+    .footer-contact-line { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); font-size: 0.82rem; margin-bottom: 0.4rem; }
+    .footer-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+    .footer-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25); color: var(--accent-dark); font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; }
+    .footer-col h4 { color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-col a { display: block; color: rgba(255,255,255,0.5); font-size: 0.82rem; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent-dark); }
+    .footer-mention { max-width: 1200px; margin: 0 auto; padding: 1.2rem 3rem; font-size: 0.72rem; color: rgba(255,255,255,0.25); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1200px; margin: 0 auto; }
+    .footer-bottom p, .footer-bottom a { color: rgba(255,255,255,0.3); font-size: 0.75rem; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--accent-dark); }
+    .footer-legal { display: flex; gap: 1.5rem; }
   </style>
 </head>
 <body>
 
+  <!-- TOP BAR -->
   <div id="topbar">
-    <span>Cabinet Alfred Gory · Organisme de formation</span>
-    <span class="tb-sep">·</span>
-    <span>01.86.04.48.57 · formation@alfred-gory.fr</span>
+    <div id="topbar-inner">
+      <span class="tb-item">Organisme de formation enregistré</span>
+      <span class="tb-sep">·</span>
+      <span class="tb-item">NDA 11951022295</span>
+      <span class="tb-sep">·</span>
+      <a href="mailto:formation@alfred-gory.fr" class="tb-link">formation@alfred-gory.fr</a>
+      <span class="tb-sep">·</span>
+      <span class="tb-item">Réponse sous 48h</span>
+    </div>
   </div>
 
-  <nav>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
     <a class="logo" href="index.html">Cabinet <span>Alfred Gory</span></a>
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
-      <li><a href="formations.html" class="active">Formation SILAE</a></li>
+      <li><a href="formations.html">Formation</a></li>
+      <li><a href="inscription.html" class="active">Inscription</a></li>
       <li><a href="financement.html">Paiement</a></li>
-      <li><a href="accessibilite.html">Accessibilité</a></li>
-      <li><a href="reglement-interieur.html">Règlement intérieur</a></li>
+      <li><a href="cabinet.html">Le cabinet</a></li>
       <li><a href="satisfaction.html">Satisfaction</a></li>
-    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li>
+      <li><a href="accessibilite.html">Accessibilité</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
     </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="index.html" onclick="toggleMenu()">Accueil</a>
+    <a href="formations.html" onclick="toggleMenu()">Formation</a>
+    <a href="inscription.html" onclick="toggleMenu()">Inscription</a>
+    <a href="financement.html" onclick="toggleMenu()">Paiement</a>
+    <a href="cabinet.html" onclick="toggleMenu()">Le cabinet</a>
+    <a href="satisfaction.html" onclick="toggleMenu()">Satisfaction</a>
+    <a href="accessibilite.html" onclick="toggleMenu()">Accessibilité</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  </div>
+
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-badge">Formation professionnelle</div>
-        <h1>Maîtriser <em>SILAE</em> —<br>Gestion complète de la paie</h1>
-        <p class="hero-desc">Une journée intensive pour prendre en main le logiciel SILAE de A à Z : paramétrage, bulletins, DSN, fin de contrat. Formation présentielle ou en classe virtuelle.</p>
-        <div class="hero-ctas">
-          <a href="#programme" class="btn-primary">Voir le programme</a>
-          <a href="#analyse-besoins" class="btn-outline">Analyser mes besoins</a>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="hstat">
-          <div class="hstat-num">7h</div>
-          <div class="hstat-label">de formation</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-num">4</div>
-          <div class="hstat-label">modules</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-num">450€</div>
-          <div class="hstat-label">TTC / personne</div>
-        </div>
-      </div>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="hero-badge">Avant de vous inscrire</div>
+      <h1>Inscription à la <em>formation SILAE</em></h1>
+      <p>Remplissez le formulaire correspondant à votre situation. Nous vous recontacterons sous 48h ouvrées pour confirmer votre inscription et adapter la formation à vos besoins.</p>
+      <a href="formations.html" style="display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.35);color:#fff;padding:0.6rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">← Voir le programme d'abord</a>
     </div>
   </section>
 
-  <!-- INFORMATIONS CLÉS -->
-  <section class="section alt">
-    <div class="container">
-      <p class="section-label">Organisation</p>
-      <h2 class="section-title">Informations clés</h2>
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-card-icon">📅</div>
-          <div class="info-card-title">Durée</div>
-          <div class="info-card-body">7 heures — 1 journée</div>
-          <div class="info-card-sub">9h00–12h30 / 13h30–17h00</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">📍</div>
-          <div class="info-card-title">Modalités</div>
-          <div class="info-card-body">Présentiel ou classe virtuelle</div>
-          <div class="info-card-sub">Intra-entreprise disponible</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">👥</div>
-          <div class="info-card-title">Public visé</div>
-          <div class="info-card-body">Gestionnaires de paie, RH, Comptables</div>
-          <div class="info-card-sub">Débutants ou en poste</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">📋</div>
-          <div class="info-card-title">Prérequis</div>
-          <div class="info-card-body">Connaissances de base en paie</div>
-          <div class="info-card-sub">Savoir lire un bulletin de salaire</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">💳</div>
-          <div class="info-card-title">Paiement</div>
-          <div class="info-card-body">Virement ou chèque</div>
-          <div class="info-card-sub">Prise en charge employeur possible (PDC)</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">📜</div>
-          <div class="info-card-title">Attestation</div>
-          <div class="info-card-body">Attestation de fin de formation</div>
-          <div class="info-card-sub">Remise à l'issue de la journée</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">⏱</div>
-          <div class="info-card-title">Délais d'accès</div>
-          <div class="info-card-body">Formation planifiable sous 5 jours ouvrés</div>
-          <div class="info-card-sub">Après validation du dossier et accord de financement</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">📝</div>
-          <div class="info-card-title">Inscription</div>
-          <div class="info-card-body">Formulaire en ligne ou par email</div>
-          <div class="info-card-sub"><a href="#inscription" style="color:var(--accent-dark);">Voir la procédure →</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OBJECTIFS -->
-  <section class="section" id="programme">
-    <div class="container">
-      <p class="section-label">Programme</p>
-      <h2 class="section-title">Objectifs professionnels</h2>
-      <p class="section-lead">À l'issue de la formation, le stagiaire sera capable de :</p>
-      <div class="obj-list">
-        <div class="obj-item">
-          <div class="obj-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <span class="obj-text">Paramétrer un dossier entreprise dans SILAE (conventions collectives, organismes)</span>
-        </div>
-        <div class="obj-item">
-          <div class="obj-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <span class="obj-text">Créer et gérer un dossier salarié (contrat, statut, variables)</span>
-        </div>
-        <div class="obj-item">
-          <div class="obj-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <span class="obj-text">Établir un bulletin de paie conforme et contrôler les cotisations sociales</span>
-        </div>
-        <div class="obj-item">
-          <div class="obj-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <span class="obj-text">Gérer les variables de paie : absences, primes, heures supplémentaires</span>
-        </div>
-        <div class="obj-item">
-          <div class="obj-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <span class="obj-text">Générer et contrôler la Déclaration Sociale Nominative (DSN)</span>
-        </div>
-        <div class="obj-item">
-          <div class="obj-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-          <span class="obj-text">Réaliser les opérations de fin de contrat et établir le solde de tout compte</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRAMME DÉTAILLÉ -->
-  <section class="section alt">
-    <div class="container">
-      <p class="section-label">Déroulé pédagogique</p>
-      <h2 class="section-title">Les 4 modules de la formation</h2>
-      <p class="section-lead">Progression logique de la prise en main du logiciel jusqu'aux déclarations sociales.</p>
-      <div class="prog-grid">
-        <div class="module-card">
-          <div class="module-header">
-            <div class="module-num">1</div>
-            <div class="module-time">2 heures</div>
-          </div>
-          <div class="module-title">Présentation et paramétrage</div>
-          <ul class="module-list">
-            <li>Présentation de l'interface SILAE</li>
-            <li>Création d'un dossier entreprise</li>
-            <li>Paramétrage des conventions collectives</li>
-            <li>Configuration des organismes (URSSAF, retraite, prévoyance)</li>
-          </ul>
-        </div>
-        <div class="module-card">
-          <div class="module-header">
-            <div class="module-num">2</div>
-            <div class="module-time">2 heures</div>
-          </div>
-          <div class="module-title">Création et gestion des salariés</div>
-          <ul class="module-list">
-            <li>Création d'un dossier salarié</li>
-            <li>Paramétrage du contrat et du statut</li>
-            <li>Saisie des variables de paie</li>
-            <li>Gestion des éléments récurrents</li>
-          </ul>
-        </div>
-        <div class="module-card">
-          <div class="module-header">
-            <div class="module-num">3</div>
-            <div class="module-time">2 heures</div>
-          </div>
-          <div class="module-title">Établissement des bulletins</div>
-          <ul class="module-list">
-            <li>Calcul et contrôle du bulletin de paie</li>
-            <li>Vérification des cotisations sociales</li>
-            <li>Gestion des absences (maladie, CP)</li>
-            <li>Saisie des primes et heures supplémentaires</li>
-          </ul>
-        </div>
-        <div class="module-card">
-          <div class="module-header">
-            <div class="module-num">4</div>
-            <div class="module-time">1 heure</div>
-          </div>
-          <div class="module-title">Déclarations et fin de contrat</div>
-          <ul class="module-list">
-            <li>Génération de la DSN mensuelle</li>
-            <li>Contrôle des données déclarées</li>
-            <li>Opérations de fin de contrat</li>
-            <li>Établissement du solde de tout compte</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div class="card-block">
-          <h3>Méthodes pédagogiques</h3>
-          <ul>
-            <li>Apports théoriques ciblés</li>
-            <li>Démonstration en direct sur SILAE</li>
-            <li>Cas pratiques sur données réelles</li>
-            <li>Mises en situation professionnelles</li>
-            <li>Questions / réponses personnalisées</li>
-          </ul>
-        </div>
-        <div class="card-block">
-          <h3>Moyens techniques</h3>
-          <ul>
-            <li>Support pédagogique numérique remis au stagiaire</li>
-            <li>Accès au logiciel SILAE (démo ou environnement client)</li>
-            <li>Ordinateur individuel (présentiel)</li>
-            <li>Outil de visioconférence sécurisé (distanciel)</li>
-            <li>Assistance technique si formation à distance</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÉVALUATION & TARIF -->
-  <section class="section">
-    <div class="container">
-      <div class="two-col" style="margin-bottom:3rem;">
-        <div class="card-block">
-          <h3>Modalités d'évaluation</h3>
-          <ul>
-            <li>QCM de validation des acquis en fin de journée</li>
-            <li>Cas pratique final sur SILAE</li>
-            <li>Évaluation de satisfaction à chaud</li>
-            <li>Attestation de fin de formation remise à l'issue</li>
-          </ul>
-        </div>
-        <div class="card-block">
-          <h3>Tarif</h3>
-          <div class="tarif-wrap" style="margin-top:0.5rem;">
-            <div class="tarif-price">
-              <div class="tarif-amount">450 €</div>
-              <div class="tarif-ttc">TTC</div>
-              <div class="tarif-person">par personne</div>
-            </div>
-            <div class="tarif-detail">
-              <ul>
-                <li>Formation inter-entreprise : tarif affiché</li>
-                <li>Intra-entreprise : sur devis</li>
-                <li>Paiement par virement ou chèque</li>
-                <li>Réponse sous 48h ouvrées</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tarif-intra">Pour un devis intra-entreprise : <a href="mailto:formation@alfred-gory.fr" style="color:var(--accent-dark);">formation@alfred-gory.fr</a></div>
-        </div>
-      </div>
-
-      <!-- PSH -->
-      <div class="psh-box">
-        <h3>Accessibilité — Personnes en situation de handicap</h3>
-        <p>Le Cabinet Alfred Gory s'engage à garantir l'accessibilité de ses formations aux personnes en situation de handicap. Chaque situation fait l'objet d'une analyse individualisée afin de proposer des adaptations pédagogiques, techniques et organisationnelles.</p>
-        <p>Selon les besoins identifiés, les adaptations peuvent inclure : aménagement des supports, adaptation du rythme, reformulation des consignes, supports visuels renforcés, séquençage des apprentissages, ajustement des horaires.</p>
-        <p>Toute demande d'adaptation doit être formulée au moins <strong>5 jours ouvrés avant le début de la formation</strong>.</p>
-        <div class="psh-contact">
-          <span style="font-size:0.85rem; color:#374151;"><strong>Référent handicap :</strong> M. Sabri GORY</span>
-          <a href="tel:0186044857" class="psh-pill">01.86.04.48.57</a>
-          <a href="mailto:secretariat@alfred-gory.fr" class="psh-pill">secretariat@alfred-gory.fr</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODALITÉS D'INSCRIPTION -->
+  <!-- PROCÉDURE D'INSCRIPTION -->
   <section class="section" id="inscription">
     <div class="container">
-      <p class="section-label">Comment s'inscrire</p>
+      <span class="section-label">Procédure</span>
       <h2 class="section-title">Procédure d'inscription</h2>
       <p class="section-lead">Votre inscription est confirmée après validation de votre dossier. Délai d'accès : <strong>5 jours ouvrés minimum</strong> après réception du dossier complet.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem;">
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;position:relative;">
-          <div style="width:2rem;height:2rem;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-bottom:1rem;">1</div>
-          <h3 style="font-size:1rem;color:var(--primary);margin-bottom:0.5rem;">Analyse du besoin</h3>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">Remplissez le formulaire ci-dessous (stagiaire ou entreprise). Nous accusons réception sous <strong>48h ouvrées</strong>.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:3rem;">
+        <div style="background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="width:36px;height:36px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">1</div>
+          <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Remplissez le formulaire</div>
+          <div style="font-size:0.82rem;color:var(--muted);">Stagiaire, entreprise ou fiche handicap selon votre situation</div>
         </div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;">
-          <div style="width:2rem;height:2rem;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-bottom:1rem;">2</div>
-          <h3 style="font-size:1rem;color:var(--primary);margin-bottom:0.5rem;">Positionnement</h3>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">Un questionnaire de positionnement vous est adressé par email pour valider vos prérequis et adapter le contenu à votre niveau.</p>
+        <div style="background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="width:36px;height:36px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">2</div>
+          <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Réponse sous 48h</div>
+          <div style="font-size:0.82rem;color:var(--muted);">Nous accusons réception et vous adressons un devis ou une convention</div>
         </div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;">
-          <div style="width:2rem;height:2rem;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-bottom:1rem;">3</div>
-          <h3 style="font-size:1rem;color:var(--primary);margin-bottom:0.5rem;">Convention &amp; devis</h3>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">Envoi de la convention de formation et du devis. Signature par email (ou courrier). Paiement par virement ou chèque à réception.</p>
+        <div style="background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="width:36px;height:36px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">3</div>
+          <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Signature &amp; règlement</div>
+          <div style="font-size:0.82rem;color:var(--muted);">Convention signée + paiement par virement ou chèque</div>
         </div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;">
-          <div style="width:2rem;height:2rem;background:var(--accent-dark);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;margin-bottom:1rem;">4</div>
-          <h3 style="font-size:1rem;color:var(--primary);margin-bottom:0.5rem;">Entrée en formation</h3>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">Confirmation de la date, convocation envoyée 5 jours ouvrés avant le début. Accueil et émargement le jour J.</p>
+        <div style="background:var(--bg-warm);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:1.2rem;text-align:center;">
+          <div style="width:36px;height:36px;background:var(--accent-dark);color:var(--primary-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">4</div>
+          <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Formation planifiée</div>
+          <div style="font-size:0.82rem;color:var(--muted);">Date confirmée dans un délai de 5 jours ouvrés minimum</div>
         </div>
       </div>
-      <p style="font-size:0.82rem;color:var(--muted);margin-top:1.5rem;text-align:center;">Pour toute demande urgente ou situation particulière, contactez-nous directement : <a href="mailto:formation@alfred-gory.fr" style="color:var(--accent-dark);">formation@alfred-gory.fr</a> · <a href="tel:0186044857" style="color:var(--accent-dark);">01.86.04.48.57</a></p>
     </div>
   </section>
 
-  <!-- ANALYSE DES BESOINS -->
+  <!-- FORMULAIRES -->
   <section class="section alt" id="analyse-besoins">
     <div class="container">
-      <p class="section-label">Avant de vous inscrire</p>
+      <span class="section-label">Avant de vous inscrire</span>
       <h2 class="section-title">Analyse de vos besoins</h2>
       <p class="section-lead">Remplissez le formulaire correspondant à votre situation. Nous vous recontacterons sous 48h ouvrées pour confirmer votre inscription et adapter la formation à vos besoins.</p>
 
-      <div class="form-tabs">
+      <div class="form-tabs" id="form-tabs">
         <button class="form-tab active" onclick="switchTab('stagiaire', this)">Je suis un stagiaire / particulier</button>
         <button class="form-tab" onclick="switchTab('entreprise', this)">Je représente une entreprise</button>
         <button class="form-tab" onclick="switchTab('accessibilite', this)">Fiche d'adaptation handicap</button>
@@ -648,7 +428,7 @@
           </div>
           <div style="background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--accent-dark);border-radius:8px;padding:0.9rem 1.2rem;margin:0.8rem 0;font-size:0.83rem;color:var(--muted);line-height:1.7;">
             <strong style="color:var(--primary);">Besoin d'une fiche d'adaptation complète ?</strong>
-            Accédez à notre <a href="#" onclick="document.querySelectorAll('.tab-btn')[2].click();window.scrollTo({top:document.querySelector('#form-tabs').offsetTop-100,behavior:'smooth'});return false;" style="color:var(--accent-dark);font-weight:600;">Fiche d'adaptation handicap →</a>
+            Accédez à notre <a href="#" onclick="switchTab('accessibilite', document.querySelectorAll('.form-tab')[2]);window.scrollTo({top:document.querySelector('#form-tabs').offsetTop-100,behavior:'smooth'});return false;" style="color:var(--accent-dark);font-weight:600;">Fiche d'adaptation handicap →</a>
             ou consultez notre <a href="accessibilite.html" style="color:var(--accent-dark);">page Accessibilité</a>.
           </div>
           <div class="form-row">
@@ -888,7 +668,7 @@
           </div>
           <div style="background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--accent-dark);border-radius:8px;padding:0.9rem 1.2rem;margin:0.8rem 0;font-size:0.83rem;color:var(--muted);line-height:1.7;">
             <strong style="color:var(--primary);">Besoin d'une fiche d'adaptation complète ?</strong>
-            Accédez à notre <a href="#" onclick="document.querySelectorAll('.tab-btn')[2].click();window.scrollTo({top:document.querySelector('#form-tabs').offsetTop-100,behavior:'smooth'});return false;" style="color:var(--accent-dark);font-weight:600;">Fiche d'adaptation handicap →</a>
+            Accédez à notre <a href="#" onclick="switchTab('accessibilite', document.querySelectorAll('.form-tab')[2]);window.scrollTo({top:document.querySelector('#form-tabs').offsetTop-100,behavior:'smooth'});return false;" style="color:var(--accent-dark);font-weight:600;">Fiche d'adaptation handicap →</a>
             ou consultez notre <a href="accessibilite.html" style="color:var(--accent-dark);">page Accessibilité</a>.
           </div>
 
@@ -901,6 +681,8 @@
           <h3>Formulaire reçu — Merci !</h3>
           <p>Votre analyse de besoin a bien été transmise. Nous vous adresserons sous <strong>48 heures ouvrées</strong> une convention ou un devis de formation adapté à vos besoins, que vous pourrez signer et nous retourner.</p>
         </div>
+      </div>
+
       <!-- PANEL ACCESSIBILITÉ -->
       <div class="form-panel" id="panel-accessibilite">
         <div class="form-intro">
@@ -983,8 +765,8 @@
             <div class="form-group">
               <label>Avez-vous déjà bénéficié d'aménagements de formation par le passé ?</label>
               <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="aménagements_anterieurs" id="psh_ant1" value="Oui" /><label for="psh_ant1">Oui</label></div>
-                <div class="radio-pill"><input type="radio" name="aménagements_anterieurs" id="psh_ant2" value="Non" /><label for="psh_ant2">Non</label></div>
+                <div class="radio-pill"><input type="radio" name="amenagements_anterieurs" id="psh_ant1" value="Oui" /><label for="psh_ant1">Oui</label></div>
+                <div class="radio-pill"><input type="radio" name="amenagements_anterieurs" id="psh_ant2" value="Non" /><label for="psh_ant2">Non</label></div>
               </div>
             </div>
           </div>
@@ -1019,79 +801,62 @@
     </div>
   </section>
 
-  <!-- SAV / SUIVI POST-FORMATION -->
-  <section class="section" id="sav">
-    <div class="container">
-      <p class="section-label">Après la formation</p>
-      <h2 class="section-title">Suivi & <span>accompagnement post-formation</span></h2>
-      <p class="section-lead">La formation ne s'arrête pas à la remise de l'attestation. Le Cabinet Alfred Gory reste disponible après votre journée de formation pour vous accompagner dans la prise en main de SILAE au quotidien.</p>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-bottom:2rem;">
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;">
-          <div style="font-size:1.5rem;margin-bottom:0.8rem;">💬</div>
-          <h3 style="font-size:1rem;color:var(--primary);margin-bottom:0.5rem;">Questions post-formation</h3>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">Vous avez une question sur un point abordé en formation ? Un doute sur un paramétrage dans SILAE ? Contactez-nous par email — nous vous répondons sous <strong>48h ouvrées</strong>.</p>
-        </div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;">
-          <div style="font-size:1.5rem;margin-bottom:0.8rem;">📚</div>
-          <h3 style="font-size:1rem;color:var(--primary);margin-bottom:0.5rem;">Ressources remises</h3>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">Le support pédagogique numérique vous est remis à l'issue de la formation. Il constitue une référence durable pour retrouver les procédures et paramétrages vus pendant la journée.</p>
-        </div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;">
-          <div style="font-size:1.5rem;margin-bottom:0.8rem;">⭐</div>
-          <h3 style="font-size:1rem;color:var(--primary);margin-bottom:0.5rem;">Évaluation à froid</h3>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">Un questionnaire de satisfaction à froid vous est adressé <strong>30 jours après la formation</strong> pour évaluer le transfert des compétences acquises dans votre pratique professionnelle.</p>
-        </div>
-        <div style="background:#fff;border:1px solid var(--border);border-left:3px solid var(--accent-dark);border-radius:12px;padding:1.75rem;">
-          <div style="font-size:1.5rem;margin-bottom:0.8rem;">🔄</div>
-          <h3 style="font-size:1rem;color:var(--primary);margin-bottom:0.5rem;">Formations complémentaires</h3>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">En cas de besoin identifié (évolution réglementaire, nouvelles fonctionnalités SILAE, approfondissement d'un module), nous pouvons proposer un accompagnement personnalisé sur devis.</p>
-        </div>
-      </div>
-
-      <div style="background:var(--primary);border-radius:14px;padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
-        <div>
-          <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:0.4rem;">Service après formation</div>
-          <div style="font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:0.3rem;">Une question après votre formation ?</div>
-          <div style="font-size:0.85rem;color:rgba(255,255,255,0.7);">Nous sommes disponibles pour des explications complémentaires. Réponse sous 48h ouvrées.</div>
-        </div>
-        <a href="mailto:formation@alfred-gory.fr" style="display:inline-block;background:var(--accent-dark);color:#fff;padding:0.8rem 1.8rem;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;flex-shrink:0;">formation@alfred-gory.fr</a>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
+    <div class="footer-top">
       <div>
-        <div class="footer-name">Cabinet Alfred Gory</div>
-        <p class="footer-desc">Organisme de formation professionnelle spécialisé dans la gestion de la paie et le logiciel SILAE. Interventions en présentiel (Taverny, 95) et en classe virtuelle partout en France.</p>
-        <p style="font-size:0.82rem; color:rgba(255,255,255,0.55);">10–12 rue Condorcet — 95150 Taverny<br>SIREN : 891 446 825 · NDA : 11951022295<br><em>Cet enregistrement ne vaut pas agrément de l'État.</em></p>
+        <div class="footer-logo">Cabinet <span>Alfred Gory</span></div>
+        <p class="footer-desc">Organisme de formation professionnelle spécialisé en logiciel SILAE et gestion de la paie. Interventions en présentiel (Taverny, 95) et en classe virtuelle. NDA 11951022295.</p>
+        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Adresse</span><span>10-12 rue Condorcet, 95150 Taverny</span></div>
+        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Email</span><span>formation@alfred-gory.fr</span></div>
+        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Délai</span><span>Réponse sous 48h ouvrées</span></div>
+        <div class="footer-badges">
+          <span class="footer-badge">NDA 11951022295</span>
+          <span class="footer-badge">Présentiel · Classe virtuelle</span>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
         <a href="index.html">Accueil</a>
         <a href="formations.html">Formation SILAE</a>
-        <a href="financement.html">Financement</a>
-        <a href="accessibilite.html">Accessibilité</a>
+        <a href="inscription.html">Inscription</a>
+        <a href="financement.html">Paiement</a>
+        <a href="cabinet.html">Le cabinet</a>
         <a href="satisfaction.html">Satisfaction</a>
+        <a href="accessibilite.html">Accessibilité</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
         <a href="reglement-interieur.html">Règlement intérieur</a>
+        <a href="conditions-generales.html">Conditions générales de vente</a>
         <a href="mentions-legales.html">Mentions légales</a>
-        <a href="conditions-generales.html">CGV</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="tel:0186044857">01.86.04.48.57</a>
         <a href="mailto:formation@alfred-gory.fr">formation@alfred-gory.fr</a>
-        <p>Réponse sous 48h ouvrées</p>
+        <a href="mailto:secretariat@alfred-gory.fr">secretariat@alfred-gory.fr</a>
+        <a href="contact.html">Formulaire de contact</a>
       </div>
     </div>
+    <div class="footer-mention">
+      Cabinet Alfred Gory — Organisme de formation professionnelle enregistré sous le numéro de déclaration d'activité <strong style="color:rgba(255,255,255,0.5);">11951022295</strong> auprès du Préfet de région d'Île-de-France, conformément aux articles L.6351-1 et suivants du Code du travail. Cet enregistrement ne vaut pas agrément de l'État (article L.6352-13 CT). SIRET : <strong style="color:rgba(255,255,255,0.5);">89144682500020</strong>. Siège social : 10-12 rue Condorcet, 95150 Taverny. Hébergeur : GitHub Inc., San Francisco, CA, États-Unis.
+    </div>
     <div class="footer-bottom">
-      © 2026 Cabinet Alfred Gory — SAS — Tous droits réservés
+      <p>© 2026 Cabinet Alfred Gory — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="mentions-legales.html#rgpd">Politique de confidentialité</a>
+        <a href="conditions-generales.html">CGV</a>
+      </div>
     </div>
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
     function switchTab(tabId, btn) {
       document.querySelectorAll('.form-tab').forEach(function(t){ t.classList.remove('active'); });
       document.querySelectorAll('.form-panel').forEach(function(p){ p.classList.remove('active'); });
@@ -1099,7 +864,6 @@
       document.getElementById('panel-' + tabId).classList.add('active');
     }
 
-    // Gestion soumission formulaires
     ['form-stagiaire', 'form-entreprise', 'form-accessibilite'].forEach(function(id) {
       var form = document.getElementById(id);
       if (!form) return;

@@ -57,7 +57,13 @@
     footer{background:var(--primary-dark);color:rgba(255,255,255,0.65);padding:2rem;text-align:center;font-size:0.8rem}
     footer a{color:var(--accent-dark);text-decoration:none}
     footer p+p{margin-top:0.5rem}
-  </style>
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--primary); border-radius: 2px; transition: 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 2000; flex-direction: column; align-items: center; justify-content: center; gap: 1.8rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.25rem; color: var(--primary); font-family: 'Playfair Display', serif; text-decoration: none; font-weight: 600; }
+    .mobile-menu a:hover { color: var(--accent-dark); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--primary); }  </style>
 </head>
 <body>
 
@@ -75,14 +81,25 @@
   <a class="logo" href="index.html">Cabinet <span>Alfred Gory</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Accueil</a></li>
-    <li><a href="formations.html">Formation SILAE</a></li>
+    <li><a href="formations.html">Formation</a></li>
+    <li><a href="inscription.html">Inscription</a></li>
     <li><a href="financement.html" class="active">Paiement</a></li>
-    <li><a href="accessibilite.html">Accessibilité</a></li>
-    <li><a href="reglement-interieur.html">Règlement intérieur</a></li>
+    <li><a href="cabinet.html">Le cabinet</a></li>
     <li><a href="satisfaction.html">Satisfaction</a></li>
-    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li>
-  </ul>
+    <li><a href="accessibilite.html">Accessibilité</a></li>
+    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li></ul>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="index.html" onclick="toggleMenu()">Accueil</a>
+  <a href="formations.html" onclick="toggleMenu()">Formation</a>
+  <a href="inscription.html" onclick="toggleMenu()">Inscription</a>
+  <a href="financement.html" onclick="toggleMenu()">Paiement</a>
+  <a href="cabinet.html" onclick="toggleMenu()">Le cabinet</a>
+  <a href="satisfaction.html" onclick="toggleMenu()">Satisfaction</a>
+  <a href="accessibilite.html" onclick="toggleMenu()">Accessibilité</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+</div>
 
 <div class="page-hero">
   <div style="max-width:900px;margin:0 auto">
