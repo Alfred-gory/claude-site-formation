@@ -257,7 +257,7 @@
     <div class="container">
       <span class="section-label">Procédure</span>
       <h2 class="section-title">Procédure d'inscription</h2>
-      <p class="section-lead">Votre inscription est confirmée après validation de votre dossier. Délai d'accès : <strong>5 jours ouvrés minimum</strong> après réception du dossier complet.</p>
+      <p class="section-lead">Votre inscription est confirmée après validation de votre dossier. Délai d'accès : <strong>15 jours après réception de la demande initiale</strong> après réception du dossier complet.</p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:3rem;">
         <div style="background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
@@ -278,7 +278,7 @@
         <div style="background:var(--bg-warm);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:1.2rem;text-align:center;">
           <div style="width:36px;height:36px;background:var(--accent-dark);color:var(--primary-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">4</div>
           <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Formation planifiée</div>
-          <div style="font-size:0.82rem;color:var(--muted);">Date confirmée dans un délai de 5 jours ouvrés minimum</div>
+          <div style="font-size:0.82rem;color:var(--muted);">Date confirmée dans un délai de 15 jours après réception de la demande initiale</div>
         </div>
       </div>
     </div>
@@ -717,33 +717,7 @@
             </div>
           </div>
 
-          <div class="form-section-title">2. Nature du besoin d'adaptation</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Type de handicap (sans obligation de préciser le diagnostic médical)</label>
-              <div class="check-group">
-                <div class="check-pill"><input type="checkbox" name="type_handicap[]" id="psh_t1" value="Visuel" /><label for="psh_t1">Visuel</label></div>
-                <div class="check-pill"><input type="checkbox" name="type_handicap[]" id="psh_t2" value="Auditif" /><label for="psh_t2">Auditif</label></div>
-                <div class="check-pill"><input type="checkbox" name="type_handicap[]" id="psh_t3" value="Moteur" /><label for="psh_t3">Moteur</label></div>
-                <div class="check-pill"><input type="checkbox" name="type_handicap[]" id="psh_t4" value="Cognitif / psychique" /><label for="psh_t4">Cognitif / psychique</label></div>
-                <div class="check-pill"><input type="checkbox" name="type_handicap[]" id="psh_t5" value="Maladie chronique" /><label for="psh_t5">Maladie chronique</label></div>
-                <div class="check-pill"><input type="checkbox" name="type_handicap[]" id="psh_t6" value="Autre / non précisé" /><label for="psh_t6">Autre / non précisé</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Disposez-vous d'une RQTH (Reconnaissance Qualité Travailleur Handicapé) ?</label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth1" value="Oui" /><label for="psh_rqth1">Oui</label></div>
-                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth2" value="Non" /><label for="psh_rqth2">Non</label></div>
-                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth3" value="En cours" /><label for="psh_rqth3">En cours</label></div>
-              </div>
-              <span class="hint">La RQTH n'est pas obligatoire pour bénéficier d'aménagements.</span>
-            </div>
-          </div>
-
-          <div class="form-section-title">3. Aménagements souhaités</div>
+          <div class="form-section-title">2. Aménagements souhaités</div>
           <div class="form-row">
             <div class="form-group">
               <label>Quels types d'aménagements vous seraient utiles ?</label>
@@ -773,7 +747,18 @@
             </div>
           </div>
 
-          <div class="form-section-title">4. Préférences de contact</div>
+          <div class="form-section-title">3. Préférences de contact</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Disposez-vous d'une RQTH (Reconnaissance Qualité Travailleur Handicapé) ?</label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth1" value="Oui" /><label for="psh_rqth1">Oui</label></div>
+                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth2" value="Non" /><label for="psh_rqth2">Non</label></div>
+                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth3" value="En cours" /><label for="psh_rqth3">En cours</label></div>
+              </div>
+              <span class="hint">La RQTH n'est pas obligatoire pour bénéficier d'aménagements.</span>
+            </div>
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label>Souhaitez-vous un entretien avec notre référent handicap avant la formation ? <span class="req">*</span></label>
