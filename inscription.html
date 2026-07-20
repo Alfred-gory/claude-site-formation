@@ -1,879 +1,728 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inscription — Formation SILAE | Cabinet Alfred Gory</title>
-  <meta name="description" content="Inscrivez-vous à la formation SILAE 7h du Cabinet Alfred Gory. Formulaire stagiaire, entreprise ou fiche d'adaptation handicap. Réponse sous 48h." />
-  <link rel="canonical" href="https://www.alfred-gory.com/inscription.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Inscription — Formation SILAE &amp; Titre Pro | Cabinet Alfred Gory</title>
+  <meta name="description" content="Inscrivez-vous à la formation SILAE 7h ou au Titre Pro Gestionnaire de Paie. Formulaire stagiaire, entreprise ou fiche d'adaptation handicap. Réponse sous 48h."/>
+  <link rel="canonical" href="https://www.alfred-gory.com/inscription.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
   <style>
-    :root {
-      --primary:      #1e3a5f;
-      --primary-dark: #0f1e35;
-      --primary-mid:  #2d5a8e;
-      --accent-dark:  #c9a84c;
-      --bg-warm:      #f7f5f1;
-      --bg-alt:       #f8fafc;
-      --text:         #1e293b;
-      --muted:        #64748b;
-      --border:       #e2e8f0;
-      --shadow:       0 4px 24px rgba(30,58,95,0.10);
-      --shadow-lg:    0 12px 40px rgba(30,58,95,0.15);
+    /* TABS */
+    .form-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:2rem}
+    .form-tab{padding:.8rem 1.8rem;background:none;border:none;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;color:var(--slate);cursor:pointer;position:relative;transition:color .2s}
+    .form-tab.active{color:var(--navy)}
+    .form-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--gold)}
+    .form-panel{display:none}
+    .form-panel.active{display:block}
+    /* FORM ELEMENTS */
+    .form-intro{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.4rem;margin-bottom:2rem;font-size:.84rem;color:var(--navy)}
+    .form-section-title{font-weight:700;color:var(--navy);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;margin:2rem 0 1rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+    .form-row{display:grid;gap:1rem;margin-bottom:1rem}
+    .form-row.cols2{grid-template-columns:1fr 1fr}
+    .form-group{display:flex;flex-direction:column;gap:.35rem}
+    .form-group label{font-size:.8rem;font-weight:600;color:var(--navy)}
+    .form-group label .req{color:#e11d48}
+    .form-group input,.form-group select,.form-group textarea{border:1.5px solid var(--border);border-radius:8px;padding:.6rem .9rem;font-size:.88rem;font-family:'Inter',sans-serif;color:var(--navy);background:#fff;width:100%;transition:border-color .2s}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--navy)}
+    .form-group textarea{resize:vertical;min-height:80px}
+    .form-group .hint{font-size:.72rem;color:var(--slate)}
+    .radio-group,.check-group{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.2rem}
+    .radio-pill input,.check-pill input{display:none}
+    .radio-pill label,.check-pill label{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .9rem;border:1.5px solid var(--border);border-radius:50px;font-size:.8rem;cursor:pointer;transition:all .2s;color:var(--navy)}
+    .radio-pill input:checked+label,.check-pill input:checked+label{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .scale-group{display:flex;gap:.5rem;margin-top:.3rem}
+    .scale-group input{display:none}
+    .scale-group label{width:40px;height:40px;border:1.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;color:var(--slate)}
+    .scale-group input:checked+label{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .form-submit{margin-top:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+    .form-submit button{background:var(--navy);color:#fff;border:none;padding:.85rem 2.2rem;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s}
+    .form-submit button:hover{background:var(--gold)}
+    .form-gdpr{font-size:.72rem;color:var(--slate);max-width:420px}
+    .form-hint-box{background:var(--cream);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:8px;padding:.9rem 1.2rem;margin:.8rem 0;font-size:.82rem;color:var(--slate);line-height:1.7}
+    @media(max-width:600px){
+      .form-row.cols2{grid-template-columns:1fr}
+      .form-tabs{flex-direction:column;border-bottom:none;gap:.5rem}
+      .form-tab{border:1.5px solid var(--border);border-radius:8px}
+      .form-tab.active{background:var(--navy);color:#fff}
+      .form-tab.active::after{display:none}
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.7; }
-
-    /* TOPBAR */
-    #topbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
-      background: var(--primary-dark);
-      border-bottom: 1px solid rgba(201,168,76,0.25);
-      height: 30px; display: flex; align-items: center; justify-content: center;
-    }
-    #topbar-inner {
-      display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; gap: 0 0.8rem; padding: 0.35rem 1rem;
-      font-size: 0.72rem; white-space: nowrap;
-    }
-    .tb-item { color: rgba(255,255,255,0.7); font-weight: 500; }
-    .tb-sep { color: rgba(201,168,76,0.5); font-size: 0.6rem; }
-    .tb-link { color: var(--accent-dark); font-weight: 700; text-decoration: none; }
-    .tb-link:hover { color: #f59e0b; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 30px; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      height: 68px; display: flex; align-items: center;
-      justify-content: space-between; padding: 0 2rem;
-    }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-    .logo span { color: var(--accent-dark); }
-    .nav-links { display: flex; gap: 0; list-style: none; align-items: center; }
-    .nav-links a {
-      color: var(--muted); font-size: 0.8rem; font-weight: 500;
-      text-decoration: none; transition: color 0.2s;
-      padding: 0.5rem 0.9rem; position: relative; letter-spacing: 0.03em;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: 0; left: 0.9rem; right: 0.9rem;
-      height: 2px; background: var(--accent-dark);
-      transform: scaleX(0); transition: transform 0.25s;
-    }
-    .nav-links a:hover { color: var(--primary); }
-    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-    .nav-links a.active { color: var(--primary); font-weight: 700; }
-    .nav-cta {
-      background: var(--accent-dark); color: #fff !important;
-      padding: 0.6rem 1.3rem; border-radius: 6px;
-      font-size: 0.8rem; font-weight: 700; text-decoration: none;
-      transition: all 0.2s; letter-spacing: 0.04em;
-    }
-    .nav-cta:hover { background: #f59e0b !important; }
-    .nav-cta::after { display: none !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { width: 22px; height: 2px; background: var(--primary); border-radius: 2px; }
-    @media(max-width:900px){
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      nav { padding: 0 1.5rem; height: 60px; }
-    }
-
-    /* MOBILE MENU */
-    .mobile-menu {
-      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
-      z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 1.2rem; color: var(--primary); font-family: 'Playfair Display', serif; text-decoration: none; font-weight: 600; }
-    .mobile-menu a:hover { color: var(--accent-dark); }
-    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
-
-    /* HERO PAGE */
-    .page-hero {
-      padding: 7rem 2rem 4rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
-      color: #fff;
-    }
-    .page-hero-inner { max-width: 1100px; margin: 0 auto; }
-    .hero-badge {
-      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
-      color: var(--accent-dark); border-radius: 50px;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.3rem 0.9rem; margin-bottom: 1.2rem; display: inline-block;
-    }
-    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
-    .page-hero h1 em { color: var(--accent-dark); font-style: normal; }
-    .page-hero p { color: rgba(255,255,255,0.8); font-size: 1rem; max-width: 560px; margin-bottom: 1.5rem; }
-
-    /* SECTIONS */
-    .section { padding: 5rem 2rem; }
-    .section.alt { background: var(--bg-warm); }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-dark); margin-bottom: 0.5rem; display: block; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--primary); margin-bottom: 1rem; font-weight: 700; }
-    .section-lead { color: var(--muted); max-width: 700px; margin-bottom: 2.5rem; }
-
-    /* TABS FORMULAIRES */
-    .form-tabs { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--border); }
-    .form-tab { padding: 0.8rem 1.8rem; background: none; border: none; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--muted); cursor: pointer; position: relative; transition: color 0.2s; }
-    .form-tab.active { color: var(--primary); }
-    .form-tab.active::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--accent-dark); }
-    .form-panel { display: none; }
-    .form-panel.active { display: block; }
-
-    .form-intro { background: #f0f4f8; border-radius: 10px; padding: 1rem 1.4rem; margin-bottom: 2rem; font-size: 0.85rem; color: #374151; }
-    .form-intro strong { color: var(--primary); }
-
-    .form-section-title { font-weight: 700; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 2rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
-    .form-row { display: grid; gap: 1rem; margin-bottom: 1rem; }
-    .form-row.cols2 { grid-template-columns: 1fr 1fr; }
-    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
-    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--primary); }
-    .form-group label .req { color: #e11d48; }
-    .form-group input, .form-group select, .form-group textarea {
-      border: 1.5px solid var(--border); border-radius: 8px; padding: 0.6rem 0.9rem; font-size: 0.9rem; font-family: 'Inter', sans-serif; color: var(--text); background: #fff; width: 100%; transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); }
-    .form-group textarea { resize: vertical; min-height: 80px; }
-    .form-group .hint { font-size: 0.75rem; color: var(--muted); }
-
-    .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.2rem; }
-    .radio-pill input, .check-pill input { display: none; }
-    .radio-pill label, .check-pill label {
-      display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; border: 1.5px solid var(--border); border-radius: 50px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; color: var(--text);
-    }
-    .radio-pill input:checked + label, .check-pill input:checked + label {
-      background: var(--primary); color: #fff; border-color: var(--primary);
-    }
-    .scale-group { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
-    .scale-group input { display: none; }
-    .scale-group label { width: 40px; height: 40px; border: 1.5px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.2s; color: var(--muted); }
-    .scale-group input:checked + label { background: var(--primary); color: #fff; border-color: var(--primary); }
-
-    .form-submit { margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-    .form-submit button { background: var(--primary); color: #fff; border: none; padding: 0.85rem 2.2rem; border-radius: 8px; font-size: 0.95rem; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; }
-    .form-submit button:hover { background: var(--accent-dark); }
-    .form-gdpr { font-size: 0.75rem; color: var(--muted); max-width: 420px; }
-    .form-success { display: none; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 1.4rem 1.8rem; color: #15803d; }
-    .form-success h3 { margin-bottom: 0.5rem; }
-
-    @media (max-width: 600px) {
-      .form-row.cols2 { grid-template-columns: 1fr; }
-      .form-tabs { flex-direction: column; border-bottom: none; gap: 0.5rem; }
-      .form-tab { border: 1.5px solid var(--border); border-radius: 8px; }
-      .form-tab.active { background: var(--primary); color: #fff; }
-      .form-tab.active::after { display: none; }
-    }
-
-    /* FOOTER */
-    footer { background: var(--primary-dark); }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
-      padding: 4rem 3rem 3rem; max-width: 1200px; margin: 0 auto;
-    }
-    @media(max-width:900px){ .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; } }
-    @media(max-width:560px){ .footer-top { grid-template-columns: 1fr; } }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #fff; margin-bottom: 0.8rem; }
-    .footer-logo span { color: var(--accent-dark); }
-    .footer-desc { color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.8; margin-bottom: 1.2rem; }
-    .footer-contact-line { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); font-size: 0.82rem; margin-bottom: 0.4rem; }
-    .footer-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
-    .footer-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25); color: var(--accent-dark); font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; }
-    .footer-col h4 { color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .footer-col a { display: block; color: rgba(255,255,255,0.5); font-size: 0.82rem; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--accent-dark); }
-    .footer-mention { max-width: 1200px; margin: 0 auto; padding: 1.2rem 3rem; font-size: 0.72rem; color: rgba(255,255,255,0.25); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.06); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1200px; margin: 0 auto; }
-    .footer-bottom p, .footer-bottom a { color: rgba(255,255,255,0.3); font-size: 0.75rem; text-decoration: none; }
-    .footer-bottom a:hover { color: var(--accent-dark); }
-    .footer-legal { display: flex; gap: 1.5rem; }
   </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <div id="topbar">
-    <div id="topbar-inner">
-      <span class="tb-item">Organisme de formation enregistré</span>
-      <span class="tb-sep">·</span>
-      <span class="tb-item">NDA 11951022295</span>
-      <span class="tb-sep">·</span>
-      <a href="mailto:formation@alfred-gory.fr" class="tb-link">formation@alfred-gory.fr</a>
-      <span class="tb-sep">·</span>
-      <span class="tb-item">Réponse sous 48h</span>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <div class="topbar-item">
+        <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Réponse sous 48h
+      </div>
+      <div class="topbar-item">📞 01.86.04.48.57</div>
     </div>
+    <div class="topbar-qualiopi">✦ Certifié Qualiopi — CERT_S0626_0768</div>
   </div>
+</div>
 
-  <!-- NAVIGATION -->
-  <nav id="navbar">
-    <a class="logo" href="index.html">Cabinet <span>Alfred Gory</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="formations.html">Formation</a></li>
-      <li><a href="inscription.html" class="active">Inscription</a></li>
-      <li><a href="financement.html">Paiement</a></li>
-      <li><a href="cabinet.html">Le cabinet</a></li>
-      <li><a href="satisfaction.html">Satisfaction</a></li>
-      <li><a href="accessibilite.html">Accessibilité</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-icon">AG</div>
+      <div class="nav-logo-text">Cabinet Alfred Gory<span>Organisme de formation</span></div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Accueil</a>
+      <a class="nav-link" href="formations.html">Formation SILAE</a>
+      <a class="nav-link" href="titre-pro-gestionnaire-paie.html">Titre Pro Paie</a>
+      <a class="nav-link active" href="inscription.html">Inscription</a>
+      <a class="nav-link" href="financement.html">Financement</a>
+      <a class="nav-link" href="cabinet.html">Le cabinet</a>
+      <a class="nav-link" href="contact.html">Contact</a>
     </div>
-  </nav>
-
-  <!-- MENU MOBILE -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" onclick="toggleMenu()">✕</button>
-    <a href="index.html" onclick="toggleMenu()">Accueil</a>
-    <a href="formations.html" onclick="toggleMenu()">Formation</a>
-    <a href="inscription.html" onclick="toggleMenu()">Inscription</a>
-    <a href="financement.html" onclick="toggleMenu()">Paiement</a>
-    <a href="cabinet.html" onclick="toggleMenu()">Le cabinet</a>
-    <a href="satisfaction.html" onclick="toggleMenu()">Satisfaction</a>
-    <a href="accessibilite.html" onclick="toggleMenu()">Accessibilité</a>
-    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a class="nav-cta" href="inscription.html">S'inscrire →</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="page-hero">
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <div class="nav-logo"><div class="nav-logo-icon">AG</div><div class="nav-logo-text">Cabinet Alfred Gory<span>Organisme de formation</span></div></div>
+    <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+  </div>
+  <div class="mobile-nav-links">
+    <a class="mobile-nav-link" href="index.html">Accueil</a>
+    <a class="mobile-nav-link" href="formations.html">Formation SILAE</a>
+    <a class="mobile-nav-link" href="titre-pro-gestionnaire-paie.html">Titre Pro Paie</a>
+    <a class="mobile-nav-link" href="inscription.html">Inscription</a>
+    <a class="mobile-nav-link" href="financement.html">Financement</a>
+    <a class="mobile-nav-link" href="cabinet.html">Le cabinet</a>
+    <a class="mobile-nav-link" href="accessibilite.html">Accessibilité</a>
+    <a class="mobile-nav-link" href="satisfaction.html">Satisfaction</a>
+    <a class="mobile-nav-link" href="contact.html">Contact</a>
+  </div>
+  <div class="mobile-nav-bottom"><a class="mobile-nav-cta" href="inscription.html">S'inscrire maintenant →</a></div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-geo"></div>
+  <div class="container">
     <div class="page-hero-inner">
-      <div class="hero-badge">Avant de vous inscrire</div>
-      <h1>Inscription à la <em>formation SILAE</em></h1>
+      <div class="page-hero-badge">Avant de vous inscrire</div>
+      <h1>Inscription à la <span class="accent">formation</span></h1>
       <p>Remplissez le formulaire correspondant à votre situation. Nous vous recontacterons sous 48h ouvrées pour confirmer votre inscription et adapter la formation à vos besoins.</p>
-      <a href="formations.html" style="display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.35);color:#fff;padding:0.6rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">← Voir le programme d'abord</a>
+      <div style="display:flex;gap:.75rem;margin-top:1.2rem;flex-wrap:wrap">
+        <a href="formations.html" class="btn btn-ghost">← Voir la formation SILAE</a>
+        <a href="titre-pro-gestionnaire-paie.html" class="btn btn-ghost">← Voir le Titre Pro</a>
+      </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- PROCÉDURE D'INSCRIPTION -->
-  <section class="section" id="inscription">
-    <div class="container">
-      <span class="section-label">Procédure</span>
+<!-- ÉTAPES D'INSCRIPTION -->
+<section class="section alt" id="inscription">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-eyebrow">Procédure</div>
       <h2 class="section-title">Procédure d'inscription</h2>
-      <p class="section-lead">Votre inscription est confirmée après validation de votre dossier. Délai d'accès : <strong>15 jours après réception de la demande initiale</strong> après réception du dossier complet.</p>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:3rem;">
-        <div style="background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
-          <div style="width:36px;height:36px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">1</div>
-          <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Remplissez le formulaire</div>
-          <div style="font-size:0.82rem;color:var(--muted);">Stagiaire, entreprise ou fiche handicap selon votre situation</div>
-        </div>
-        <div style="background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
-          <div style="width:36px;height:36px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">2</div>
-          <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Réponse sous 48h</div>
-          <div style="font-size:0.82rem;color:var(--muted);">Nous accusons réception et vous adressons un devis ou une convention</div>
-        </div>
-        <div style="background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;">
-          <div style="width:36px;height:36px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">3</div>
-          <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Signature &amp; règlement</div>
-          <div style="font-size:0.82rem;color:var(--muted);">Convention signée + paiement par virement ou chèque</div>
-        </div>
-        <div style="background:var(--bg-warm);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:1.2rem;text-align:center;">
-          <div style="width:36px;height:36px;background:var(--accent-dark);color:var(--primary-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 0.8rem;font-family:'Playfair Display',serif;">4</div>
-          <div style="font-weight:700;color:var(--primary);font-size:0.9rem;margin-bottom:0.4rem;">Formation planifiée</div>
-          <div style="font-size:0.82rem;color:var(--muted);">Date confirmée dans un délai de 15 jours après réception de la demande initiale</div>
-        </div>
+      <p class="section-sub">Votre inscription est confirmée après validation de votre dossier. La date de session est fixée d'un commun accord après signature de la convention.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card active reveal reveal-delay-1">
+        <div class="step-num">01</div>
+        <div class="step-name">Remplissez le formulaire</div>
+        <div class="step-detail">Stagiaire, entreprise ou fiche handicap selon votre situation.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">02</div>
+        <div class="step-name">Réponse sous 48h</div>
+        <div class="step-detail">Nous accusons réception et vous adressons un devis ou une convention de formation.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num">03</div>
+        <div class="step-name">Signature &amp; règlement</div>
+        <div class="step-detail">Convention signée et paiement par virement ou chèque.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-4">
+        <div class="step-num">04</div>
+        <div class="step-name">Formation planifiée</div>
+        <div class="step-detail">Date fixée d'un commun accord après signature, selon vos disponibilités.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FORMULAIRES -->
-  <section class="section alt" id="analyse-besoins">
-    <div class="container">
-      <span class="section-label">Avant de vous inscrire</span>
-      <h2 class="section-title">Analyse de vos besoins</h2>
-      <p class="section-lead">Remplissez le formulaire correspondant à votre situation. Nous vous recontacterons sous 48h ouvrées pour confirmer votre inscription et adapter la formation à vos besoins.</p>
-
-      <div class="form-tabs" id="form-tabs">
-        <button class="form-tab active" onclick="switchTab('stagiaire', this)">Je suis un stagiaire / particulier</button>
-        <button class="form-tab" onclick="switchTab('entreprise', this)">Je représente une entreprise</button>
-        <button class="form-tab" onclick="switchTab('accessibilite', this)">Fiche d'adaptation handicap</button>
-      </div>
-
-      <!-- FORMULAIRE STAGIAIRE -->
-      <div class="form-panel active" id="panel-stagiaire">
-        <div class="form-intro">
-          Ce formulaire est à compléter <strong>avant la formation ou au plus tard en début de formation</strong>, conformément aux exigences de traçabilité de la formation professionnelle.<br>
-          Après validation, vous recevrez un récapitulatif par email. Un document de positionnement signé vous sera adressé pour confirmation.
-        </div>
-
-        <form id="form-stagiaire" action="https://formsubmit.co/el/sejuca" method="POST">
-          <input type="hidden" name="_subject" value="[INSCRIPTION STAGIAIRE] Analyse du besoin — Cabinet Alfred Gory" />
-          <input type="hidden" name="_captcha" value="false" />
-
-          <div class="form-section-title">1. Identification</div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Nom et prénom <span class="req">*</span></label>
-              <input type="text" name="nom_prenom" required placeholder="DUPONT Jean" />
-            </div>
-            <div class="form-group">
-              <label>Poste / Fonction actuelle <span class="req">*</span></label>
-              <input type="text" name="poste" required placeholder="Gestionnaire de paie" />
-            </div>
-          </div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Entreprise (si applicable)</label>
-              <input type="text" name="entreprise" placeholder="Nom de votre société" />
-            </div>
-            <div class="form-group">
-              <label>Email <span class="req">*</span></label>
-              <input type="email" name="email" required placeholder="jean.dupont@email.fr" />
-            </div>
-          </div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Téléphone <span class="req">*</span></label>
-              <input type="tel" name="telephone" required placeholder="06 XX XX XX XX" />
-            </div>
-            <div class="form-group">
-              <label>Date souhaitée de formation</label>
-              <input type="text" name="date_souhaitee" placeholder="Ex : septembre 2026 / flexible" />
-            </div>
-          </div>
-
-          <div class="form-section-title">2. Expérience et niveau initial</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Avez-vous déjà utilisé le logiciel SILAE ? <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="utilisation_silae" id="s_sil1" value="Oui – régulièrement" required /><label for="s_sil1">Oui – régulièrement</label></div>
-                <div class="radio-pill"><input type="radio" name="utilisation_silae" id="s_sil2" value="Oui – occasionnellement" /><label for="s_sil2">Oui – occasionnellement</label></div>
-                <div class="radio-pill"><input type="radio" name="utilisation_silae" id="s_sil3" value="Non – jamais" /><label for="s_sil3">Non – jamais</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Ancienneté dans le domaine de la paie <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="anciennete" id="s_anc1" value="Débutant" required /><label for="s_anc1">Débutant</label></div>
-                <div class="radio-pill"><input type="radio" name="anciennete" id="s_anc2" value="Moins de 2 ans" /><label for="s_anc2">Moins de 2 ans</label></div>
-                <div class="radio-pill"><input type="radio" name="anciennete" id="s_anc3" value="Plus de 2 ans" /><label for="s_anc3">Plus de 2 ans</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Vous êtes à l'aise avec :</label>
-              <div class="check-group">
-                <div class="check-pill"><input type="checkbox" name="aisance[]" id="s_a1" value="Lecture d'un bulletin de salaire" /><label for="s_a1">Lecture d'un bulletin de salaire</label></div>
-                <div class="check-pill"><input type="checkbox" name="aisance[]" id="s_a2" value="Calcul des cotisations sociales" /><label for="s_a2">Calcul des cotisations sociales</label></div>
-                <div class="check-pill"><input type="checkbox" name="aisance[]" id="s_a3" value="Déclarations sociales (DSN)" /><label for="s_a3">Déclarations sociales (DSN)</label></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section-title">3. Objectifs et attentes</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Avez-vous pris connaissance des objectifs de la formation ? <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="objectifs_pris_connaissance" id="s_obj1" value="Oui" required /><label for="s_obj1">Oui</label></div>
-                <div class="radio-pill"><input type="radio" name="objectifs_pris_connaissance" id="s_obj2" value="Non" /><label for="s_obj2">Non</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Vos objectifs professionnels ou personnels à l'issue de cette formation <span class="req">*</span></label>
-              <textarea name="objectifs" required placeholder="Ex : prendre en main SILAE de façon autonome, gérer la paie de mon cabinet…"></textarea>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Souhaitez-vous un focus particulier ?</label>
-              <textarea name="focus" placeholder="Ex : paramétrage, DSN, fin de contrat, gestion des absences…"></textarea>
-            </div>
-          </div>
-
-          <div class="form-section-title">4. Motivation</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>La formation est-elle (plusieurs réponses possibles) :</label>
-              <div class="check-group">
-                <div class="check-pill"><input type="checkbox" name="motivation[]" id="s_m1" value="À votre initiative" /><label for="s_m1">À votre initiative</label></div>
-                <div class="check-pill"><input type="checkbox" name="motivation[]" id="s_m2" value="Demandée par l'employeur" /><label for="s_m2">Demandée par l'employeur</label></div>
-                <div class="check-pill"><input type="checkbox" name="motivation[]" id="s_m3" value="Nécessaire pour votre poste" /><label for="s_m3">Nécessaire pour votre poste</label></div>
-                <div class="check-pill"><input type="checkbox" name="motivation[]" id="s_m4" value="Nécessaire pour votre projet" /><label for="s_m4">Nécessaire pour votre projet</label></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section-title">5. Besoins d'adaptation</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Avez-vous besoin d'un aménagement spécifique ?</label>
-              <div class="check-group">
-                <div class="check-pill"><input type="checkbox" name="amenagement[]" id="s_am1" value="Rythme" /><label for="s_am1">Rythme</label></div>
-                <div class="check-pill"><input type="checkbox" name="amenagement[]" id="s_am2" value="Supports pédagogiques" /><label for="s_am2">Supports pédagogiques</label></div>
-                <div class="check-pill"><input type="checkbox" name="amenagement[]" id="s_am3" value="Matériel" /><label for="s_am3">Matériel</label></div>
-                <div class="check-pill"><input type="checkbox" name="amenagement[]" id="s_am4" value="Environnement" /><label for="s_am4">Environnement</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Précision sur l'aménagement souhaité</label>
-              <input type="text" name="amenagement_detail" placeholder="Précisez si nécessaire…" />
-            </div>
-          </div>
-          <div style="background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--accent-dark);border-radius:8px;padding:0.9rem 1.2rem;margin:0.8rem 0;font-size:0.83rem;color:var(--muted);line-height:1.7;">
-            <strong style="color:var(--primary);">Besoin d'une fiche d'adaptation complète ?</strong>
-            Accédez à notre <a href="#" onclick="switchTab('accessibilite', document.querySelectorAll('.form-tab')[2]);window.scrollTo({top:document.querySelector('#form-tabs').offsetTop-100,behavior:'smooth'});return false;" style="color:var(--accent-dark);font-weight:600;">Fiche d'adaptation handicap →</a>
-            ou consultez notre <a href="accessibilite.html" style="color:var(--accent-dark);">page Accessibilité</a>.
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Souhaitez-vous être contacté(e) par notre référent handicap ? <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="referent_handicap" id="s_rh1" value="Oui" required /><label for="s_rh1">Oui</label></div>
-                <div class="radio-pill"><input type="radio" name="referent_handicap" id="s_rh2" value="Non" /><label for="s_rh2">Non</label></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section-title">6. Auto-évaluation de départ</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Votre niveau global en paie (1 = débutant, 5 = expert) <span class="req">*</span></label>
-              <div class="scale-group">
-                <input type="radio" name="niveau_paie" id="s_niv1" value="1" required /><label for="s_niv1">1</label>
-                <input type="radio" name="niveau_paie" id="s_niv2" value="2" /><label for="s_niv2">2</label>
-                <input type="radio" name="niveau_paie" id="s_niv3" value="3" /><label for="s_niv3">3</label>
-                <input type="radio" name="niveau_paie" id="s_niv4" value="4" /><label for="s_niv4">4</label>
-                <input type="radio" name="niveau_paie" id="s_niv5" value="5" /><label for="s_niv5">5</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section-title">7. Questionnaire de positionnement</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Quelle est la différence entre salaire brut et salaire net ?</label>
-              <textarea name="q1_brut_net" placeholder="Votre réponse…" rows="2"></textarea>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>À quoi sert la DSN (Déclaration Sociale Nominative) ?</label>
-              <textarea name="q2_dsn" placeholder="Votre réponse…" rows="2"></textarea>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Comment paramétrer une convention collective dans un logiciel de paie ?</label>
-              <textarea name="q3_convention" placeholder="Votre réponse…" rows="2"></textarea>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Comment gérer une absence maladie dans un bulletin de paie ?</label>
-              <textarea name="q4_maladie" placeholder="Votre réponse…" rows="2"></textarea>
-            </div>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit">Envoyer mon analyse de besoin →</button>
-            <p class="form-gdpr">En soumettant ce formulaire, vous acceptez que vos données soient transmises au Cabinet Alfred Gory dans le cadre de votre inscription à la formation, conformément à notre <a href="mentions-legales.html" style="color:var(--accent-dark);">politique de confidentialité</a>.</p>
-          </div>
-        </form>
-        <div class="form-success" id="success-stagiaire">
-          <h3>Formulaire reçu — Merci !</h3>
-          <p>Votre analyse de besoin a bien été transmise au Cabinet Alfred Gory. Nous vous recontacterons sous <strong>48 heures ouvrées</strong> pour confirmer votre inscription et vous envoyer le document de positionnement à signer.</p>
-        </div>
-      </div>
-
-      <!-- FORMULAIRE ENTREPRISE -->
-      <div class="form-panel" id="panel-entreprise">
-        <div class="form-intro">
-          Ce formulaire est à compléter <strong>avant contractualisation</strong>. Il permet au Cabinet Alfred Gory d'adapter la formation aux spécificités de votre entreprise.<br>
-          Après validation, un devis ou une convention de formation vous sera adressé(e) pour signature.
-        </div>
-
-        <form id="form-entreprise" action="https://formsubmit.co/el/sejuca" method="POST">
-          <input type="hidden" name="_subject" value="[INSCRIPTION ENTREPRISE] Analyse du besoin — Cabinet Alfred Gory" />
-          <input type="hidden" name="_captcha" value="false" />
-
-          <div class="form-section-title">1. Identification de l'entreprise</div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Raison sociale <span class="req">*</span></label>
-              <input type="text" name="raison_sociale" required placeholder="SAS MON ENTREPRISE" />
-            </div>
-            <div class="form-group">
-              <label>SIRET <span class="req">*</span></label>
-              <input type="text" name="siret" required placeholder="00000000000000" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Adresse complète <span class="req">*</span></label>
-              <input type="text" name="adresse" required placeholder="12 rue de la Paix, 75001 Paris" />
-            </div>
-          </div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Nom du représentant <span class="req">*</span></label>
-              <input type="text" name="representant" required placeholder="M. / Mme NOM Prénom" />
-            </div>
-            <div class="form-group">
-              <label>Fonction <span class="req">*</span></label>
-              <input type="text" name="fonction_representant" required placeholder="Directeur(rice), DRH…" />
-            </div>
-          </div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Téléphone <span class="req">*</span></label>
-              <input type="tel" name="telephone_entreprise" required placeholder="01 XX XX XX XX" />
-            </div>
-            <div class="form-group">
-              <label>Email <span class="req">*</span></label>
-              <input type="email" name="email_entreprise" required placeholder="contact@monentreprise.fr" />
-            </div>
-          </div>
-
-          <div class="form-section-title">2. Identification du ou des participants</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nom / Prénom du participant <span class="req">*</span></label>
-              <input type="text" name="participant_nom" required placeholder="NOM Prénom" />
-            </div>
-          </div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Poste actuel <span class="req">*</span></label>
-              <input type="text" name="participant_poste" required placeholder="Comptable, Gestionnaire paie…" />
-            </div>
-            <div class="form-group">
-              <label>Ancienneté</label>
-              <input type="text" name="participant_anciennete" placeholder="Ex : 3 ans" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Participants supplémentaires (si plusieurs)</label>
-              <textarea name="autres_participants" placeholder="Nom / Prénom — Poste (un par ligne)" rows="3"></textarea>
-            </div>
-          </div>
-
-          <div class="form-section-title">3. Contexte et objectifs de la formation</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Pourquoi souhaitez-vous former ce(s) collaborateur(s) sur SILAE ? <span class="req">*</span></label>
-              <div class="check-group">
-                <div class="check-pill"><input type="checkbox" name="raison_formation[]" id="e_r1" value="Prise de poste" /><label for="e_r1">Prise de poste</label></div>
-                <div class="check-pill"><input type="checkbox" name="raison_formation[]" id="e_r2" value="Montée en compétence" /><label for="e_r2">Montée en compétence</label></div>
-                <div class="check-pill"><input type="checkbox" name="raison_formation[]" id="e_r3" value="Internalisation de la paie" /><label for="e_r3">Internalisation de la paie</label></div>
-                <div class="check-pill"><input type="checkbox" name="raison_formation[]" id="e_r4" value="Mise à jour réglementaire" /><label for="e_r4">Mise à jour réglementaire</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Objectif opérationnel attendu à l'issue de la formation <span class="req">*</span></label>
-              <textarea name="objectif_operationnel" required placeholder="Ex : être autonome sur la gestion des bulletins de paie mensuel dans SILAE…"></textarea>
-            </div>
-          </div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Niveau actuel du collaborateur <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="niveau_collaborateur" id="e_niv1" value="Débutant" required /><label for="e_niv1">Débutant</label></div>
-                <div class="radio-pill"><input type="radio" name="niveau_collaborateur" id="e_niv2" value="Intermédiaire" /><label for="e_niv2">Intermédiaire</label></div>
-                <div class="radio-pill"><input type="radio" name="niveau_collaborateur" id="e_niv3" value="Confirmé" /><label for="e_niv3">Confirmé</label></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Utilise-t-il déjà SILAE ? <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="utilise_silae" id="e_sil1" value="Oui" required /><label for="e_sil1">Oui</label></div>
-                <div class="radio-pill"><input type="radio" name="utilise_silae" id="e_sil2" value="Non" /><label for="e_sil2">Non</label></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section-title">4. Environnement professionnel</div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Convention collective appliquée <span class="req">*</span></label>
-              <input type="text" name="convention_collective" required placeholder="Ex : Syntec, Métallurgie, HCR…" />
-            </div>
-            <div class="form-group">
-              <label>Nombre de salariés</label>
-              <input type="number" name="nb_salaries" placeholder="Ex : 12" min="1" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>La gestion de la paie est actuellement <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="gestion_paie" id="e_gp1" value="Externalisée" required /><label for="e_gp1">Externalisée</label></div>
-                <div class="radio-pill"><input type="radio" name="gestion_paie" id="e_gp2" value="Internalisation en cours" /><label for="e_gp2">Internalisation en cours</label></div>
-                <div class="radio-pill"><input type="radio" name="gestion_paie" id="e_gp3" value="Déjà internalisée" /><label for="e_gp3">Déjà internalisée</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Spécificités à prendre en compte</label>
-              <textarea name="specificites" placeholder="Ex : multi-conventions, temps partiels, contrats aidés, dossiers multi-établissements…" rows="2"></textarea>
-            </div>
-          </div>
-
-          <div class="form-section-title">5. Modalités souhaitées</div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Format de formation souhaité <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="format_formation" id="e_fmt1" value="Inter-entreprise" required /><label for="e_fmt1">Inter-entreprise</label></div>
-                <div class="radio-pill"><input type="radio" name="format_formation" id="e_fmt2" value="Intra-entreprise (vos locaux)" /><label for="e_fmt2">Intra — vos locaux</label></div>
-                <div class="radio-pill"><input type="radio" name="format_formation" id="e_fmt3" value="Intra-entreprise (locaux OF)" /><label for="e_fmt3">Intra — nos locaux</label></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Délai de mise en œuvre souhaité</label>
-              <input type="text" name="delai" placeholder="Ex : dans le mois, avant septembre 2026…" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Contraintes particulières</label>
-              <textarea name="contraintes" placeholder="Jours indisponibles, lieu spécifique, contraintes horaires…" rows="2"></textarea>
-            </div>
-          </div>
-
-          <div class="form-section-title">6. Besoins d'adaptation</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>L'entreprise signale-t-elle un besoin d'aménagement pour un participant ? <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="besoin_amenagement" id="e_am1" value="Oui" required /><label for="e_am1">Oui</label></div>
-                <div class="radio-pill"><input type="radio" name="besoin_amenagement" id="e_am2" value="Non" /><label for="e_am2">Non</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Si oui, précisez</label>
-              <textarea name="amenagement_entreprise" placeholder="Décrivez le besoin d'aménagement…" rows="2"></textarea>
-            </div>
-          </div>
-          <div style="background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--accent-dark);border-radius:8px;padding:0.9rem 1.2rem;margin:0.8rem 0;font-size:0.83rem;color:var(--muted);line-height:1.7;">
-            <strong style="color:var(--primary);">Besoin d'une fiche d'adaptation complète ?</strong>
-            Accédez à notre <a href="#" onclick="switchTab('accessibilite', document.querySelectorAll('.form-tab')[2]);window.scrollTo({top:document.querySelector('#form-tabs').offsetTop-100,behavior:'smooth'});return false;" style="color:var(--accent-dark);font-weight:600;">Fiche d'adaptation handicap →</a>
-            ou consultez notre <a href="accessibilite.html" style="color:var(--accent-dark);">page Accessibilité</a>.
-          </div>
-
-          <div class="form-submit">
-            <button type="submit">Envoyer l'analyse de besoin entreprise →</button>
-            <p class="form-gdpr">En soumettant ce formulaire, vous acceptez que vos données soient transmises au Cabinet Alfred Gory dans le cadre de votre inscription à la formation, conformément à notre <a href="mentions-legales.html" style="color:var(--accent-dark);">politique de confidentialité</a>.</p>
-          </div>
-        </form>
-        <div class="form-success" id="success-entreprise">
-          <h3>Formulaire reçu — Merci !</h3>
-          <p>Votre analyse de besoin a bien été transmise. Nous vous adresserons sous <strong>48 heures ouvrées</strong> une convention ou un devis de formation adapté à vos besoins, que vous pourrez signer et nous retourner.</p>
-        </div>
-      </div>
-
-      <!-- PANEL ACCESSIBILITÉ -->
-      <div class="form-panel" id="panel-accessibilite">
-        <div class="form-intro">
-          Ce formulaire s'adresse aux personnes en situation de handicap souhaitant bénéficier d'aménagements spécifiques pour suivre la formation.<br>
-          Votre demande est traitée de façon <strong>confidentielle</strong> par notre référent handicap M. Sabri GORY. Aucune information médicale n'est obligatoire.
-        </div>
-
-        <form id="form-accessibilite" action="https://formsubmit.co/el/sejuca" method="POST">
-          <input type="hidden" name="_subject" value="[ADAPTATION HANDICAP] Fiche d'adaptation — Cabinet Alfred Gory" />
-          <input type="hidden" name="_captcha" value="false" />
-
-          <div class="form-section-title">1. Vos coordonnées</div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Nom et prénom <span class="req">*</span></label>
-              <input type="text" name="nom_prenom_psh" required placeholder="DUPONT Jean" />
-            </div>
-            <div class="form-group">
-              <label>Email <span class="req">*</span></label>
-              <input type="email" name="email_psh" required placeholder="jean.dupont@email.fr" />
-            </div>
-          </div>
-          <div class="form-row cols2">
-            <div class="form-group">
-              <label>Téléphone <span class="req">*</span></label>
-              <input type="tel" name="telephone_psh" required placeholder="06 XX XX XX XX" />
-            </div>
-            <div class="form-group">
-              <label>Date souhaitée de formation</label>
-              <input type="text" name="date_psh" placeholder="Ex : septembre 2026 / flexible" />
-            </div>
-          </div>
-
-          <div class="form-section-title">2. Aménagements souhaités</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Quels types d'aménagements vous seraient utiles ?</label>
-              <div class="check-group">
-                <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a1" value="Supports en grand caractère" /><label for="psh_a1">Supports en grand caractère</label></div>
-                <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a2" value="Pauses supplémentaires" /><label for="psh_a2">Pauses supplémentaires</label></div>
-                <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a3" value="Rythme allégé" /><label for="psh_a3">Rythme allégé</label></div>
-                <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a4" value="Matériel spécifique" /><label for="psh_a4">Matériel spécifique</label></div>
-                <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a5" value="Format distanciel privilégié" /><label for="psh_a5">Format distanciel</label></div>
-                <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a6" value="Reformulation des consignes" /><label for="psh_a6">Reformulation des consignes</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Décrivez votre besoin ou précisez les adaptations souhaitées</label>
-              <textarea name="besoin_detail_psh" rows="4" placeholder="Décrivez librement votre situation et les aménagements qui vous ont été utiles par le passé…"></textarea>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Avez-vous déjà bénéficié d'aménagements de formation par le passé ?</label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="amenagements_anterieurs" id="psh_ant1" value="Oui" /><label for="psh_ant1">Oui</label></div>
-                <div class="radio-pill"><input type="radio" name="amenagements_anterieurs" id="psh_ant2" value="Non" /><label for="psh_ant2">Non</label></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section-title">3. Préférences de contact</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Disposez-vous d'une RQTH (Reconnaissance Qualité Travailleur Handicapé) ?</label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth1" value="Oui" /><label for="psh_rqth1">Oui</label></div>
-                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth2" value="Non" /><label for="psh_rqth2">Non</label></div>
-                <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth3" value="En cours" /><label for="psh_rqth3">En cours</label></div>
-              </div>
-              <span class="hint">La RQTH n'est pas obligatoire pour bénéficier d'aménagements.</span>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Souhaitez-vous un entretien avec notre référent handicap avant la formation ? <span class="req">*</span></label>
-              <div class="radio-group">
-                <div class="radio-pill"><input type="radio" name="entretien_psh" id="psh_e1" value="Oui, par téléphone" required /><label for="psh_e1">Oui, par téléphone</label></div>
-                <div class="radio-pill"><input type="radio" name="entretien_psh" id="psh_e2" value="Oui, par visioconférence" /><label for="psh_e2">Oui, par visio</label></div>
-                <div class="radio-pill"><input type="radio" name="entretien_psh" id="psh_e3" value="Non, par email suffit" /><label for="psh_e3">Non, email suffit</label></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit">Envoyer ma fiche d'adaptation →</button>
-            <p class="form-gdpr">Vos données sont traitées de manière strictement confidentielle par le référent handicap du Cabinet Alfred Gory. Conformément à notre <a href="mentions-legales.html" style="color:var(--accent-dark);">politique de confidentialité</a>, aucune information n'est transmise à des tiers sans votre accord.</p>
-          </div>
-        </form>
-        <div class="form-success" id="success-accessibilite">
-          <h3>Demande reçue — Merci !</h3>
-          <p>Votre fiche d'adaptation a bien été transmise à M. Sabri GORY, référent handicap du Cabinet Alfred Gory. Nous vous recontacterons sous <strong>48 heures ouvrées</strong> pour convenir ensemble des aménagements à mettre en place.</p>
-          <p style="margin-top:0.8rem;">Pour en savoir plus sur notre politique d'accessibilité : <a href="accessibilite.html" style="color:#15803d;">accessibilite.html →</a></p>
-        </div>
-        <div style="margin-top:1.5rem;padding:1rem 1.4rem;background:#f0f4f8;border-radius:10px;font-size:0.83rem;color:#374151;">
-          <strong>En savoir plus :</strong> Consultez notre <a href="accessibilite.html" style="color:var(--accent-dark);font-weight:600;">politique d'accessibilité complète</a> pour découvrir les adaptations disponibles et la liste de nos partenaires locaux handicap (Cap Emploi 95, MDPH Val d'Oise, AGEFIPH…).
-        </div>
-      </div>
-
+<!-- FORMULAIRES -->
+<section class="section" id="analyse-besoins">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Avant de vous inscrire</div>
+      <h2 class="section-title">Analyse de vos <span class="accent">besoins</span></h2>
+      <p class="section-sub">Sélectionnez le formulaire adapté à votre situation.</p>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
+    <div class="form-tabs" id="form-tabs">
+      <button class="form-tab active" onclick="switchTab('stagiaire',this)">Stagiaire / particulier</button>
+      <button class="form-tab" onclick="switchTab('entreprise',this)">Entreprise</button>
+      <button class="form-tab" onclick="switchTab('accessibilite',this)">Fiche handicap</button>
+    </div>
+
+    <!-- ═══ FORMULAIRE STAGIAIRE ═══ -->
+    <div class="form-panel active" id="panel-stagiaire">
+      <div class="form-intro">
+        Ce formulaire est à compléter <strong>avant la formation ou au plus tard en début de formation</strong>, conformément aux exigences de traçabilité de la formation professionnelle. Après validation, vous recevrez un récapitulatif par email.
+      </div>
+
+      <form id="form-stagiaire" action="mail.php" method="POST">
+        <input type="hidden" name="_form_type" value="Inscription Stagiaire"/>
+        <input type="hidden" name="_subject" value="[INSCRIPTION STAGIAIRE] Analyse du besoin — Cabinet Alfred Gory"/>
+        <input type="hidden" name="_next" value="merci.html"/>
+        <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off"/>
+
+        <div class="form-group" style="margin-bottom:1.2rem">
+          <label>Formation souhaitée <span class="req">*</span></label>
+          <select name="formation_souhaitee" required>
+            <option value="">— Choisissez la formation —</option>
+            <option value="Maîtriser SILAE (7h — 450€ TTC)">Maîtriser SILAE (7h — 450€ TTC)</option>
+            <option value="Titre Professionnel Gestionnaire de Paie (455h — 3 500€)">Titre Professionnel Gestionnaire de Paie (455h — 3 500€)</option>
+          </select>
+        </div>
+
+        <div class="form-section-title">1. Identification</div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Nom et prénom <span class="req">*</span></label>
+            <input type="text" name="nom_prenom" required placeholder="DUPONT Jean"/>
+          </div>
+          <div class="form-group">
+            <label>Poste / Fonction actuelle <span class="req">*</span></label>
+            <input type="text" name="poste" required placeholder="Gestionnaire de paie"/>
+          </div>
+        </div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Entreprise (si applicable)</label>
+            <input type="text" name="entreprise" placeholder="Nom de votre société"/>
+          </div>
+          <div class="form-group">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" required placeholder="jean.dupont@email.fr"/>
+          </div>
+        </div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Téléphone <span class="req">*</span></label>
+            <input type="tel" name="telephone" required placeholder="06 XX XX XX XX"/>
+          </div>
+          <div class="form-group">
+            <label>Date souhaitée de formation</label>
+            <input type="text" name="date_souhaitee" placeholder="Ex : septembre 2026 / flexible"/>
+          </div>
+        </div>
+
+        <div class="form-section-title">2. Expérience et niveau initial</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Avez-vous déjà utilisé le logiciel SILAE ? <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="utilisation_silae" id="s_sil1" value="Oui – régulièrement" required/><label for="s_sil1">Oui – régulièrement</label></div>
+              <div class="radio-pill"><input type="radio" name="utilisation_silae" id="s_sil2" value="Oui – occasionnellement"/><label for="s_sil2">Oui – occasionnellement</label></div>
+              <div class="radio-pill"><input type="radio" name="utilisation_silae" id="s_sil3" value="Non – jamais"/><label for="s_sil3">Non – jamais</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ancienneté dans le domaine de la paie <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="anciennete" id="s_anc1" value="Débutant" required/><label for="s_anc1">Débutant</label></div>
+              <div class="radio-pill"><input type="radio" name="anciennete" id="s_anc2" value="Moins de 2 ans"/><label for="s_anc2">Moins de 2 ans</label></div>
+              <div class="radio-pill"><input type="radio" name="anciennete" id="s_anc3" value="Plus de 2 ans"/><label for="s_anc3">Plus de 2 ans</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vous êtes à l'aise avec :</label>
+            <div class="check-group">
+              <div class="check-pill"><input type="checkbox" name="aisance[]" id="s_a1" value="Lecture d'un bulletin de salaire"/><label for="s_a1">Lecture d'un bulletin de salaire</label></div>
+              <div class="check-pill"><input type="checkbox" name="aisance[]" id="s_a2" value="Calcul des cotisations sociales"/><label for="s_a2">Calcul des cotisations sociales</label></div>
+              <div class="check-pill"><input type="checkbox" name="aisance[]" id="s_a3" value="Déclarations sociales (DSN)"/><label for="s_a3">Déclarations sociales (DSN)</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section-title">3. Objectifs et attentes</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Avez-vous pris connaissance des objectifs de la formation ? <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="objectifs_pris_connaissance" id="s_obj1" value="Oui" required/><label for="s_obj1">Oui</label></div>
+              <div class="radio-pill"><input type="radio" name="objectifs_pris_connaissance" id="s_obj2" value="Non"/><label for="s_obj2">Non</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vos objectifs professionnels ou personnels à l'issue de la formation <span class="req">*</span></label>
+            <textarea name="objectifs" required placeholder="Ex : prendre en main SILAE de façon autonome, gérer la paie de mon cabinet…"></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Souhaitez-vous un focus particulier ?</label>
+            <textarea name="focus" placeholder="Ex : paramétrage, DSN, fin de contrat, gestion des absences…"></textarea>
+          </div>
+        </div>
+
+        <div class="form-section-title">4. Motivation</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>La formation est-elle (plusieurs réponses possibles) :</label>
+            <div class="check-group">
+              <div class="check-pill"><input type="checkbox" name="motivation[]" id="s_m1" value="À votre initiative"/><label for="s_m1">À votre initiative</label></div>
+              <div class="check-pill"><input type="checkbox" name="motivation[]" id="s_m2" value="Demandée par l'employeur"/><label for="s_m2">Demandée par l'employeur</label></div>
+              <div class="check-pill"><input type="checkbox" name="motivation[]" id="s_m3" value="Nécessaire pour votre poste"/><label for="s_m3">Nécessaire pour votre poste</label></div>
+              <div class="check-pill"><input type="checkbox" name="motivation[]" id="s_m4" value="Nécessaire pour votre projet"/><label for="s_m4">Nécessaire pour votre projet</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section-title">5. Besoins d'adaptation</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Avez-vous besoin d'un aménagement spécifique ?</label>
+            <div class="check-group">
+              <div class="check-pill"><input type="checkbox" name="amenagement[]" id="s_am1" value="Rythme"/><label for="s_am1">Rythme</label></div>
+              <div class="check-pill"><input type="checkbox" name="amenagement[]" id="s_am2" value="Supports pédagogiques"/><label for="s_am2">Supports pédagogiques</label></div>
+              <div class="check-pill"><input type="checkbox" name="amenagement[]" id="s_am3" value="Matériel"/><label for="s_am3">Matériel</label></div>
+              <div class="check-pill"><input type="checkbox" name="amenagement[]" id="s_am4" value="Environnement"/><label for="s_am4">Environnement</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Précision sur l'aménagement souhaité</label>
+            <input type="text" name="amenagement_detail" placeholder="Précisez si nécessaire…"/>
+          </div>
+        </div>
+        <div class="form-hint-box">
+          <strong style="color:var(--navy)">Besoin d'une fiche d'adaptation complète ?</strong>
+          Accédez à notre <a href="#" onclick="switchTab('accessibilite',document.querySelectorAll('.form-tab')[2]);window.scrollTo({top:document.querySelector('#form-tabs').offsetTop-100,behavior:'smooth'});return false" style="color:var(--gold);font-weight:600">Fiche d'adaptation handicap →</a>
+          ou consultez notre <a href="accessibilite.html" style="color:var(--gold)">page Accessibilité</a>.
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Souhaitez-vous être contacté(e) par notre référent handicap ? <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="referent_handicap" id="s_rh1" value="Oui" required/><label for="s_rh1">Oui</label></div>
+              <div class="radio-pill"><input type="radio" name="referent_handicap" id="s_rh2" value="Non"/><label for="s_rh2">Non</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section-title">6. Auto-évaluation de départ</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Votre niveau global en paie (1 = débutant, 5 = expert) <span class="req">*</span></label>
+            <div class="scale-group">
+              <input type="radio" name="niveau_paie" id="s_niv1" value="1" required/><label for="s_niv1">1</label>
+              <input type="radio" name="niveau_paie" id="s_niv2" value="2"/><label for="s_niv2">2</label>
+              <input type="radio" name="niveau_paie" id="s_niv3" value="3"/><label for="s_niv3">3</label>
+              <input type="radio" name="niveau_paie" id="s_niv4" value="4"/><label for="s_niv4">4</label>
+              <input type="radio" name="niveau_paie" id="s_niv5" value="5"/><label for="s_niv5">5</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section-title">7. Questionnaire de positionnement</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Quelle est la différence entre salaire brut et salaire net ?</label>
+            <textarea name="q1_brut_net" placeholder="Votre réponse…" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>À quoi sert la DSN (Déclaration Sociale Nominative) ?</label>
+            <textarea name="q2_dsn" placeholder="Votre réponse…" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Comment paramétrer une convention collective dans un logiciel de paie ?</label>
+            <textarea name="q3_convention" placeholder="Votre réponse…" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Comment gérer une absence maladie dans un bulletin de paie ?</label>
+            <textarea name="q4_maladie" placeholder="Votre réponse…" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit">Envoyer mon analyse de besoin →</button>
+          <p class="form-gdpr">En soumettant ce formulaire, vous acceptez que vos données soient transmises au Cabinet Alfred Gory dans le cadre de votre inscription, conformément à notre <a href="mentions-legales.html" style="color:var(--gold)">politique de confidentialité</a>.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- ═══ FORMULAIRE ENTREPRISE ═══ -->
+    <div class="form-panel" id="panel-entreprise">
+      <div class="form-intro">
+        Ce formulaire est à compléter <strong>avant contractualisation</strong>. Il permet au Cabinet Alfred Gory d'adapter la formation aux spécificités de votre entreprise. Un devis ou une convention de formation vous sera adressé(e) après validation.
+      </div>
+
+      <form id="form-entreprise" action="mail.php" method="POST">
+        <input type="hidden" name="_form_type" value="Inscription Entreprise"/>
+        <input type="hidden" name="_subject" value="[INSCRIPTION ENTREPRISE] Analyse du besoin — Cabinet Alfred Gory"/>
+        <input type="hidden" name="_next" value="merci.html"/>
+        <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off"/>
+
+        <div class="form-group" style="margin-bottom:1.2rem">
+          <label>Formation souhaitée <span class="req">*</span></label>
+          <select name="formation_souhaitee" required>
+            <option value="">— Choisissez la formation —</option>
+            <option value="Maîtriser SILAE (7h — 450€ TTC)">Maîtriser SILAE (7h — 450€ TTC)</option>
+            <option value="Titre Professionnel Gestionnaire de Paie (455h — 3 500€)">Titre Professionnel Gestionnaire de Paie (455h — 3 500€)</option>
+          </select>
+        </div>
+
+        <div class="form-section-title">1. Identification de l'entreprise</div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Raison sociale <span class="req">*</span></label>
+            <input type="text" name="raison_sociale" required placeholder="SAS MON ENTREPRISE"/>
+          </div>
+          <div class="form-group">
+            <label>SIRET <span class="req">*</span></label>
+            <input type="text" name="siret" required placeholder="00000000000000"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Adresse complète <span class="req">*</span></label>
+            <input type="text" name="adresse" required placeholder="12 rue de la Paix, 75001 Paris"/>
+          </div>
+        </div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Nom du représentant <span class="req">*</span></label>
+            <input type="text" name="representant" required placeholder="M. / Mme NOM Prénom"/>
+          </div>
+          <div class="form-group">
+            <label>Fonction <span class="req">*</span></label>
+            <input type="text" name="fonction_representant" required placeholder="Directeur(rice), DRH…"/>
+          </div>
+        </div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Téléphone <span class="req">*</span></label>
+            <input type="tel" name="telephone_entreprise" required placeholder="01 XX XX XX XX"/>
+          </div>
+          <div class="form-group">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email_entreprise" required placeholder="contact@monentreprise.fr"/>
+          </div>
+        </div>
+
+        <div class="form-section-title">2. Identification du ou des participants</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom / Prénom du participant <span class="req">*</span></label>
+            <input type="text" name="participant_nom" required placeholder="NOM Prénom"/>
+          </div>
+        </div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Poste actuel <span class="req">*</span></label>
+            <input type="text" name="participant_poste" required placeholder="Comptable, Gestionnaire paie…"/>
+          </div>
+          <div class="form-group">
+            <label>Ancienneté</label>
+            <input type="text" name="participant_anciennete" placeholder="Ex : 3 ans"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Participants supplémentaires (si plusieurs)</label>
+            <textarea name="autres_participants" placeholder="Nom / Prénom — Poste (un par ligne)" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="form-section-title">3. Contexte et objectifs</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Pourquoi souhaitez-vous former ce(s) collaborateur(s) ? <span class="req">*</span></label>
+            <div class="check-group">
+              <div class="check-pill"><input type="checkbox" name="raison_formation[]" id="e_r1" value="Prise de poste"/><label for="e_r1">Prise de poste</label></div>
+              <div class="check-pill"><input type="checkbox" name="raison_formation[]" id="e_r2" value="Montée en compétence"/><label for="e_r2">Montée en compétence</label></div>
+              <div class="check-pill"><input type="checkbox" name="raison_formation[]" id="e_r3" value="Internalisation de la paie"/><label for="e_r3">Internalisation de la paie</label></div>
+              <div class="check-pill"><input type="checkbox" name="raison_formation[]" id="e_r4" value="Mise à jour réglementaire"/><label for="e_r4">Mise à jour réglementaire</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Objectif opérationnel attendu à l'issue de la formation <span class="req">*</span></label>
+            <textarea name="objectif_operationnel" required placeholder="Ex : être autonome sur la gestion des bulletins de paie mensuel dans SILAE…"></textarea>
+          </div>
+        </div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Niveau actuel du collaborateur <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="niveau_collaborateur" id="e_niv1" value="Débutant" required/><label for="e_niv1">Débutant</label></div>
+              <div class="radio-pill"><input type="radio" name="niveau_collaborateur" id="e_niv2" value="Intermédiaire"/><label for="e_niv2">Intermédiaire</label></div>
+              <div class="radio-pill"><input type="radio" name="niveau_collaborateur" id="e_niv3" value="Confirmé"/><label for="e_niv3">Confirmé</label></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Utilise-t-il déjà SILAE ? <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="utilise_silae" id="e_sil1" value="Oui" required/><label for="e_sil1">Oui</label></div>
+              <div class="radio-pill"><input type="radio" name="utilise_silae" id="e_sil2" value="Non"/><label for="e_sil2">Non</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section-title">4. Environnement professionnel</div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Convention collective appliquée <span class="req">*</span></label>
+            <input type="text" name="convention_collective" required placeholder="Ex : Syntec, Métallurgie, HCR…"/>
+          </div>
+          <div class="form-group">
+            <label>Nombre de salariés</label>
+            <input type="number" name="nb_salaries" placeholder="Ex : 12" min="1"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>La gestion de la paie est actuellement <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="gestion_paie" id="e_gp1" value="Externalisée" required/><label for="e_gp1">Externalisée</label></div>
+              <div class="radio-pill"><input type="radio" name="gestion_paie" id="e_gp2" value="Internalisation en cours"/><label for="e_gp2">Internalisation en cours</label></div>
+              <div class="radio-pill"><input type="radio" name="gestion_paie" id="e_gp3" value="Déjà internalisée"/><label for="e_gp3">Déjà internalisée</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Spécificités à prendre en compte</label>
+            <textarea name="specificites" placeholder="Ex : multi-conventions, temps partiels, contrats aidés, dossiers multi-établissements…" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="form-section-title">5. Modalités souhaitées</div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Format de formation souhaité <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="format_formation" id="e_fmt1" value="Inter-entreprise" required/><label for="e_fmt1">Inter-entreprise</label></div>
+              <div class="radio-pill"><input type="radio" name="format_formation" id="e_fmt2" value="Intra-entreprise (vos locaux)"/><label for="e_fmt2">Intra — vos locaux</label></div>
+              <div class="radio-pill"><input type="radio" name="format_formation" id="e_fmt3" value="Intra-entreprise (locaux OF)"/><label for="e_fmt3">Intra — nos locaux</label></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Délai de mise en œuvre souhaité</label>
+            <input type="text" name="delai" placeholder="Ex : dans le mois, avant septembre 2026…"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Contraintes particulières</label>
+            <textarea name="contraintes" placeholder="Jours indisponibles, lieu spécifique, contraintes horaires…" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="form-section-title">6. Besoins d'adaptation</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>L'entreprise signale-t-elle un besoin d'aménagement pour un participant ? <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="besoin_amenagement" id="e_am1" value="Oui" required/><label for="e_am1">Oui</label></div>
+              <div class="radio-pill"><input type="radio" name="besoin_amenagement" id="e_am2" value="Non"/><label for="e_am2">Non</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Si oui, précisez</label>
+            <textarea name="amenagement_entreprise" placeholder="Décrivez le besoin d'aménagement…" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="form-hint-box">
+          <strong style="color:var(--navy)">Besoin d'une fiche d'adaptation complète ?</strong>
+          Accédez à notre <a href="#" onclick="switchTab('accessibilite',document.querySelectorAll('.form-tab')[2]);window.scrollTo({top:document.querySelector('#form-tabs').offsetTop-100,behavior:'smooth'});return false" style="color:var(--gold);font-weight:600">Fiche d'adaptation handicap →</a>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit">Envoyer l'analyse de besoin entreprise →</button>
+          <p class="form-gdpr">En soumettant ce formulaire, vous acceptez que vos données soient transmises au Cabinet Alfred Gory dans le cadre de votre inscription, conformément à notre <a href="mentions-legales.html" style="color:var(--gold)">politique de confidentialité</a>.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- ═══ PANEL ACCESSIBILITÉ ═══ -->
+    <div class="form-panel" id="panel-accessibilite">
+      <div class="form-intro">
+        Ce formulaire s'adresse aux personnes en situation de handicap souhaitant bénéficier d'aménagements spécifiques. Votre demande est traitée de façon <strong>confidentielle</strong> par notre référent handicap M. Sabri GORY. Aucune information médicale n'est obligatoire.
+      </div>
+
+      <form id="form-accessibilite" action="mail.php" method="POST">
+        <input type="hidden" name="_form_type" value="Fiche Adaptation Handicap"/>
+        <input type="hidden" name="_subject" value="[ADAPTATION HANDICAP] Fiche d'adaptation — Cabinet Alfred Gory"/>
+        <input type="hidden" name="_next" value="merci.html"/>
+        <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off"/>
+
+        <div class="form-section-title">1. Vos coordonnées</div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Nom et prénom <span class="req">*</span></label>
+            <input type="text" name="nom_prenom_psh" required placeholder="DUPONT Jean"/>
+          </div>
+          <div class="form-group">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email_psh" required placeholder="jean.dupont@email.fr"/>
+          </div>
+        </div>
+        <div class="form-row cols2">
+          <div class="form-group">
+            <label>Téléphone <span class="req">*</span></label>
+            <input type="tel" name="telephone_psh" required placeholder="06 XX XX XX XX"/>
+          </div>
+          <div class="form-group">
+            <label>Date souhaitée de formation</label>
+            <input type="text" name="date_psh" placeholder="Ex : septembre 2026 / flexible"/>
+          </div>
+        </div>
+
+        <div class="form-section-title">2. Aménagements souhaités</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Quels types d'aménagements vous seraient utiles ?</label>
+            <div class="check-group">
+              <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a1" value="Supports en grand caractère"/><label for="psh_a1">Supports en grand caractère</label></div>
+              <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a2" value="Pauses supplémentaires"/><label for="psh_a2">Pauses supplémentaires</label></div>
+              <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a3" value="Rythme allégé"/><label for="psh_a3">Rythme allégé</label></div>
+              <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a4" value="Matériel spécifique"/><label for="psh_a4">Matériel spécifique</label></div>
+              <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a5" value="Format distanciel privilégié"/><label for="psh_a5">Format distanciel</label></div>
+              <div class="check-pill"><input type="checkbox" name="amenagement_psh[]" id="psh_a6" value="Reformulation des consignes"/><label for="psh_a6">Reformulation des consignes</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Décrivez votre besoin ou précisez les adaptations souhaitées</label>
+            <textarea name="besoin_detail_psh" rows="4" placeholder="Décrivez librement votre situation et les aménagements qui vous ont été utiles par le passé…"></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Avez-vous déjà bénéficié d'aménagements de formation par le passé ?</label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="amenagements_anterieurs" id="psh_ant1" value="Oui"/><label for="psh_ant1">Oui</label></div>
+              <div class="radio-pill"><input type="radio" name="amenagements_anterieurs" id="psh_ant2" value="Non"/><label for="psh_ant2">Non</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section-title">3. Préférences de contact</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Disposez-vous d'une RQTH (Reconnaissance Qualité Travailleur Handicapé) ?</label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth1" value="Oui"/><label for="psh_rqth1">Oui</label></div>
+              <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth2" value="Non"/><label for="psh_rqth2">Non</label></div>
+              <div class="radio-pill"><input type="radio" name="rqth" id="psh_rqth3" value="En cours"/><label for="psh_rqth3">En cours</label></div>
+            </div>
+            <span class="hint">La RQTH n'est pas obligatoire pour bénéficier d'aménagements.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Souhaitez-vous un entretien avec notre référent handicap avant la formation ? <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-pill"><input type="radio" name="entretien_psh" id="psh_e1" value="Oui, par téléphone" required/><label for="psh_e1">Oui, par téléphone</label></div>
+              <div class="radio-pill"><input type="radio" name="entretien_psh" id="psh_e2" value="Oui, par visioconférence"/><label for="psh_e2">Oui, par visio</label></div>
+              <div class="radio-pill"><input type="radio" name="entretien_psh" id="psh_e3" value="Non, par email suffit"/><label for="psh_e3">Non, email suffit</label></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit">Envoyer ma fiche d'adaptation →</button>
+          <p class="form-gdpr">Vos données sont traitées de manière strictement confidentielle par le référent handicap. Conformément à notre <a href="mentions-legales.html" style="color:var(--gold)">politique de confidentialité</a>, aucune information n'est transmise à des tiers sans votre accord.</p>
+        </div>
+      </form>
+
+      <div style="margin-top:1.5rem" class="form-hint-box">
+        <strong>En savoir plus :</strong> Consultez notre <a href="accessibilite.html" style="color:var(--gold);font-weight:600">politique d'accessibilité complète</a> pour découvrir les adaptations disponibles et nos partenaires locaux handicap (Cap Emploi 95, MDPH Val d'Oise, AGEFIPH…).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cabinet <em>Alfred Gory</em></div>
+        <p>Organisme de formation professionnelle spécialisé en gestion de la paie et logiciel SILAE.<br>NDA 11951022295 · SIRET 891 446 825 00020<br>10–12 rue Condorcet, 95150 Taverny</p>
+        <div style="margin-top:1rem"><img src="qualiopi.png" alt="Logo Qualiopi" style="height:44px;filter:brightness(0) invert(1);opacity:.7;display:block;margin-bottom:.4rem"/><p style="font-size:.62rem;color:rgba(255,255,255,.25);line-height:1.6">Cert. CERT_S0626_0768 · CEVA SOLUTION<br>Actions de formation · 20.07.2026 – 19.07.2029</p></div>
+      </div>
       <div>
-        <div class="footer-logo">Cabinet <span>Alfred Gory</span></div>
-        <p class="footer-desc">Organisme de formation professionnelle spécialisé en logiciel SILAE et gestion de la paie. Interventions en présentiel (Taverny, 95) et en classe virtuelle. NDA 11951022295.</p>
-        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Adresse</span><span>10-12 rue Condorcet, 95150 Taverny</span></div>
-        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Email</span><span>formation@alfred-gory.fr</span></div>
-        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Délai</span><span>Réponse sous 48h ouvrées</span></div>
-        <div class="footer-badges">
-          <span class="footer-badge">NDA 11951022295</span>
-          <span class="footer-badge">Présentiel · Classe virtuelle</span>
+        <div class="footer-heading">Formations</div>
+        <div class="footer-links">
+          <a href="formations.html">Formation SILAE 7h</a>
+          <a href="titre-pro-gestionnaire-paie.html">Titre Pro Gestionnaire de Paie</a>
+          <a href="financement.html">Financement &amp; tarifs</a>
+          <a href="inscription.html">Inscription</a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <a href="index.html">Accueil</a>
-        <a href="formations.html">Formation SILAE</a>
-        <a href="inscription.html">Inscription</a>
-        <a href="financement.html">Paiement</a>
-        <a href="cabinet.html">Le cabinet</a>
-        <a href="satisfaction.html">Satisfaction</a>
-        <a href="accessibilite.html">Accessibilité</a>
-        <a href="contact.html">Contact</a>
+      <div>
+        <div class="footer-heading">Organisme</div>
+        <div class="footer-links">
+          <a href="cabinet.html">Le cabinet</a>
+          <a href="accessibilite.html">Accessibilité</a>
+          <a href="satisfaction.html">Satisfaction</a>
+          <a href="contact.html">Contact</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Informations</h4>
-        <a href="reglement-interieur.html">Règlement intérieur</a>
-        <a href="conditions-generales.html">Conditions générales de vente</a>
-        <a href="mentions-legales.html">Mentions légales</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="mailto:formation@alfred-gory.fr">formation@alfred-gory.fr</a>
-        <a href="mailto:secretariat@alfred-gory.fr">secretariat@alfred-gory.fr</a>
-        <a href="contact.html">Formulaire de contact</a>
+      <div>
+        <div class="footer-heading">Légal</div>
+        <div class="footer-links">
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="conditions-generales.html">CGV</a>
+          <a href="reglement-interieur.html">Règlement intérieur</a>
+        </div>
       </div>
     </div>
-    <div class="footer-mention">
-      Cabinet Alfred Gory — Organisme de formation professionnelle enregistré sous le numéro de déclaration d'activité <strong style="color:rgba(255,255,255,0.5);">11951022295</strong> auprès du Préfet de région d'Île-de-France, conformément aux articles L.6351-1 et suivants du Code du travail. Cet enregistrement ne vaut pas agrément de l'État (article L.6352-13 CT). SIRET : <strong style="color:rgba(255,255,255,0.5);">89144682500020</strong>. Siège social : 10-12 rue Condorcet, 95150 Taverny. Hébergeur : GitHub Inc., San Francisco, CA, États-Unis.
-    </div>
+    <hr class="footer-sep"/>
     <div class="footer-bottom">
-      <p>© 2026 Cabinet Alfred Gory — Tous droits réservés</p>
-      <div class="footer-legal">
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="mentions-legales.html#rgpd">Politique de confidentialité</a>
-        <a href="conditions-generales.html">CGV</a>
-      </div>
+      <div class="footer-copy">© 2026 Cabinet Alfred Gory — Tous droits réservés</div>
+      <div class="footer-qualiopi"><div class="footer-q-badge">Q</div><div class="footer-q-text">Certifié Qualiopi<br>Formation professionnelle continue</div></div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
-
-    function switchTab(tabId, btn) {
-      document.querySelectorAll('.form-tab').forEach(function(t){ t.classList.remove('active'); });
-      document.querySelectorAll('.form-panel').forEach(function(p){ p.classList.remove('active'); });
-      btn.classList.add('active');
-      document.getElementById('panel-' + tabId).classList.add('active');
-    }
-
-    ['form-stagiaire', 'form-entreprise', 'form-accessibilite'].forEach(function(id) {
-      var form = document.getElementById(id);
-      if (!form) return;
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var data = new FormData(form);
-        fetch(form.action, {
-          method: 'POST',
-          body: new URLSearchParams(data),
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' }
-        }).then(function(resp) {
-          if (resp.ok) {
-            form.style.display = 'none';
-            var suffix = id === 'form-stagiaire' ? 'stagiaire' : (id === 'form-entreprise' ? 'entreprise' : 'accessibilite');
-            document.getElementById('success-' + suffix).style.display = 'block';
-          } else {
-            alert('Une erreur est survenue. Merci de nous contacter directement par email : formation@alfred-gory.fr');
-          }
-        }).catch(function() {
-          alert('Impossible d\'envoyer le formulaire. Merci de nous contacter directement : formation@alfred-gory.fr');
-        });
-      });
-    });
-  </script>
+<button class="back-top" id="backTop" aria-label="Retour en haut">↑</button>
+<script src="animations.js"></script>
+<script>
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.form-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.form-panel').forEach(function(p){ p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('panel-' + tabId).classList.add('active');
+}
+</script>
 </body>
 </html>

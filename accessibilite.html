@@ -1,316 +1,244 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Accessibilité & Handicap — Cabinet Alfred Gory</title>
-  <meta name="description" content="Politique d'accessibilité du Cabinet Alfred Gory : adaptations pédagogiques, référent handicap, partenaires locaux Val d'Oise. Formation SILAE accessible à tous." />
-  <link rel="canonical" href="https://www.alfred-gory.com/accessibilite.html" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Accessibilité &amp; Handicap — Cabinet Alfred Gory</title>
+  <meta name="description" content="Politique d'accessibilité du Cabinet Alfred Gory : adaptations pédagogiques, référent handicap, partenaires locaux Val d'Oise. Formation SILAE accessible à tous."/>
+  <link rel="canonical" href="https://www.alfred-gory.com/accessibilite.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
   <style>
-    :root{--primary:#1e3a5f;--primary-dark:#0f1e35;--accent-dark:#c9a84c;--bg:#ffffff;--bg-alt:#f8fafc;--bg-warm:#f7f5f1;--text:#1e293b;--muted:#64748b;--border:#e2e8f0}
-    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
-    #topbar{position:fixed;top:0;left:0;right:0;z-index:1100;background:var(--primary-dark)}
-    #topbar-inner{display:flex;align-items:center;justify-content:center;gap:0 0.8rem;padding:0.35rem 1rem;font-size:0.72rem}
-    .tb-item{color:rgba(255,255,255,0.7)}.tb-sep{color:rgba(201,168,76,0.4);font-size:0.6rem}.tb-link{color:var(--accent-dark);text-decoration:none}
-    nav{position:fixed;top:30px;left:0;right:0;z-index:1000;height:68px;padding:0 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,58,95,0.08);box-shadow:0 2px 20px rgba(30,58,95,0.07)}
-    .logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--primary);font-weight:700;text-decoration:none}.logo span{color:var(--accent-dark)}
-    .nav-links{display:flex;list-style:none;gap:0}.nav-links a{color:var(--muted);font-size:0.8rem;font-weight:500;text-decoration:none;padding:0.5rem 0.9rem}.nav-links a:hover{color:var(--primary)}.nav-links a.active{color:var(--primary);font-weight:700}
-    .nav-cta{background:var(--accent-dark);color:#fff;padding:0.55rem 1.3rem;border-radius:6px;font-size:0.8rem;font-weight:700;text-decoration:none}
-    @media(max-width:900px){.nav-links,.nav-cta{display:none}nav{padding:0 1.5rem}}
-    .page-hero{padding:7.5rem 3rem 3rem;background:var(--bg-warm)}
-    .breadcrumb{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--muted);margin-bottom:1.2rem}.breadcrumb a{color:var(--muted);text-decoration:none}
-    .page-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:0.6rem;display:block}
-    .page-hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--primary);font-weight:700;margin-bottom:0.5rem}
-    .page-hero-sub{color:var(--muted);font-size:0.88rem}
-    .section{padding:4rem 3rem}
-    .container{max-width:960px;margin:0 auto}
-    .section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:0.6rem}
-    .section-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--primary);font-weight:700;margin-bottom:1rem}
-    .section-title span{color:var(--accent-dark)}
-    .section-lead{color:var(--muted);font-size:0.95rem;line-height:1.8;margin-bottom:2rem}
-    /* Blocs texte */
-    .ml-h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--primary);font-weight:700;margin:2.5rem 0 0.8rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border)}
-    .ml-h3{font-size:0.92rem;font-weight:700;color:var(--primary);margin:1.5rem 0 0.5rem}
-    .ml-p{font-size:0.9rem;color:#374151;line-height:1.85;margin-bottom:0.8rem}
-    .ml-list{list-style:none;padding:0;margin-bottom:1rem;display:flex;flex-direction:column;gap:0.45rem}
-    .ml-list li{font-size:0.88rem;color:#374151;padding-left:1.2rem;position:relative;line-height:1.7}
-    .ml-list li::before{content:"—";position:absolute;left:0;color:var(--accent-dark);font-weight:700}
-    /* Contacts ref */
+    .adapt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+    .adapt-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:1.2rem;text-align:center}
+    .adapt-icon{font-size:1.6rem;margin-bottom:.5rem}
+    .adapt-title{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+    .adapt-desc{font-size:.76rem;color:var(--slate);line-height:1.6}
     .ref-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin:1.5rem 0}
-    .ref-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem}
-    .ref-card.primary{border-left:4px solid var(--accent-dark)}
-    .ref-role{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:0.5rem}
-    .ref-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--primary);font-weight:700;margin-bottom:0.8rem}
-    .ref-detail{font-size:0.83rem;color:var(--muted);line-height:1.7}
-    .ref-pill{display:inline-block;background:var(--primary);color:#fff;padding:0.3rem 0.85rem;border-radius:50px;font-size:0.78rem;text-decoration:none;margin-top:0.6rem;margin-right:0.4rem}
-    .ref-pill:hover{opacity:0.85}
-    /* Partenaires */
-    .partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.5rem 0}
-    .partner-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem}
-    .partner-name{font-weight:700;color:var(--primary);font-size:0.92rem;margin-bottom:0.3rem}
-    .partner-role{font-size:0.78rem;color:var(--accent-dark);font-weight:600;margin-bottom:0.4rem}
-    .partner-desc{font-size:0.82rem;color:var(--muted);line-height:1.65}
-    .partner-link{display:inline-block;font-size:0.78rem;color:var(--accent-dark);text-decoration:none;margin-top:0.4rem;font-weight:600}
-    /* Adaptations */
-    .adapt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
-    .adapt-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center}
-    .adapt-icon{font-size:1.6rem;margin-bottom:0.5rem}
-    .adapt-title{font-size:0.85rem;font-weight:700;color:var(--primary);margin-bottom:0.3rem}
-    .adapt-desc{font-size:0.78rem;color:var(--muted);line-height:1.6}
-    /* Info box */
-    .info-box{background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--accent-dark);border-radius:8px;padding:1.2rem 1.5rem;font-size:0.88rem;color:var(--muted);line-height:1.8;margin-top:1.5rem}
-    .info-box strong{color:var(--primary)}
-    /* CTA */
-    .cta-block{background:var(--primary);border-radius:16px;padding:2.5rem;text-align:center;margin-top:3rem}
-    .cta-block h3{font-family:'Playfair Display',serif;color:#fff;font-size:1.4rem;margin-bottom:0.6rem}
-    .cta-block p{color:rgba(255,255,255,0.7);font-size:0.88rem;margin-bottom:1.5rem}
-    .btn-primary{display:inline-block;background:var(--accent-dark);color:#fff;padding:0.8rem 1.8rem;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;margin:0.3rem}
-    .btn-outline{display:inline-block;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);padding:0.8rem 1.8rem;border-radius:8px;font-weight:600;font-size:0.88rem;text-decoration:none;margin:0.3rem}
-    footer{background:var(--primary-dark);color:rgba(255,255,255,0.65);padding:2rem;text-align:center;font-size:0.8rem}
-    footer a{color:var(--accent-dark);text-decoration:none}
-    footer p+p{margin-top:0.5rem}
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { width: 22px; height: 2px; background: var(--primary); border-radius: 2px; transition: 0.3s; }
-    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 2000; flex-direction: column; align-items: center; justify-content: center; gap: 1.8rem; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 1.25rem; color: var(--primary); font-family: 'Playfair Display', serif; text-decoration: none; font-weight: 600; }
-    .mobile-menu a:hover { color: var(--accent-dark); }
-    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--primary); }  </style>
+    .ref-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:1.5rem}
+    .ref-card.gold-left{border-left:4px solid var(--gold)}
+    .ref-role{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+    .ref-name{font-size:1.05rem;font-weight:800;color:var(--navy);margin-bottom:.6rem}
+    .ref-detail{font-size:.8rem;color:var(--slate);line-height:1.7}
+    .ref-pill{display:inline-block;background:var(--navy);color:#fff;padding:.28rem .8rem;border-radius:50px;font-size:.75rem;text-decoration:none;margin-top:.6rem;margin-right:.4rem}
+    .partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem;margin:1.5rem 0}
+    .partner-card{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem 1.5rem}
+    .partner-name{font-weight:700;color:var(--navy);font-size:.9rem;margin-bottom:.3rem}
+    .partner-role{font-size:.72rem;color:var(--gold);font-weight:700;margin-bottom:.4rem}
+    .partner-desc{font-size:.79rem;color:var(--slate);line-height:1.65}
+    .partner-link{display:inline-block;font-size:.76rem;color:var(--gold);text-decoration:none;margin-top:.4rem;font-weight:700}
+    .prose p{font-size:.9rem;color:#374151;line-height:1.85;margin-bottom:.8rem}
+    .prose ul{list-style:none;padding:0;margin-bottom:1rem;display:flex;flex-direction:column;gap:.45rem}
+    .prose ul li{font-size:.86rem;color:#374151;padding-left:1.2rem;position:relative;line-height:1.7}
+    .prose ul li::before{content:"—";position:absolute;left:0;color:var(--gold);font-weight:700}
+    .info-box{background:var(--cream);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:8px;padding:1.2rem 1.5rem;font-size:.85rem;color:var(--slate);line-height:1.8;margin-top:1.5rem}
+    .info-box strong{color:var(--navy)}
+  </style>
 </head>
 <body>
 
-<div id="topbar"><div id="topbar-inner">
-  <span class="tb-item">Organisme de formation enregistré</span>
-  <span class="tb-sep">·</span>
-  <span class="tb-item">NDA 11951022295</span>
-  <span class="tb-sep">·</span>
-  <a href="mailto:formation@alfred-gory.fr" class="tb-link">formation@alfred-gory.fr</a>
-  <span class="tb-sep">·</span>
-  <span class="tb-item">Réponse sous 48h</span>
-</div></div>
-
-<nav>
-  <a class="logo" href="index.html">Cabinet <span>Alfred Gory</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="formations.html">Formation</a></li>
-    <li><a href="inscription.html">Inscription</a></li>
-    <li><a href="financement.html">Paiement</a></li>
-    <li><a href="cabinet.html">Le cabinet</a></li>
-    <li><a href="satisfaction.html">Satisfaction</a></li>
-    <li><a href="accessibilite.html" class="active">Accessibilité</a></li>
-    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li></ul>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="toggleMenu()">✕</button>
-  <a href="index.html" onclick="toggleMenu()">Accueil</a>
-  <a href="formations.html" onclick="toggleMenu()">Formation</a>
-  <a href="inscription.html" onclick="toggleMenu()">Inscription</a>
-  <a href="financement.html" onclick="toggleMenu()">Paiement</a>
-  <a href="cabinet.html" onclick="toggleMenu()">Le cabinet</a>
-  <a href="satisfaction.html" onclick="toggleMenu()">Satisfaction</a>
-  <a href="accessibilite.html" onclick="toggleMenu()">Accessibilité</a>
-  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <div class="topbar-item"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> Réponse sous 48h</div>
+      <div class="topbar-item">📞 01.86.04.48.57</div>
+    </div>
+    <div class="topbar-qualiopi">✦ Certifié Qualiopi — CERT_S0626_0768</div>
+  </div>
 </div>
 
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a class="nav-logo" href="index.html"><div class="nav-logo-icon">AG</div><div class="nav-logo-text">Cabinet Alfred Gory<span>Organisme de formation</span></div></a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Accueil</a>
+      <a class="nav-link" href="formations.html">Formation SILAE</a>
+      <a class="nav-link" href="titre-pro-gestionnaire-paie.html">Titre Pro Paie</a>
+      <a class="nav-link" href="inscription.html">Inscription</a>
+      <a class="nav-link" href="financement.html">Financement</a>
+      <a class="nav-link" href="cabinet.html">Le cabinet</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </div>
+    <a class="nav-cta" href="inscription.html">S'inscrire →</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header"><div class="nav-logo"><div class="nav-logo-icon">AG</div><div class="nav-logo-text">Cabinet Alfred Gory<span>Organisme de formation</span></div></div><button class="mobile-nav-close" id="mobileNavClose">✕</button></div>
+  <div class="mobile-nav-links">
+    <a class="mobile-nav-link" href="index.html">Accueil</a>
+    <a class="mobile-nav-link" href="formations.html">Formation SILAE</a>
+    <a class="mobile-nav-link" href="titre-pro-gestionnaire-paie.html">Titre Pro Paie</a>
+    <a class="mobile-nav-link" href="inscription.html">Inscription</a>
+    <a class="mobile-nav-link" href="financement.html">Financement</a>
+    <a class="mobile-nav-link" href="cabinet.html">Le cabinet</a>
+    <a class="mobile-nav-link" href="accessibilite.html">Accessibilité</a>
+    <a class="mobile-nav-link" href="satisfaction.html">Satisfaction</a>
+    <a class="mobile-nav-link" href="contact.html">Contact</a>
+  </div>
+  <div class="mobile-nav-bottom"><a class="mobile-nav-cta" href="inscription.html">S'inscrire →</a></div>
+</div>
+
+<!-- PAGE HERO -->
 <div class="page-hero">
-  <div style="max-width:960px;margin:0 auto">
-    <div class="breadcrumb"><a href="index.html">Accueil</a><span>›</span><span>Accessibilité &amp; Handicap</span></div>
-    <span class="page-eyebrow">Politique d'accessibilité</span>
-    <h1>Formation accessible à <em>tous</em></h1>
-    <p class="page-hero-sub">Le Cabinet Alfred Gory s'engage à rendre ses formations accessibles aux personnes en situation de handicap. Chaque parcours peut faire l'objet d'adaptations individualisées.</p>
+  <div class="page-hero-geo"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-hero-badge">Politique d'accessibilité</div>
+      <h1>Formation accessible <span class="accent">à tous</span></h1>
+      <p>Le Cabinet Alfred Gory s'engage à rendre ses formations accessibles aux personnes en situation de handicap. Chaque parcours peut faire l'objet d'adaptations individualisées.</p>
+    </div>
   </div>
 </div>
 
 <!-- ENGAGEMENT -->
-<section class="section">
+<section class="section alt">
   <div class="container">
-    <p class="section-label">Notre engagement</p>
-    <h2 class="section-title">Politique d'accessibilité <span>handicap</span></h2>
-    <p class="section-lead">Conformément aux dispositions de l'article L.6352-3 du Code du travail et à la loi du 11 février 2005 pour l'égalité des droits et des chances des personnes handicapées, le Cabinet Alfred Gory s'engage à garantir l'accès à la formation professionnelle pour toute personne, quelle que soit sa situation de handicap.</p>
-
-    <p class="ml-p">Toute demande d'adaptation est traitée de manière confidentielle et individualisée. Un entretien préalable avec notre référent handicap permet d'identifier ensemble les aménagements les mieux adaptés à votre situation et aux contraintes de la formation.</p>
-    <p class="ml-p"><strong>Délai de demande :</strong> toute demande d'adaptation doit être formulée <strong>dès l'inscription</strong>, afin de nous permettre de préparer les meilleures conditions d'accueil avant le début de la formation.</p>
-
-    <h2 class="ml-h2">Adaptations possibles</h2>
-    <p class="ml-p">Selon la nature du handicap et les besoins identifiés lors de l'entretien préalable, les adaptations suivantes peuvent être mises en place :</p>
-    <div class="adapt-grid">
-      <div class="adapt-card">
-        <div class="adapt-icon">📄</div>
-        <div class="adapt-title">Supports adaptés</div>
-        <div class="adapt-desc">Documents en grand caractère, polices adaptées, contraste renforcé, supports audio ou visuels</div>
-      </div>
-      <div class="adapt-card">
-        <div class="adapt-icon">⏱</div>
-        <div class="adapt-title">Rythme aménagé</div>
-        <div class="adapt-desc">Pauses supplémentaires, étalement du programme, ajustement des horaires de journée</div>
-      </div>
-      <div class="adapt-card">
-        <div class="adapt-icon">🖥</div>
-        <div class="adapt-title">Matériel technique</div>
-        <div class="adapt-desc">Adaptation du poste de travail, logiciels d'accessibilité, périphériques spécifiques</div>
-      </div>
-      <div class="adapt-card">
-        <div class="adapt-icon">📍</div>
-        <div class="adapt-title">Environnement</div>
-        <div class="adapt-desc">Lieu de formation adapté PMR sur demande, modalités distanciel privilégiées si nécessaire</div>
-      </div>
-      <div class="adapt-card">
-        <div class="adapt-icon">💬</div>
-        <div class="adapt-title">Pédagogie</div>
-        <div class="adapt-desc">Reformulation des consignes, séquençage renforcé, répétition et consolidation, cas pratiques adaptés</div>
-      </div>
-      <div class="adapt-card">
-        <div class="adapt-icon">👁</div>
-        <div class="adapt-title">Format distanciel</div>
-        <div class="adapt-desc">La classe virtuelle est privilégiée pour faciliter l'accès depuis le domicile ou un lieu adapté</div>
-      </div>
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Notre engagement</div>
+      <h2 class="section-title">Politique d'accessibilité <span class="accent">handicap</span></h2>
+    </div>
+    <div class="prose reveal">
+      <p>Conformément aux dispositions de l'article L.6352-3 du Code du travail et à la loi du 11 février 2005 pour l'égalité des droits et des chances des personnes handicapées, le Cabinet Alfred Gory s'engage à garantir l'accès à la formation professionnelle pour toute personne, quelle que soit sa situation de handicap.</p>
+      <p>Toute demande d'adaptation est traitée de manière confidentielle et individualisée. Un entretien préalable avec notre référent handicap permet d'identifier ensemble les aménagements les mieux adaptés à votre situation.</p>
+      <p><strong style="color:var(--navy)">Délai de demande :</strong> toute demande d'adaptation doit être formulée <strong>dès l'inscription</strong>, afin de nous permettre de préparer les meilleures conditions d'accueil avant le début de la formation.</p>
     </div>
 
-    <div class="info-box">
+    <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin:2rem 0 1rem" class="reveal">Adaptations possibles</h3>
+    <div class="adapt-grid reveal">
+      <div class="adapt-card"><div class="adapt-icon">📄</div><div class="adapt-title">Supports adaptés</div><div class="adapt-desc">Documents en grand caractère, polices adaptées, contraste renforcé, supports audio ou visuels</div></div>
+      <div class="adapt-card"><div class="adapt-icon">⏱</div><div class="adapt-title">Rythme aménagé</div><div class="adapt-desc">Pauses supplémentaires, étalement du programme, ajustement des horaires de journée</div></div>
+      <div class="adapt-card"><div class="adapt-icon">🖥</div><div class="adapt-title">Matériel technique</div><div class="adapt-desc">Adaptation du poste de travail, logiciels d'accessibilité, périphériques spécifiques</div></div>
+      <div class="adapt-card"><div class="adapt-icon">📍</div><div class="adapt-title">Environnement</div><div class="adapt-desc">Lieu adapté PMR sur demande, modalités distanciel privilégiées si nécessaire</div></div>
+      <div class="adapt-card"><div class="adapt-icon">💬</div><div class="adapt-title">Pédagogie</div><div class="adapt-desc">Reformulation des consignes, séquençage renforcé, répétition et consolidation, cas pratiques adaptés</div></div>
+      <div class="adapt-card"><div class="adapt-icon">🏠</div><div class="adapt-title">Format distanciel</div><div class="adapt-desc">La classe virtuelle est privilégiée pour faciliter l'accès depuis le domicile ou un lieu adapté</div></div>
+    </div>
+
+    <div class="info-box reveal">
       <strong>Note :</strong> Toutes les situations ne peuvent pas être prises en charge par le Cabinet Alfred Gory seul. Lorsque des besoins spécifiques nécessitent des équipements ou compétences que nous ne disposons pas, nous orientons les apprenants vers les partenaires locaux spécialisés listés ci-dessous.
     </div>
   </div>
 </section>
 
-<!-- CONTACTS RÉFÉRENTS -->
-<section class="section" style="background:var(--bg-warm);">
+<!-- RÉFÉRENTS -->
+<section class="section">
   <div class="container">
-    <p class="section-label">Vos interlocuteurs</p>
-    <h2 class="section-title">Référents <span>accessibilité</span></h2>
-    <p class="section-lead">Pour toute question relative à l'accessibilité de nos formations, deux interlocuteurs sont à votre disposition.</p>
-
-    <div class="ref-grid">
-      <div class="ref-card primary">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Vos interlocuteurs</div>
+      <h2 class="section-title">Référents <span class="accent">accessibilité</span></h2>
+    </div>
+    <div class="ref-grid reveal">
+      <div class="ref-card gold-left">
         <div class="ref-role">Référent handicap · Référent administratif &amp; financier · Référent pédagogique</div>
         <div class="ref-name">M. Sabri GORY</div>
-        <div class="ref-detail">
-          Votre interlocuteur principal pour toute demande d'adaptation liée à une situation de handicap. Il analyse votre situation, coordonne la mise en place des aménagements et assure le suivi administratif et pédagogique de votre parcours.
-        </div>
+        <div class="ref-detail">Votre interlocuteur principal pour toute demande d'adaptation. Il analyse votre situation, coordonne la mise en place des aménagements et assure le suivi administratif et pédagogique de votre parcours.</div>
         <a href="tel:0186044857" class="ref-pill">01.86.04.48.57</a>
         <a href="mailto:secretariat@alfred-gory.fr" class="ref-pill">secretariat@alfred-gory.fr</a>
       </div>
       <div class="ref-card">
         <div class="ref-role">Responsable développement · Personne de contact</div>
         <div class="ref-name">M. GUERCHICH Bilal</div>
-        <div class="ref-detail">
-          Responsable du développement de l'offre de formation et premier point de contact pour toute demande d'information générale, de renseignement sur nos formations ou d'orientation vers les bons interlocuteurs.
-        </div>
+        <div class="ref-detail">Premier point de contact pour toute demande d'information générale, de renseignement sur nos formations ou d'orientation vers les bons interlocuteurs.</div>
         <a href="tel:0186044857" class="ref-pill">01.86.04.48.57</a>
-        <a href="mailto:secretariat@alfred-gory.fr" class="ref-pill">secretariat@alfred-gory.fr</a>
+        <a href="mailto:formation@alfred-gory.fr" class="ref-pill">formation@alfred-gory.fr</a>
       </div>
     </div>
-
-    <div class="info-box">
-      <strong>Comment nous saisir ?</strong> Envoyez un email à <strong>secretariat@alfred-gory.fr</strong> en mentionnant votre besoin d'adaptation, ou appelez le <strong>01.86.04.48.57</strong>. Nous accusons réception sous 48h ouvrées et organisons si nécessaire un entretien téléphonique ou visio pour préciser ensemble les aménagements à mettre en place.
+    <div class="info-box reveal">
+      <strong>Comment nous saisir ?</strong> Envoyez un email à <strong>secretariat@alfred-gory.fr</strong> ou appelez le <strong>01.86.04.48.57</strong>. Nous accusons réception sous 48h ouvrées et organisons si nécessaire un entretien pour définir ensemble les aménagements à mettre en place.
     </div>
   </div>
 </section>
 
-<!-- PARTENAIRES LOCAUX -->
-<section class="section">
+<!-- PARTENAIRES -->
+<section class="section alt">
   <div class="container">
-    <p class="section-label">Réseau local Val d'Oise</p>
-    <h2 class="section-title">Partenaires <span>handicap</span></h2>
-    <p class="section-lead">Pour des besoins qui dépassent le cadre de nos adaptations internes, nous orientons les apprenants vers ces organismes spécialisés dans l'accompagnement des personnes en situation de handicap en Val d'Oise et en Île-de-France.</p>
-
-    <div class="partner-grid">
-      <div class="partner-card">
-        <div class="partner-name">Cap Emploi Val d'Oise</div>
-        <div class="partner-role">Insertion & maintien dans l'emploi — PSH</div>
-        <div class="partner-desc">Opérateur du service public de l'emploi, Cap Emploi accompagne les personnes en situation de handicap dans leur recherche d'emploi et leur maintien dans l'emploi, y compris dans l'accès à la formation professionnelle.</div>
-        <a href="https://www.capemploi-valoise.fr/" class="partner-link" target="_blank" rel="noopener">capemploi-valoise.fr →</a>
-      </div>
-      <div class="partner-card">
-        <div class="partner-name">MDPH Val d'Oise</div>
-        <div class="partner-role">Maison Départementale des Personnes Handicapées</div>
-        <div class="partner-desc">Guichet unique pour les personnes handicapées du Val d'Oise. Reconnaît les situations de handicap (RQTH), instruit les demandes de compensation et oriente vers les dispositifs adaptés (AAH, PCH, AEEH…).</div>
-        <a href="https://www.valdoise.fr/533-mdph.htm" class="partner-link" target="_blank" rel="noopener">valdoise.fr/MDPH →</a>
-      </div>
-      <div class="partner-card">
-        <div class="partner-name">AGEFIPH — Délégation Île-de-France</div>
-        <div class="partner-role">Fonds secteur privé — Emploi & formation des PSH</div>
-        <div class="partner-desc">L'AGEFIPH finance des aides à la formation et à l'emploi pour les personnes handicapées du secteur privé. Elle peut cofinancer des adaptations de formation ou des équipements spécifiques.</div>
-        <a href="https://www.agefiph.fr/" class="partner-link" target="_blank" rel="noopener">agefiph.fr →</a>
-      </div>
-      <div class="partner-card">
-        <div class="partner-name">SAMETH Val d'Oise</div>
-        <div class="partner-role">Service Appui Maintien dans l'Emploi</div>
-        <div class="partner-desc">Le SAMETH accompagne les salariés et employeurs pour maintenir dans l'emploi les personnes dont le handicap est susceptible d'évoluer. Il peut préconiser des adaptations de poste et des formations d'adaptation.</div>
-        <a href="https://www.agefiph.fr/annuaire" class="partner-link" target="_blank" rel="noopener">Trouver le SAMETH →</a>
-      </div>
-      <div class="partner-card">
-        <div class="partner-name">LADAPT Île-de-France</div>
-        <div class="partner-role">Accompagnement & inclusion professionnelle</div>
-        <div class="partner-desc">Association engagée pour l'insertion sociale et professionnelle des personnes handicapées. LADAPT propose des services d'accompagnement à l'emploi et peut orienter vers des formations accessibles.</div>
-        <a href="https://www.ladapt.net/" class="partner-link" target="_blank" rel="noopener">ladapt.net →</a>
-      </div>
-      <div class="partner-card">
-        <div class="partner-name">Handiprévention</div>
-        <div class="partner-role">Prévention & information handicap en entreprise</div>
-        <div class="partner-desc">Réseau d'information sur la prévention du handicap au travail et les droits des travailleurs handicapés. Utile pour les employeurs souhaitant financer la formation d'un collaborateur PSH dans le cadre du PDC.</div>
-        <a href="https://www.handiprevention.fr/" class="partner-link" target="_blank" rel="noopener">handiprevention.fr →</a>
-      </div>
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Réseau local Val d'Oise</div>
+      <h2 class="section-title">Partenaires <span class="accent">handicap</span></h2>
+      <p class="section-sub">Pour des besoins qui dépassent le cadre de nos adaptations internes, nous orientons les apprenants vers ces organismes spécialisés.</p>
     </div>
-
-    <div class="info-box">
-      <strong>Bon à savoir :</strong> La Reconnaissance de la Qualité de Travailleur Handicapé (RQTH) n'est pas obligatoire pour bénéficier d'aménagements dans notre formation. Un simple échange avec notre référent handicap suffit pour identifier ensemble les adaptations pertinentes.
+    <div class="partner-grid reveal">
+      <div class="partner-card"><div class="partner-name">Cap Emploi Val d'Oise</div><div class="partner-role">Insertion &amp; maintien dans l'emploi — PSH</div><div class="partner-desc">Opérateur du service public de l'emploi, accompagne les personnes en situation de handicap dans leur accès à la formation professionnelle.</div><a href="https://www.capemploi-valoise.fr/" class="partner-link" target="_blank" rel="noopener">capemploi-valoise.fr →</a></div>
+      <div class="partner-card"><div class="partner-name">MDPH Val d'Oise</div><div class="partner-role">Maison Départementale des Personnes Handicapées</div><div class="partner-desc">Guichet unique pour les personnes handicapées du Val d'Oise — RQTH, AAH, PCH, orientation.</div><a href="https://www.valdoise.fr/533-mdph.htm" class="partner-link" target="_blank" rel="noopener">valdoise.fr/MDPH →</a></div>
+      <div class="partner-card"><div class="partner-name">AGEFIPH — Délégation Île-de-France</div><div class="partner-role">Fonds secteur privé — Emploi &amp; formation des PSH</div><div class="partner-desc">Peut cofinancer des adaptations de formation ou des équipements spécifiques pour les personnes handicapées du secteur privé.</div><a href="https://www.agefiph.fr/" class="partner-link" target="_blank" rel="noopener">agefiph.fr →</a></div>
+      <div class="partner-card"><div class="partner-name">SAMETH Val d'Oise</div><div class="partner-role">Service Appui Maintien dans l'Emploi</div><div class="partner-desc">Accompagne les salariés et employeurs pour maintenir dans l'emploi les personnes dont le handicap évolue.</div><a href="https://www.agefiph.fr/annuaire" class="partner-link" target="_blank" rel="noopener">Trouver le SAMETH →</a></div>
+      <div class="partner-card"><div class="partner-name">LADAPT Île-de-France</div><div class="partner-role">Accompagnement &amp; inclusion professionnelle</div><div class="partner-desc">Association engagée pour l'insertion sociale et professionnelle des personnes handicapées.</div><a href="https://www.ladapt.net/" class="partner-link" target="_blank" rel="noopener">ladapt.net →</a></div>
+      <div class="partner-card"><div class="partner-name">Handiprévention</div><div class="partner-role">Prévention &amp; information handicap en entreprise</div><div class="partner-desc">Réseau d'information utile pour les employeurs souhaitant financer la formation d'un collaborateur PSH.</div><a href="https://www.handiprevention.fr/" class="partner-link" target="_blank" rel="noopener">handiprevention.fr →</a></div>
+    </div>
+    <div class="info-box reveal">
+      <strong>Bon à savoir :</strong> La RQTH n'est pas obligatoire pour bénéficier d'aménagements. Un simple échange avec notre référent handicap suffit pour identifier ensemble les adaptations pertinentes.
     </div>
   </div>
 </section>
 
 <!-- FICHE D'ADAPTATION -->
-<section class="section" style="background:var(--bg-warm);">
+<section class="section">
   <div class="container">
-    <p class="section-label">Demande d'adaptation</p>
-    <h2 class="section-title">Fiche d'adaptation <span>individuelle</span></h2>
-    <p class="section-lead">Si vous avez besoin d'aménagements spécifiques pour suivre notre formation, merci de nous en informer avant votre inscription via le formulaire d'analyse du besoin ou par email direct.</p>
-
-    <h3 class="ml-h3">Informations à nous communiquer</h3>
-    <ul class="ml-list">
-      <li>La nature générale de votre situation (visuelle, auditive, motrice, cognitive, psychique…) — sans obligation de détailler votre diagnostic médical</li>
-      <li>Les aménagements dont vous avez déjà bénéficié et qui vous ont été utiles</li>
-      <li>Les équipements ou logiciels d'assistance que vous utilisez habituellement</li>
-      <li>Vos préférences en matière de format pédagogique (distanciel, présentiel, rythme, horaires)</li>
-      <li>Tout élément que vous jugez utile pour préparer au mieux votre accueil en formation</li>
-    </ul>
-
-    <h3 class="ml-h3">Traitement de votre demande</h3>
-    <p class="ml-p">Votre demande est traitée de manière strictement confidentielle par M. Sabri GORY, référent handicap. Aucune information n'est communiquée aux autres participants ou à des tiers sans votre accord explicite.</p>
-    <p class="ml-p">À réception de votre demande, nous vous contactons sous <strong>48h ouvrées</strong> pour convenir d'un entretien (téléphonique ou visio) et définir ensemble les adaptations à mettre en place.</p>
-
-    <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;">
-      <a href="formations.html#analyse-besoins" class="btn-primary" style="background:var(--primary);">Remplir le formulaire d'analyse →</a>
-      <a href="mailto:secretariat@alfred-gory.fr" class="btn-outline" style="color:var(--primary);border-color:var(--border);">Contacter le référent handicap</a>
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Demande d'adaptation</div>
+      <h2 class="section-title">Fiche d'adaptation <span class="accent">individuelle</span></h2>
+      <p class="section-sub">Informez-nous de vos besoins avant votre inscription via le formulaire d'analyse du besoin ou par email direct.</p>
     </div>
-
-    <div class="cta-block" style="margin-top:2.5rem;">
-      <h3>Une question sur l'accessibilité ?</h3>
-      <p>Notre référent handicap M. Sabri GORY vous répond sous 48h ouvrées.<br>Aucune demande n'est trop complexe — nous trouverons ensemble une solution adaptée.</p>
-      <a href="mailto:secretariat@alfred-gory.fr" class="btn-primary">secretariat@alfred-gory.fr</a>
-      <a href="tel:0186044857" class="btn-outline">01.86.04.48.57</a>
+    <div class="two-col">
+      <div class="content-block gold-left reveal reveal-delay-1">
+        <h4 style="margin-bottom:.85rem">Informations à nous communiquer</h4>
+        <ul class="module-list">
+          <li>La nature générale de votre situation (visuelle, auditive, motrice, cognitive, psychique…)</li>
+          <li>Les aménagements dont vous avez déjà bénéficié</li>
+          <li>Les équipements ou logiciels d'assistance que vous utilisez</li>
+          <li>Vos préférences en matière de format pédagogique</li>
+          <li>Tout élément utile pour préparer votre accueil en formation</li>
+        </ul>
+      </div>
+      <div class="content-block gold-left reveal reveal-delay-2">
+        <h4 style="margin-bottom:.85rem">Traitement de votre demande</h4>
+        <p style="font-size:.84rem;color:var(--slate);margin-bottom:.6rem">Votre demande est traitée de manière strictement confidentielle par M. Sabri GORY. Aucune information n'est communiquée à des tiers sans votre accord explicite.</p>
+        <p style="font-size:.84rem;color:var(--slate)">À réception, nous vous contactons sous <strong style="color:var(--navy)">48h ouvrées</strong> pour définir ensemble les adaptations à mettre en place.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap" class="reveal">
+      <a href="inscription.html" class="btn btn-primary">Remplir le formulaire d'analyse →</a>
+      <a href="mailto:secretariat@alfred-gory.fr" class="btn btn-outline">Contacter le référent handicap</a>
+    </div>
+    <div class="cta-band reveal" style="margin-top:2.5rem">
+      <div class="cta-band-inner">
+        <h3>Une question sur l'accessibilité ?</h3>
+        <p>Notre référent handicap M. Sabri GORY vous répond sous 48h ouvrées.</p>
+      </div>
+      <div class="cta-band-btns">
+        <a href="mailto:secretariat@alfred-gory.fr" class="btn btn-primary btn-lg">secretariat@alfred-gory.fr</a>
+        <a href="tel:0186044857" class="btn btn-ghost btn-lg">01.86.04.48.57</a>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Cabinet Alfred Gory — NDA 11951022295 — SIREN 891 446 825 — 10–12 rue Condorcet, 95150 Taverny</p>
-  <p style="font-style:italic;font-size:0.75rem;">Cet enregistrement ne vaut pas agrément de l'État (article L.6352-13 CT).</p>
-  <p style="margin-top:0.5rem;">
-    <a href="index.html">Accueil</a> &nbsp;·&nbsp;
-    <a href="formations.html">Formation SILAE</a> &nbsp;·&nbsp;
-    <a href="financement.html">Paiement</a> &nbsp;·&nbsp;
-    <a href="accessibilite.html">Accessibilité</a> &nbsp;·&nbsp;
-    <a href="reglement-interieur.html">Règlement intérieur</a> &nbsp;·&nbsp;
-    <a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp;
-    <a href="conditions-generales.html">CGV</a>
-  </p>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cabinet <em>Alfred Gory</em></div>
+        <p>Organisme de formation professionnelle spécialisé en gestion de la paie et logiciel SILAE.<br>NDA 11951022295 · SIRET 891 446 825 00020<br>10–12 rue Condorcet, 95150 Taverny</p>
+        <div style="margin-top:1rem"><img src="qualiopi.png" alt="Logo Qualiopi" style="height:44px;filter:brightness(0) invert(1);opacity:.7;display:block;margin-bottom:.4rem"/><p style="font-size:.62rem;color:rgba(255,255,255,.25);line-height:1.6">Cert. CERT_S0626_0768 · CEVA SOLUTION<br>20.07.2026 – 19.07.2029</p></div>
+      </div>
+      <div><div class="footer-heading">Formations</div><div class="footer-links"><a href="formations.html">Formation SILAE 7h</a><a href="titre-pro-gestionnaire-paie.html">Titre Pro Gestionnaire de Paie</a><a href="financement.html">Financement</a><a href="inscription.html">Inscription</a></div></div>
+      <div><div class="footer-heading">Organisme</div><div class="footer-links"><a href="cabinet.html">Le cabinet</a><a href="accessibilite.html">Accessibilité</a><a href="satisfaction.html">Satisfaction</a><a href="contact.html">Contact</a></div></div>
+      <div><div class="footer-heading">Légal</div><div class="footer-links"><a href="mentions-legales.html">Mentions légales</a><a href="conditions-generales.html">CGV</a><a href="reglement-interieur.html">Règlement intérieur</a></div></div>
+    </div>
+    <hr class="footer-sep"/>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Cabinet Alfred Gory — Tous droits réservés</div>
+      <div class="footer-qualiopi"><div class="footer-q-badge">Q</div><div class="footer-q-text">Certifié Qualiopi<br>Formation professionnelle continue</div></div>
+    </div>
+  </div>
 </footer>
 
+<button class="back-top" id="backTop" aria-label="Retour en haut">↑</button>
+<script src="animations.js"></script>
 </body>
 </html>

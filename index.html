@@ -1,951 +1,1054 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cabinet Alfred Gory - Formation SILAE et Gestion de la Paie - Taverny (95)</title>
-  <meta name="description" content="Cabinet Alfred Gory, organisme de formation professionnelle a Taverny (Val d Oise). Formation SILAE 7h, maitrise de la paie, presentiel ou classe virtuelle. NDA 11951022295." />
-  <meta name="keywords" content="Cabinet Alfred Gory, formation SILAE, formation gestion de la paie, formation paie Taverny, organisme de formation Val-d-Oise, formation paie 95, alfred gory formation" />
-  <meta name="author" content="Cabinet Alfred Gory" />
-  <meta name="robots" content="index, follow" />
-  <meta name="geo.region" content="FR-95" />
-  <meta name="geo.placename" content="Taverny" />
-  <link rel="canonical" href="https://www.alfred-gory.com/" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.alfred-gory.com/" />
-  <meta property="og:title" content="Formation Paie, RH & Droit Social | Cabinet Alfred Gory" />
-  <meta property="og:description" content="Formation SILAE 7h — Maîtrisez la gestion de la paie. Présentiel Taverny (95) ou classe virtuelle. Cabinet Alfred Gory." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" />
-  <meta property="og:locale" content="fr_FR" />
-  <meta property="og:site_name" content="Cabinet Alfred Gory" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Formation Paie, RH & Droit Social | Cabinet Alfred Gory" />
-  <meta name="twitter:description" content="Formation SILAE 7h — Maîtrisez la gestion de la paie. Présentiel Taverny (95) ou classe virtuelle." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Cabinet Alfred Gory — Formation Paie & SILAE | Taverny (95)</title>
+  <meta name="description" content="Cabinet Alfred Gory, organisme de formation certifié Qualiopi. Formation SILAE 7h et Titre Pro Gestionnaire de Paie RNCP37948. Présentiel Taverny (95) ou 100% distanciel. NDA 11951022295."/>
+  <meta name="keywords" content="formation SILAE, formation paie, titre professionnel gestionnaire de paie, organisme formation Val-d-Oise, formation paie Taverny, RNCP37948"/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://www.alfred-gory.com/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.alfred-gory.com/"/>
+  <meta property="og:title" content="Cabinet Alfred Gory — Formation Paie & SILAE"/>
+  <meta property="og:description" content="Organisme de formation certifié Qualiopi. SILAE 7h et Titre Pro Gestionnaire de Paie 455h."/>
+  <meta property="og:locale" content="fr_FR"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
   <style>
-    :root {
-      --primary:      #1e3a5f;
-      --primary-dark: #0f1e35;
-      --primary-mid:  #2563eb;
-      --accent:       #f59e0b;
-      --accent-dark:  #c9a84c;
-      --success:      #059669;
-      --bg:           #ffffff;
-      --bg-alt:       #f8fafc;
-      --bg-warm:      #f7f5f1;
-      --bg-dark:      #0f1e35;
-      --text:         #1e293b;
-      --muted:        #64748b;
-      --border:       #e2e8f0;
-      --shadow:       0 4px 24px rgba(30,58,95,0.10);
-      --shadow-lg:    0 12px 40px rgba(30,58,95,0.15);
-    }
+    /* ── INDEX-SPECIFIC OVERRIDES ── */
+    /* Hero canvas */
+    .hero{min-height:580px}
+    .hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    /* Hero bento grid */
+    .hero-bento{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto;gap:12px;position:relative;z-index:1}
+    .hbc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform .1s linear,background .2s}
+    .hbc:hover{background:rgba(255,255,255,.07)}
 
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg-alt); }
-    ::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 3px; }
+    /* Cell layout */
+    .hbc-a{grid-column:span 5;grid-row:span 2;background:rgba(11,24,41,.6);border-color:rgba(201,168,76,.15)}
+    .hbc-b{grid-column:span 2}
+    .hbc-c{grid-column:span 2}
+    .hbc-d{grid-column:span 3;grid-row:span 2;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+    .hbc-e{grid-column:span 5;grid-row:span 2}
+    .hbc-f{grid-column:span 2}
+    .hbc-g{grid-column:span 2;background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.25)}
 
-    /* BARRE DE PROGRESSION */
-    #read-progress {
-      position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
-      background: linear-gradient(90deg, var(--accent-dark), var(--accent), var(--accent-dark));
-      width: 0%; transition: width 0.1s linear;
-      box-shadow: 0 0 8px rgba(245,158,11,0.5);
-    }
+    /* Cell A - identity */
+    .hbc-a .orb{position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.15) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);transition:left .15s ease,top .15s ease;left:50%;top:50%}
+    .hbc-a-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.7);margin-bottom:1.2rem}
+    .hbc-a-name{font-size:1.8rem;font-weight:900;letter-spacing:-.05em;color:#fff;line-height:1.05;margin-bottom:.5rem}
+    .hbc-a-name strong{color:var(--gold)}
+    .hbc-a-sub{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:1.5rem}
+    .hbc-a-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);border-radius:100px;padding:.3rem .8rem;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+    .hbc-a-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse-dot 2s infinite}
 
-    /* TOP BAR */
-    #topbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
-      background: var(--primary-dark);
-      border-bottom: 1px solid rgba(201,168,76,0.25);
-      overflow: hidden;
-    }
-    #topbar-inner {
-      display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; gap: 0 0.8rem;
-      padding: 0.35rem 1rem;
-      font-size: 0.72rem; white-space: nowrap;
-    }
-    .tb-item { color: rgba(255,255,255,0.7); font-weight: 500; }
-    .tb-sep { color: rgba(201,168,76,0.5); font-size: 0.6rem; }
-    .tb-link { color: var(--accent-dark); font-weight: 700; text-decoration: none; transition: color 0.2s; }
-    .tb-link:hover { color: var(--accent); }
-    @media(max-width:640px){
-      #topbar-inner { gap: 0 0.5rem; }
-      .tb-sep:nth-child(4),.tb-item:nth-child(5),.tb-sep:nth-child(6),.tb-item:nth-child(7) { display: none; }
-    }
-    nav { top: 30px; }
+    /* Cell stats */
+    .cell-stat-val{font-size:2.4rem;font-weight:900;letter-spacing:-.06em;color:#fff;line-height:1}
+    .cell-stat-val.gold{color:var(--gold)}
+    .cell-stat-unit{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.5);margin-top:.2rem;letter-spacing:.06em;text-transform:uppercase}
+    .cell-stat-label{font-size:.62rem;color:rgba(255,255,255,.3);margin-top:.15rem;font-weight:500}
+    .cell-bar{height:3px;background:rgba(255,255,255,.08);border-radius:2px;margin-top:.85rem;overflow:hidden}
+    .cell-bar-fill{height:100%;background:var(--gold);border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
 
-    /* NAV */
-    nav {
-      position: fixed; left: 0; right: 0; z-index: 1000;
-      padding: 0 3rem;
-      height: 72px;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid transparent;
-      box-shadow: none;
-      transition: all 0.4s;
-    }
-    nav.scrolled {
-      border-bottom-color: rgba(30,58,95,0.08);
-      box-shadow: 0 4px 32px rgba(30,58,95,0.07);
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; color: var(--primary);
-      font-weight: 700; text-decoration: none;
-    }
-    .logo span { color: var(--accent-dark); }
-    .nav-links { display: flex; list-style: none; gap: 0; }
-    .nav-links a {
-      color: var(--muted); font-size: 0.8rem; font-weight: 500;
-      text-decoration: none; transition: color 0.2s;
-      padding: 0.5rem 0.9rem; position: relative; letter-spacing: 0.03em;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: 0; left: 0.9rem; right: 0.9rem;
-      height: 2px; background: var(--accent-dark);
-      transform: scaleX(0); transition: transform 0.25s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-    .nav-cta {
-      background: var(--accent-dark); color: #fff;
-      padding: 0.6rem 1.3rem; border-radius: 6px;
-      font-size: 0.8rem; font-weight: 700; text-decoration: none;
-      transition: all 0.2s; letter-spacing: 0.04em;
-      box-shadow: 0 2px 12px rgba(201,168,76,0.3);
-    }
-    .nav-cta:hover { background: var(--accent); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201,168,76,0.4); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { width: 22px; height: 2px; background: var(--primary); border-radius: 2px; transition: all 0.3s; }
-    @media(max-width:900px){
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      nav { padding: 0 1.5rem; }
-      nav { height: 60px; top: 28px; }
-    }
+    /* Cell D - formation card */
+    .hbc-d-tag{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .hbc-d-title{font-size:1.1rem;font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:.35rem}
+    .hbc-d-meta{font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:.9rem;line-height:1.5}
+    .hbc-d-list{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.1rem}
+    .hbc-d-list li{font-size:.72rem;color:rgba(255,255,255,.5);padding-left:.85rem;position:relative}
+    .hbc-d-list li::before{content:'';position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+    .hbc-d-cta{display:block;text-align:center;background:var(--gold);color:#fff;font-size:.72rem;font-weight:700;padding:.65rem;border-radius:.65rem;transition:all .2s;letter-spacing:.03em}
+    .hbc-d-cta:hover{background:#b8903a;transform:translateY(-1px)}
 
-    /* MOBILE MENU */
-    .mobile-menu {
-      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
-      z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 1.3rem; color: var(--primary); font-family: 'Playfair Display', serif; text-decoration: none; font-weight: 600; }
-    .mobile-menu a:hover { color: var(--accent-dark); }
-    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
+    /* Cell E - quiz */
+    .quiz-label{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.6rem}
+    .quiz-question{font-size:.85rem;font-weight:700;color:#fff;line-height:1.5;margin-bottom:.9rem}
+    .quiz-choices{display:flex;flex-direction:column;gap:.4rem}
+    .quiz-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.65);font-size:.72rem;font-weight:500;padding:.6rem .8rem;border-radius:.6rem;text-align:left;cursor:pointer;transition:all .15s;font-family:inherit}
+    .quiz-btn:hover:not(:disabled){background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:#fff}
+    .quiz-btn.correct{background:rgba(5,150,105,.15);border-color:rgba(5,150,105,.3);color:#34d399}
+    .quiz-btn.wrong{background:rgba(185,28,28,.1);border-color:rgba(185,28,28,.2);color:#f87171}
+    .quiz-result{font-size:.72rem;font-weight:600;margin-top:.65rem;height:1.2em}
+    .quiz-next{margin-top:.6rem;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.68rem;font-weight:600;padding:.45rem .9rem;border-radius:.5rem;cursor:pointer;font-family:inherit;transition:all .2s}
+    .quiz-next:hover{border-color:rgba(255,255,255,.25);color:#fff}
 
-    /* HERO BENTO GRID */
-    .hero {
-      min-height: 100vh; position: relative; overflow: hidden;
-      background: #f7f5f1; padding-top: 98px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    #heroCanvas {
-      position: absolute; inset: 0; z-index: 0;
-      pointer-events: none; width: 100%; height: 100%;
-    }
-    .bento {
-      position: relative; z-index: 2;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 14px;
-      width: min(1160px, 96vw);
-      height: min(680px, 80vh);
-      padding: 0;
-    }
-    .bento-cell {
-      border-radius: 18px; padding: 1.8rem;
-      position: relative; overflow: hidden;
-      transition: box-shadow .3s;
-      will-change: transform;
-    }
-    .bento-cell:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    /* Cell G */
+    .hbc-g-text{font-size:.65rem;color:rgba(255,255,255,.45);margin-bottom:.8rem;line-height:1.6}
+    .hbc-g-cta{display:block;text-align:center;background:rgba(255,255,255,.9);color:var(--navy);font-size:.72rem;font-weight:800;padding:.65rem;border-radius:.65rem;margin-bottom:.5rem;transition:all .2s;letter-spacing:.02em}
+    .hbc-g-cta:hover{background:#fff}
+    .hbc-g-link{display:block;text-align:center;font-size:.68rem;color:rgba(255,255,255,.35);transition:color .2s}
+    .hbc-g-link:hover{color:rgba(255,255,255,.7)}
 
-    /* A */
-    .bcA {
-      grid-column: 1; grid-row: 1 / 3;
-      background: #fff; border: 1px solid rgba(30,58,95,0.1);
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .bc-orb {
-      position: absolute; width: 280px; height: 280px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
-      top: -60px; right: -60px; transition: left .4s ease, top .4s ease; pointer-events: none;
-    }
-    .bcA-eyebrow {
-      font-size: 0.6rem; color: var(--accent-dark); font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7;
-    }
-    .bcA-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-      color: var(--primary); line-height: 1.15; font-weight: 400; margin-top: auto;
-    }
-    .bcA-name strong { font-weight: 700; color: var(--accent-dark); display: block; }
-    .bcA-sub { font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin-top: 0.6rem; }
-    .bcA-content { display: flex; flex-direction: column; height: 100%; }
-    .bcA-qualiopi {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25);
-      padding: 0.35rem 0.8rem; border-radius: 50px;
-      font-size: 0.65rem; color: var(--accent-dark); font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      position: absolute; bottom: 1.8rem; right: 1.8rem;
-    }
-    .qbadge-dot { width:6px; height:6px; border-radius:50%; background:var(--accent-dark); animation: bdot 2s infinite; }
-    @keyframes bdot { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    /* Formations grid */
+    .formations-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
 
-    /* B */
-    .bcB {
-      grid-column: 2; grid-row: 1;
-      background: var(--accent-dark);
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    /* C */
-    .bcC {
-      grid-column: 3; grid-row: 1;
-      background: var(--primary); border: none;
-      display: flex; flex-direction: column; justify-content: flex-end;
-    }
-    .bstat-label { font-size: 0.65rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
-    .bcB .bstat-label { color: rgba(11,22,40,0.55); }
-    .bstat-num {
-      font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4vw, 4rem);
-      font-weight: 700; color: #fff; line-height: 1; display: block;
-    }
-    .bcB .bstat-num { color: #0b1628; }
-    .bstat-unit { font-size: 1.6rem; font-weight: 700; color: rgba(255,255,255,0.6); }
-    .bcB .bstat-unit { color: rgba(11,22,40,0.45); }
-    .bstat-unit-sm { font-size: 2rem; font-weight: 700; color: var(--accent-dark); }
-    .bstat-bar { height: 3px; background: rgba(11,22,40,0.12); border-radius: 2px; margin-top: 0.5rem; overflow: hidden; }
-    .bstat-fill { height: 100%; background: rgba(11,22,40,0.35); border-radius: 2px; width: 0%; transition: width 1.5s ease; }
+    /* Nav cards */
+    .nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .nav-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;transition:all var(--transition);display:block}
+    .nav-card:hover{border-color:var(--navy);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+    .nav-card-icon{font-size:1.5rem;margin-bottom:.75rem;display:block}
+    .nav-card-title{font-size:.88rem;font-weight:800;color:var(--navy);margin-bottom:.4rem;letter-spacing:-.01em}
+    .nav-card-desc{font-size:.75rem;color:var(--slate);line-height:1.65;margin-bottom:.75rem}
+    .nav-card-arrow{font-size:.72rem;font-weight:700;color:var(--gold)}
 
-    /* D */
-    .bcD {
-      grid-column: 2 / 4; grid-row: 2;
-      background: #fff; border: 1px solid rgba(201,168,76,0.25);
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .bcD-tag {
-      display: inline-block; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
-      color: var(--accent-dark); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 4px;
-      width: fit-content; margin-bottom: 0.5rem;
-    }
-    .bcD-title {
-      font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--primary);
-      font-weight: 700; line-height: 1.2; margin-bottom: 0.3rem;
-    }
-    .bcD-meta { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.7rem; }
-    .bcD-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.8rem; }
-    .bcD-list li { font-size: 0.72rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; }
-    .bcD-list li::before { content: '—'; color: var(--accent-dark); font-weight: 700; }
-    .bcD-cta {
-      display: inline-block; background: var(--primary); color: #fff;
-      padding: 0.6rem 1.3rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700;
-      text-decoration: none; letter-spacing: 0.03em; width: fit-content;
-      transition: background .2s, transform .3s;
-    }
-    .bcD-cta:hover { background: var(--primary-mid); }
+    /* Why grid */
+    .why-bento{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .why-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;transition:all var(--transition)}
+    .why-item:hover{border-left:3px solid var(--gold);box-shadow:var(--shadow)}
+    .why-item:first-child{grid-column:span 2;background:var(--navy);border-color:var(--navy)}
+    .why-item:first-child h3{color:var(--white)}
+    .why-item:first-child p{color:rgba(255,255,255,.45)}
+    .why-icon{font-size:1.3rem;margin-bottom:.65rem}
+    .why-item h3{font-size:.92rem;font-weight:800;color:var(--navy);margin-bottom:.4rem;letter-spacing:-.015em}
+    .why-item p{font-size:.78rem;color:var(--slate);line-height:1.7}
 
-    /* E */
-    .bcE {
-      grid-column: 1; grid-row: 3;
-      background: #eeeae2; border: none;
-      display: flex; flex-direction: column; gap: 0.6rem;
-    }
-    .bcE-label { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; }
-    .bcE-question { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--primary); font-weight: 700; line-height: 1.3; }
-    .bcE-choices { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.2rem; }
-    .bcE-btn {
-      background: #fff; border: 1px solid rgba(30,58,95,0.12); border-radius: 8px;
-      padding: 0.5rem 0.8rem; font-size: 0.74rem; color: var(--primary);
-      cursor: pointer; text-align: left; font-family: 'Inter',sans-serif;
-      transition: background .15s, border-color .15s; line-height: 1.4;
-    }
-    .bcE-btn:hover:not(:disabled) { background: rgba(30,58,95,0.04); border-color: var(--primary); }
-    .bcE-btn:disabled { cursor: default; }
-    .bcE-correct { background: #f0fdf4 !important; border-color: #22c55e !important; color: #15803d !important; }
-    .bcE-wrong { background: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
-    .bcE-result { font-size: 0.75rem; font-weight: 600; }
-    .bcE-next { background: none; border: none; color: var(--accent-dark); font-size: 0.75rem; font-weight: 700; cursor: pointer; text-align: left; font-family: 'Inter',sans-serif; padding: 0; }
-
-    /* F */
-    .bcF {
-      grid-column: 2; grid-row: 3;
-      background: #e8e3d8; border: none;
-      display: flex; flex-direction: column; justify-content: flex-end;
-    }
-    .bcF .bstat-label { color: var(--muted); }
-    .bcF .bstat-num { color: var(--primary); }
-    .bcF .bstat-unit { color: var(--accent-dark); }
-
-    /* G */
-    .bcG {
-      grid-column: 3; grid-row: 3;
-      background: var(--accent-dark);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 0.8rem;
-    }
-    .bcG-text { font-size: 0.68rem; color: rgba(11,22,40,0.5); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
-    .bcG-btn {
-      display: block; background: var(--primary); color: #fff;
-      padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.78rem; font-weight: 700;
-      text-decoration: none; text-align: center; letter-spacing: 0.03em;
-      transition: background .2s, transform .3s;
-    }
-    .bcG-btn:hover { background: var(--primary-mid); }
-    .bcG-link { font-size: 0.72rem; color: rgba(11,22,40,0.5); text-decoration: none; font-weight: 600; text-align: center; }
-    .bcG-link:hover { color: var(--primary); }
-
-    .bcH { display: none; }
+    /* Titre Pro band */
+    .tp-band{background:var(--navy);border-radius:var(--r-xl);padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin:0;position:relative;overflow:hidden}
+    .tp-band::before{content:'';position:absolute;right:-60px;top:-80px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(201,168,76,.08)}
+    .tp-band-left{position:relative;z-index:1}
+    .tp-band-right{position:relative;z-index:1;flex-shrink:0}
+    .tp-band h2{color:#fff;font-size:1.4rem;margin-bottom:.5rem}
+    .tp-band h2 .accent{color:var(--gold)}
+    .tp-band p{color:rgba(255,255,255,.4);font-size:.82rem;line-height:1.75}
+    .tp-specs{display:flex;gap:1.5rem;margin-top:1.2rem;flex-wrap:wrap}
+    .tp-spec{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.45)}
+    .tp-spec strong{display:block;font-size:.95rem;font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:.15rem}
+    .tp-spec strong em{color:var(--gold);font-style:normal}
 
     @media(max-width:900px){
-      .hero { padding-top: 88px; min-height: auto; padding-bottom: 2rem; }
-      .bento { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; gap: 10px; padding: 1rem; }
-      .bcA { grid-column: 1 / 3; grid-row: auto; min-height: 200px; }
-      .bcB,.bcC { grid-column: auto; grid-row: auto; min-height: 120px; }
-      .bcD { grid-column: 1 / 3; grid-row: auto; }
-      .bcE { grid-column: 1 / 3; grid-row: auto; }
-      .bcF { grid-column: 1; grid-row: auto; min-height: 120px; }
-      .bcG { grid-column: 2; grid-row: auto; }
-      .bstat-num { font-size: 2.4rem; }
-      .bcA-name { font-size: 1.6rem; }
-      .bcA-qualiopi { position: static; margin-top: 1rem; align-self: flex-start; }
-      .tilt-cell { transform: none !important; }
+      .hero-bento{grid-template-columns:repeat(6,1fr)}
+      .hbc-a{grid-column:span 6;grid-row:auto}
+      .hbc-b,.hbc-c,.hbc-f,.hbc-g{grid-column:span 3}
+      .hbc-d{grid-column:span 6;grid-row:auto}
+      .hbc-e{grid-column:span 6;grid-row:auto}
     }
-    @media(max-width:540px){
-      .bento { grid-template-columns: 1fr; }
-      .bcA,.bcB,.bcC,.bcD,.bcE,.bcF,.bcG { grid-column: 1; }
-      .bstat-num { font-size: 2rem; }
-    }
-
-    .mag-btn { display: inline-block; }
-
-    /* CERTIFICATIONS STRIP */
-    .cert-strip {
-      background: #fff; border-bottom: 1px solid var(--border);
-      padding: 1.2rem 2rem;
-    }
-    .cert-strip-inner {
-      display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; gap: 1.5rem 3rem; max-width: 1100px; margin: 0 auto;
-    }
-    .cert-item {
-      display: flex; align-items: center; gap: 0.6rem;
-      opacity: 0.7; transition: opacity 0.2s; cursor: default;
-    }
-    .cert-item:hover { opacity: 1; }
-    .cert-item-text div:first-child { font-size: 0.62rem; color: var(--accent-dark); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-    .cert-item-text div:last-child { font-size: 0.78rem; color: var(--primary); font-weight: 600; }
-    .cert-sep { width: 1px; height: 2rem; background: var(--border); flex-shrink: 0; }
-
-    /* NAVIGATION GRID */
-    .nav-grid-section {
-      padding: 4rem 2rem;
-      background: var(--bg-warm);
-    }
-    .nav-grid-section .container { max-width: 1100px; margin: 0 auto; }
-    .nav-grid-title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--primary); margin-bottom: 0.5rem; font-weight: 700;
-    }
-    .nav-grid-sub {
-      text-align: center; color: var(--muted); font-size: 0.9rem;
-      margin-bottom: 2.5rem;
-    }
-    .nav-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    @media(max-width:800px){ .nav-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media(max-width:480px){ .nav-grid { grid-template-columns: 1fr; } }
-    .nav-card {
-      background: #fff; border: 1px solid var(--border); border-radius: 16px;
-      padding: 2rem 1.5rem; text-decoration: none;
-      display: flex; flex-direction: column; gap: 0.8rem;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-      box-shadow: var(--shadow);
-    }
-    .nav-card:hover {
-      transform: translateY(-5px); box-shadow: var(--shadow-lg);
-      border-color: rgba(201,168,76,0.4);
-    }
-    .nav-card-icon { font-size: 2rem; }
-    .nav-card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem; color: var(--primary); font-weight: 700;
-    }
-    .nav-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-    .nav-card-arrow {
-      font-size: 0.8rem; color: var(--accent-dark); font-weight: 700;
-      margin-top: auto;
-    }
-
-    /* POURQUOI */
-    .section-wrap { padding: 5rem 2rem; }
-    .section-wrap.alt { background: var(--bg-alt); }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-eyebrow {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--accent-dark); margin-bottom: 0.8rem; display: block;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--primary);
-      font-weight: 700; line-height: 1.25; margin-bottom: 1rem;
-    }
-    .section-title span { color: var(--accent-dark); }
-    .section-sub { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 600px; }
-    .section-line { width: 48px; height: 3px; background: var(--accent-dark); border-radius: 2px; margin: 1rem 0; }
-    .section-header-center { text-align: center; }
-    .section-header-center .section-line { margin: 1rem auto; }
-    .section-header-center .section-sub { margin: 0 auto; }
-
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .why-item {
-      background: #fff; border: 1px solid var(--border); border-radius: 16px;
-      padding: 2rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: var(--shadow);
-    }
-    .why-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(201,168,76,0.3); }
-    .why-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-    .why-item h3 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.05rem; margin-bottom: 0.6rem; }
-    .why-item p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
-
     @media(max-width:600px){
-      .why-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .section-wrap { padding: 3rem 1.2rem; }
+      .hero-bento{grid-template-columns:1fr 1fr}
+      .hbc-a,.hbc-d,.hbc-e{grid-column:span 2}
+      .formations-grid{grid-template-columns:1fr}
+      .nav-cards{grid-template-columns:1fr 1fr}
+      .why-bento{grid-template-columns:1fr}
+      .why-item:first-child{grid-column:span 1}
+      .tp-band{grid-template-columns:1fr}
+      .tp-band-right{display:flex;gap:.5rem}
     }
-
-    /* FOOTER */
-    footer { background: var(--primary-dark); }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
-      padding: 4rem 3rem 3rem; max-width: 1200px; margin: 0 auto;
-    }
-    @media(max-width:900px){ .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; } }
-    @media(max-width:560px){ .footer-top { grid-template-columns: 1fr; } }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #fff; margin-bottom: 0.8rem; }
-    .footer-logo span { color: var(--accent-dark); }
-    .footer-desc { color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.8; margin-bottom: 1.2rem; }
-    .footer-contact-line { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.5); font-size: 0.82rem; margin-bottom: 0.4rem; }
-    .footer-contact-line span:first-child { color: var(--accent-dark); }
-    .footer-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
-    .footer-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25); color: var(--accent-dark); font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; }
-    .footer-col h4 { color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .footer-col a { display: block; color: rgba(255,255,255,0.5); font-size: 0.82rem; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--accent-dark); }
-    .footer-mention { max-width: 1200px; margin: 0 auto; padding: 1.2rem 3rem; font-size: 0.72rem; color: rgba(255,255,255,0.25); line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.06); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1200px; margin: 0 auto; }
-    .footer-bottom p, .footer-bottom a { color: rgba(255,255,255,0.3); font-size: 0.75rem; text-decoration: none; }
-    .footer-bottom a:hover { color: var(--accent-dark); }
-    .footer-legal { display: flex; gap: 1.5rem; }
-
-    /* BOUTON RETOUR EN HAUT */
-    .top-btn {
-      position: fixed; bottom: 6rem; right: 1.5rem;
-      width: 42px; height: 42px; background: var(--primary); color: #fff;
-      border: none; border-radius: 8px; cursor: pointer;
-      font-size: 1rem; display: none; align-items: center; justify-content: center;
-      z-index: 500; transition: all 0.3s; box-shadow: var(--shadow);
-    }
-    .top-btn:hover { background: var(--primary-mid); transform: translateY(-2px); }
-    .top-btn.visible { display: flex; }
-
-    /* ANIMATIONS */
-    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* RGPD */
-    #rgpd {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 8888;
-      background: #fff; border-top: 1px solid var(--border);
-      box-shadow: 0 -4px 30px rgba(30,58,95,0.12);
-      padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-      transform: translateY(100%); transition: transform 0.4s ease;
-    }
-    #rgpd p { color: var(--muted); font-size: 0.8rem; max-width: 700px; margin: 0; }
-    .rgpd-btns { display: flex; gap: 0.8rem; flex-shrink: 0; }
-    .rgpd-accept { background: var(--primary); border: none; color: #fff; font-weight: 700; font-size: 0.8rem; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; }
-    .rgpd-refuse { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
   </style>
 </head>
 <body>
 
-  <div id="read-progress"></div>
+<!-- ══════════════════════════════════════════
+     INTRO SCREEN — premier visite uniquement
+══════════════════════════════════════════ -->
+<div id="intro-screen" aria-hidden="true">
+  <canvas id="intro-canvas"></canvas>
 
-  <!-- TOP BAR -->
-  <div id="topbar">
-    <div id="topbar-inner">
-      <span class="tb-item">Organisme de formation enregistré</span>
-      <span class="tb-sep">·</span>
-      <span class="tb-item">En ligne · Présentiel · Intra-entreprise</span>
-      <span class="tb-sep">·</span>
-      <a href="mailto:formation@alfred-gory.fr" class="tb-link">formation@alfred-gory.fr</a>
-      <span class="tb-sep">·</span>
-      <span class="tb-item">Réponse sous 48h</span>
+  <!-- Anneaux géométriques -->
+  <div class="intro-ring ir1"></div>
+  <div class="intro-ring ir2"></div>
+  <div class="intro-ring ir3"></div>
+  <div class="intro-ring ir4"></div>
+
+  <!-- Contenu central -->
+  <div class="intro-center">
+    <div class="intro-monogram-wrap">
+      <div class="intro-monogram" id="introMono">AG</div>
+      <div class="intro-mono-glow"></div>
     </div>
+    <div class="intro-divider" id="introDivider"></div>
+    <div class="intro-name" id="introName"></div>
+    <div class="intro-sub" id="introSub">Organisme de formation certifié <em>Qualiopi</em></div>
+    <div class="intro-stats" id="introStats">
+      <div class="intro-stat"><div class="is-val">7h</div><div class="is-label">Formation SILAE</div></div>
+      <div class="intro-sep"></div>
+      <div class="intro-stat"><div class="is-val">455h</div><div class="is-label">Titre Pro Paie</div></div>
+      <div class="intro-sep"></div>
+      <div class="intro-stat"><div class="is-val">100%</div><div class="is-label">Distanciel possible</div></div>
+    </div>
+    <button class="intro-btn" id="introBtn">
+      <span class="intro-btn-text">Découvrir le cabinet</span>
+      <span class="intro-btn-arrow">→</span>
+      <div class="intro-btn-ripple"></div>
+    </button>
   </div>
 
-  <!-- NAVIGATION -->
-  <nav id="navbar">
-    <a class="logo" href="index.html">Cabinet <span>Alfred Gory</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Accueil</a></li>
-      <li><a href="formations.html">Formation</a></li>
-      <li><a href="inscription.html">Inscription</a></li>
-      <li><a href="financement.html">Paiement</a></li>
-      <li><a href="cabinet.html">Le cabinet</a></li>
-      <li><a href="satisfaction.html">Satisfaction</a></li>
-      <li><a href="accessibilite.html">Accessibilité</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">Nous contacter</a>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
+  <!-- Scan line effet futuriste -->
+  <div class="intro-scan"></div>
 
-  <!-- MENU MOBILE -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" onclick="toggleMenu()">✕</button>
-    <a href="index.html" onclick="toggleMenu()">Accueil</a>
-    <a href="formations.html" onclick="toggleMenu()">Formation</a>
-    <a href="inscription.html" onclick="toggleMenu()">Inscription</a>
-    <a href="financement.html" onclick="toggleMenu()">Paiement</a>
-    <a href="cabinet.html" onclick="toggleMenu()">Le cabinet</a>
-    <a href="satisfaction.html" onclick="toggleMenu()">Satisfaction</a>
-    <a href="accessibilite.html" onclick="toggleMenu()">Accessibilité</a>
-    <a href="contact.html" onclick="toggleMenu()">Nous contacter</a>
-  </div>
+  <!-- Coin info -->
+  <div class="intro-corner-tl">NDA 11951022295</div>
+  <div class="intro-corner-tr">VAL D'OISE · 95</div>
+  <div class="intro-corner-bl">QUALIOPI · CERT_S0626_0768</div>
+  <div class="intro-corner-br">alfred-gory.com</div>
+</div>
 
-  <!-- HERO BENTO GRID -->
-  <section class="hero" id="hero">
-    <canvas id="heroCanvas"></canvas>
+<style>
+/* ── INTRO SCREEN ── */
+#intro-screen{
+  position:fixed;inset:0;z-index:99999;
+  background:#060d18;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);
+}
+#intro-screen.intro-out{
+  opacity:0;
+  transform:scale(1.04);
+  pointer-events:none;
+}
+#intro-canvas{position:absolute;inset:0;width:100%;height:100%}
 
-    <div class="bento">
+/* Anneaux */
+.intro-ring{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(201,168,76,.12);
+  animation:ir-spin linear infinite;
+  pointer-events:none;
+}
+.ir1{width:500px;height:500px;border-color:rgba(201,168,76,.18);border-top-color:rgba(201,168,76,.7);animation-duration:8s}
+.ir2{width:700px;height:700px;border-color:rgba(201,168,76,.1);border-right-color:rgba(201,168,76,.5);animation-duration:14s;animation-direction:reverse}
+.ir3{width:900px;height:900px;border-color:rgba(201,168,76,.06);border-bottom-color:rgba(201,168,76,.3);animation-duration:20s}
+.ir4{width:1100px;height:1100px;border-color:rgba(201,168,76,.04);border-left-color:rgba(201,168,76,.2);animation-duration:28s;animation-direction:reverse}
+@keyframes ir-spin{to{transform:rotate(360deg)}}
 
-      <!-- PANNEAU A : identité + orbe animé -->
-      <div class="bento-cell bcA tilt-cell" id="bentoA">
-        <div class="bc-orb" id="bentoOrb"></div>
-        <div class="bcA-content">
-          <span class="bcA-eyebrow">Organisme de formation · NDA 11951022295</span>
-          <p class="bcA-name">Cabinet<br><strong>Alfred Gory</strong></p>
-          <p class="bcA-sub">Spécialiste logiciel SILAE<br>Gestion de la paie</p>
-        </div>
-      </div>
+/* Centre */
+.intro-center{
+  position:relative;z-index:2;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:0;
+}
 
-      <!-- PANNEAU B : durée formation -->
-      <div class="bento-cell bcB tilt-cell">
-        <span class="bstat-label">Formation SILAE</span>
-        <b class="bstat-num" style="font-size:2.6rem;">7</b>
-        <span class="bstat-unit">heures</span>
-        <div class="bstat-bar"><div class="bstat-fill" style="width:100%"></div></div>
-      </div>
+/* Monogramme */
+.intro-monogram-wrap{position:relative;margin-bottom:1.6rem}
+.intro-monogram{
+  font-size:clamp(4rem,10vw,7rem);
+  font-weight:900;
+  letter-spacing:-.06em;
+  color:#fff;
+  font-family:'Inter',sans-serif;
+  clip-path:inset(0 100% 0 0);
+  transition:clip-path 1.2s cubic-bezier(.16,1,.3,1);
+  line-height:1;
+  position:relative;z-index:1;
+}
+.intro-monogram.revealed{clip-path:inset(0 0% 0 0)}
+.intro-mono-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:200%;height:200%;
+  background:radial-gradient(ellipse,rgba(201,168,76,.22) 0%,transparent 65%);
+  pointer-events:none;
+  opacity:0;transition:opacity 1.4s ease;
+}
+.intro-monogram.revealed + .intro-mono-glow,
+.intro-monogram-wrap.glowing .intro-mono-glow{opacity:1}
 
-      <!-- PANNEAU C : modules -->
-      <div class="bento-cell bcC tilt-cell">
-        <b class="bstat-num bstat-gold" style="font-size:2.6rem;">4</b>
-        <span class="bstat-unit-sm"></span>
-        <span class="bstat-label">modules pratiques</span>
-      </div>
+/* Divider */
+.intro-divider{
+  width:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,.8),transparent);
+  margin:0 auto .8rem;
+  transition:width 1s ease .4s;
+}
+.intro-divider.revealed{width:160px}
 
-      <!-- PANNEAU D : carte formation SILAE -->
-      <div class="bento-cell bcD tilt-cell">
-        <div class="bcD-tag">Notre formation</div>
-        <p class="bcD-title">Maîtriser SILAE</p>
-        <p class="bcD-meta">7h · 1 journée · Présentiel ou classe virtuelle</p>
-        <ul class="bcD-list">
-          <li>Paramétrage dossier entreprise</li>
-          <li>Création et gestion des salariés</li>
-          <li>Bulletins de paie &amp; cotisations</li>
-          <li>DSN &amp; fin de contrat</li>
-        </ul>
-        <a href="formations.html" class="bcD-cta mag-btn">Voir le programme →</a>
-      </div>
+/* Nom */
+.intro-name{
+  font-size:clamp(.9rem,2.5vw,1.2rem);
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.9);
+  margin-bottom:.5rem;
+  min-height:1.6em;
+}
+.intro-name .char{
+  display:inline-block;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .4s ease,transform .4s ease;
+}
+.intro-name .char.vis{opacity:1;transform:translateY(0)}
 
-      <!-- PANNEAU E : mini quiz interactif -->
-      <div class="bento-cell bcE tilt-cell" id="bentoQuiz">
-        <p class="bcE-label">Testez vos connaissances</p>
-        <p class="bcE-question" id="bqQuestion">Qu'est-ce que la DSN ?</p>
-        <div class="bcE-choices" id="bqChoices">
-          <button class="bcE-btn" data-ok="0">Une déclaration fiscale annuelle</button>
-          <button class="bcE-btn" data-ok="1">La Déclaration Sociale Nominative mensuelle</button>
-          <button class="bcE-btn" data-ok="0">Un logiciel de paie</button>
-        </div>
-        <p class="bcE-result" id="bqResult"></p>
-        <button class="bcE-next" id="bqNext" style="display:none">Question suivante →</button>
-      </div>
+/* Sous-titre */
+.intro-sub{
+  font-size:.8rem;
+  color:rgba(255,255,255,.35);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:2.5rem;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.intro-sub em{color:rgba(201,168,76,.7);font-style:normal}
+.intro-sub.vis{opacity:1;transform:translateY(0)}
 
-      <!-- PANNEAU F : stat 15 ans -->
-      <div class="bento-cell bcF tilt-cell">
-        <b class="bstat-num" data-target="15">0</b>
-        <span class="bstat-unit">ans</span>
-        <span class="bstat-label">d'expertise terrain</span>
-      </div>
+/* Stats */
+.intro-stats{
+  display:flex;align-items:center;gap:2rem;
+  margin-bottom:3rem;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.intro-stats.vis{opacity:1;transform:translateY(0)}
+.intro-stat{text-align:center}
+.is-val{font-size:1.5rem;font-weight:900;color:var(--gold,#C9A84C);letter-spacing:-.04em;line-height:1}
+.is-label{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.3rem}
+.intro-sep{width:1px;height:40px;background:rgba(201,168,76,.2)}
 
-      <!-- PANNEAU G : CTA principal -->
-      <div class="bento-cell bcG tilt-cell">
-        <p class="bcG-text">Présentiel · Classe virtuelle · Intra-entreprise</p>
-        <a href="inscription.html" class="bcG-btn mag-btn">S'inscrire →</a>
-        <a href="formations.html" class="bcG-link">Voir le programme SILAE →</a>
-      </div>
+/* Bouton */
+.intro-btn{
+  position:relative;overflow:hidden;
+  background:transparent;
+  border:1.5px solid rgba(201,168,76,.6);
+  color:#fff;
+  padding:.9rem 2.8rem;
+  border-radius:50px;
+  font-family:'Inter',sans-serif;
+  font-size:.88rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+  display:flex;align-items:center;gap:.8rem;
+  opacity:0;transform:translateY(10px) scale(.96);
+  transition:opacity .6s ease,transform .6s ease,border-color .3s,background .3s;
+}
+.intro-btn.vis{opacity:1;transform:translateY(0) scale(1)}
+.intro-btn:hover{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,1)}
+.intro-btn-arrow{
+  font-size:1rem;
+  transition:transform .3s ease;
+}
+.intro-btn:hover .intro-btn-arrow{transform:translateX(4px)}
+.intro-btn-ripple{
+  position:absolute;inset:-2px;border-radius:50px;
+  border:1.5px solid rgba(201,168,76,.3);
+  animation:btn-pulse 2.5s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes btn-pulse{
+  0%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(1.18)}
+}
 
-    </div>
-  </section>
+/* Scan line */
+.intro-scan{
+  position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.04) 2px,rgba(0,0,0,.04) 4px);
+  animation:scan-move 6s linear infinite;
+}
+@keyframes scan-move{
+  0%{background-position:0 0}
+  100%{background-position:0 -200px}
+}
 
-  <script>
-  // Nav scroll
-  (function(){
-    var nav = document.getElementById('navbar');
-    window.addEventListener('scroll', function(){
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, {passive:true});
-  })();
+/* Coins */
+.intro-corner-tl,.intro-corner-tr,.intro-corner-bl,.intro-corner-br{
+  position:absolute;font-size:.58rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.15);
+  font-family:'Inter',sans-serif;
+  opacity:0;transition:opacity 1s ease 3.5s;
+}
+#intro-screen.corners-vis .intro-corner-tl,
+#intro-screen.corners-vis .intro-corner-tr,
+#intro-screen.corners-vis .intro-corner-bl,
+#intro-screen.corners-vis .intro-corner-br{opacity:1}
+.intro-corner-tl{top:1.5rem;left:2rem}
+.intro-corner-tr{top:1.5rem;right:2rem}
+.intro-corner-bl{bottom:1.5rem;left:2rem}
+.intro-corner-br{bottom:1.5rem;right:2rem}
 
-  // Canvas particules
-  (function(){
-    var c = document.getElementById('heroCanvas');
-    if(!c) return;
-    var ctx = c.getContext('2d');
-    var W,H,pts=[];
-    var mx=window.innerWidth/2, my=window.innerHeight/2;
-    function resize(){ W=c.width=c.offsetWidth; H=c.height=c.offsetHeight; }
-    resize(); window.addEventListener('resize',resize);
-    for(var i=0;i<55;i++) pts.push({ x:Math.random()*1600, y:Math.random()*900, vx:(Math.random()-.5)*.25, vy:(Math.random()-.5)*.25, r:Math.random()*1.8+.4, gold:Math.random()>.6 });
-    document.addEventListener('mousemove',function(e){ mx=e.clientX; my=e.clientY; });
-    function draw(){
-      ctx.clearRect(0,0,W,H);
-      pts.forEach(function(p,i){
-        var dx=mx-p.x, dy=my-p.y, d=Math.sqrt(dx*dx+dy*dy);
-        if(d<160){ p.vx-=dx/d*.018; p.vy-=dy/d*.018; }
-        p.x+=p.vx; p.y+=p.vy; p.vx*=.99; p.vy*=.99;
-        if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle=p.gold?'rgba(201,168,76,.35)':'rgba(30,58,95,.2)'; ctx.fill();
-        for(var j=i+1;j<pts.length;j++){
-          var p2=pts[j], dd=Math.sqrt((p.x-p2.x)**2+(p.y-p2.y)**2);
-          if(dd<110){ ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y);
-            ctx.strokeStyle='rgba(201,168,76,'+(0.07*(1-dd/110))+')'; ctx.lineWidth=.5; ctx.stroke(); }
-        }
-      });
-      if(heroRunning) heroRafId = requestAnimationFrame(draw);
-      else heroRafId = null;
-    }
-    var heroRafId;
-    var heroRunning = true;
-    heroRafId = requestAnimationFrame(draw);
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(entries){
-        heroRunning = entries[0].isIntersecting;
-        if(heroRunning && !heroRafId) heroRafId = requestAnimationFrame(draw);
-      }, {threshold:0}).observe(c);
-    }
-  })();
+@media(max-width:600px){
+  .ir3,.ir4{display:none}
+  .intro-stats{gap:1rem}
+  .intro-btn{padding:.8rem 2rem;font-size:.78rem}
+}
+</style>
 
-  // Orbe animé panneau A
-  (function(){
-    var orb = document.getElementById('bentoOrb');
-    if(!orb) return;
-    var cell = document.getElementById('bentoA');
-    cell.addEventListener('mousemove',function(e){
-      var r=cell.getBoundingClientRect();
-      var px=((e.clientX-r.left)/r.width)*100, py=((e.clientY-r.top)/r.height)*100;
-      orb.style.left=px+'%'; orb.style.top=py+'%';
-    });
-  })();
+<script>
+(function(){
+  var screen = document.getElementById('intro-screen');
+  if(!screen) return;
 
-  // Tilt 3D
-  var isTouch = window.matchMedia('(pointer:coarse)').matches;
-  if(!isTouch){
-    document.querySelectorAll('.tilt-cell').forEach(function(el){
-      el.addEventListener('mousemove',function(e){
-        var r=el.getBoundingClientRect();
-        var dx=(e.clientX-r.left-r.width/2)/(r.width/2);
-        var dy=(e.clientY-r.top-r.height/2)/(r.height/2);
-        el.style.transform='perspective(900px) rotateY('+(dx*7)+'deg) rotateX('+(-dy*7)+'deg) translateZ(8px)';
-        el.style.transition='transform .1s linear';
-      });
-      el.addEventListener('mouseleave',function(){
-        el.style.transform=''; el.style.transition='transform .6s cubic-bezier(0.34,1.56,0.64,1)';
-      });
-    });
-    document.querySelectorAll('.mag-btn').forEach(function(btn){
-      btn.addEventListener('mousemove',function(e){
-        var r=btn.getBoundingClientRect();
-        var dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height/2);
-        btn.style.transform='translate('+(dx*.28)+'px,'+(dy*.28)+'px)';
-        btn.style.transition='transform .1s linear';
-      });
-      btn.addEventListener('mouseleave',function(){
-        btn.style.transform=''; btn.style.transition='transform .5s cubic-bezier(0.34,1.56,0.64,1)';
-      });
-    });
+  /* ── Skip si déjà visité ── */
+  if(sessionStorage.getItem('ag_visited')){
+    screen.remove();
+    return;
   }
 
-  // Compteurs animés
-  var counters = document.querySelectorAll('[data-target]');
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(!entry.isIntersecting) return;
-      var el = entry.target;
-      var target = +el.getAttribute('data-target');
-      var start = Date.now(), dur = 1400;
-      (function tick(){
-        var t = Math.min((Date.now()-start)/dur,1);
-        var ease = 1-Math.pow(1-t,3);
-        el.textContent = Math.round(ease*target);
-        if(t<1) requestAnimationFrame(tick);
-      })();
-      io.unobserve(el);
+  /* ── Canvas particules ── */
+  var canvas = document.getElementById('intro-canvas');
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var W, H;
+
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function Particle(){
+    this.x = Math.random()*W;
+    this.y = Math.random()*H;
+    this.vx = (Math.random()-.5)*.3;
+    this.vy = (Math.random()-.5)*.3;
+    this.r = Math.random()*1.5+.5;
+    this.gold = Math.random() < .15;
+    this.alpha = Math.random()*.6+.2;
+  }
+  for(var i=0;i<100;i++) particles.push(new Particle());
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<particles.length;i++){
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+      /* dot */
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = p.gold ? 'rgba(201,168,76,'+p.alpha+')' : 'rgba(255,255,255,'+(p.alpha*.5)+')';
+      ctx.fill();
+      /* connexions */
+      for(var j=i+1;j<particles.length;j++){
+        var q = particles[j];
+        var d = Math.hypot(p.x-q.x,p.y-q.y);
+        if(d<120){
+          var a = (1-d/120)*.12;
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y);
+          ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle = (p.gold||q.gold) ? 'rgba(201,168,76,'+a+')' : 'rgba(255,255,255,'+a+')';
+          ctx.lineWidth=.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  /* ── Séquence d'animation ── */
+  var mono = document.getElementById('introMono');
+  var wrap = mono.parentElement;
+  var div = document.getElementById('introDivider');
+  var nameEl = document.getElementById('introName');
+  var sub = document.getElementById('introSub');
+  var stats = document.getElementById('introStats');
+  var btn = document.getElementById('introBtn');
+  var name = 'Cabinet Alfred Gory';
+
+  /* t=600 : monogramme */
+  setTimeout(function(){
+    mono.classList.add('revealed');
+    wrap.classList.add('glowing');
+  }, 600);
+
+  /* t=1200 : divider */
+  setTimeout(function(){
+    div.classList.add('revealed');
+  }, 1200);
+
+  /* t=1500 : nom lettre par lettre */
+  setTimeout(function(){
+    name.split('').forEach(function(c,i){
+      var s = document.createElement('span');
+      s.className='char';
+      s.textContent = c===''?' ':c;
+      if(c==' ')s.style.display='inline-block';
+      nameEl.appendChild(s);
+      setTimeout(function(){ s.classList.add('vis'); }, i*45);
     });
-  },{threshold:.4});
-  counters.forEach(function(el){ io.observe(el); });
+  }, 1500);
 
-  // Mini quiz bento
-  var QUIZ_BANK = [
-    { q:"Qu'est-ce que la DSN ?", r:["Une déclaration fiscale annuelle","La Déclaration Sociale Nominative mensuelle","Un logiciel de paie","Un contrat de travail"], c:1 },
-    { q:"Qu'est-ce que le taux de cotisation patronal ?", r:["Le taux payé par le salarié","Le taux payé par l'employeur","Le taux d'imposition","Le taux de chômage"], c:1 },
-    { q:"Quelle est la durée légale du travail en France ?", r:["32 heures","38 heures","35 heures","40 heures"], c:2 },
-    { q:"Qu'est-ce que le SMIC ?", r:["Salaire Maximum Interprofessionnel de Croissance","Salaire Minimum Interprofessionnel de Croissance","Système de Management Interne des Compétences","Salaire Moyen Interprofessionnel Calculé"], c:1 },
-    { q:"Que signifie SILAE ?", r:["Système Informatisé de Législation et d'Aide à l'Entreprise","Logiciel de gestion de paie","Service d'Inspection du Lavail et des Affaires Economiques","Société d'Informatique de Logistique et d'Administration des Entreprises"], c:0 }
-  ];
+  /* t=2700 : sous-titre */
+  setTimeout(function(){
+    sub.classList.add('vis');
+  }, 2700);
 
-  (function(){
-    var qEl=document.getElementById('bqQuestion');
-    var cEl=document.getElementById('bqChoices');
-    var rEl=document.getElementById('bqResult');
-    var nEl=document.getElementById('bqNext');
-    if(!qEl) return;
+  /* t=3200 : stats */
+  setTimeout(function(){
+    stats.classList.add('vis');
+  }, 3200);
 
-    function pickMini(){
-      var pool = QUIZ_BANK.slice();
-      for(var i=pool.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=pool[i];pool[i]=pool[j];pool[j]=t; }
-      return pool.slice(0,3).map(function(q){
-        var choices = q.r.slice(0,3);
-        var ok = q.c;
-        if(q.c >= 3){ choices[2] = q.r[q.c]; ok = 2; }
-        return { q:q.q, choices:choices, ok:ok };
-      });
-    }
+  /* t=4000 : bouton */
+  setTimeout(function(){
+    btn.classList.add('vis');
+  }, 4000);
 
-    var qs=pickMini(), qi=0, score=0;
+  /* t=3500 : coins */
+  setTimeout(function(){
+    screen.classList.add('corners-vis');
+  }, 3500);
 
-    function load(){
-      var q=qs[qi];
-      qEl.textContent=q.q;
-      rEl.textContent=''; nEl.style.display='none';
-      cEl.innerHTML='';
-      q.choices.forEach(function(ch,i){
-        var b=document.createElement('button');
-        b.className='bcE-btn'; b.textContent=ch;
-        b.addEventListener('click',function(){
-          Array.from(cEl.children).forEach(function(x){ x.disabled=true; });
-          if(i===q.ok){ b.classList.add('bcE-correct'); rEl.textContent='✓ Correct !'; rEl.style.color='#15803d'; score++; }
-          else{ b.classList.add('bcE-wrong'); cEl.children[q.ok].classList.add('bcE-correct'); rEl.textContent='✗ Pas tout à fait.'; rEl.style.color='#b91c1c'; }
-          if(qi<qs.length-1) nEl.style.display='block';
-          else { var rs=document.createElement('button'); rs.className='bcE-next'; rs.textContent='Recommencer'; rs.addEventListener('click',function(){ qs=pickMini(); qi=0; score=0; load(); }); cEl.parentNode.insertBefore(rs,nEl); nEl.style.display='none'; }
-        });
-        cEl.appendChild(b);
-      });
-    }
+  /* ── Sortie ── */
+  function exit(){
+    sessionStorage.setItem('ag_visited','1');
+    screen.classList.add('intro-out');
+    setTimeout(function(){ screen.remove(); }, 900);
+  }
 
-    nEl.addEventListener('click',function(){ qi++; load(); });
-    load();
-  })();
-  </script>
+  btn.addEventListener('click', exit);
 
-  <!-- CERTIFICATIONS STRIP -->
-  <div class="cert-strip">
-    <div class="cert-strip-inner">
-      <div class="cert-item"><div class="cert-item-text"><div>Organisme de</div><div>formation enregistré</div></div></div>
-      <div class="cert-sep"></div>
-      <div class="cert-item"><div class="cert-item-text"><div>Prise en charge</div><div>Employeur (PDC)</div></div></div>
-      <div class="cert-sep"></div>
-      <div class="cert-item"><div class="cert-item-text"><div>NDA</div><div>11951022295</div></div></div>
-      <div class="cert-sep"></div>
-      <div class="cert-item"><div class="cert-item-text"><div>Format</div><div>Présentiel / Virtuel</div></div></div>
-      <div class="cert-sep"></div>
-      <div class="cert-item"><div class="cert-item-text"><div>Attestation</div><div>de fin de formation</div></div></div>
+  /* Auto-exit après 11 secondes */
+  setTimeout(exit, 11000);
+
+  /* Touche Echap ou Espace pour passer */
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape'||e.key===' ') exit();
+  });
+})();
+</script>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <div class="topbar-item">
+        <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+        Réponse sous 48h
+      </div>
+      <div class="topbar-item">
+        <svg viewBox="0 0 16 16"><path d="M8 2a4 4 0 100 8A4 4 0 008 2zM2 12c0-2 2.7-4 6-4s6 2 6 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+        NDA 11951022295
+      </div>
     </div>
+    <div class="topbar-qualiopi">✦ Certifié Qualiopi — CERT_S0626_0768</div>
   </div>
+</div>
 
-  <!-- GRILLE DE NAVIGATION -->
-  <section class="nav-grid-section">
-    <div class="container">
-      <h2 class="nav-grid-title fade-in">Tout ce dont vous avez besoin</h2>
-      <p class="nav-grid-sub fade-in">Accédez directement à la section qui vous intéresse.</p>
-      <div class="nav-grid">
-        <a href="formations.html" class="nav-card fade-in">
-          <span class="nav-card-icon">📚</span>
-          <div class="nav-card-title">Formation SILAE</div>
-          <div class="nav-card-desc">Programme détaillé, objectifs pédagogiques et modalités de la formation 7h.</div>
-          <div class="nav-card-arrow">Découvrir →</div>
-        </a>
-        <a href="inscription.html" class="nav-card fade-in">
-          <span class="nav-card-icon">✍️</span>
-          <div class="nav-card-title">Inscription</div>
-          <div class="nav-card-desc">Formulaire d'inscription individuelle, collective ou intra-entreprise.</div>
-          <div class="nav-card-arrow">S'inscrire →</div>
-        </a>
-        <a href="financement.html" class="nav-card fade-in">
-          <span class="nav-card-icon">💳</span>
-          <div class="nav-card-title">Paiement</div>
-          <div class="nav-card-desc">Tarifs, modalités de règlement et prise en charge par l'employeur (PDC).</div>
-          <div class="nav-card-arrow">Voir les tarifs →</div>
-        </a>
-        <a href="cabinet.html" class="nav-card fade-in">
-          <span class="nav-card-icon">🏛️</span>
-          <div class="nav-card-title">Le Cabinet</div>
-          <div class="nav-card-desc">Qui sommes-nous ? Notre équipe, notre histoire et notre engagement qualité.</div>
-          <div class="nav-card-arrow">Nous découvrir →</div>
-        </a>
-        <a href="accessibilite.html" class="nav-card fade-in">
-          <span class="nav-card-icon">♿</span>
-          <div class="nav-card-title">Accessibilité</div>
-          <div class="nav-card-desc">Politique handicap, référent et dispositifs d'adaptation disponibles.</div>
-          <div class="nav-card-arrow">En savoir plus →</div>
-        </a>
-        <a href="satisfaction.html" class="nav-card fade-in">
-          <span class="nav-card-icon">⭐</span>
-          <div class="nav-card-title">Satisfaction</div>
-          <div class="nav-card-desc">Questionnaires de satisfaction stagiaires et indicateurs qualité.</div>
-          <div class="nav-card-arrow">Voir les avis →</div>
-        </a>
-      </div>
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-icon">AG</div>
+      <div class="nav-logo-text">Cabinet Alfred Gory<span>Organisme de formation</span></div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="formations.html">Formation SILAE</a>
+      <a class="nav-link" href="titre-pro-gestionnaire-paie.html">Titre Pro Paie</a>
+      <a class="nav-link" href="inscription.html">Inscription</a>
+      <a class="nav-link" href="financement.html">Financement</a>
+      <a class="nav-link" href="cabinet.html">Le cabinet</a>
+      <a class="nav-link" href="contact.html">Contact</a>
     </div>
-  </section>
+    <a class="nav-cta" href="inscription.html">S'inscrire →</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-  <!-- POURQUOI -->
-  <section class="section-wrap" id="pourquoi">
-    <div class="container">
-      <div class="section-header-center fade-in">
-        <span class="section-eyebrow">Notre différence</span>
-        <h2 class="section-title">Pourquoi choisir <span>Cabinet Alfred Gory ?</span></h2>
-        <div class="section-line"></div>
-        <p class="section-sub">Une approche professionnelle, humaine et adaptée à votre réalité terrain.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-item fade-in"><h3>Sur mesure</h3><p>Chaque parcours est conçu selon vos objectifs, votre niveau et votre secteur d'activité — aucun programme standard imposé.</p></div>
-        <div class="why-item fade-in"><h3>Formateurs experts</h3><p>Des professionnels RH et paie avec plus de 15 ans d'expérience terrain, pas de simples théoriciens.</p></div>
-        <div class="why-item fade-in"><h3>Présentiel ou classe virtuelle</h3><p>Formation en présentiel dans nos locaux à Taverny (95) ou en classe virtuelle synchrone — selon vos contraintes géographiques.</p></div>
-        <div class="why-item fade-in"><h3>Organisme enregistré</h3><p>Enregistré auprès de la DREETS Île-de-France sous le NDA 11951022295 (article L.6351-1 CT). Prise en charge possible dans le cadre du plan de développement des compétences.</p></div>
-      </div>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">AG</div>
+      <div class="nav-logo-text">Cabinet Alfred Gory<span>Organisme de formation</span></div>
     </div>
-  </section>
+    <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+  </div>
+  <div class="mobile-nav-links">
+    <a class="mobile-nav-link" href="formations.html">Formation SILAE</a>
+    <a class="mobile-nav-link" href="titre-pro-gestionnaire-paie.html">Titre Pro Paie</a>
+    <a class="mobile-nav-link" href="inscription.html">Inscription</a>
+    <a class="mobile-nav-link" href="financement.html">Financement</a>
+    <a class="mobile-nav-link" href="cabinet.html">Le cabinet</a>
+    <a class="mobile-nav-link" href="accessibilite.html">Accessibilité</a>
+    <a class="mobile-nav-link" href="satisfaction.html">Satisfaction</a>
+    <a class="mobile-nav-link" href="contact.html">Contact</a>
+  </div>
+  <div class="mobile-nav-bottom">
+    <a class="mobile-nav-cta" href="inscription.html">S'inscrire maintenant →</a>
+  </div>
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo">Cabinet <span>Alfred Gory</span></div>
-        <p class="footer-desc">Organisme de formation professionnelle spécialisé en logiciel SILAE et gestion de la paie. Interventions en présentiel (Taverny, 95) et en classe virtuelle. NDA 11951022295.</p>
-        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Adresse</span><span>10-12 rue Condorcet, 95150 Taverny</span></div>
-        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Email</span><span>formation@alfred-gory.fr</span></div>
-        <div class="footer-contact-line"><span style="color:var(--accent-dark);font-weight:600;font-size:0.72rem;">Délai</span><span>Réponse sous 48h ouvrées</span></div>
-        <div class="footer-badges">
-          <span class="footer-badge">NDA 11951022295</span>
-          <span class="footer-badge">Présentiel · Classe virtuelle</span>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-geo">
+    <div class="hero-geo-circle c1"></div>
+    <div class="hero-geo-circle c2"></div>
+    <div class="hero-geo-dots"></div>
+    <div class="hero-geo-glow"></div>
+    <div class="hero-geo-line"></div>
+  </div>
+  <div class="container">
+    <div class="hero-bento">
+
+      <!-- A: Identité -->
+      <div class="hbc hbc-a" id="cellA">
+        <div class="orb" id="cellOrb"></div>
+        <div style="position:relative;z-index:1">
+          <div class="hbc-a-eyebrow">Organisme de formation · NDA 11951022295</div>
+          <div class="hbc-a-name">Cabinet<br><strong>Alfred Gory</strong></div>
+          <div class="hbc-a-sub">Spécialiste gestion de la paie<br>et logiciel SILAE</div>
+          <div class="hbc-a-badge">Certifié Qualiopi</div>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Formation</h4>
-        <a href="formations.html">Maîtriser SILAE — 7h</a>
-        <a href="formations.html#programme">Programme détaillé</a>
-        <a href="formations.html#analyse-besoins">Analyse des besoins</a>
-        <a href="financement.html">Guide financement</a>
-      </div>
-      <div class="footer-col">
-        <h4>Informations</h4>
-        <a href="cabinet.html">À propos du cabinet</a>
-        <a href="reglement-interieur.html">Règlement intérieur</a>
-        <a href="conditions-generales.html">Conditions générales de vente</a>
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="contact.html">Nous contacter</a>
-      </div>
-      <div class="footer-col">
-        <h4>Pratique</h4>
-        <a href="inscription.html">Procédure d'inscription</a>
-        <a href="conditions-generales.html">Conditions générales de vente</a>
-        <a href="reglement-interieur.html">Règlement intérieur</a>
-        <a href="mentions-legales.html">Mentions légales &amp; RGPD</a>
-      </div>
-    </div>
-    <div class="footer-mention">
-      Cabinet Alfred Gory — Organisme de formation professionnelle enregistré sous le numéro de déclaration d'activité <strong style="color:rgba(255,255,255,0.5);">11951022295</strong> auprès du Préfet de région d'Île-de-France, conformément aux articles L.6351-1 et suivants du Code du travail. Cet enregistrement ne vaut pas agrément de l'État (article L.6352-13 CT). SIRET : <strong style="color:rgba(255,255,255,0.5);">89144682500020</strong>. Siège social : 10-12 rue Condorcet, 95150 Taverny. Hébergeur : GitHub Inc., San Francisco, CA, États-Unis.
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Cabinet Alfred Gory — Tous droits réservés</p>
-      <div class="footer-legal">
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="mentions-legales.html#rgpd">Politique de confidentialité</a>
-        <a href="conditions-generales.html">CGV</a>
-      </div>
-    </div>
-  </footer>
 
-  <!-- BOUTON RETOUR EN HAUT -->
-  <button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+      <!-- B: Durée -->
+      <div class="hbc hbc-b">
+        <div class="cell-stat-label">Formation SILAE</div>
+        <div class="cell-stat-val" style="margin-top:.3rem">7</div>
+        <div class="cell-stat-unit">heures</div>
+        <div class="cell-bar"><div class="cell-bar-fill" data-width="100"></div></div>
+      </div>
 
-  <!-- BANNIÈRE RGPD -->
-  <div id="rgpd">
-    <p>Ce site utilise des cookies techniques indispensables à son fonctionnement. Le formulaire de contact collecte vos données (nom, email, téléphone) dans le seul but de répondre à votre demande de formation. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression : <strong>formation@alfred-gory.fr</strong>. Données conservées 3 ans maximum.</p>
-    <div class="rgpd-btns">
-      <button class="rgpd-accept" onclick="acceptRgpd()">J'ai compris</button>
-      <button class="rgpd-refuse" onclick="acceptRgpd()">Fermer</button>
+      <!-- C: Modules -->
+      <div class="hbc hbc-c">
+        <div class="cell-stat-label">Modules</div>
+        <div class="cell-stat-val gold" style="margin-top:.3rem">4</div>
+        <div class="cell-stat-unit">pratiques</div>
+      </div>
+
+      <!-- D: Formation card -->
+      <div class="hbc hbc-d">
+        <div class="hbc-d-tag">Notre formation phare</div>
+        <div class="hbc-d-title">Maîtriser SILAE</div>
+        <div class="hbc-d-meta">7h · 1 journée · Présentiel ou distanciel</div>
+        <ul class="hbc-d-list">
+          <li>Paramétrage dossier entreprise</li>
+          <li>Création et gestion des salariés</li>
+          <li>Bulletins & cotisations sociales</li>
+          <li>DSN & fin de contrat</li>
+        </ul>
+        <a href="formations.html" class="hbc-d-cta">Voir le programme →</a>
+      </div>
+
+      <!-- E: Quiz -->
+      <div class="hbc hbc-e">
+        <div class="quiz-label">Testez vos connaissances paie</div>
+        <div class="quiz-question" id="quizQ">Chargement…</div>
+        <div class="quiz-choices" id="quizC"></div>
+        <div class="quiz-result" id="quizR"></div>
+        <button class="quiz-next" id="quizN" style="display:none">Question suivante →</button>
+      </div>
+
+      <!-- F: Expertise -->
+      <div class="hbc hbc-f">
+        <div class="cell-stat-label">Expertise</div>
+        <div class="cell-stat-val" id="counterExp" data-counter data-target="15" data-suffix="">0</div>
+        <div class="cell-stat-unit">ans terrain</div>
+      </div>
+
+      <!-- G: CTA -->
+      <div class="hbc hbc-g">
+        <div class="hbc-g-text">Présentiel · Virtuel · Intra-entreprise</div>
+        <a href="inscription.html" class="hbc-g-cta">S'inscrire →</a>
+        <a href="formations.html" class="hbc-g-link">Voir le programme →</a>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <script>
-    // MENU MOBILE
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-item"><div class="trust-icon">✓</div><div class="trust-text">Certifié Qualiopi</div></div>
+    <div class="trust-item"><div class="trust-icon">⚡</div><div class="trust-text">CPF & OPCO éligible</div></div>
+    <div class="trust-item"><div class="trust-icon">♿</div><div class="trust-text">Accessible PSH</div></div>
+    <div class="trust-item"><div class="trust-icon">🎓</div><div class="trust-text">RNCP37948</div></div>
+    <div class="trust-item"><div class="trust-icon">📍</div><div class="trust-text">Taverny (95) · Distanciel</div></div>
+    <div class="trust-item"><div class="trust-icon">⏱</div><div class="trust-text">Réponse 48h</div></div>
+  </div>
+</div>
+
+<!-- SECTION: NOS FORMATIONS -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Nos formations</div>
+      <h2 class="section-title">Deux parcours, <span class="accent">un seul objectif</span></h2>
+      <p class="section-sub">De la prise en main du logiciel SILAE au Titre Professionnel d'État — choisissez le niveau qui correspond à votre projet.</p>
+    </div>
+    <div class="formations-grid">
+      <!-- SILAE -->
+      <div class="card reveal reveal-delay-1">
+        <div class="card-chip chip-blue">Formation courte</div>
+        <h3 style="font-size:1.2rem;margin-bottom:.3rem">Maîtriser SILAE</h3>
+        <p style="font-size:.75rem;color:var(--slate);margin-bottom:1.2rem">Logiciel de paie n°1 en France</p>
+        <div style="display:flex;align-items:baseline;gap:.4rem;margin-bottom:.2rem">
+          <div class="card-price">450</div>
+          <div style="font-size:.85rem;font-weight:700;color:var(--slate);align-self:flex-end;margin-bottom:.25rem">€ TTC</div>
+        </div>
+        <p style="font-size:.68rem;color:var(--slate);margin-bottom:1.2rem">par personne · prise en charge possible</p>
+        <ul class="card-feat-list">
+          <li class="card-feat"><span class="card-feat-dot"></span>7 heures · 1 journée intensive</li>
+          <li class="card-feat"><span class="card-feat-dot"></span>Présentiel Taverny (95) ou visioconférence</li>
+          <li class="card-feat"><span class="card-feat-dot"></span>Intra-entreprise sur devis</li>
+          <li class="card-feat"><span class="card-feat-dot"></span>Attestation de fin de formation</li>
+        </ul>
+        <a href="formations.html" class="btn btn-navy" style="display:block;text-align:center;margin-top:auto;border-radius:var(--r-sm)">Voir le programme →</a>
+      </div>
+      <!-- Titre Pro -->
+      <div class="card dark reveal reveal-delay-2">
+        <div class="card-ribbon">Nouveauté</div>
+        <div class="card-chip chip-gold">Titre Professionnel d'État</div>
+        <h3 style="font-size:1.2rem;color:#fff;margin-bottom:.3rem">Gestionnaire de Paie</h3>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.35);margin-bottom:1.2rem">RNCP37948 · Niveau 5 (Bac+2) · Valide 29/12/2028</p>
+        <div style="display:flex;align-items:baseline;gap:.4rem;margin-bottom:.2rem">
+          <div class="card-price">3 500</div>
+          <div style="font-size:.85rem;font-weight:700;color:rgba(201,168,76,.6);align-self:flex-end;margin-bottom:.25rem">€ TTC</div>
+        </div>
+        <p style="font-size:.68rem;color:rgba(255,255,255,.3);margin-bottom:1.2rem">finançable CPF · OPCO · France Travail</p>
+        <ul class="card-feat-list">
+          <li class="card-feat"><span class="card-feat-dot"></span>455 heures de formation</li>
+          <li class="card-feat"><span class="card-feat-dot"></span>100% à distance (FOAD)</li>
+          <li class="card-feat"><span class="card-feat-dot"></span>Titre délivré par l'État (DREETS)</li>
+          <li class="card-feat"><span class="card-feat-dot"></span>BC01 Paie + BC02 Déclarations sociales</li>
+        </ul>
+        <a href="titre-pro-gestionnaire-paie.html" class="btn btn-primary" style="display:block;text-align:center;margin-top:auto;border-radius:var(--r-sm)">Voir le programme →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: BENTO INFOS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Pourquoi nous choisir</div>
+      <h2 class="section-title">Une approche <span class="accent">terrain</span></h2>
+    </div>
+    <div class="bento">
+      <div class="bc span2 dark reveal reveal-delay-1">
+        <div class="bc-eyebrow">Expertise</div>
+        <div class="bc-big" data-counter data-target="15" data-suffix="+">0+</div>
+        <div class="bc-title">ans d'expérience paie</div>
+        <div class="bc-desc">Formatrice praticienne — cas concrets issus du terrain, pas de la théorie.</div>
+      </div>
+      <div class="bc span2 reveal reveal-delay-2">
+        <div class="bc-eyebrow">Certification</div>
+        <div class="bc-title">Certifié Qualiopi</div>
+        <div class="bc-desc">Cert. CERT_S0626_0768 · CEVA SOLUTION · 2026–2029. Ouvre l'accès CPF, OPCO, France Travail.</div>
+        <div class="pill-row"><span class="pill">CPF</span><span class="pill">OPCO</span><span class="pill">France Travail</span></div>
+      </div>
+      <div class="bc span2 gold-bg reveal reveal-delay-3">
+        <div class="bc-eyebrow">Accessibilité</div>
+        <div class="bc-title">Formation adaptée PSH</div>
+        <div class="bc-desc">Référent handicap dédié. Aménagements individualisés dès l'inscription.</div>
+      </div>
+      <div class="bc span3 gold-border reveal reveal-delay-1">
+        <div class="bc-eyebrow">Sur mesure</div>
+        <div class="bc-title">Parcours individualisé</div>
+        <div class="bc-desc">Chaque programme est adapté à votre niveau, vos objectifs et votre secteur d'activité. Positionnement avant toute entrée en formation.</div>
+        <div class="pill-row"><span class="pill">Individuel</span><span class="pill">Collectif</span><span class="pill">Intra-entreprise</span></div>
+      </div>
+      <div class="bc span3 reveal reveal-delay-2">
+        <div class="bc-eyebrow">Localisation</div>
+        <div class="bc-title">Taverny (95) · 100% distanciel</div>
+        <div class="bc-desc">Présentiel dans nos locaux (10–12 rue Condorcet, 95150 Taverny) ou formation entièrement à distance selon la formation choisie. Accessible depuis toute la France.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: TITRE PRO BAND -->
+<section class="section alt">
+  <div class="container">
+    <div class="tp-band reveal">
+      <div class="tp-band-left">
+        <div class="badge badge-gold" style="margin-bottom:1rem">Nouveauté 2026</div>
+        <h2>Titre Pro <span class="accent">Gestionnaire de Paie</span></h2>
+        <p>Obtenez un titre d'État niveau Bac+2 reconnu par la DREETS — 455h de formation entièrement à distance, finançable CPF.</p>
+        <div class="tp-specs">
+          <div class="tp-spec"><strong>455<em>h</em></strong>de formation</div>
+          <div class="tp-spec"><strong>3 500<em>€</em></strong>TTC</div>
+          <div class="tp-spec"><strong>Niv. <em>5</em></strong>Bac+2</div>
+          <div class="tp-spec"><strong>100<em>%</em></strong>distanciel</div>
+        </div>
+      </div>
+      <div class="tp-band-right">
+        <a href="titre-pro-gestionnaire-paie.html" class="btn btn-primary btn-lg">Découvrir →</a>
+        <a href="inscription.html" class="btn btn-ghost btn-lg" style="margin-top:.5rem">S'inscrire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: PROCESSUS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-eyebrow">Comment s'inscrire</div>
+      <h2 class="section-title">4 étapes pour démarrer</h2>
+      <p class="section-sub">Un processus simple et accompagné, de votre demande jusqu'au début de la formation.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card active reveal reveal-delay-1">
+        <div class="step-num">01</div>
+        <div class="step-name">Formulaire en ligne</div>
+        <div class="step-detail">Remplissez votre demande en 3 minutes — individuelle, entreprise ou fiche PSH.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">02</div>
+        <div class="step-name">Rappel sous 48h</div>
+        <div class="step-detail">Notre équipe vous contacte pour cerner vos besoins et vous adresser un questionnaire de positionnement.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num">03</div>
+        <div class="step-name">Convention & devis</div>
+        <div class="step-detail">Signature de la convention de formation et du devis par email. Règlement par virement ou chèque.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-4">
+        <div class="step-num">04</div>
+        <div class="step-name">Entrée en formation</div>
+        <div class="step-detail">Date communiquée après signature — fixée d'un commun accord selon vos disponibilités. Convocation transmise en amont.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: ACCÈS RAPIDE -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Navigation</div>
+      <h2 class="section-title">Tout ce dont vous <span class="accent">avez besoin</span></h2>
+    </div>
+    <div class="nav-cards">
+      <a class="nav-card reveal reveal-delay-1" href="formations.html">
+        <span class="nav-card-icon">📚</span>
+        <div class="nav-card-title">Formation SILAE</div>
+        <div class="nav-card-desc">Programme détaillé, objectifs pédagogiques, modalités et tarif de la formation 7h.</div>
+        <div class="nav-card-arrow">Découvrir →</div>
+      </a>
+      <a class="nav-card reveal reveal-delay-2" href="inscription.html">
+        <span class="nav-card-icon">✍️</span>
+        <div class="nav-card-title">Inscription</div>
+        <div class="nav-card-desc">Formulaire individuel, collectif ou intra-entreprise. Réponse sous 48h.</div>
+        <div class="nav-card-arrow">S'inscrire →</div>
+      </a>
+      <a class="nav-card reveal reveal-delay-3" href="financement.html">
+        <span class="nav-card-icon">💳</span>
+        <div class="nav-card-title">Financement</div>
+        <div class="nav-card-desc">CPF, OPCO, France Travail, prise en charge employeur — toutes les options.</div>
+        <div class="nav-card-arrow">Voir les options →</div>
+      </a>
+      <a class="nav-card reveal reveal-delay-1" href="cabinet.html">
+        <span class="nav-card-icon">🏛️</span>
+        <div class="nav-card-title">Le cabinet</div>
+        <div class="nav-card-desc">Notre équipe, notre expérience terrain, nos engagements qualité Qualiopi.</div>
+        <div class="nav-card-arrow">Nous découvrir →</div>
+      </a>
+      <a class="nav-card reveal reveal-delay-2" href="accessibilite.html">
+        <span class="nav-card-icon">♿</span>
+        <div class="nav-card-title">Accessibilité</div>
+        <div class="nav-card-desc">Politique handicap, référent PSH et dispositifs d'adaptation disponibles.</div>
+        <div class="nav-card-arrow">En savoir plus →</div>
+      </a>
+      <a class="nav-card reveal reveal-delay-3" href="contact.html">
+        <span class="nav-card-icon">✉️</span>
+        <div class="nav-card-title">Contact</div>
+        <div class="nav-card-desc">Une question ? Contactez-nous par email ou formulaire — réponse sous 48h.</div>
+        <div class="nav-card-arrow">Nous écrire →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="cta-band-inner">
+        <div class="badge badge-gold" style="margin-bottom:.85rem">Prêt à vous lancer ?</div>
+        <h3>Votre projet commence ici.</h3>
+        <p>Réponse garantie sous 48h. Inscription possible toute l'année.<br>Aucun engagement avant signature de la convention de formation.</p>
+      </div>
+      <div class="cta-band-btns">
+        <a href="inscription.html" class="btn btn-primary btn-lg">S'inscrire en ligne →</a>
+        <a href="contact.html" class="btn btn-ghost btn-lg">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cabinet <em>Alfred Gory</em></div>
+        <p>Organisme de formation professionnelle spécialisé en gestion de la paie et logiciel SILAE.<br>NDA 11951022295 · SIRET 891 446 825 00020<br>10–12 rue Condorcet, 95150 Taverny</p>
+        <div style="margin-top:1rem">
+          <img src="qualiopi.png" alt="Logo Qualiopi" style="height:44px;filter:brightness(0) invert(1);opacity:.7;display:block;margin-bottom:.4rem"/>
+          <p style="font-size:.62rem;color:rgba(255,255,255,.25);line-height:1.6">Cert. CERT_S0626_0768 · CEVA SOLUTION<br>Actions de formation · 20.07.2026 – 19.07.2029</p>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Formations</div>
+        <div class="footer-links">
+          <a href="formations.html">Formation SILAE 7h</a>
+          <a href="titre-pro-gestionnaire-paie.html">Titre Pro Gestionnaire de Paie</a>
+          <a href="financement.html">Financement & tarifs</a>
+          <a href="inscription.html">Inscription</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Organisme</div>
+        <div class="footer-links">
+          <a href="cabinet.html">Le cabinet</a>
+          <a href="accessibilite.html">Accessibilité</a>
+          <a href="satisfaction.html">Satisfaction</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Légal</div>
+        <div class="footer-links">
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="conditions-generales.html">CGV</a>
+          <a href="reglement-interieur.html">Règlement intérieur</a>
+        </div>
+        <div style="margin-top:1.5rem">
+          <div class="footer-heading">Contact</div>
+          <div class="footer-links">
+            <a href="mailto:formation@alfred-gory.fr">formation@alfred-gory.fr</a>
+            <a href="tel:0186044857">01.86.04.48.57</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-sep"/>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Cabinet Alfred Gory — Tous droits réservés</div>
+      <div class="footer-qualiopi">
+        <div class="footer-q-badge">Q</div>
+        <div class="footer-q-text">Certifié Qualiopi<br>Formation professionnelle continue</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Retour en haut">↑</button>
+
+<!-- Cookie banner -->
+<div class="cookie" id="cookieBanner">
+  <p>Ce site utilise des cookies essentiels au fonctionnement. En continuant à naviguer, vous acceptez leur utilisation conformément à notre <a href="mentions-legales.html" style="color:var(--gold)">politique de confidentialité</a>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" id="cookieAccept">Accepter</button>
+    <button class="cookie-refuse" id="cookieRefuse">Refuser</button>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="animations.js"></script>
+<script>
+/* ── Canvas particules ── */
+(function(){
+  var c=document.getElementById('heroCanvas');
+  if(!c) return;
+  var ctx=c.getContext('2d'),W,H,pts=[],mx=window.innerWidth/2,my=500;
+  function resize(){ W=c.width=c.offsetWidth; H=c.height=c.offsetHeight; }
+  resize(); window.addEventListener('resize',resize,{passive:true});
+  for(var i=0;i<60;i++) pts.push({x:Math.random()*1800,y:Math.random()*700,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.6+.4,g:Math.random()>.55});
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
+  var run=true,raf;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i],dx=mx-p.x,dy=my-p.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<150){p.vx-=dx/d*.016;p.vy-=dy/d*.016;}
+      p.x+=p.vx;p.y+=p.vy;p.vx*=.992;p.vy*=.992;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.28);
+      ctx.fillStyle=p.g?'rgba(201,168,76,.3)':'rgba(30,58,95,.18)';ctx.fill();
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dd=Math.sqrt((p.x-q.x)**2+(p.y-q.y)**2);
+        if(dd<100){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle='rgba(201,168,76,'+(0.065*(1-dd/100))+')';ctx.lineWidth=.5;ctx.stroke();}
+      }
     }
+    if(run) raf=requestAnimationFrame(draw);
+  }
+  raf=requestAnimationFrame(draw);
+  new IntersectionObserver(function(en){run=en[0].isIntersecting;if(run&&!raf)raf=requestAnimationFrame(draw);},{threshold:0}).observe(c);
+})();
 
-    // BARRE DE PROGRESSION
-    window.addEventListener('scroll', function() {
-      var pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      document.getElementById('read-progress').style.width = pct + '%';
-      document.getElementById('topBtn').classList.toggle('visible', window.scrollY > 400);
+/* ── Orbe cellule A ── */
+(function(){
+  var orb=document.getElementById('cellOrb'),cell=document.getElementById('cellA');
+  if(!orb||!cell) return;
+  cell.addEventListener('mousemove',function(e){
+    var r=cell.getBoundingClientRect();
+    orb.style.left=((e.clientX-r.left)/r.width*100)+'%';
+    orb.style.top=((e.clientY-r.top)/r.height*100)+'%';
+  },{passive:true});
+})();
+
+/* ── Tilt 3D ── */
+(function(){
+  if(window.matchMedia('(pointer:coarse)').matches) return;
+  document.querySelectorAll('.hbc').forEach(function(el){
+    el.addEventListener('mousemove',function(e){
+      var r=el.getBoundingClientRect();
+      var dx=(e.clientX-r.left-r.width/2)/(r.width/2);
+      var dy=(e.clientY-r.top-r.height/2)/(r.height/2);
+      el.style.transform='perspective(900px) rotateY('+(dx*6)+'deg) rotateX('+(-dy*6)+'deg) translateZ(6px)';
+      el.style.transition='transform .08s linear';
     });
+    el.addEventListener('mouseleave',function(){
+      el.style.transform='';
+      el.style.transition='transform .55s cubic-bezier(.34,1.56,.64,1)';
+    });
+  });
+})();
 
-    // RGPD
-    function acceptRgpd() {
-      document.getElementById('rgpd').style.transform = 'translateY(100%)';
-      try { localStorage.setItem('rgpd_ok','1'); } catch(e){}
-    }
-    try {
-      if(!localStorage.getItem('rgpd_ok')) setTimeout(function(){ document.getElementById('rgpd').style.transform='translateY(0)'; }, 1500);
-    } catch(e){}
+/* ── Bar fill animation ── */
+(function(){
+  var bars=document.querySelectorAll('.cell-bar-fill[data-width]');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.style.width=e.target.dataset.width+'%';io.unobserve(e.target);}
+    });
+  },{threshold:.5});
+  bars.forEach(function(b){io.observe(b);});
+})();
 
-    // FADE-IN AU SCROLL
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
-  </script>
-
+/* ── Quiz interactif ── */
+(function(){
+  var BANK=[
+    {q:"Qu'est-ce que la DSN ?",r:["Une déclaration fiscale annuelle","La Déclaration Sociale Nominative mensuelle","Un logiciel de paie"],c:1},
+    {q:"Qu'est-ce que le taux patronal ?",r:["Le taux payé par le salarié","Le taux payé par l'employeur","Le taux d'imposition"],c:1},
+    {q:"Durée légale du travail en France ?",r:["32 heures","35 heures","40 heures"],c:1},
+    {q:"Que signifie SMIC ?",r:["Salaire Minimum Interprofessionnel de Croissance","Salaire Moyen Interprofessionnel Calculé","Système de Majoration des Indemnités et Cotisations"],c:0},
+    {q:"Qu'est-ce que la prévoyance ?",r:["Un impôt sur le revenu","Un régime qui couvre incapacité, invalidité, décès","Une cotisation retraite complémentaire"],c:1},
+    {q:"Que couvre l'URSSAF ?",r:["Les impôts locaux","Les cotisations sociales patronales et salariales","Les retraites complémentaires uniquement"],c:1}
+  ];
+  var qEl=document.getElementById('quizQ'),cEl=document.getElementById('quizC'),rEl=document.getElementById('quizR'),nEl=document.getElementById('quizN');
+  if(!qEl) return;
+  var pool=[],qi=0;
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function init(){pool=shuffle(BANK.slice()).slice(0,4);qi=0;load();}
+  function load(){
+    var q=pool[qi];
+    qEl.textContent=q.q;
+    rEl.textContent='';nEl.style.display='none';
+    cEl.innerHTML='';
+    q.r.forEach(function(ch,i){
+      var b=document.createElement('button');
+      b.className='quiz-btn';b.textContent=ch;
+      b.addEventListener('click',function(){
+        Array.from(cEl.children).forEach(function(x){x.disabled=true;});
+        if(i===q.c){b.classList.add('correct');rEl.textContent='✓ Correct !';rEl.style.color='#34d399';}
+        else{b.classList.add('wrong');cEl.children[q.c].classList.add('correct');rEl.textContent='✗ Pas tout à fait.';rEl.style.color='#f87171';}
+        if(qi<pool.length-1){nEl.style.display='block';}
+        else{nEl.textContent='Recommencer';nEl.style.display='block';nEl.onclick=init;}
+      });
+      cEl.appendChild(b);
+    });
+  }
+  nEl.addEventListener('click',function(){if(qi<pool.length-1){qi++;load();}});
+  init();
+})();
+</script>
 </body>
 </html>
